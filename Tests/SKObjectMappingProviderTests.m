@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
 
-#import "SKObjectMappingProvider.h"
-#import "Product.h"
-#import "Resource.h"
+#import "SpreadKit.h"
 
 @interface RKObjectMapper (Private)
 
@@ -57,14 +55,14 @@
     id parsedData = [parser objectFromString:singleProductJSON error:&error];
     
     // load the required mappin explicitly
-    RKObjectMapping *mapping = [testable objectMappingForClass:[Product class]];
+    RKObjectMapping *mapping = [testable objectMappingForClass:[SKProduct class]];
     GHAssertNotNil(mapping, @"mapping should be loaded correctly");
     
     RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:testable];
     
     RKObjectMappingResult* result = [mapper mapObject:parsedData atKeyPath:@"" usingMapping:mapping];
     
-    Product *girlieShirt = (Product *)result;
+    SKProduct *girlieShirt = (SKProduct *)result;
     GHAssertEqualStrings([girlieShirt identifier], @"25386428" ,@"Mapped Product should have the right id");
     GHAssertEqualStrings([girlieShirt name], @"Frauen Girlieshirt" ,@"Mapped Product should have the right name");
     GHAssertEqualStrings([girlieShirt creator], @"confomat6", @"Mapped Product should have the right creator");
@@ -78,7 +76,7 @@
     
     NSSet *filtered = [[girlieShirt resources] filteredSetUsingPredicate:predicate];
     GHAssertEquals([filtered count], (unsigned int) 1, @"There should be only one preview resource");
-    Resource *preview = [filtered anyObject];
+    SKResource *preview = [filtered anyObject];
     
     GHAssertEqualStrings([preview url], @"http://image.spreadshirt.net/image-server/v1/products/25386428/views/1", @"Preview resource should have the right url");
 }
@@ -99,7 +97,7 @@
     RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
     RKObjectMappingResult* result = [mapper performMapping];
     
-    Product *girlieShirt = [[result asCollection] objectAtIndex:0];
+    SKProduct *girlieShirt = [[result asCollection] objectAtIndex:0];
     
     GHAssertEqualStrings([girlieShirt identifier], @"25386428" ,@"Mapped Product should have the right id");
     GHAssertEqualStrings([girlieShirt name], @"Frauen Girlieshirt" ,@"Mapped Product should have the right name");
@@ -125,7 +123,7 @@
     
     GHAssertEquals([[result asCollection] count], (unsigned int) 3, @"All resources should be mapped");
     
-    Resource *resource = [[result asCollection] objectAtIndex:0];
+    SKResource *resource = [[result asCollection] objectAtIndex:0];
     
     GHAssertEqualStrings([resource mediaType], @"png" ,@"Mapped Product should have the right mediaType");
     GHAssertEqualStrings([resource type], @"preview" ,@"Mapped Product should have the right type");

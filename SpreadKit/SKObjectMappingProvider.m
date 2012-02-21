@@ -16,7 +16,7 @@
     if (self){
         
         // resource mapping
-        RKManagedObjectMapping *resourceMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Resource"];
+        RKManagedObjectMapping *resourceMapping = [RKManagedObjectMapping mappingForEntityWithName:@"SKResource"];
         
         [resourceMapping mapAttributes:@"mediaType", @"type", nil];
         [resourceMapping mapKeyPath:@"href" toAttribute:@"url"];
@@ -24,7 +24,7 @@
         [self setMapping:resourceMapping forKeyPath:@"resources"];
         
         // product mapping
-        RKManagedObjectMapping *productMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Product"];
+        RKManagedObjectMapping *productMapping = [RKManagedObjectMapping mappingForEntityWithName:@"SKProduct"];
         
         [productMapping mapAttributes:@"name", @"weight", @"creator", nil];
         [productMapping mapKeyPath:@"href" toAttribute:@"url"];

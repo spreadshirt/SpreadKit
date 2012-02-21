@@ -15,7 +15,7 @@
 }
 @end
 
-@interface Resource : NSManagedObject
+@interface SKResource : NSManagedObject
 
 @property (nonatomic, retain) NSString * mediaType;
 @property (nonatomic, retain) NSString * type;

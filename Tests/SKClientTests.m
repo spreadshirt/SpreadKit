@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
 
-#import "SKClient.h"
+#import "SpreadKit.h"
 
 @interface SKClientTests : GHTestCase
 @end

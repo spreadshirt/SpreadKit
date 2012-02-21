@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Product.h"
-#import "Resource.h"
+#import "SKProduct.h"
+#import "SKResource.h"
 
 
-@implementation Product
+@implementation SKProduct
 
 @dynamic creator;
 @dynamic identifier;

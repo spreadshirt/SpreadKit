@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
 #import <OCMock/OCMock.h>
-#import "SKImageLoader.h"
+
+#import "SpreadKit.h"
 #import "SKImageLoader+Private.h"
-#import "Resource.h"
 
 @interface SKImageLoaderTests : GHAsyncTestCase
 {

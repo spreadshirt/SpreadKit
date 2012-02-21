@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Resource.h"
+#import "SKResource.h"
 
 
-@implementation Resource
+@implementation SKResource
 
 @dynamic mediaType;
 @dynamic type;
