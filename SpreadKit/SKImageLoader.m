@@ -8,7 +8,6 @@
 
 #import "SKImageLoader.h"
 #import "SKImageLoader+Private.h"
-#import "RestKit.h"
 
 @implementation SKImageLoader
 
@@ -24,9 +23,9 @@
         return nil;
     }
     
-    NSDictionary *queryParams = [NSDictionary dictionaryWithKeysAndObjects:
-                                 @"width", [NSString stringWithFormat:@"%@", width], 
-                                 @"mediaType", @"png", 
+    NSDictionary *queryParams = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSString stringWithFormat:@"%@", width], @"width",
+                                 @"png", @"mediaType",
                                  nil];
     
     // add width parameters to url

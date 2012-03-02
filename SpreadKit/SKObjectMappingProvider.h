@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "RestKit.h"
-#import "SKClient.h"
+#import <Foundation/Foundation.h>
+#import <RestKit/RestKit.h>
 
 @interface SKObjectMappingProvider : RKObjectMappingProvider
 

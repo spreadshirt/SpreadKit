@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "RestKit.h"
+#import <RestKit/RestKit.h>
 
 @interface SKClient : NSObject
 {
