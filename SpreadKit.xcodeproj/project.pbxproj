@@ -10,14 +10,29 @@
 		C03CA9C114CEE55800BF9AAF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C03CA9BE14CEE55800BF9AAF /* Model.xcdatamodeld */; };
 		C03F304C14DC20AC003E2527 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C03F304B14DC20AC003E2527 /* libOCMock.a */; };
 		C04A5A0C1500DC60003C5D68 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C04A5A011500DB71003C5D68 /* libRestKit.a */; };
+		C04D97F11500F2450003A960 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D97F01500F2450003A960 /* GHUnitIOS.framework */; };
 		C053320614D2E05A004CC955 /* SKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = C053320314D2E05A004CC955 /* SKResource.m */; };
 		C053321314D2ED76004CC955 /* SKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C053321014D2ED76004CC955 /* SKProduct.m */; };
 		C05B414414D7F4F2006C4F52 /* SKImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C05B414114D7F4F2006C4F52 /* SKImageLoader.m */; };
 		C05F347514CEE2FD00AF86D4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0DF14C9B77500109A96 /* CoreData.framework */; };
+		C096A28C1500E0B000C70D86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
+		C096A29C1500E0CC00C70D86 /* SKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C09EF82A14C99579000BB775 /* SKClient.m */; };
+		C096A29D1500E0CC00C70D86 /* SKObjectMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BE489C14CEF22300F3BA36 /* SKObjectMappingProvider.m */; };
+		C096A29E1500E0CC00C70D86 /* SKImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C05B414114D7F4F2006C4F52 /* SKImageLoader.m */; };
+		C096A29F1500E0CC00C70D86 /* SKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C053321014D2ED76004CC955 /* SKProduct.m */; };
+		C096A2A01500E0CC00C70D86 /* SKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = C053320314D2E05A004CC955 /* SKResource.m */; };
+		C096A2A11500E11A00C70D86 /* SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C076A39C14F3A736006C06B8 /* SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C096A2A21500E11A00C70D86 /* SKClient.h in Headers */ = {isa = PBXBuildFile; fileRef = C09EF82914C99579000BB775 /* SKClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C096A2A31500E11A00C70D86 /* SKImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = C05B414014D7F4F2006C4F52 /* SKImageLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C096A2A41500E11A00C70D86 /* SKImageLoader+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C03557D214E5265800118A82 /* SKImageLoader+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C096A2A51500E11A00C70D86 /* SKProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320F14D2ED76004CC955 /* SKProduct.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C096A2A61500E11A00C70D86 /* SKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320214D2E05A004CC955 /* SKResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C096A2A71500E11A00C70D86 /* SKModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C076A39F14F3A772006C06B8 /* SKModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C096A2B01500E15800C70D86 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C03CA9BE14CEE55800BF9AAF /* Model.xcdatamodeld */; };
+		C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C09EF84114C99F83000BB775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84014C99F83000BB775 /* UIKit.framework */; };
 		C09EF84214C99F83000BB775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
 		C09EF84414C99F83000BB775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84314C99F83000BB775 /* CoreGraphics.framework */; };
-		C09EF85B14C9A0DF000BB775 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF85A14C9A0DF000BB775 /* GHUnitIOS.framework */; };
 		C09EF85F14C9A282000BB775 /* SKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C09EF82A14C99579000BB775 /* SKClient.m */; };
 		C0BE486014CEE6E500F3BA36 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0E514C9B78D00109A96 /* SystemConfiguration.framework */; };
 		C0BE486114CEE6EB00F3BA36 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0E314C9B78600109A96 /* Security.framework */; };
@@ -42,28 +57,14 @@
 			remoteGlobalIDString = 25160D1614564E810060A5C5;
 			remoteInfo = RestKit;
 		};
-		C04A5A021500DB71003C5D68 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C04A59F61500DB71003C5D68 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160D2614564E820060A5C5;
-			remoteInfo = RestKitTests;
-		};
-		C04A5A041500DB71003C5D68 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C04A59F61500DB71003C5D68 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E62145651060060A5C5;
-			remoteInfo = RestKitFramework;
-		};
-		C04A5A061500DB71003C5D68 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C04A59F61500DB71003C5D68 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E78145651060060A5C5;
-			remoteInfo = RestKitFrameworkTests;
-		};
 		C04A5A0A1500DC51003C5D68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C04A59F61500DB71003C5D68 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		C096A2AE1500E13C00C70D86 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C04A59F61500DB71003C5D68 /* RestKit.xcodeproj */;
 			proxyType = 1;
@@ -83,6 +84,7 @@
 		C03F305214DC20BA003E2527 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		C03F305314DC20BA003E2527 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		C04A59F61500DB71003C5D68 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ExternalLibraries/RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		C04D97F01500F2450003A960 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = ExternalLibraries/GHUnitIOS.framework; sourceTree = "<group>"; };
 		C053320214D2E05A004CC955 /* SKResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKResource.h; sourceTree = "<group>"; };
 		C053320314D2E05A004CC955 /* SKResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKResource.m; sourceTree = "<group>"; };
 		C053320F14D2ED76004CC955 /* SKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProduct.h; sourceTree = "<group>"; };
@@ -91,13 +93,14 @@
 		C05B414114D7F4F2006C4F52 /* SKImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKImageLoader.m; path = SpreadKit/SKImageLoader.m; sourceTree = "<group>"; };
 		C076A39C14F3A736006C06B8 /* SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpreadKit.h; path = SpreadKit/SpreadKit.h; sourceTree = "<group>"; };
 		C076A39F14F3A772006C06B8 /* SKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModel.h; sourceTree = "<group>"; };
+		C096A28B1500E0B000C70D86 /* libSpreadKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpreadKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C096A28F1500E0B000C70D86 /* SpreadKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpreadKit-Prefix.pch"; sourceTree = "<group>"; };
 		C09EF81614C9953C000BB775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C09EF82914C99579000BB775 /* SKClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKClient.h; path = SpreadKit/SKClient.h; sourceTree = "<group>"; };
 		C09EF82A14C99579000BB775 /* SKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKClient.m; path = SpreadKit/SKClient.m; sourceTree = "<group>"; };
 		C09EF83E14C99F83000BB775 /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09EF84014C99F83000BB775 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C09EF84314C99F83000BB775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C09EF85A14C9A0DF000BB775 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = ExternalLibraries/GHUnitIOS.framework; sourceTree = "<group>"; };
 		C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKObjectMappingProvider.h; path = SpreadKit/SKObjectMappingProvider.h; sourceTree = "<group>"; };
 		C0BE489C14CEF22300F3BA36 /* SKObjectMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKObjectMappingProvider.m; path = SpreadKit/SKObjectMappingProvider.m; sourceTree = "<group>"; };
 		C0C4D0DD14C9B76D00109A96 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -119,6 +122,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C096A2881500E0B000C70D86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C096A28C1500E0B000C70D86 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C09EF83B14C99F83000BB775 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,8 +144,8 @@
 				C09EF84114C99F83000BB775 /* UIKit.framework in Frameworks */,
 				C09EF84214C99F83000BB775 /* Foundation.framework in Frameworks */,
 				C09EF84414C99F83000BB775 /* CoreGraphics.framework in Frameworks */,
-				C09EF85B14C9A0DF000BB775 /* GHUnitIOS.framework in Frameworks */,
 				C03F304C14DC20AC003E2527 /* libOCMock.a in Frameworks */,
+				C04D97F11500F2450003A960 /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,9 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				C04A5A011500DB71003C5D68 /* libRestKit.a */,
-				C04A5A031500DB71003C5D68 /* RestKitTests.octest */,
-				C04A5A051500DB71003C5D68 /* RestKit.framework */,
-				C04A5A071500DB71003C5D68 /* RestKitFrameworkTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,8 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				C09EF82914C99579000BB775 /* SKClient.h */,
-				C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */,
 				C09EF82A14C99579000BB775 /* SKClient.m */,
+				C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */,
 				C0BE489C14CEF22300F3BA36 /* SKObjectMappingProvider.m */,
 				C05B414014D7F4F2006C4F52 /* SKImageLoader.h */,
 				C03557D214E5265800118A82 /* SKImageLoader+Private.h */,
@@ -204,11 +212,28 @@
 			path = SpreadKit;
 			sourceTree = "<group>";
 		};
+		C096A28D1500E0B000C70D86 /* SpreadKit */ = {
+			isa = PBXGroup;
+			children = (
+				C096A28E1500E0B000C70D86 /* Supporting Files */,
+			);
+			path = SpreadKit;
+			sourceTree = "<group>";
+		};
+		C096A28E1500E0B000C70D86 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C096A28F1500E0B000C70D86 /* SpreadKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C09EF80814C9953C000BB775 = {
 			isa = PBXGroup;
 			children = (
 				C04A5A081500DB86003C5D68 /* Code */,
 				C0C6920F14EE57440068C18D /* Tests */,
+				C096A28D1500E0B000C70D86 /* SpreadKit */,
 				C09EF81514C9953C000BB775 /* Frameworks */,
 				C09EF81414C9953C000BB775 /* Products */,
 				C04A59F61500DB71003C5D68 /* RestKit.xcodeproj */,
@@ -219,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				C09EF83E14C99F83000BB775 /* Tests.app */,
+				C096A28B1500E0B000C70D86 /* libSpreadKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,6 +252,7 @@
 		C09EF81514C9953C000BB775 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C04D97F01500F2450003A960 /* GHUnitIOS.framework */,
 				C03F304D14DC20BA003E2527 /* OCMock */,
 				C03F304B14DC20AC003E2527 /* libOCMock.a */,
 				C0C4D0E714C9B79500109A96 /* libxml2.dylib */,
@@ -234,7 +261,6 @@
 				C0C4D0E114C9B77D00109A96 /* MobileCoreServices.framework */,
 				C0C4D0DF14C9B77500109A96 /* CoreData.framework */,
 				C0C4D0DD14C9B76D00109A96 /* CFNetwork.framework */,
-				C09EF85A14C9A0DF000BB775 /* GHUnitIOS.framework */,
 				C09EF81614C9953C000BB775 /* Foundation.framework */,
 				C09EF84014C99F83000BB775 /* UIKit.framework */,
 				C09EF84314C99F83000BB775 /* CoreGraphics.framework */,
@@ -277,7 +303,43 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C096A2891500E0B000C70D86 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C096A2A11500E11A00C70D86 /* SpreadKit.h in Headers */,
+				C096A2A21500E11A00C70D86 /* SKClient.h in Headers */,
+				C096A2A31500E11A00C70D86 /* SKImageLoader.h in Headers */,
+				C096A2A51500E11A00C70D86 /* SKProduct.h in Headers */,
+				C096A2A61500E11A00C70D86 /* SKResource.h in Headers */,
+				C096A2A71500E11A00C70D86 /* SKModel.h in Headers */,
+				C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */,
+				C096A2A41500E11A00C70D86 /* SKImageLoader+Private.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		C096A28A1500E0B000C70D86 /* SpreadKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C096A2961500E0B000C70D86 /* Build configuration list for PBXNativeTarget "SpreadKit" */;
+			buildPhases = (
+				C096A2871500E0B000C70D86 /* Sources */,
+				C096A2881500E0B000C70D86 /* Frameworks */,
+				C096A2891500E0B000C70D86 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C096A2AF1500E13C00C70D86 /* PBXTargetDependency */,
+			);
+			name = SpreadKit;
+			productName = SpreadKit;
+			productReference = C096A28B1500E0B000C70D86 /* libSpreadKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		C09EF83D14C99F83000BB775 /* Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C09EF85114C99F83000BB775 /* Build configuration list for PBXNativeTarget "Tests" */;
@@ -323,6 +385,7 @@
 			projectRoot = "";
 			targets = (
 				C09EF83D14C99F83000BB775 /* Tests */,
+				C096A28A1500E0B000C70D86 /* SpreadKit */,
 			);
 		};
 /* End PBXProject section */
@@ -333,27 +396,6 @@
 			fileType = archive.ar;
 			path = libRestKit.a;
 			remoteRef = C04A5A001500DB71003C5D68 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C04A5A031500DB71003C5D68 /* RestKitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitTests.octest;
-			remoteRef = C04A5A021500DB71003C5D68 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C04A5A051500DB71003C5D68 /* RestKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RestKit.framework;
-			remoteRef = C04A5A041500DB71003C5D68 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C04A5A071500DB71003C5D68 /* RestKitFrameworkTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitFrameworkTests.octest;
-			remoteRef = C04A5A061500DB71003C5D68 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -372,6 +414,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C096A2871500E0B000C70D86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C096A2B01500E15800C70D86 /* Model.xcdatamodeld in Sources */,
+				C096A29C1500E0CC00C70D86 /* SKClient.m in Sources */,
+				C096A29D1500E0CC00C70D86 /* SKObjectMappingProvider.m in Sources */,
+				C096A29E1500E0CC00C70D86 /* SKImageLoader.m in Sources */,
+				C096A29F1500E0CC00C70D86 /* SKProduct.m in Sources */,
+				C096A2A01500E0CC00C70D86 /* SKResource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C09EF83A14C99F83000BB775 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +452,11 @@
 			name = RestKit;
 			targetProxy = C04A5A0A1500DC51003C5D68 /* PBXContainerItemProxy */;
 		};
+		C096A2AF1500E13C00C70D86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = C096A2AE1500E13C00C70D86 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -411,6 +471,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C096A2971500E0B000C70D86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SpreadKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpreadKit/SpreadKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH)/Private";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+			};
+			name = Debug;
+		};
+		C096A2981500E0B000C70D86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SpreadKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpreadKit/SpreadKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH)/Private";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+			};
+			name = Release;
+		};
 		C09EF81E14C9953C000BB775 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -456,28 +550,24 @@
 		C09EF85214C99F83000BB775 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/ExternalLibraries\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/ExternalLibraries\"",
-					"\"$(SRCROOT)/ExternalLibraries/RestKit/Build\"",
+					"$(SRCROOT)/ExternalLibraries/**",
+					"$(BUILT_PRODUCTS_DIR)/**",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ExternalLibraries\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ExternalLibraries/**";
 				OTHER_LDFLAGS = (
-					"-all_load",
 					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -485,29 +575,25 @@
 		C09EF85314C99F83000BB775 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/ExternalLibraries\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/ExternalLibraries\"",
-					"\"$(SRCROOT)/ExternalLibraries/RestKit/Build\"",
+					"$(SRCROOT)/ExternalLibraries/**",
+					"$(BUILT_PRODUCTS_DIR)/**",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ExternalLibraries\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ExternalLibraries/**";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
-					"-all_load",
 					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -515,6 +601,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C096A2961500E0B000C70D86 /* Build configuration list for PBXNativeTarget "SpreadKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C096A2971500E0B000C70D86 /* Debug */,
+				C096A2981500E0B000C70D86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C09EF80D14C9953C000BB775 /* Build configuration list for PBXProject "SpreadKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
