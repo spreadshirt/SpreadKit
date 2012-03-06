@@ -19,7 +19,6 @@
 		C0136D741501091F0044BB55 /* SKObjectMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BE489C14CEF22300F3BA36 /* SKObjectMappingProvider.m */; };
 		C0136D751501091F0044BB55 /* SKImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C05B414114D7F4F2006C4F52 /* SKImageLoader.m */; };
 		C0136D761501091F0044BB55 /* SKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C053321014D2ED76004CC955 /* SKProduct.m */; };
-		C0136D771501091F0044BB55 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C03CA9BE14CEE55800BF9AAF /* Model.xcdatamodeld */; };
 		C0136D781501091F0044BB55 /* SKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = C053320314D2E05A004CC955 /* SKResource.m */; };
 		C03806E8150103780004BFC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84014C99F83000BB775 /* UIKit.framework */; };
 		C03806E9150103780004BFC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
@@ -46,7 +45,6 @@
 		C096A2A51500E11A00C70D86 /* SKProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320F14D2ED76004CC955 /* SKProduct.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2A61500E11A00C70D86 /* SKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320214D2E05A004CC955 /* SKResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2A71500E11A00C70D86 /* SKModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C076A39F14F3A772006C06B8 /* SKModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C096A2B01500E15800C70D86 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C03CA9BE14CEE55800BF9AAF /* Model.xcdatamodeld */; };
 		C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -82,7 +80,6 @@
 		C03806F1150103780004BFC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C03806F3150103780004BFC4 /* SpreadKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpreadKitTests-Prefix.pch"; sourceTree = "<group>"; };
 		C03806FA150103A20004BFC4 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = ExternalLibraries/GHUnitIOS.framework; sourceTree = "<group>"; };
-		C03CA9BF14CEE55800BF9AAF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C03F304B14DC20AC003E2527 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ExternalLibraries/libOCMock.a; sourceTree = "<group>"; };
 		C03F304E14DC20BA003E2527 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		C03F304F14DC20BA003E2527 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -227,7 +224,6 @@
 			children = (
 				C053320F14D2ED76004CC955 /* SKProduct.h */,
 				C053321014D2ED76004CC955 /* SKProduct.m */,
-				C03CA9BE14CEE55800BF9AAF /* Model.xcdatamodeld */,
 				C053320214D2E05A004CC955 /* SKResource.h */,
 				C053320314D2E05A004CC955 /* SKResource.m */,
 				C076A39F14F3A772006C06B8 /* SKModel.h */,
@@ -425,7 +421,6 @@
 				C0136D741501091F0044BB55 /* SKObjectMappingProvider.m in Sources */,
 				C0136D751501091F0044BB55 /* SKImageLoader.m in Sources */,
 				C0136D761501091F0044BB55 /* SKProduct.m in Sources */,
-				C0136D771501091F0044BB55 /* Model.xcdatamodeld in Sources */,
 				C0136D781501091F0044BB55 /* SKResource.m in Sources */,
 				C03806FE150104780004BFC4 /* SKClientTests.m in Sources */,
 				C03806FF150104780004BFC4 /* SKImageLoaderTests.m in Sources */,
@@ -438,7 +433,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C096A2B01500E15800C70D86 /* Model.xcdatamodeld in Sources */,
 				C096A29C1500E0CC00C70D86 /* SKClient.m in Sources */,
 				C096A29D1500E0CC00C70D86 /* SKObjectMappingProvider.m in Sources */,
 				C096A29E1500E0CC00C70D86 /* SKImageLoader.m in Sources */,
@@ -634,19 +628,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		C03CA9BE14CEE55800BF9AAF /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C03CA9BF14CEE55800BF9AAF /* Model.xcdatamodel */,
-			);
-			currentVersion = C03CA9BF14CEE55800BF9AAF /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C09EF80A14C9953C000BB775 /* Project object */;
 }

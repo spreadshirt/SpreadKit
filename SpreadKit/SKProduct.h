@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
 @class SKResource;
 
-@interface SKProduct : NSManagedObject
+@interface SKProduct : NSObject
 
 @property (nonatomic, retain) NSString * creator;
 @property (nonatomic, retain) NSString * identifier;
@@ -19,13 +18,5 @@
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSNumber * weight;
 @property (nonatomic, retain) NSSet *resources;
-@end
-
-@interface SKProduct (CoreDataGeneratedAccessors)
-
-- (void)addResourcesObject:(SKResource *)value;
-- (void)removeResourcesObject:(SKResource *)value;
-- (void)addResources:(NSSet *)values;
-- (void)removeResources:(NSSet *)values;
 
 @end

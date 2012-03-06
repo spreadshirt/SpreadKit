@@ -12,11 +12,11 @@
 
 @implementation SKProduct
 
-@dynamic creator;
-@dynamic identifier;
-@dynamic name;
-@dynamic url;
-@dynamic weight;
-@dynamic resources;
+@synthesize creator;
+@synthesize name;
+@synthesize identifier;
+@synthesize resources;
+@synthesize url;
+@synthesize weight;
 
 @end

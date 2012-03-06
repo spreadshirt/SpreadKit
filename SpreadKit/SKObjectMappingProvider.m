@@ -7,6 +7,8 @@
 //
 
 #import "SKObjectMappingProvider.h"
+#import "SKResource.h"
+#import "SKProduct.h"
 
 @implementation SKObjectMappingProvider
 
@@ -16,7 +18,7 @@
     if (self){
         
         // resource mapping
-        RKManagedObjectMapping *resourceMapping = [RKManagedObjectMapping mappingForEntityWithName:@"SKResource"];
+        RKObjectMapping *resourceMapping = [RKObjectMapping mappingForClass:[SKResource class]];
         
         [resourceMapping mapAttributes:@"mediaType", @"type", nil];
         [resourceMapping mapKeyPath:@"href" toAttribute:@"url"];
@@ -24,14 +26,13 @@
         [self setMapping:resourceMapping forKeyPath:@"resources"];
         
         // product mapping
-        RKManagedObjectMapping *productMapping = [RKManagedObjectMapping mappingForEntityWithName:@"SKProduct"];
+        RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
         
         [productMapping mapAttributes:@"name", @"weight", @"creator", nil];
         [productMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
-        productMapping.primaryKeyAttribute = @"identifier";
         [self setMapping:productMapping forKeyPath:@"products"];
     }
     return self;

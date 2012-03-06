@@ -7,15 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
-
-@interface ImageToDataTransformer : NSValueTransformer {
-}
-@end
-
-@interface SKResource : NSManagedObject
+@interface SKResource : NSObject
 
 @property (nonatomic, retain) NSString * mediaType;
 @property (nonatomic, retain) NSString * type;

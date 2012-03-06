@@ -7,6 +7,7 @@
 //
 
 #import "SKClient.h"
+#import "SKObjectMappingProvider.h"
 
 static SKClient *sharedClient = nil;
 
@@ -42,27 +43,9 @@ static SKClient *sharedClient = nil;
     if (self) {
         // initialization code here...
         
-        // initialize object model
-        managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-        
-        // initialize object context
-        managedObjectContext = [[NSManagedObjectContext alloc] init];
-        NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: managedObjectModel];
-        [managedObjectContext setPersistentStoreCoordinator: coordinator];
-        
-        // database name is app name
-        NSString *path = [[[NSProcessInfo processInfo] arguments] objectAtIndex:0];
-        path = [path stringByDeletingPathExtension];
-        NSURL *url = [NSURL fileURLWithPath:[path stringByAppendingPathExtension:@"sqlite"]];
-        // initialize database
-        NSError *error;
-        [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error];
-        
         // initialize the object manager
         objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://api.spreadshirt.net/api/v1"];
-        RKManagedObjectStore *store = [RKManagedObjectStore objectStoreWithStoreFilename:@"SpreadKitTests.sqlite"];
-        objectManager.objectStore = store;
-        
+        objectManager.mappingProvider = [SKObjectMappingProvider mappingProvider];
     }
     return self;
 }
