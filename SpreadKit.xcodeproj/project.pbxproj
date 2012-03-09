@@ -362,7 +362,7 @@
 		C09EF80A14C9953C000BB775 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = C09EF80D14C9953C000BB775 /* Build configuration list for PBXProject "SpreadKit" */;
 			compatibilityVersion = "Xcode 3.2";
