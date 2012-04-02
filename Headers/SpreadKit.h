@@ -9,4 +9,6 @@
 #import "SKClient.h"
 #import "SKImageLoader.h"
 #import "SKObjectMappingProvider.h"
-#import "SKModel.h"
+#import "SKObjectLoader.h"
+#import "SKProduct.h"
+#import "SKResource.h"
