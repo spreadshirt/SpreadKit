@@ -84,7 +84,6 @@
 		C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitTests-Info.plist"; sourceTree = "<group>"; };
 		C03806EF150103780004BFC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C03806F1150103780004BFC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C03806F3150103780004BFC4 /* SpreadKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpreadKitTests-Prefix.pch"; sourceTree = "<group>"; };
 		C03806FA150103A20004BFC4 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = ExternalLibraries/GHUnitIOS.framework; sourceTree = "<group>"; };
 		C03F304B14DC20AC003E2527 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ExternalLibraries/libOCMock.a; sourceTree = "<group>"; };
 		C03F304E14DC20BA003E2527 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
@@ -103,7 +102,6 @@
 		C076A39C14F3A736006C06B8 /* SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpreadKit.h; path = SpreadKit/SpreadKit.h; sourceTree = "<group>"; };
 		C076A39F14F3A772006C06B8 /* SKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModel.h; sourceTree = "<group>"; };
 		C096A28B1500E0B000C70D86 /* libSpreadKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpreadKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C096A28F1500E0B000C70D86 /* SpreadKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpreadKit-Prefix.pch"; sourceTree = "<group>"; };
 		C09EF81614C9953C000BB775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C09EF82914C99579000BB775 /* SKClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKClient.h; path = SpreadKit/SKClient.h; sourceTree = "<group>"; };
 		C09EF82A14C99579000BB775 /* SKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKClient.m; path = SpreadKit/SKClient.m; sourceTree = "<group>"; };
@@ -159,7 +157,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C03806EB150103780004BFC4 /* SpreadKitTests */ = {
+		C03806EB150103780004BFC4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				C0C6921614EE57440068C18D /* SKClientTests.m */,
@@ -169,7 +167,7 @@
 				C0C6922514EE576D0068C18D /* Mock Responses */,
 				C03806EC150103780004BFC4 /* Supporting Files */,
 			);
-			path = SpreadKitTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		C03806EC150103780004BFC4 /* Supporting Files */ = {
@@ -178,9 +176,8 @@
 				C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */,
 				C03806EE150103780004BFC4 /* InfoPlist.strings */,
 				C03806F1150103780004BFC4 /* main.m */,
-				C03806F3150103780004BFC4 /* SpreadKitTests-Prefix.pch */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C03F304D14DC20BA003E2527 /* OCMock */ = {
@@ -244,28 +241,19 @@
 			path = SpreadKit;
 			sourceTree = "<group>";
 		};
-		C096A28D1500E0B000C70D86 /* SpreadKit */ = {
+		C08265FD1529AB39001C6A79 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				C096A28E1500E0B000C70D86 /* Supporting Files */,
 			);
-			path = SpreadKit;
-			sourceTree = "<group>";
-		};
-		C096A28E1500E0B000C70D86 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C096A28F1500E0B000C70D86 /* SpreadKit-Prefix.pch */,
-			);
-			name = "Supporting Files";
+			name = "Header Files";
 			sourceTree = "<group>";
 		};
 		C09EF80814C9953C000BB775 = {
 			isa = PBXGroup;
 			children = (
+				C08265FD1529AB39001C6A79 /* Header Files */,
 				C04A5A081500DB86003C5D68 /* Code */,
-				C096A28D1500E0B000C70D86 /* SpreadKit */,
-				C03806EB150103780004BFC4 /* SpreadKitTests */,
+				C03806EB150103780004BFC4 /* Tests */,
 				C09EF81514C9953C000BB775 /* Frameworks */,
 				C09EF81414C9953C000BB775 /* Products */,
 				C04A59F61500DB71003C5D68 /* RestKit.xcodeproj */,
@@ -308,8 +296,7 @@
 				C035E4E315063FE800A52242 /* products2.json */,
 				C0C6921514EE57440068C18D /* resources.json */,
 			);
-			name = "Mock Responses";
-			path = ../Tests;
+			path = "Mock Responses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +468,7 @@
 				C03806EF150103780004BFC4 /* en */,
 			);
 			name = InfoPlist.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -495,12 +483,11 @@
 					"\"$(SRCROOT)/ExternalLibraries\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpreadKitTests/SpreadKitTests-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"$(SRCROOT)/ExternalLibraries",
 				);
-				INFOPLIST_FILE = "SpreadKitTests/SpreadKitTests-Info.plist";
+				INFOPLIST_FILE = "Tests/Supporting Files/SpreadKitTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ExternalLibraries";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -521,12 +508,11 @@
 					"\"$(SRCROOT)/ExternalLibraries\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpreadKitTests/SpreadKitTests-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"$(SRCROOT)/ExternalLibraries",
 				);
-				INFOPLIST_FILE = "SpreadKitTests/SpreadKitTests-Info.plist";
+				INFOPLIST_FILE = "Tests/Supporting Files/SpreadKitTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ExternalLibraries";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
