@@ -37,19 +37,6 @@ static SKClient *sharedClient = nil;
     return client;
 }
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // initialization code here...
-        
-        // initialize the object manager
-        objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://api.spreadshirt.net/api/v1"];
-        objectManager.mappingProvider = [SKObjectMappingProvider mappingProvider];
-    }
-    return self;
-}
-
 - (id)initWithApiKey:(NSString *)theApiKey 
            andSecret:(NSString *)theSecret 
            andUserId:(NSString *)theUserId

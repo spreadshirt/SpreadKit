@@ -11,14 +11,6 @@
 #import <RestKit/RestKit.h>
 
 @interface SKClient : NSObject
-{
-    // The Core Data object model
-    NSManagedObjectModel *managedObjectModel;
-    // The Core Data object context
-    NSManagedObjectContext *managedObjectContext;
-    // The RestKit object manager
-    RKObjectManager *objectManager;
-}
 
 // The Spreadshirt API key to be used to access protected resources.
 @property (strong) NSString *apiKey;

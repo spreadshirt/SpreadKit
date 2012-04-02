@@ -32,7 +32,7 @@
 
 - (void)setUpClass
 {
-    testable = [[SKObjectMappingProvider alloc] init];
+    testable = [SKObjectMappingProvider sharedMappingProvider];
 }
 
 - (void)testMappingInitialization

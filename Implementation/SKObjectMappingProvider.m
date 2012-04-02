@@ -10,12 +10,15 @@
 #import "SKResource.h"
 #import "SKProduct.h"
 
+static SKObjectMappingProvider *sharedMappingProvider = nil;
+
 @implementation SKObjectMappingProvider
 
 - (id)init
 {
     self = [super init];
     if (self){
+        // All the predifined mappings
         
         // resource mapping
         RKObjectMapping *resourceMapping = [RKObjectMapping mappingForClass:[SKResource class]];
@@ -36,6 +39,14 @@
         [self setMapping:productMapping forKeyPath:@"products"];
     }
     return self;
+}
+
++ (SKObjectMappingProvider *)sharedMappingProvider
+{
+    if (sharedMappingProvider == nil) {
+        sharedMappingProvider = (SKObjectMappingProvider* )[SKObjectMappingProvider mappingProvider];
+    }
+    return sharedMappingProvider;
 }
 
 @end
