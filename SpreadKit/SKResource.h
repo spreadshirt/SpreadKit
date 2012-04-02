@@ -11,9 +11,9 @@
 
 @interface SKResource : NSObject
 
-@property (nonatomic, retain) NSString * mediaType;
-@property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) UIImage * image;
+@property (nonatomic, strong) NSString * mediaType;
+@property (nonatomic, strong) NSString * type;
+@property (nonatomic, strong) NSString * url;
+@property (nonatomic, strong) UIImage * image;
 
 @end
