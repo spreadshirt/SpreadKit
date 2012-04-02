@@ -7,33 +7,43 @@
 //
 
 #import "SKObjectLoader.h"
+#import "RestKit/RKObjectMapper_Private.h"
 
 @implementation SKObjectLoader
 
 @synthesize delegate;
 
-- (void)loadResourceFromPath:(NSString *)thePath mapWith:(RKObjectMapping *)theMapping
+- (void)loadResourceFromUrl:(NSString *)theUrl mapWith:(RKObjectMapping *)theMapping
 {
-    NSString *fullPath = RKPathAppendQueryParams(thePath, [NSDictionary dictionaryWithKeysAndObjects:
-                                      @"mediaType", @"json",
-                                      nil]);
+    NSString *configuredUrl = RKPathAppendQueryParams(theUrl, [NSDictionary dictionaryWithKeysAndObjects:
+                                                               @"mediaType", @"json",
+                                                               @"fullData", @"true",
+                                                               nil]);
     
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:fullPath delegate:self block:^(RKObjectLoader * loader) {
-        loader.objectMapping = theMapping;
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:configuredUrl]];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        // string from data
+        NSString *stringData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        // do the mapping
+        NSString *MIMEType = response.MIMEType;
+        id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
+        id parsedData = [parser objectFromString:stringData error:nil];
+        
+        // temporary mapping provider
+        RKObjectMappingProvider *prov = [[RKObjectMappingProvider alloc] init];
+        if (theMapping.rootKeyPath) {
+            [prov setMapping:theMapping forKeyPath:theMapping.rootKeyPath];
+        } else {
+            [prov setMapping:theMapping forKeyPath:@""];
+        }
+        
+        RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:prov];
+        RKObjectMappingResult *result = [mapper performMapping];
+        
+        [delegate loader:self didLoadObjects:[result asCollection]];
     }];
-    
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    NSLog(@"%@", error);
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
-{
-    if (delegate != nil) {
-        [delegate loader:self didLoadObjects:objects];
-    }
 }
 
 @end

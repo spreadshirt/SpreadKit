@@ -21,7 +21,7 @@
     SKObjectLoader *loader2;
 }
 
-- (void)testListLoadingFromPath
+- (void)testListLoadingFromUrl
 {
     loader1 = [[SKObjectLoader alloc] init];
     loader1.delegate = self;
@@ -34,13 +34,13 @@
     productMapping.rootKeyPath = @"products";
 
     [self prepare];
-    [loader1 loadResourceFromPath:@"/shops/4000/products" mapWith:productMapping];
+    [loader1 loadResourceFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products" mapWith:productMapping];
     [self waitForStatus:GHTestStatusSucceeded timeout:10];
     
     GHAssertEquals([loadedProducts count], (unsigned int) 3, @"All resources should have been loaded");
 }
 
-- (void)testSingleResourceLoadingFromPath
+- (void)testSingleResourceLoadingFromUrl
 {
     loader2 = [[SKObjectLoader alloc] init];
     loader2.delegate = self;
@@ -52,7 +52,7 @@
     [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     
     [self prepare];
-    [loader2 loadResourceFromPath:@"/shops/4000/products/18245494" mapWith:productMapping];
+    [loader2 loadResourceFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494" mapWith:productMapping];
     [self waitForStatus:GHTestStatusSucceeded timeout:10];
     
     GHAssertEquals([loadedProducts count], (unsigned int) 1, @"Single Product should have been loaded");
@@ -61,9 +61,9 @@
 - (void)loader:(id)theLoader didLoadObjects:(NSArray *)theObjects {
     loadedProducts = theObjects;
     if (theLoader == loader1) {
-        [self notify:GHTestStatusSucceeded forSelector:@selector(testListLoadingFromPath)];
+        [self notify:GHTestStatusSucceeded forSelector:@selector(testListLoadingFromUrl)];
     } else if (theLoader == loader2) {
-        [self notify:GHTestStatusSucceeded forSelector:@selector(testSingleResourceLoadingFromPath)];
+        [self notify:GHTestStatusSucceeded forSelector:@selector(testSingleResourceLoadingFromUrl)];
     }
 }
 

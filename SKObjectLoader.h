@@ -17,11 +17,11 @@
 
 @end
 
-@interface SKObjectLoader : NSObject <RKObjectLoaderDelegate>
+@interface SKObjectLoader : NSObject <NSURLConnectionDelegate>
 
 @property (weak) id delegate;
 
 // Loads an Object from a known resource Path with a given mapping
-- (void)loadResourceFromPath:(NSString *)thePath mapWith:(RKObjectMapping *)theMapping;
+- (void)loadResourceFromUrl:(NSString *)thePath mapWith:(RKObjectMapping *)theMapping;
 
 @end
