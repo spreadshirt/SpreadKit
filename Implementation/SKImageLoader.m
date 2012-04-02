@@ -7,20 +7,18 @@
 //
 
 #import "SKImageLoader.h"
-#import "SKImageLoader+Private.h"
 
 @implementation SKImageLoader
 
-- (UIImage *)loadImageFromUrl:(NSString *)url withWidth:(NSNumber *)width error:(NSError **)error
+- (void)loadImageFromUrl:(NSString *)url withWidth:(NSNumber *)width onSuccess:(void (^)(UIImage *))success onFailure:(void (^)(NSError *))failure
 {
     // return if image width is not allowed
     if (![[[self class] allowedDimensions] containsObject:width]) {
-        if (error != NULL) {
-            NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-            [errorDetail setValue:@"The specified width is not allowed. Check [SKImageLoader allowedDimensions]." forKey:NSLocalizedDescriptionKey];
-            *error = [NSError errorWithDomain:@"SpreadKit" code:50 userInfo:errorDetail];
-        }
-        return nil;
+        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:@"The specified width is not allowed. Check [SKImageLoader allowedDimensions]." forKey:NSLocalizedDescriptionKey];
+        NSError *error = [NSError errorWithDomain:@"SpreadKit" code:50 userInfo:errorDetail];
+        failure(error);
+        return;
     }
     
     NSDictionary *queryParams = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -31,17 +29,15 @@
     // add width parameters to url
     NSString *paramUrl = [url appendQueryParams:queryParams];
     NSURL *theUrl = [NSURL URLWithString:paramUrl];
-    // try to load image
     
-    UIImage *image = [self getImageFromUrl:theUrl error:error];
-    
-    return image;
-}
-
-- (UIImage *)getImageFromUrl:(NSURL *)theUrl error:(NSError **)error
-{
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:theUrl options:NSDataReadingMappedIfSafe error:error]];
-    return image;
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:theUrl] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connError) {
+        if (data) {
+            UIImage *image = [[UIImage alloc] initWithData:data];
+            success(image);
+        } else {
+            failure(connError);
+        }
+    }];
 }
 
 + (NSArray *)allowedDimensions

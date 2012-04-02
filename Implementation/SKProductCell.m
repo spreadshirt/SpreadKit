@@ -13,6 +13,7 @@
 
 @synthesize previewImageView;
 @synthesize nameLabel;
+@synthesize activityIndicator;
 @synthesize product;
 
 - (void)setProduct:(SKProduct *)theProduct
@@ -23,11 +24,16 @@
     [self.product.resources enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
         SKResource *resource = (SKResource *)obj;
         if ([resource.type isEqualToString:@"preview"]) {
-            NSError *error = nil;
-            resource.image = [[[SKImageLoader alloc] init] loadImageFromUrl:resource.url withWidth:[NSNumber numberWithInt:200] error:&error];
-            if (error) {
-                
-            }
+            // load image
+            [self.activityIndicator startAnimating];
+            [[[SKImageLoader alloc] init] loadImageFromUrl:resource.url withWidth:[NSNumber numberWithInt:200] onSuccess:^(UIImage *image) {
+                // set the image and show it
+                [self.activityIndicator stopAnimating];
+                resource.image = image;
+                self.previewImageView.image = resource.image;
+            } onFailure:^ (NSError *error) {
+                // do some error handling
+            }];
             self.previewImageView.image = resource.image;
             *stop = YES;
         }

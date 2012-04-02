@@ -14,6 +14,7 @@
 
 @property (nonatomic,strong) IBOutlet UIImageView *previewImageView;
 @property (nonatomic,strong) IBOutlet UILabel *nameLabel;
+@property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic,strong) SKProduct *product;
 

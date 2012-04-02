@@ -3,7 +3,6 @@
 #import <OCMock/OCMock.h>
 
 #import "SpreadKit.h"
-#import "SKImageLoader+Private.h"
 
 @interface SKImageLoaderTests : GHAsyncTestCase
 {
@@ -25,26 +24,25 @@
 
 - (void)testImageLoadingwithURL 
 {
-    id mock = [OCMockObject partialMockForObject:loader];
-    [[[mock stub] andCall:@selector(fakeGetImage:error:) onObject:self] getImageFromUrl:[OCMArg any] error:[OCMArg setTo:nil]];
+    [loader loadImageFromUrl:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1" withWidth:[NSNumber numberWithInt:11] onSuccess:^(UIImage *image) {
+        GHAssertNotNil(image, @"image with correct dimensions should load");
+    } onFailure:^ (NSError *error) {
+        GHFail(@"There should be no error");
+    }];
     
-    NSError *error = nil;
+    [loader loadImageFromUrl:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1" withWidth:[NSNumber numberWithInt:12] onSuccess:^(UIImage *image) {
+        GHFail(@"Should not succeed");
+    } onFailure:^ (NSError *error) {
+        GHAssertNotNil(error, @"error should be set on loading of disallowed dimensions");
+        GHAssertEquals([error code], 50, @"Loading with incorrect dimensions should return the right error");
+    }];
     
-    UIImage *image = [mock loadImageFromUrl:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1" withWidth:[NSNumber numberWithInt:11] error:&error];
-    GHAssertNotNil(image, @"image with correct dimensions should load");
-    GHAssertNil(error, @"error should be nil on correct load");
-    
-    NSError *error2 = nil;
-    UIImage *image2 = [mock loadImageFromUrl:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1" withWidth:[NSNumber numberWithInt:12] error:&error2];
-    GHAssertNil(image2, @"image with disallowed dimensions should not load");
-    GHAssertNotNil(error2, @"error should be set on loading of disallowed dimensions");
-    GHAssertEquals([error2 code], 50, @"Loading with incorrect dimensions should return the right error");
-    
-    NSError *error3 = nil;
-    UIImage *image3 = [mock loadImageFromUrl:@"foo" withWidth:[NSNumber numberWithInt:11] error:&error3];
-    GHAssertNil(image3, @"Non-existant image should not load");
-    GHAssertNotNil(error3, @"error should be set on loading of wrong url");
-    GHAssertEquals([error3 code], 256, @"Loading with incorrect url should return the right error");
+    [loader loadImageFromUrl:@"foo" withWidth:[NSNumber numberWithInt:11] onSuccess:^(UIImage *image) {
+        GHFail(@"Should not succeed");
+    } onFailure:^ (NSError *error) {
+        GHAssertNotNil(error, @"error should be set on loading of wrong url");
+        GHAssertEquals([error code], -1002, @"Loading with incorrect url should return the right error");
+    }];
 }
 
 - (UIImage *)fakeGetImage:(NSURL *)theUrl error:(NSError **)error

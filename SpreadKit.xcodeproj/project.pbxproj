@@ -42,7 +42,6 @@
 		C096A2A11500E11A00C70D86 /* SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C076A39C14F3A736006C06B8 /* SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2A21500E11A00C70D86 /* SKClient.h in Headers */ = {isa = PBXBuildFile; fileRef = C09EF82914C99579000BB775 /* SKClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2A31500E11A00C70D86 /* SKImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = C05B414014D7F4F2006C4F52 /* SKImageLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C096A2A41500E11A00C70D86 /* SKImageLoader+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C03557D214E5265800118A82 /* SKImageLoader+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C096A2A51500E11A00C70D86 /* SKProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320F14D2ED76004CC955 /* SKProduct.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2A61500E11A00C70D86 /* SKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320214D2E05A004CC955 /* SKResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,7 +79,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C03557D214E5265800118A82 /* SKImageLoader+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKImageLoader+Private.h"; sourceTree = "<group>"; };
 		C035E4E315063FE800A52242 /* products2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products2.json; sourceTree = "<group>"; };
 		C03806E6150103780004BFC4 /* SpreadKitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpreadKitTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitTests-Info.plist"; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				C09EF82914C99579000BB775 /* SKClient.h */,
-				C03557D214E5265800118A82 /* SKImageLoader+Private.h */,
 				C05B414014D7F4F2006C4F52 /* SKImageLoader.h */,
 				C0E7C8E91506041A005A185A /* SKObjectLoader.h */,
 				C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */,
@@ -302,7 +299,6 @@
 				C0E7C8EB1506041A005A185A /* SKObjectLoader.h in Headers */,
 				C0F019F91529B66A00B0FED1 /* SKProductCell.h in Headers */,
 				C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */,
-				C096A2A41500E11A00C70D86 /* SKImageLoader+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
