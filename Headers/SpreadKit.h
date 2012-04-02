@@ -12,3 +12,4 @@
 #import "SKObjectLoader.h"
 #import "SKProduct.h"
 #import "SKResource.h"
+#import "SKProductCell.h"
