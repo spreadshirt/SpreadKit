@@ -7,6 +7,7 @@
 //
 
 #import "SKProductCell.h"
+#import "SKImageLoader.h"
 
 @implementation SKProductCell
 
@@ -20,8 +21,16 @@
     nameLabel.text = self.product.name;
     
     [self.product.resources enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-        previewImageView.image = [(SKResource *)obj image];
-        *stop = YES;
+        SKResource *resource = (SKResource *)obj;
+        if ([resource.type isEqualToString:@"preview"]) {
+            NSError *error = nil;
+            resource.image = [[[SKImageLoader alloc] init] loadImageFromUrl:resource.url withWidth:[NSNumber numberWithInt:200] error:&error];
+            if (error) {
+                
+            }
+            self.previewImageView.image = resource.image;
+            *stop = YES;
+        }
     }];
 }
 
