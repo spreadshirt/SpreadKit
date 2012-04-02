@@ -19,7 +19,7 @@
 
 @interface SKObjectLoader : NSObject <NSURLConnectionDelegate>
 
-@property (weak) id delegate;
+@property (weak) id<SKObjectLoaderDelegate> delegate;
 
 // Loads an Object from a known resource Path with a given mapping
 - (void)loadResourceFromUrl:(NSString *)thePath mapWith:(RKObjectMapping *)theMapping;
