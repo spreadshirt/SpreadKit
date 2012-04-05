@@ -8,7 +8,7 @@
 
 #import "SKProduct.h"
 #import "SKResource.h"
-
+#import "SKUser.h"
 
 @implementation SKProduct
 
@@ -18,5 +18,6 @@
 @synthesize resources;
 @synthesize url;
 @synthesize weight;
+@synthesize user;
 
 @end
