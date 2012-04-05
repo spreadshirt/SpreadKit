@@ -8,10 +8,9 @@
 
 #import "SKObjectLoader.h"
 #import "RestKit/RKObjectMapper_Private.h"
+#import "SKObjectMappingProvider.h"
 
 @implementation SKObjectLoader
-
-@synthesize delegate;
 
 - (void)loadSingleEntityFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
 {
