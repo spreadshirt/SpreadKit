@@ -13,7 +13,23 @@
 
 @synthesize delegate;
 
-- (void)loadResourceFromUrl:(NSString *)theUrl mapWith:(RKObjectMapping *)theMapping
+- (void)loadSingleEntityFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping
+{
+    // temporary mapping provider without root element
+    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
+    [prov setMapping:mapping forKeyPath:@""];
+    [self loadResourceFromUrl:url mappingProvdider:prov];
+}
+
+- (void)loadEntityListFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping
+{
+    // temporary mapping provider with root element
+    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
+    [prov setMapping:mapping forKeyPath:mapping.rootKeyPath];
+    [self loadResourceFromUrl:url mappingProvdider:prov];
+}
+
+- (void)loadResourceFromUrl:(NSString *)theUrl mappingProvdider:(RKObjectMappingProvider *)mappingProvider
 {
     NSString *configuredUrl = RKPathAppendQueryParams(theUrl, [NSDictionary dictionaryWithKeysAndObjects:
                                                                @"mediaType", @"json",
@@ -31,15 +47,7 @@
         id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
         id parsedData = [parser objectFromString:stringData error:nil];
         
-        // temporary mapping provider
-        RKObjectMappingProvider *prov = [[RKObjectMappingProvider alloc] init];
-        if (theMapping.rootKeyPath) {
-            [prov setMapping:theMapping forKeyPath:theMapping.rootKeyPath];
-        } else {
-            [prov setMapping:theMapping forKeyPath:@""];
-        }
-        
-        RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:prov];
+        RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
         RKObjectMappingResult *result = [mapper performMapping];
         
         [delegate loader:self didLoadObjects:[result asCollection]];

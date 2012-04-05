@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
+#import "SKObjectMappingProvider.h"
 
 @protocol SKObjectLoaderDelegate <NSObject>
 
 @optional
-- (void)loader:(id)theLoader didLoadObjects:(NSArray *)theObjects;
-- (void)loader:(id)theLoader didFailWithError:(NSError *)theError;
-
+- (void)loader:(id)theLoader didLoadObjects:(NSArray *)objects;
+- (void)loader:(id)theLoader didFailWithError:(NSError *)error;
 @end
 
 @interface SKObjectLoader : NSObject <NSURLConnectionDelegate>
 
 @property (weak) id<SKObjectLoaderDelegate> delegate;
 
-// Loads an Object from a known resource Path with a given mapping
-- (void)loadResourceFromUrl:(NSString *)thePath mapWith:(RKObjectMapping *)theMapping;
+- (void)loadSingleEntityFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping;
+- (void)loadEntityListFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping;
 
 @end

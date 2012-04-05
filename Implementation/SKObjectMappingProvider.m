@@ -25,8 +25,9 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         [resourceMapping mapAttributes:@"mediaType", @"type", nil];
         [resourceMapping mapKeyPath:@"href" toAttribute:@"url"];
+        resourceMapping.rootKeyPath = @"resources";
         
-        [self setMapping:resourceMapping forKeyPath:@"resources"];
+        [self setMapping:resourceMapping forKeyPath:resourceMapping.rootKeyPath];
         
         // product mapping
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
@@ -35,8 +36,8 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
-        
-        [self setMapping:productMapping forKeyPath:@"products"];
+        productMapping.rootKeyPath = @"products";
+        [self setMapping:productMapping forKeyPath:productMapping.rootKeyPath];
     }
     return self;
 }

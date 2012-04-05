@@ -34,7 +34,7 @@
     productMapping.rootKeyPath = @"products";
 
     [self prepare];
-    [loader1 loadResourceFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products" mapWith:productMapping];
+    [loader1 loadEntityListFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products" mapping:productMapping];
     [self waitForStatus:GHTestStatusSucceeded timeout:10];
     
     GHAssertEquals([loadedProducts count], (unsigned int) 3, @"All resources should have been loaded");
@@ -52,7 +52,7 @@
     [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     
     [self prepare];
-    [loader2 loadResourceFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494" mapWith:productMapping];
+    [loader2 loadSingleEntityFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494" mapping:productMapping];
     [self waitForStatus:GHTestStatusSucceeded timeout:10];
     
     GHAssertEquals([loadedProducts count], (unsigned int) 1, @"Single Product should have been loaded");
