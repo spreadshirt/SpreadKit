@@ -26,7 +26,12 @@
         if ([resource.type isEqualToString:@"preview"]) {
             // load image
             [self.activityIndicator startAnimating];
-            [[[SKImageLoader alloc] init] loadImageFromUrl:resource.url withWidth:[NSNumber numberWithInt:200] onSuccess:^(UIImage *image) {
+            
+            // determine needed width of preview (retina/non retina)
+            CGFloat displayScale = [[UIScreen mainScreen] scale];
+            NSNumber *previewImageWidth = [NSNumber numberWithFloat:self.previewImageView.frame.size.width * displayScale];
+            
+            [[[SKImageLoader alloc] init] loadImageFromUrl:resource.url withWidth:previewImageWidth onSuccess:^(UIImage *image) {
                 // set the image and show it
                 [self.activityIndicator stopAnimating];
                 resource.image = image;
