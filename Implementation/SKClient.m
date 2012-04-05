@@ -10,6 +10,7 @@
 #import "SKObjectMappingProvider.h"
 #import "SKObjectLoader.h"
 #import "SKProduct.h"
+#import "SKUser.h"
 
 static SKClient *sharedClient = nil;
 NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
@@ -31,15 +32,15 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     sharedClient = client;
 }
 
-+ (SKClient *)clientWithApiKey:(NSString *)theApiKey 
-                     andSecret:(NSString *)theSecret 
-                     andUserId:(NSString *)theUserId 
-                     andShopId:(NSString *)theShopId 
++ (SKClient *)clientWithShopId:(NSString *)shopId andApiKey:(NSString *)apiKey andSecret:(NSString *)secret
 {
-    SKClient *client = [[self alloc] initWithApiKey:theApiKey 
-                                          andSecret:theSecret 
-                                          andUserId:theUserId 
-                                          andShopId:theShopId];
+    SKClient *client = [[SKClient alloc] initWithApiKey:apiKey andSecret:secret andUserId:nil andShopId:shopId];
+    return client;
+}
+
++ (SKClient *)clientWithUserId:(NSString *)userId andApiKey:(NSString *)apiKey andSecret:(NSString *)secret
+{
+    SKClient *client = [[SKClient alloc] initWithApiKey:apiKey andSecret:secret andUserId:userId andShopId:nil];
     return client;
 }
 
@@ -50,10 +51,10 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 {
     self = [self init];
     if (self) {
-        self.apiKey = theApiKey;
-        self.secret = theSecret;
-        self.userId = theUserId;
-        self.shopId = theShopId;
+        apiKey = theApiKey;
+        secret = theSecret;
+        userId = theUserId;
+        shopId = theShopId;
         
         baseUrl = [NSURL URLWithString:BASE];
         
@@ -63,6 +64,18 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
         }
     }
     return self;
+}
+
+- (SKUser *)user
+{
+    // todo: load the user
+    return nil;
+}
+
+- (SKShop *)shop
+{
+     // todo: load the user
+    return nil;
 }
 
 - (void)loadShopProductsAndOnSuccess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
