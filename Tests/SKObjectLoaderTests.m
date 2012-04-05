@@ -11,12 +11,11 @@
 #import "SKProduct.h"
 #import <RestKit/RestKit.h>
 
-@interface SKObjectLoaderTests : GHAsyncTestCase <SKObjectLoaderDelegate>
+@interface SKObjectLoaderTests : GHTestCase
 @end
 
 @implementation SKObjectLoaderTests
 {
-    NSArray *loadedProducts;
     SKObjectLoader *loader1;
     SKObjectLoader *loader2;
 }
@@ -24,7 +23,6 @@
 - (void)testListLoadingFromUrl
 {
     loader1 = [[SKObjectLoader alloc] init];
-    loader1.delegate = self;
     
     RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
     
@@ -32,18 +30,18 @@
     [productMapping mapKeyPath:@"href" toAttribute:@"url"];
     [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     productMapping.rootKeyPath = @"products";
-
-    [self prepare];
-    [loader1 loadEntityListFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products" mapping:productMapping];
-    [self waitForStatus:GHTestStatusSucceeded timeout:10];
     
-    GHAssertEquals([loadedProducts count], (unsigned int) 3, @"All resources should have been loaded");
+    [loader1 loadEntityListFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products" mapping:productMapping onSucess:^(NSArray *objects) {
+        GHAssertEquals(objects.count, (unsigned int) 3, @"All resources should have been loaded");
+
+    } onFailure:^(NSError *error) {
+        GHFail(@"Loading should work");
+    }];
 }
 
 - (void)testSingleResourceLoadingFromUrl
 {
     loader2 = [[SKObjectLoader alloc] init];
-    loader2.delegate = self;
     
     RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
     
@@ -51,20 +49,12 @@
     [productMapping mapKeyPath:@"href" toAttribute:@"url"];
     [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     
-    [self prepare];
-    [loader2 loadSingleEntityFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494" mapping:productMapping];
-    [self waitForStatus:GHTestStatusSucceeded timeout:10];
-    
-    GHAssertEquals([loadedProducts count], (unsigned int) 1, @"Single Product should have been loaded");
-}
+    [loader2 loadSingleEntityFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494" mapping:productMapping onSucess:^(NSArray *objects) {
+        GHAssertEquals(objects.count, (unsigned int) 1, @"Single Product should have been loaded");
 
-- (void)loader:(id)theLoader didLoadObjects:(NSArray *)theObjects {
-    loadedProducts = theObjects;
-    if (theLoader == loader1) {
-        [self notify:GHTestStatusSucceeded forSelector:@selector(testListLoadingFromUrl)];
-    } else if (theLoader == loader2) {
-        [self notify:GHTestStatusSucceeded forSelector:@selector(testSingleResourceLoadingFromUrl)];
-    }
+    } onFailure:^(NSError *error) {
+        GHFail(@"Loading should work");
+    }];
 }
 
 @end
