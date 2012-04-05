@@ -13,23 +13,23 @@
 
 @synthesize delegate;
 
-- (void)loadSingleEntityFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping
+- (void)loadSingleEntityFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
 {
     // temporary mapping provider without root element
     RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
     [prov setMapping:mapping forKeyPath:@""];
-    [self loadResourceFromUrl:url mappingProvdider:prov];
+    [self loadResourceFromUrl:url mappingProvdider:prov onSucess:success onFailure:failure];
 }
 
-- (void)loadEntityListFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping
+- (void)loadEntityListFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
 {
     // temporary mapping provider with root element
     RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
     [prov setMapping:mapping forKeyPath:mapping.rootKeyPath];
-    [self loadResourceFromUrl:url mappingProvdider:prov];
+    [self loadResourceFromUrl:url mappingProvdider:prov onSucess:success onFailure:failure];
 }
 
-- (void)loadResourceFromUrl:(NSString *)theUrl mappingProvdider:(RKObjectMappingProvider *)mappingProvider
+- (void)loadResourceFromUrl:(NSString *)theUrl mappingProvdider:(RKObjectMappingProvider *)mappingProvider onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure
 {
     NSString *configuredUrl = RKPathAppendQueryParams(theUrl, [NSDictionary dictionaryWithKeysAndObjects:
                                                                @"mediaType", @"json",
@@ -38,6 +38,11 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:configuredUrl]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if (error) {
+            failure(error);
+            return;
+        }
         
         // string from data
         NSString *stringData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -50,7 +55,7 @@
         RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
         RKObjectMappingResult *result = [mapper performMapping];
         
-        [delegate loader:self didLoadObjects:[result asCollection]];
+        success([result asCollection]);
     }];
 }
 

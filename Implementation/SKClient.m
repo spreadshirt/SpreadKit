@@ -8,10 +8,16 @@
 
 #import "SKClient.h"
 #import "SKObjectMappingProvider.h"
+#import "SKObjectLoader.h"
+#import "SKProduct.h"
 
 static SKClient *sharedClient = nil;
+NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 
 @implementation SKClient
+{
+    NSURL *baseUrl;
+}
 
 @synthesize apiKey, shopId, userId, secret;
 
@@ -49,12 +55,27 @@ static SKClient *sharedClient = nil;
         self.userId = theUserId;
         self.shopId = theShopId;
         
+        baseUrl = [NSURL URLWithString:BASE];
+        
         // set the singleton instance
         if (sharedClient == nil) {
             [SKClient setSharedClient:self];
         }
     }
     return self;
+}
+
+- (void)loadShopProductsAndOnSuccess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
+{
+    SKObjectLoader *loader = [[SKObjectLoader alloc] init];
+    RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKProduct class]];
+    NSURL *productsUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@/products",BASE,self.shopId]];
+    
+    [loader loadEntityListFromUrl:[productsUrl absoluteString] mapping:mapping onSucess:^(NSArray *objects) {
+        success(objects);
+    } onFailure:^(NSError *error) {
+        failure(error);
+    }];
 }
 
 @end

@@ -44,4 +44,6 @@
            andUserId:(NSString *)theUserId
            andShopId:(NSString *)theShopId;
 
+- (void)loadShopProductsAndOnSuccess:(void (^)(NSArray *products))success onFailure:(void (^)(NSError *error))failure;
+
 @end

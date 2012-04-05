@@ -21,7 +21,7 @@
 
 @property (weak) id<SKObjectLoaderDelegate> delegate;
 
-- (void)loadSingleEntityFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping;
-- (void)loadEntityListFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping;
+- (void)loadSingleEntityFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
+- (void)loadEntityListFromUrl:(NSString *)url mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
 
 @end
