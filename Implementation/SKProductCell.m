@@ -8,6 +8,8 @@
 
 #import "SKProductCell.h"
 #import "SKImageLoader.h"
+#import "SKProduct.h"
+#import "SKResource.h"
 
 @implementation SKProductCell
 

@@ -10,6 +10,7 @@
 #import "SKResource.h"
 #import "SKProduct.h"
 #import "SKUser.h"
+#import "SKShop.h"
 
 static SKObjectMappingProvider *sharedMappingProvider = nil;
 
@@ -28,6 +29,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
             mapping.rootKeyPath = @"resources";
             [self setMapping:mapping forKeyPath:mapping.rootKeyPath];
         }];
+        
         // user mapping
         [RKObjectMapping mappingForClass:[SKUser class] block:^(RKObjectMapping *mapping) {
             [mapping mapKeyPath:@"id" toAttribute:@"identifier"];
@@ -36,6 +38,10 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
             [self setMapping:mapping forKeyPath:@"user"];
         }];
         
+        // shop mapping
+        [RKObjectMapping mappingForClass:[SKShop class] block:^(RKObjectMapping *mapping) {
+            
+        }];
         
         // product mapping
         [RKObjectMapping mappingForClass:[SKProduct class] block:^(RKObjectMapping *mapping) {

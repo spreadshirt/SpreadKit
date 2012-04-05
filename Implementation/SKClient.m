@@ -11,6 +11,7 @@
 #import "SKObjectLoader.h"
 #import "SKProduct.h"
 #import "SKUser.h"
+#import "SKShop.h"
 
 static SKClient *sharedClient = nil;
 NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
@@ -74,7 +75,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 
 - (SKShop *)shop
 {
-     // todo: load the user
+     // todo: load the shop
     return nil;
 }
 

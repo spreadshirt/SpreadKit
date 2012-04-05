@@ -8,8 +8,11 @@
 
 #import "SKClient.h"
 #import "SKImageLoader.h"
-#import "SKObjectMappingProvider.h"
 #import "SKObjectLoader.h"
+#import "SKObjectMappingProvider.h"
 #import "SKProduct.h"
-#import "SKResource.h"
 #import "SKProductCell.h"
+#import "SKResource.h"
+#import "SKShop.h"
+#import "SKUser.h"
+

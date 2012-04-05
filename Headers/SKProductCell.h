@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SKProduct.h"
-#import "SKResource.h"
+
+@class SKProduct;
 
 @interface SKProductCell : UITableViewCell
 
