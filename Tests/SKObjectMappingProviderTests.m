@@ -67,7 +67,7 @@
     GHAssertEqualStrings([girlieShirt name], @"Frauen Girlieshirt" ,@"Mapped Product should have the right name");
     GHAssertEqualStrings([girlieShirt creator], @"confomat6", @"Mapped Product should have the right creator");
     GHAssertEqualObjects([girlieShirt weight], [NSNumber numberWithFloat:2.5386428E7], @"Mapped Product should have the right weight");
-    GHAssertEqualStrings([girlieShirt url], @"http://api.spreadshirt.net/api/v1/shops/654135/products/25386428", @"Mapped Product should have the right url");
+    GHAssertEqualObjects([girlieShirt url], [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/654135/products/25386428"], @"Mapped Product should have the right url");
     
     GHAssertEquals([[girlieShirt resources] count], (unsigned  int) 3, @"There should be the correct number of product resources");
     
@@ -78,7 +78,7 @@
     GHAssertEquals([filtered count], (unsigned int) 1, @"There should be only one preview resource");
     SKResource *preview = [filtered anyObject];
     
-    GHAssertEqualStrings([preview url], @"http://image.spreadshirt.net/image-server/v1/products/25386428/views/1", @"Preview resource should have the right url");
+    GHAssertEqualObjects([preview url], [NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/products/25386428/views/1"], @"Preview resource should have the right url");
 }
 
 - (void)testProductListMapping
@@ -146,7 +146,7 @@
     
     GHAssertEqualStrings([resource mediaType], @"png" ,@"Mapped Product should have the right mediaType");
     GHAssertEqualStrings([resource type], @"preview" ,@"Mapped Product should have the right type");
-    GHAssertEqualStrings([resource url], @"http://image.spreadshirt.net/image-server/v1/products/25386428/views/1" ,@"Mapped product should have the right url");
+    GHAssertEqualObjects([resource url], [NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/products/25386428/views/1"],@"Mapped product should have the right url");
 }
 
 @end

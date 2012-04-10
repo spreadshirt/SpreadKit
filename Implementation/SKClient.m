@@ -85,7 +85,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKProduct class]];
     NSURL *productsUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@/products",BASE,self.shopId]];
     
-    [loader loadEntityListFromUrl:[productsUrl absoluteString] mapping:mapping onSucess:^(NSArray *objects) {
+    [loader loadEntityListFromUrl:productsUrl mapping:mapping onSucess:^(NSArray *objects) {
         success(objects);
     } onFailure:^(NSError *error) {
         failure(error);

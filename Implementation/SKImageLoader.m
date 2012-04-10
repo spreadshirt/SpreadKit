@@ -10,7 +10,7 @@
 
 @implementation SKImageLoader
 
-- (void)loadImageFromUrl:(NSString *)url withWidth:(NSNumber *)width onSuccess:(void (^)(UIImage *))success onFailure:(void (^)(NSError *))failure
+- (void)loadImageFromUrl:(NSURL *)url withWidth:(NSNumber *)width onSuccess:(void (^)(UIImage *))success onFailure:(void (^)(NSError *))failure
 {
     // return if image width is not allowed
     if (![[[self class] allowedDimensions] containsObject:width]) {
@@ -27,7 +27,7 @@
                                  nil];
     
     // add width parameters to url
-    NSString *paramUrl = [url appendQueryParams:queryParams];
+    NSString *paramUrl = [url.absoluteString appendQueryParams:queryParams];
     NSURL *theUrl = [NSURL URLWithString:paramUrl];
     
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:theUrl] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connError) {

@@ -11,7 +11,7 @@
 @interface SKUser : NSObject
 
 @property (nonatomic, strong) NSString * identifier;
-@property (nonatomic, strong) NSString * url;
+@property (nonatomic, strong) NSURL * url;
 @property (nonatomic, strong) NSString * name;
 
 @end

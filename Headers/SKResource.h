@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSString * mediaType;
 @property (nonatomic, strong) NSString * type;
-@property (nonatomic, strong) NSString * url;
+@property (nonatomic, strong) NSURL * url;
 @property (nonatomic, strong) UIImage * image;
 
 @end

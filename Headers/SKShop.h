@@ -12,7 +12,7 @@
 
 @interface SKShop : NSObject
 
-@property (strong) NSString * url;
+@property (strong) NSURL * url;
 @property (strong) NSString * identifier;
 @property (strong) NSString * name;
 @property (strong) SKUser * user;

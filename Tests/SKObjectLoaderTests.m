@@ -31,7 +31,7 @@
     [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     productMapping.rootKeyPath = @"products";
     
-    [loader1 loadEntityListFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products" mapping:productMapping onSucess:^(NSArray *objects) {
+    [loader1 loadEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] mapping:productMapping onSucess:^(NSArray *objects) {
         GHAssertEquals(objects.count, (unsigned int) 3, @"All resources should have been loaded");
 
     } onFailure:^(NSError *error) {
@@ -49,7 +49,7 @@
     [productMapping mapKeyPath:@"href" toAttribute:@"url"];
     [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     
-    [loader2 loadSingleEntityFromUrl:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494" mapping:productMapping onSucess:^(NSArray *objects) {
+    [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] mapping:productMapping onSucess:^(NSArray *objects) {
         GHAssertEquals(objects.count, (unsigned int) 1, @"Single Product should have been loaded");
 
     } onFailure:^(NSError *error) {
