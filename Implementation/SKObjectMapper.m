@@ -40,6 +40,7 @@
     id parsedData = [parser objectFromString:stringData error:nil];
     RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:provider];
     RKObjectMappingResult *result = [mapper performMapping];
+    
     return [result asCollection];
 }
 
