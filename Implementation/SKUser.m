@@ -13,5 +13,8 @@
 @synthesize identifier;
 @synthesize url;
 @synthesize name;
+@synthesize products;
+@synthesize description;
+@synthesize memberSince;
 
 @end

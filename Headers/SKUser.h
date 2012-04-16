@@ -13,5 +13,8 @@
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSURL * url;
 @property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * description;
+@property (nonatomic, strong) NSSet * products;
+@property (nonatomic, strong) NSDate *memberSince;
 
 @end

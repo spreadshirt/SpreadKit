@@ -21,6 +21,10 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
     self = [super init];
     if (self){
         
+        // date formatting
+        [RKObjectMapping addDefaultDateFormatterForString:@"dd-MMM-yyyy" inTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+        
+        
         RKObjectMapping *resourceMapping = [RKObjectMapping mappingForClass:[SKResource class]];
         [resourceMapping mapAttributes:@"mediaType", @"type", nil];
         [resourceMapping mapKeyPath:@"href" toAttribute:@"url"];
@@ -36,7 +40,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [userMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [userMapping mapKeyPath:@"href" toAttribute:@"url"];
         [userMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:productMapping];
-        [userMapping mapAttributes:@"name", nil];
+        [userMapping mapAttributes:@"name", @"description", @"memberSince", nil];
         
         [productMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         
