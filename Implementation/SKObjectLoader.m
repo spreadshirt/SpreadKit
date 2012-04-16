@@ -9,6 +9,7 @@
 #import "SKObjectLoader.h"
 #import "RestKit/RKObjectMapper_Private.h"
 #import "SKObjectMappingProvider.h"
+#import "SKObjectMapper.h"
 
 @implementation SKObjectLoader
 
@@ -41,17 +42,9 @@
             return;
         }
         
-        // string from data
-        NSString *stringData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        id mappingResult = [[SKObjectMapper mapperWithMIMEType:response.MIMEType data:data mappingProvider:mappingProvider] performMapping];
         
-        // do the mapping
-        NSString *MIMEType = response.MIMEType;
-        id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
-        id parsedData = [parser objectFromString:stringData error:nil];
-        RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
-        RKObjectMappingResult *result = [mapper performMapping];
-        
-        success([result asCollection]);
+        success(mappingResult);
     }];
 }
 
