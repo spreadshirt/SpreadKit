@@ -51,6 +51,9 @@
 		C096A2A51500E11A00C70D86 /* SKProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320F14D2ED76004CC955 /* SKProduct.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2A61500E11A00C70D86 /* SKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320214D2E05A004CC955 /* SKResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0ADF743153813C700CC9AE4 /* NSSet+SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C0ADF741153813C700CC9AE4 /* NSSet+SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0ADF744153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */; };
+		C0ADF745153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */; };
 		C0E7C8EB1506041A005A185A /* SKObjectLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = C0E7C8E91506041A005A185A /* SKObjectLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0E7C8EC1506041A005A185A /* SKObjectLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7C8EA1506041A005A185A /* SKObjectLoader.m */; };
 		C0E7C8ED1506041A005A185A /* SKObjectLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7C8EA1506041A005A185A /* SKObjectLoader.m */; };
@@ -116,6 +119,8 @@
 		C09EF82A14C99579000BB775 /* SKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKClient.m; sourceTree = "<group>"; };
 		C09EF84014C99F83000BB775 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C09EF84314C99F83000BB775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C0ADF741153813C700CC9AE4 /* NSSet+SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+SpreadKit.h"; sourceTree = "<group>"; };
+		C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+SpreadKit.m"; sourceTree = "<group>"; };
 		C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectMappingProvider.h; sourceTree = "<group>"; };
 		C0BE489C14CEF22300F3BA36 /* SKObjectMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectMappingProvider.m; sourceTree = "<group>"; };
 		C0C4D0DD14C9B76D00109A96 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -216,6 +221,7 @@
 		C04A5A081500DB86003C5D68 /* Implemenation */ = {
 			isa = PBXGroup;
 			children = (
+				C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */,
 				C09EF82A14C99579000BB775 /* SKClient.m */,
 				C05B414114D7F4F2006C4F52 /* SKImageLoader.m */,
 				C0E7C8EA1506041A005A185A /* SKObjectLoader.m */,
@@ -223,8 +229,8 @@
 				C053321014D2ED76004CC955 /* SKProduct.m */,
 				C0F019F81529B66A00B0FED1 /* SKProductCell.m */,
 				C053320314D2E05A004CC955 /* SKResource.m */,
-				C07CD8AE152DB0F40084304D /* SKUser.m */,
 				C07CD8C0152DD6BB0084304D /* SKShop.m */,
+				C07CD8AE152DB0F40084304D /* SKUser.m */,
 			);
 			name = Implemenation;
 			path = Implementation;
@@ -233,6 +239,7 @@
 		C08265FD1529AB39001C6A79 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				C0ADF741153813C700CC9AE4 /* NSSet+SpreadKit.h */,
 				C09EF82914C99579000BB775 /* SKClient.h */,
 				C05B414014D7F4F2006C4F52 /* SKImageLoader.h */,
 				C0E7C8E91506041A005A185A /* SKObjectLoader.h */,
@@ -240,9 +247,9 @@
 				C053320F14D2ED76004CC955 /* SKProduct.h */,
 				C0F019F71529B66A00B0FED1 /* SKProductCell.h */,
 				C053320214D2E05A004CC955 /* SKResource.h */,
+				C07CD8BF152DD6BB0084304D /* SKShop.h */,
 				C07CD8AD152DB0F40084304D /* SKUser.h */,
 				C076A39C14F3A736006C06B8 /* SpreadKit.h */,
-				C07CD8BF152DD6BB0084304D /* SKShop.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -315,6 +322,7 @@
 				C07CD8AF152DB0F40084304D /* SKUser.h in Headers */,
 				C07CD8C1152DD6BB0084304D /* SKShop.h in Headers */,
 				C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */,
+				C0ADF743153813C700CC9AE4 /* NSSet+SpreadKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +441,7 @@
 				C0F019FB1529B66A00B0FED1 /* SKProductCell.m in Sources */,
 				C07CD8B1152DB0F40084304D /* SKUser.m in Sources */,
 				C07CD8C3152DD6BB0084304D /* SKShop.m in Sources */,
+				C0ADF745153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +458,7 @@
 				C0F019FA1529B66A00B0FED1 /* SKProductCell.m in Sources */,
 				C07CD8B0152DB0F40084304D /* SKUser.m in Sources */,
 				C07CD8C2152DD6BB0084304D /* SKShop.m in Sources */,
+				C0ADF744153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
