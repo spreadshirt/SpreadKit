@@ -10,6 +10,7 @@
 #import "SKObjectLoader.h"
 #import "SKProduct.h"
 #import <RestKit/RestKit.h>
+#import "SKObjectMappingProvider.h"
 
 @interface SKObjectLoaderTests : GHTestCase
 @end
@@ -23,15 +24,8 @@
 - (void)testListLoadingFromUrl
 {
     loader1 = [[SKObjectLoader alloc] init];
-    
-    RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
-    
-    [productMapping mapAttributes:@"name", @"weight", @"creator", nil];
-    [productMapping mapKeyPath:@"href" toAttribute:@"url"];
-    [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-    productMapping.rootKeyPath = @"products";
-    
-    [loader1 loadEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] mapping:productMapping onSucess:^(NSArray *objects) {
+        
+    [loader1 loadEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] onSucess:^(NSArray *objects) {
         GHAssertEquals(objects.count, (unsigned int) 3, @"All resources should have been loaded");
 
     } onFailure:^(NSError *error) {
@@ -43,15 +37,10 @@
 {
     loader2 = [[SKObjectLoader alloc] init];
     
-    RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
-    
-    [productMapping mapAttributes:@"name", @"weight", @"creator", nil];
-    [productMapping mapKeyPath:@"href" toAttribute:@"url"];
-    [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+    RKObjectMapping *productMapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKProduct class]];
     
     [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] mapping:productMapping onSucess:^(NSArray *objects) {
         GHAssertEquals(objects.count, (unsigned int) 1, @"Single Product should have been loaded");
-
     } onFailure:^(NSError *error) {
         GHFail(@"Loading should work");
     }];

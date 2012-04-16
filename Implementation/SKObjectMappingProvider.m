@@ -20,40 +20,27 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
 {
     self = [super init];
     if (self){
-        // All the predifined mappings
         
-        // resource mapping
-        [RKObjectMapping mappingForClass:[SKResource class] block:^(RKObjectMapping *mapping) {
-            [mapping mapAttributes:@"mediaType", @"type", nil];
-            [mapping mapKeyPath:@"href" toAttribute:@"url"];
-            mapping.rootKeyPath = @"resources";
-            [self setMapping:mapping forKeyPath:mapping.rootKeyPath];
-        }];
+        RKObjectMapping *resourceMapping = [RKObjectMapping mappingForClass:[SKResource class]];
+        [resourceMapping mapAttributes:@"mediaType", @"type", nil];
+        [resourceMapping mapKeyPath:@"href" toAttribute:@"url"];
         
-        // user mapping
-        [RKObjectMapping mappingForClass:[SKUser class] block:^(RKObjectMapping *mapping) {
-            [mapping mapKeyPath:@"id" toAttribute:@"identifier"];
-            [mapping mapKeyPath:@"href" toAttribute:@"url"];
-            [mapping mapAttributes:@"name", nil];
-            [self setMapping:mapping forKeyPath:@"user"];
-        }];
+        RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
+        [productMapping mapAttributes:@"name", @"weight", @"creator", nil];
+        [productMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [self setMapping:productMapping forKeyPath:@"products"];
         
-        // shop mapping
-        [RKObjectMapping mappingForClass:[SKShop class] block:^(RKObjectMapping *mapping) {
-            
-        }];
+        RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[SKUser class]];
+        [userMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [userMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [userMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:productMapping];
+        [userMapping mapAttributes:@"name", nil];
         
-        // product mapping
-        [RKObjectMapping mappingForClass:[SKProduct class] block:^(RKObjectMapping *mapping) {
-            [mapping mapAttributes:@"name", @"weight", @"creator", nil];
-            [mapping mapKeyPath:@"href" toAttribute:@"url"];
-            [mapping mapKeyPath:@"id" toAttribute:@"identifier"];
-            [mapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:[self objectMappingForClass:[SKResource class]]];
-            mapping.rootKeyPath = @"products";
-            [mapping mapKeyPath:@"user" toRelationship:@"user" withMapping:[self objectMappingForClass:[SKUser class]]];
-            [self setMapping:mapping forKeyPath:mapping.rootKeyPath];
-        }];
+        [productMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         
+        [self addObjectMapping:userMapping];
     }
     return self;
 }

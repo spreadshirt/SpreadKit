@@ -20,11 +20,9 @@
     [self loadResourceFromUrl:url mappingProvdider:prov onSucess:success onFailure:failure];
 }
 
-- (void)loadEntityListFromUrl:(NSURL *)url mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
+- (void)loadEntityListFromUrl:(NSURL *)url onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
 {
-    // temporary mapping provider with root element
-    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
-    [prov setMapping:mapping forKeyPath:mapping.rootKeyPath];
+    RKObjectMappingProvider *prov = [SKObjectMappingProvider sharedMappingProvider];
     [self loadResourceFromUrl:url mappingProvdider:prov onSucess:success onFailure:failure];
 }
 
@@ -50,7 +48,6 @@
         NSString *MIMEType = response.MIMEType;
         id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
         id parsedData = [parser objectFromString:stringData error:nil];
-        
         RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
         RKObjectMappingResult *result = [mapper performMapping];
         

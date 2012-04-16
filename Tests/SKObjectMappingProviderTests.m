@@ -122,31 +122,4 @@
     GHAssertEquals([[result asCollection] count], (unsigned int) 3, @"All resources should be mapped");
 }
 
-- (void)testResourceListMapping
-{
-    NSString *filePath=[[NSBundle mainBundle] pathForResource:@"resources" ofType:@"json"];
-    
-    NSError *error = nil;
-    NSString *productListJSON = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-    
-    NSString* MIMEType = @"application/json";
-    
-    id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
-    id parsedData = [parser objectFromString:productListJSON error:&error];
-    
-    RKObjectMappingProvider* mappingProvider = testable;
-    RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
-    RKObjectMappingResult* result = [mapper performMapping];
-
-    GHAssertNotNil(result, @"A mapping should have ocurred");
-    
-    GHAssertEquals([[result asCollection] count], (unsigned int) 3, @"All resources should be mapped");
-    
-    SKResource *resource = [[result asCollection] objectAtIndex:0];
-    
-    GHAssertEqualStrings([resource mediaType], @"png" ,@"Mapped Product should have the right mediaType");
-    GHAssertEqualStrings([resource type], @"preview" ,@"Mapped Product should have the right type");
-    GHAssertEqualObjects([resource url], [NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/products/25386428/views/1"],@"Mapped product should have the right url");
-}
-
 @end

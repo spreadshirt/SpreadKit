@@ -13,7 +13,7 @@
 
 - (void)loadSingleEntityFromUrl:(NSURL *)url mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
 
-- (void)loadEntityListFromUrl:(NSURL *)url mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
+- (void)loadEntityListFromUrl:(NSURL *)url onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
 
 - (void)loadResourceFromUrl:(NSURL *)theUrl mappingProvdider:(RKObjectMappingProvider *)mappingProvider onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
 
