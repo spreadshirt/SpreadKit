@@ -48,6 +48,10 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [userMapping mapAttributes:@"name", @"description", @"memberSince", nil];
         [userMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
         
+        RKObjectMapping *shopMapping = [RKObjectMapping mappingForClass:[SKShop class]];
+        [shopMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
+        [self setMapping:shopMapping forKeyPath:@"shop"];
+        
         [self setMapping:userMapping forKeyPath:@"user"];
         [self setMapping:productMapping forKeyPath:@"products"];
                 

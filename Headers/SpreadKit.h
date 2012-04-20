@@ -16,4 +16,4 @@
 #import "SKShop.h"
 #import "SKUser.h"
 #import "NSSet+SpreadKit.h"
-
+#import "SKEntityList.h"

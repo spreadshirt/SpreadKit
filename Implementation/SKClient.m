@@ -67,27 +67,43 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     return self;
 }
 
-- (SKUser *)user
+- (void)loadShopAndOnSuccess:(void (^)(SKShop *))success onFailure:(void (^)(NSError *))failure
 {
-    // todo: load the user
-    return nil;
-}
-
-- (SKShop *)shop
-{
-     // todo: load the shop
-    return nil;
-}
-
-- (void)loadShopProductsAndOnSuccess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
-{
-    SKObjectLoader *loader = [[SKObjectLoader alloc] init];
-    NSURL *productsUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@/products",BASE,self.shopId]];
+    NSURL *shopUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@", BASE, self.shopId]];
     
-    [loader loadEntityListFromUrl:productsUrl onSucess:^(NSArray *objects) {
-        success(objects);
+    RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
+    
+    SKObjectLoader *loader= [[SKObjectLoader alloc] init];
+    [loader loadSingleEntityFromUrl:shopUrl mapping:mapping onSucess:^(NSArray *objects) {
+        SKShop *shop = (SKShop *)[objects objectAtIndex:0];
+        success(shop);
     } onFailure:^(NSError *error) {
         failure(error);
+    }];
+}
+
+- (void)loadUserAndOnSuccess:(void (^)(SKUser *))success onFailure:(void (^)(NSError *))failure
+{
+    NSURL *shopUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", BASE, self.shopId]];
+    
+    RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
+    
+    SKObjectLoader *loader= [[SKObjectLoader alloc] init];
+    [loader loadSingleEntityFromUrl:shopUrl mapping:mapping onSucess:^(NSArray *objects) {
+        SKUser *user = (SKUser *)[objects objectAtIndex:0];
+        success(user);
+    } onFailure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+- (void)load:(id)object onSuccess:(void (^)(id loadedObject))success onFailure:(void (^)(NSError *))failure
+{
+    SKObjectLoader *loader = [[SKObjectLoader alloc] init];
+    [loader load:object onSuccess:^(id loadedObject){
+        success(loadedObject);
+    } onFailure:^(NSError *error) {
+        failure(failure);
     }];
 }
 

@@ -49,19 +49,22 @@
     }];
 }
 
-- (void)load:(id)objectStub onSuccess:(void (^)(void))success onFailure:(void (^)(NSError *))failure
+- (void)load:(id)objectStub onSuccess:(void (^)(id loadedObject))success onFailure:(void (^)(NSError *))failure
 {
     if ([objectStub isMemberOfClass:[SKEntityList class]]) {
         SKEntityList *el = (SKEntityList *)objectStub;
         [self loadEntityListFromUrl:[el url] onSucess:^(NSArray *objects) {
             el.elements = [NSSet setWithArray:objects];
-            success();
+            success(el);
         } onFailure:^(NSError *error) {
             failure(error);
         }];
     } else {
         [self loadSingleEntityFromUrl:[objectStub url] mapping:[[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[objectStub class]] onSucess:^(NSArray *objects) {
-            success();
+            if (objects.count == 1) {
+                success([objects objectAtIndex:0]);
+            }
+            failure(nil);
         } onFailure:^(NSError *error) {
             failure(error);
         }];

@@ -7,7 +7,6 @@
 //
 
 #import "SKShop.h"
-#import "SKUser.h"
 
 @implementation SKShop
 

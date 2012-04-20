@@ -54,7 +54,7 @@
     user.products = [[SKEntityList alloc] init];
     user.products.url = [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"];
     SKObjectLoader *loader3 = [[SKObjectLoader alloc] init];
-    [loader3 load:user.products onSuccess:^{
+    [loader3 load:user.products onSuccess:^(id objects){
         GHAssertEquals(user.products.elements.count, (unsigned int) 3, @"");
         return;
     } onFailure:^(NSError *error) {

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class SKUser;
+@class SKEntityList;
 
 @interface SKShop : NSObject
 
@@ -16,6 +17,6 @@
 @property (strong) NSString * identifier;
 @property (strong) NSString * name;
 @property (strong) SKUser * user;
-@property (strong) NSSet * products;
+@property (strong) SKEntityList * products;
 
 @end

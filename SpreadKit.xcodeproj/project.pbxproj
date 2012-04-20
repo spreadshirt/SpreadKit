@@ -50,7 +50,7 @@
 		C096A2A51500E11A00C70D86 /* SKProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320F14D2ED76004CC955 /* SKProduct.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2A61500E11A00C70D86 /* SKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = C053320214D2E05A004CC955 /* SKResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0A27354153C1DA800D1AE45 /* SKEntityList.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A27352153C1DA800D1AE45 /* SKEntityList.h */; };
+		C0A27354153C1DA800D1AE45 /* SKEntityList.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A27352153C1DA800D1AE45 /* SKEntityList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A27355153C1DA800D1AE45 /* SKEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A27353153C1DA800D1AE45 /* SKEntityList.m */; };
 		C0A27357153C22E100D1AE45 /* SKEntityList.m in Headers */ = {isa = PBXBuildFile; fileRef = C0A27353153C1DA800D1AE45 /* SKEntityList.m */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A27358153C22EF00D1AE45 /* SKEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A27353153C1DA800D1AE45 /* SKEntityList.m */; };
@@ -337,13 +337,13 @@
 				C096A2A61500E11A00C70D86 /* SKResource.h in Headers */,
 				C0E7C8EB1506041A005A185A /* SKObjectLoader.h in Headers */,
 				C0A27357153C22E100D1AE45 /* SKEntityList.m in Headers */,
+				C0A27354153C1DA800D1AE45 /* SKEntityList.h in Headers */,
 				C0F019F91529B66A00B0FED1 /* SKProductCell.h in Headers */,
 				C07CD8AF152DB0F40084304D /* SKUser.h in Headers */,
 				C07CD8C1152DD6BB0084304D /* SKShop.h in Headers */,
 				C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */,
 				C0ADF743153813C700CC9AE4 /* NSSet+SpreadKit.h in Headers */,
 				C0C4DBAB15384EEF00ACDC86 /* SKObjectMapper.h in Headers */,
-				C0A27354153C1DA800D1AE45 /* SKEntityList.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
