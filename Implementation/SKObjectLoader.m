@@ -10,6 +10,7 @@
 #import "RestKit/RKObjectMapper_Private.h"
 #import "SKObjectMappingProvider.h"
 #import "SKObjectMapper.h"
+#import "SKEntityList.h"
 
 @implementation SKObjectLoader
 
@@ -46,6 +47,25 @@
         
         success(mappingResult);
     }];
+}
+
+- (void)load:(id)objectStub onSuccess:(void (^)(void))success onFailure:(void (^)(NSError *))failure
+{
+    if ([objectStub isMemberOfClass:[SKEntityList class]]) {
+        SKEntityList *el = (SKEntityList *)objectStub;
+        [self loadEntityListFromUrl:[el url] onSucess:^(NSArray *objects) {
+            el.elements = [NSSet setWithArray:objects];
+            success();
+        } onFailure:^(NSError *error) {
+            failure(error);
+        }];
+    } else {
+        [self loadSingleEntityFromUrl:[objectStub url] mapping:[[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[objectStub class]] onSucess:^(NSArray *objects) {
+            success();
+        } onFailure:^(NSError *error) {
+            failure(error);
+        }];
+    }
 }
 
 @end

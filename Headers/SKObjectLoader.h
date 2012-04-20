@@ -17,4 +17,6 @@
 
 - (void)loadResourceFromUrl:(NSURL *)theUrl mappingProvdider:(RKObjectMappingProvider *)mappingProvider onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
 
+- (void)load:(id)objectStub onSuccess:(void (^)(void))success onFailure:(void (^)(NSError *))failure;
+
 @end

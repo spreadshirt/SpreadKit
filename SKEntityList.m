@@ -10,6 +10,10 @@
 
 @implementation SKEntityList
 
-@synthesize url, elements;
+@synthesize url;
+@synthesize elements;
+@synthesize limit;
+@synthesize offset;
+@synthesize count;
 
 @end

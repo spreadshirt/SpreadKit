@@ -11,6 +11,8 @@
 #import "SKProduct.h"
 #import <RestKit/RestKit.h>
 #import "SKObjectMappingProvider.h"
+#import "SKUser.h"
+#import "SKEntityList.h"
 
 @interface SKObjectLoaderTests : GHTestCase
 @end
@@ -43,6 +45,20 @@
         GHAssertEquals(objects.count, (unsigned int) 1, @"Single Product should have been loaded");
     } onFailure:^(NSError *error) {
         GHFail(@"Loading should work");
+    }];
+}
+
+- (void)testRelatedListLoading 
+{
+    SKUser *user = [[SKUser alloc] init];
+    user.products = [[SKEntityList alloc] init];
+    user.products.url = [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"];
+    SKObjectLoader *loader3 = [[SKObjectLoader alloc] init];
+    [loader3 load:user.products onSuccess:^{
+        GHAssertEquals(user.products.elements.count, (unsigned int) 3, @"");
+        return;
+    } onFailure:^(NSError *error) {
+        GHFail(@"Failure loading products of user");
     }];
 }
 
