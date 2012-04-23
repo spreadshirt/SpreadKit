@@ -74,7 +74,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
     
     SKObjectLoader *loader= [[SKObjectLoader alloc] init];
-    [loader loadSingleEntityFromUrl:shopUrl mapping:mapping onSucess:^(NSArray *objects) {
+    [loader loadSingleEntityFromUrl:shopUrl intoTargetObject:nil mapping:mapping onSucess:^(NSArray *objects) {
         SKShop *shop = (SKShop *)[objects objectAtIndex:0];
         success(shop);
     } onFailure:^(NSError *error) {
@@ -89,7 +89,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
     
     SKObjectLoader *loader= [[SKObjectLoader alloc] init];
-    [loader loadSingleEntityFromUrl:shopUrl mapping:mapping onSucess:^(NSArray *objects) {
+    [loader loadSingleEntityFromUrl:shopUrl intoTargetObject:nil mapping:mapping onSucess:^(NSArray *objects) {
         SKUser *user = (SKUser *)[objects objectAtIndex:0];
         success(user);
     } onFailure:^(NSError *error) {

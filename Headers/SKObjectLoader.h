@@ -11,12 +11,14 @@
 
 @interface SKObjectLoader : NSObject <NSURLConnectionDelegate>
 
-- (void)loadSingleEntityFromUrl:(NSURL *)url mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
+- (void)load:(id)objectStub onSuccess:(void (^)(id loaded))success onFailure:(void (^)(NSError *))failure;
+
+- (void)loadSingleObjectStub:(id)theStub onSuccess:(void (^)(id loaded))sucess onFailure:(void (^)(NSError *error))failure;
+
+- (void)loadSingleEntityFromUrl:(NSURL *)url intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
 
 - (void)loadEntityListFromUrl:(NSURL *)url onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
 
-- (void)loadResourceFromUrl:(NSURL *)theUrl mappingProvdider:(RKObjectMappingProvider *)mappingProvider onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
-
-- (void)load:(id)objectStub onSuccess:(void (^)(id loaded))success onFailure:(void (^)(NSError *))failure;
+- (void)loadResourceFromUrl:(NSURL *)theUrl mappingProvdider:(RKObjectMappingProvider *)mappingProvider intoTargetObject:(id)target onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
 
 @end

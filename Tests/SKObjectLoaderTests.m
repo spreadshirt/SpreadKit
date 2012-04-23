@@ -41,7 +41,7 @@
     
     RKObjectMapping *productMapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKProduct class]];
     
-    [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] mapping:productMapping onSucess:^(NSArray *objects) {
+    [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] intoTargetObject:nil mapping:productMapping onSucess:^(NSArray *objects) {
         GHAssertEquals(objects.count, (unsigned int) 1, @"Single Product should have been loaded");
     } onFailure:^(NSError *error) {
         GHFail(@"Loading should work");
