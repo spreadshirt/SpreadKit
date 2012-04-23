@@ -235,11 +235,12 @@
 		C04A5A081500DB86003C5D68 /* Implemenation */ = {
 			isa = PBXGroup;
 			children = (
-				C0C4DBAA15384EEF00ACDC86 /* SKObjectMapper.m */,
 				C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */,
 				C09EF82A14C99579000BB775 /* SKClient.m */,
+				C0A27353153C1DA800D1AE45 /* SKEntityList.m */,
 				C05B414114D7F4F2006C4F52 /* SKImageLoader.m */,
 				C0E7C8EA1506041A005A185A /* SKObjectLoader.m */,
+				C0C4DBAA15384EEF00ACDC86 /* SKObjectMapper.m */,
 				C0BE489C14CEF22300F3BA36 /* SKObjectMappingProvider.m */,
 				C053321014D2ED76004CC955 /* SKProduct.m */,
 				C0F019F81529B66A00B0FED1 /* SKProductCell.m */,
@@ -254,11 +255,12 @@
 		C08265FD1529AB39001C6A79 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				C0C4DBA915384EEF00ACDC86 /* SKObjectMapper.h */,
 				C0ADF741153813C700CC9AE4 /* NSSet+SpreadKit.h */,
 				C09EF82914C99579000BB775 /* SKClient.h */,
+				C0A27352153C1DA800D1AE45 /* SKEntityList.h */,
 				C05B414014D7F4F2006C4F52 /* SKImageLoader.h */,
 				C0E7C8E91506041A005A185A /* SKObjectLoader.h */,
+				C0C4DBA915384EEF00ACDC86 /* SKObjectMapper.h */,
 				C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */,
 				C053320F14D2ED76004CC955 /* SKProduct.h */,
 				C0F019F71529B66A00B0FED1 /* SKProductCell.h */,
@@ -273,8 +275,6 @@
 		C09EF80814C9953C000BB775 = {
 			isa = PBXGroup;
 			children = (
-				C0A27352153C1DA800D1AE45 /* SKEntityList.h */,
-				C0A27353153C1DA800D1AE45 /* SKEntityList.m */,
 				C08265FD1529AB39001C6A79 /* Headers */,
 				C04A5A081500DB86003C5D68 /* Implemenation */,
 				C03806EB150103780004BFC4 /* Tests */,
