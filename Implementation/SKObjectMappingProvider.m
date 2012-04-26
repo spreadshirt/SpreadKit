@@ -58,6 +58,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         
         [self addObjectMapping:userMapping];
+        [self addObjectMapping:listMapping];
     }
     return self;
 }

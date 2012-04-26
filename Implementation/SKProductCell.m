@@ -41,7 +41,6 @@
             } onFailure:^ (NSError *error) {
                 // do some error handling
             }];
-            self.previewImageView.image = resource.image;
             *stop = YES;
         }
     }];

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0103D12154590580038E798 /* SKPaginator.h in Headers */ = {isa = PBXBuildFile; fileRef = C0103D10154590580038E798 /* SKPaginator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0103D13154590580038E798 /* SKPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = C0103D11154590580038E798 /* SKPaginator.m */; };
 		C0136D5E150104FF0044BB55 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C04A5A011500DB71003C5D68 /* libRestKit.a */; };
 		C0136D6C150108A30044BB55 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C03F304B14DC20AC003E2527 /* libOCMock.a */; };
 		C0136D6D150108B20044BB55 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0DF14C9B77500109A96 /* CoreData.framework */; };
@@ -96,6 +98,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0103D10154590580038E798 /* SKPaginator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPaginator.h; sourceTree = "<group>"; };
+		C0103D11154590580038E798 /* SKPaginator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPaginator.m; sourceTree = "<group>"; };
 		C035E4E315063FE800A52242 /* products2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products2.json; sourceTree = "<group>"; };
 		C03806E6150103780004BFC4 /* SpreadKitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpreadKitTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitTests-Info.plist"; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				C0E7C8EA1506041A005A185A /* SKObjectLoader.m */,
 				C0C4DBAA15384EEF00ACDC86 /* SKObjectMapper.m */,
 				C0BE489C14CEF22300F3BA36 /* SKObjectMappingProvider.m */,
+				C0103D11154590580038E798 /* SKPaginator.m */,
 				C053321014D2ED76004CC955 /* SKProduct.m */,
 				C0F019F81529B66A00B0FED1 /* SKProductCell.m */,
 				C053320314D2E05A004CC955 /* SKResource.m */,
@@ -262,6 +267,7 @@
 				C0E7C8E91506041A005A185A /* SKObjectLoader.h */,
 				C0C4DBA915384EEF00ACDC86 /* SKObjectMapper.h */,
 				C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */,
+				C0103D10154590580038E798 /* SKPaginator.h */,
 				C053320F14D2ED76004CC955 /* SKProduct.h */,
 				C0F019F71529B66A00B0FED1 /* SKProductCell.h */,
 				C053320214D2E05A004CC955 /* SKResource.h */,
@@ -343,6 +349,7 @@
 				C07CD8C1152DD6BB0084304D /* SKShop.h in Headers */,
 				C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */,
 				C0ADF743153813C700CC9AE4 /* NSSet+SpreadKit.h in Headers */,
+				C0103D12154590580038E798 /* SKPaginator.h in Headers */,
 				C0C4DBAB15384EEF00ACDC86 /* SKObjectMapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +492,7 @@
 				C0ADF744153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */,
 				C0C4DBAC15384EEF00ACDC86 /* SKObjectMapper.m in Sources */,
 				C0A27355153C1DA800D1AE45 /* SKEntityList.m in Sources */,
+				C0103D13154590580038E798 /* SKPaginator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

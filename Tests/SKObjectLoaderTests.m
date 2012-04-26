@@ -27,7 +27,7 @@
 {
     loader1 = [[SKObjectLoader alloc] init];
         
-    [loader1 loadEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] onSucess:^(NSArray *objects) {
+    [loader1 loadEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] withParams:nil onSucess:^(NSArray *objects) {
         GHAssertEquals(objects.count, (unsigned int) 3, @"All resources should have been loaded");
 
     } onFailure:^(NSError *error) {
@@ -41,7 +41,7 @@
     
     RKObjectMapping *productMapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKProduct class]];
     
-    [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] intoTargetObject:nil mapping:productMapping onSucess:^(NSArray *objects) {
+    [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil mapping:productMapping onSucess:^(NSArray *objects) {
         GHAssertEquals(objects.count, (unsigned int) 1, @"Single Product should have been loaded");
     } onFailure:^(NSError *error) {
         GHFail(@"Loading should work");
