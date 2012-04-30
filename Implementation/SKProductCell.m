@@ -12,11 +12,21 @@
 #import "SKResource.h"
 
 @implementation SKProductCell
+{
+    NSURL *shownImageURL;
+}
 
 @synthesize previewImageView;
 @synthesize nameLabel;
 @synthesize activityIndicator;
 @synthesize product;
+@synthesize imageLoader;
+
+- (void)prepareForReuse
+{
+    self.previewImageView.image = nil;
+    self.nameLabel = nil;
+}
 
 - (void)setProduct:(SKProduct *)theProduct
 {
@@ -26,32 +36,33 @@
     [self.product.resources enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
         SKResource *resource = (SKResource *)obj;
         if ([resource.type isEqualToString:@"preview"]) {
-            // load image
-            [self.activityIndicator startAnimating];
+            
+            shownImageURL = resource.url;
             
             // determine needed width of preview (retina/non retina)
             CGFloat displayScale = [[UIScreen mainScreen] scale];
             NSNumber *previewImageWidth = [NSNumber numberWithFloat:self.previewImageView.frame.size.width * displayScale];
             
-            [[[SKImageLoader alloc] init] loadImageFromUrl:resource.url withWidth:previewImageWidth onSuccess:^(UIImage *image) {
-                // set the image and show it
-                [self.activityIndicator stopAnimating];
+            if (!imageLoader) {
+                imageLoader = [[SKImageLoader alloc] init];
+            }
+            
+            // load the image asynchronously
+            
+            [self.activityIndicator startAnimating];
+            
+            [imageLoader loadImageFromUrl:resource.url withWidth:previewImageWidth onSuccess:^(UIImage *image, NSURL *imageUrl) {
+                // set the image
                 resource.image = image;
-                self.previewImageView.image = resource.image;
-            } onFailure:^ (NSError *error) {
-                // do some error handling
-            }];
+                // only display the image when it still is correct for the currently displayed product
+                if (imageUrl == shownImageURL) {
+                    [self.activityIndicator stopAnimating];
+                    self.previewImageView.image = image;
+                }
+            } onFailure:nil];
             *stop = YES;
         }
     }];
-}
-
-- (id)initWithProduct:(SKProduct *)theProduct
-{
-    if (self = [super init]) {
-        self.product = theProduct;
-    }
-    return self;
 }
 
 @end

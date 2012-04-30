@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class SKProduct;
+@class SKImageLoader;
 
 @interface SKProductCell : UITableViewCell
 
@@ -16,8 +17,8 @@
 @property (nonatomic,strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-@property (nonatomic,strong) SKProduct *product;
+@property (nonatomic, strong, readonly) SKImageLoader *imageLoader;
 
-- (id)initWithProduct:(SKProduct *)theProduct;
+@property (nonatomic,strong) SKProduct *product;
 
 @end

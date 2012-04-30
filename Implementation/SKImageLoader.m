@@ -10,7 +10,7 @@
 
 @implementation SKImageLoader
 
-- (void)loadImageFromUrl:(NSURL *)url withWidth:(NSNumber *)width onSuccess:(void (^)(UIImage *))success onFailure:(void (^)(NSError *))failure
+- (void)loadImageFromUrl:(NSURL *)url withWidth:(NSNumber *)width onSuccess:(void (^)(UIImage *image, NSURL *imageUrl))success onFailure:(void (^)(NSError *))failure
 {
     // return if image width is not allowed
     if (![[[self class] allowedDimensions] containsObject:width]) {
@@ -33,7 +33,7 @@
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:theUrl] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connError) {
         if (data) {
             UIImage *image = [[UIImage alloc] initWithData:data];
-            success(image);
+            success(image, url);
         } else {
             failure(connError);
         }
