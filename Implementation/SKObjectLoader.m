@@ -11,6 +11,8 @@
 #import "SKObjectMappingProvider.h"
 #import "SKObjectMapper.h"
 #import "SKEntityList.h"
+#import "NSURL+PathParameters.h"
+#import "RestKit/NSURL+RestKit.h"
 
 @implementation SKObjectLoader
 
@@ -66,15 +68,25 @@
     [self loadResourceFromUrl:url withParams:params mappingProvdider:prov intoTargetObject:nil onSucess:success onFailure:failure];
 }
 
-- (void)loadResourceFromUrl:(NSURL *)theUrl withParams:(NSDictionary *)theParams mappingProvdider:(RKObjectMappingProvider *)mappingProvider intoTargetObject:(id)target onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
+- (void)loadResourceFromUrl:(NSURL *)theUrl withParams:(NSDictionary *)passedParams mappingProvdider:(RKObjectMappingProvider *)mappingProvider intoTargetObject:(id)target onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
 {
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithKeysAndObjects:@"mediaType", @"json", nil];
-    if (theParams) {
-        [params addEntriesFromDictionary:theParams];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithKeysAndObjects:
+                                   @"mediaType", @"json", 
+                                   @"fullData", @"true",
+                                   nil];
+    if (passedParams) {
+        [params addEntriesFromDictionary:passedParams];
     }
-    NSString *configuredUrl = [theUrl.absoluteString appendQueryParams:params];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:configuredUrl]];
+    [[theUrl queryDictionary] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([params.allKeys containsObject:key]) {
+            [params removeObjectForKey:key];
+        }
+    }];
+    
+    NSURL *configuredURL = [theUrl URLByAppendingParameters:params];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:configuredURL];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             failure(error);
