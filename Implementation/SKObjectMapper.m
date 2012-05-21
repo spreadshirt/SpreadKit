@@ -56,4 +56,16 @@
     return [result asCollection];
 }
 
+- (NSString *)serializeObject:(id)theObject
+{
+    RKObjectMapping *serializationMapping = [provider serializationMappingForClass:[theObject class]];
+    RKObjectSerializer *serializer = [RKObjectSerializer serializerWithObject:theObject mapping:serializationMapping];
+    NSError *error = nil;
+    NSString* serializedString = [serializer serializedObjectForMIMEType:mimeType error:&error];
+    if (error) {
+        NSLog(@"something went wrong during serialization: %@", error);
+    }
+    return serializedString;
+}
+
 @end

@@ -13,6 +13,7 @@
 #import "SKObjectMapper.h"
 #import "SKObjectMappingProvider.h"
 #import "SKEntityList.h"
+#import "SKBasket.h"
 
 @interface SKObjectMapperTests : GHTestCase
 @end
@@ -39,6 +40,18 @@
 - (void)testSerialization
 {
     
+    RKObjectMapping *serializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+    [serializationMapping mapAttributes:@"token", nil];
+    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
+    [prov setSerializationMapping:serializationMapping forClass:[SKBasket class]];
+    
+    SKBasket *basket = [[SKBasket alloc] init];
+    basket.token = @"foobar";
+    basket.shop = [[SKShop alloc] init];
+    
+    SKObjectMapper *mapper = [SKObjectMapper mapperWithMIMEType:RKMIMETypeJSON mappingProvider:prov];
+    NSString *serialization = [mapper serializeObject:basket];
+    GHAssertEqualStrings(serialization, @"{\"token\":\"foobar\"}", @"Basket should have been serialized correctly");
 }
 
 @end
