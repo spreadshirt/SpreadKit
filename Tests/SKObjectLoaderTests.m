@@ -14,38 +14,48 @@
 #import "SKUser.h"
 #import "SKEntityList.h"
 
-@interface SKObjectLoaderTests : GHTestCase
+@interface SKObjectLoaderTests : GHAsyncTestCase
 @end
 
 @implementation SKObjectLoaderTests
-{
-    SKObjectLoader *loader1;
-    SKObjectLoader *loader2;
-}
 
 - (void)testListLoadingFromUrl
 {
-    loader1 = [[SKObjectLoader alloc] init];
-        
+    SKObjectLoader *loader1 = [[SKObjectLoader alloc] init];
+    __block NSArray *result;
+    
+    [self prepare];
+    
     [loader1 loadEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] withParams:nil onSucess:^(NSArray *objects) {
-        GHAssertEquals(objects.count, (unsigned int) 3, @"All resources should have been loaded");
-
+        result = objects;
+        [self notify:kGHUnitWaitStatusSuccess];
     } onFailure:^(NSError *error) {
         GHFail(@"Loading should work");
     }];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    
+    GHAssertEquals(result.count, (unsigned int) 3, @"All resources should have been loaded");
 }
 
 - (void)testSingleResourceLoadingFromUrl
 {
-    loader2 = [[SKObjectLoader alloc] init];
-    
+    SKObjectLoader *loader2 = [[SKObjectLoader alloc] init];
     RKObjectMapping *productMapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKProduct class]];
+    __block NSArray *result;
+    
+    [self prepare];
     
     [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil mapping:productMapping onSucess:^(NSArray *objects) {
-        GHAssertEquals(objects.count, (unsigned int) 1, @"Single Product should have been loaded");
+        result = objects;
+        [self notify:kGHUnitWaitStatusSuccess];
     } onFailure:^(NSError *error) {
         GHFail(@"Loading should work");
     }];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    
+    GHAssertEquals(result.count, (unsigned int) 1, @"Single Product should have been loaded");
 }
 
 - (void)testRelatedListLoading 
@@ -54,12 +64,18 @@
     user.products = [[SKEntityList alloc] init];
     user.products.url = [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"];
     SKObjectLoader *loader3 = [[SKObjectLoader alloc] init];
+    
+    [self prepare];
+    
     [loader3 load:user.products onSuccess:^(id objects){
-        GHAssertEquals(user.products.elements.count, (unsigned int) 3, @"");
-        return;
+        [self notify:kGHUnitWaitStatusSuccess];
     } onFailure:^(NSError *error) {
         GHFail(@"Failure loading products of user");
     }];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    
+    GHAssertEquals(user.products.elements.count, (unsigned int) 3, @"");
 }
 
 @end

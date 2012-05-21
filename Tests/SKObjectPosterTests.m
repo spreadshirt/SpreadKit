@@ -13,7 +13,7 @@
 #import "SKObjectPoster.h"
 
 
-@interface SKObjectPosterTests : GHTestCase
+@interface SKObjectPosterTests : GHAsyncTestCase
 
 @end
 
@@ -31,14 +31,17 @@
     RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
     [prov setSerializationMapping:mapping forClass:[SKBasket class]];
     
-    GHAssertNil(basket.url, @"");
+    [self prepare];
     
     [poster postObject:basket toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/baskets?mediaType=json"] mappingProvider:prov onSuccess:^(id object) {
-        GHAssertNotNil(basket.url, @"Basket should have been created");
-        NSLog(@"%@", basket.url);
+        [self notify:kGHUnitWaitStatusSuccess];
     } onFailure:^(NSError *error) {
         GHFail(@"No Basket");
     }];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    
+    GHAssertNotNil(basket.url, @"Basket should have been created");
 }
 
 @end
