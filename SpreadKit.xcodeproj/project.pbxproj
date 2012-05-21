@@ -64,6 +64,10 @@
 		C0ADF745153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */; };
 		C0ADF748153819B600CC9AE4 /* SKObjectMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF747153819B600CC9AE4 /* SKObjectMapperTests.m */; };
 		C0ADF74A15381B0E00CC9AE4 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = C0ADF74915381B0E00CC9AE4 /* user.json */; };
+		C0BE9B11155414B1002A46A2 /* SKAuthenticationProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C0BE9B0F155414B1002A46A2 /* SKAuthenticationProvider.h */; };
+		C0BE9B12155414B1002A46A2 /* SKAuthenticationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BE9B10155414B1002A46A2 /* SKAuthenticationProvider.m */; };
+		C0BE9B13155414B1002A46A2 /* SKAuthenticationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BE9B10155414B1002A46A2 /* SKAuthenticationProvider.m */; };
+		C0C41BC6155BA976009F70FF /* SKAuthenticationProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C41BC5155BA976009F70FF /* SKAuthenticationProviderTests.m */; };
 		C0C4DBAB15384EEF00ACDC86 /* SKObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C4DBA915384EEF00ACDC86 /* SKObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0C4DBAC15384EEF00ACDC86 /* SKObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C4DBAA15384EEF00ACDC86 /* SKObjectMapper.m */; };
 		C0C4DBAD15384EEF00ACDC86 /* SKObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C4DBAA15384EEF00ACDC86 /* SKObjectMapper.m */; };
@@ -144,6 +148,9 @@
 		C0ADF74915381B0E00CC9AE4 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 		C0BE489B14CEF22300F3BA36 /* SKObjectMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectMappingProvider.h; sourceTree = "<group>"; };
 		C0BE489C14CEF22300F3BA36 /* SKObjectMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectMappingProvider.m; sourceTree = "<group>"; };
+		C0BE9B0F155414B1002A46A2 /* SKAuthenticationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAuthenticationProvider.h; sourceTree = "<group>"; };
+		C0BE9B10155414B1002A46A2 /* SKAuthenticationProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAuthenticationProvider.m; sourceTree = "<group>"; };
+		C0C41BC5155BA976009F70FF /* SKAuthenticationProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAuthenticationProviderTests.m; sourceTree = "<group>"; };
 		C0C4D0DD14C9B76D00109A96 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C0C4D0DF14C9B77500109A96 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C0C4D0E114C9B77D00109A96 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -199,10 +206,11 @@
 			isa = PBXGroup;
 			children = (
 				C0C6922514EE576D0068C18D /* Mock Responses */,
-				C0ADF747153819B600CC9AE4 /* SKObjectMapperTests.m */,
+				C0C41BC5155BA976009F70FF /* SKAuthenticationProviderTests.m */,
 				C0C6921614EE57440068C18D /* SKClientTests.m */,
 				C0C6921714EE57440068C18D /* SKImageLoaderTests.m */,
 				C0E7C8F015060438005A185A /* SKObjectLoaderTests.m */,
+				C0ADF747153819B600CC9AE4 /* SKObjectMapperTests.m */,
 				C0C6921814EE57440068C18D /* SKObjectMappingProviderTests.m */,
 				C03806EC150103780004BFC4 /* Supporting Files */,
 			);
@@ -246,6 +254,7 @@
 			children = (
 				C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */,
 				C0853405154E87A400CA9F21 /* NSURL+PathParameters.m */,
+				C0BE9B10155414B1002A46A2 /* SKAuthenticationProvider.m */,
 				C09EF82A14C99579000BB775 /* SKClient.m */,
 				C0A27353153C1DA800D1AE45 /* SKEntityList.m */,
 				C05B414114D7F4F2006C4F52 /* SKImageLoader.m */,
@@ -268,6 +277,7 @@
 			children = (
 				C0ADF741153813C700CC9AE4 /* NSSet+SpreadKit.h */,
 				C0853404154E87A400CA9F21 /* NSURL+PathParameters.h */,
+				C0BE9B0F155414B1002A46A2 /* SKAuthenticationProvider.h */,
 				C09EF82914C99579000BB775 /* SKClient.h */,
 				C0A27352153C1DA800D1AE45 /* SKEntityList.h */,
 				C05B414014D7F4F2006C4F52 /* SKImageLoader.h */,
@@ -359,6 +369,7 @@
 				C0103D12154590580038E798 /* SKPaginator.h in Headers */,
 				C0C4DBAB15384EEF00ACDC86 /* SKObjectMapper.h in Headers */,
 				C0853406154E87A400CA9F21 /* NSURL+PathParameters.h in Headers */,
+				C0BE9B11155414B1002A46A2 /* SKAuthenticationProvider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +493,8 @@
 				C0ADF748153819B600CC9AE4 /* SKObjectMapperTests.m in Sources */,
 				C0C4DBAD15384EEF00ACDC86 /* SKObjectMapper.m in Sources */,
 				C0853408154E87A400CA9F21 /* NSURL+PathParameters.m in Sources */,
+				C0BE9B13155414B1002A46A2 /* SKAuthenticationProvider.m in Sources */,
+				C0C41BC6155BA976009F70FF /* SKAuthenticationProviderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +516,7 @@
 				C0A27355153C1DA800D1AE45 /* SKEntityList.m in Sources */,
 				C0103D13154590580038E798 /* SKPaginator.m in Sources */,
 				C0853407154E87A400CA9F21 /* NSURL+PathParameters.m in Sources */,
+				C0BE9B12155414B1002A46A2 /* SKAuthenticationProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
