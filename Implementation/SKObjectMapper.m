@@ -65,6 +65,12 @@
     if (error) {
         NSLog(@"something went wrong during serialization: %@", error);
     }
+    
+    // object with no properties returns empty string
+    if (mimeType == RKMIMETypeJSON && serializedString == nil) {
+        serializedString = @"{}";
+    }
+    
     return serializedString;
 }
 

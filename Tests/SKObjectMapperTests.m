@@ -54,4 +54,18 @@
     GHAssertEqualStrings(serialization, @"{\"token\":\"foobar\"}", @"Basket should have been serialized correctly");
 }
 
+- (void)testEmptyObjectSerialization
+{
+    SKBasket *basket = [[SKBasket alloc] init];
+    RKObjectMapping *serializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+    [serializationMapping mapAttributes:@"token", @"url", nil];
+    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
+    [prov setSerializationMapping:serializationMapping forClass:[SKBasket class]];
+    
+    SKObjectMapper *mapper = [SKObjectMapper mapperWithMIMEType:RKMIMETypeJSON mappingProvider:prov];
+    NSString *serialization = [mapper serializeObject:basket];
+    
+    GHAssertNotNil(serialization, @"Empty object should not return empty serialization");
+}
+
 @end

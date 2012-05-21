@@ -22,7 +22,7 @@
 - (void)testPostBasket
 {
     SKBasket *basket = [[SKBasket alloc] init];
-    basket.token = @"test";
+//    basket.token = @"test";
     
     SKObjectPoster *poster = [[SKObjectPoster alloc] init];
     
