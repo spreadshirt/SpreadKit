@@ -13,15 +13,15 @@
 
 @interface SKObjectMapper : NSObject
 
-+ (SKObjectMapper *) mapperWithMIMEType:(NSString *)mimeType data:(NSData *)data mappingProvider:(RKObjectMappingProvider *)mappingProvider;
++ (SKObjectMapper *) mapperWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider;
 
-+ (SKObjectMapper *)mapperWithMIMEType:(NSString *)mimeType data:(NSData *)data mappingProvider:(RKObjectMappingProvider *)mappingProvider andDestinationObject:(id)dest;
++ (SKObjectMapper *)mapperWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider andDestinationObject:(id)dest;
 
-- (id)performMapping;
+- (id)performMappingWithData:(NSData *)data;
 
-- (id)initWithMIMEType:(NSString *)mimeType data:(NSData *)data mappingProvider:(RKObjectMappingProvider *)mappingProvider;
+- (id)initWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider;
 
-- (id)initWithMIMEType:(NSString *)mimeType data:(NSData *)data mappingProvider:(RKObjectMappingProvider *)mappingProvider andDestinationObject:(id)dest;
+- (id)initWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider andDestinationObject:(id)dest;
 
 
 @end

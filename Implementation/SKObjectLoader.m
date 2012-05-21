@@ -97,7 +97,8 @@
         // remember server time offset to sign SprdAuth requests correctly
         [SKClient sharedClient].serverTimeOffset = [self getServerTimeOffset:(NSHTTPURLResponse *)response];
         
-        id mappingResult = [[SKObjectMapper mapperWithMIMEType:response.MIMEType data:data mappingProvider:mappingProvider andDestinationObject:target] performMapping];
+        id mappingResult = [[SKObjectMapper mapperWithMIMEType:response.MIMEType mappingProvider:mappingProvider andDestinationObject:target] 
+                            performMappingWithData:data];
         success(mappingResult);
     }];
 }

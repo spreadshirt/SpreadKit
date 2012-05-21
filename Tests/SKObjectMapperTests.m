@@ -30,10 +30,15 @@
     RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
     [prov setMapping:mapping forKeyPath:@""];
     
-    SKObjectMapper *mapper = [SKObjectMapper mapperWithMIMEType:MIMEType data:userData mappingProvider:prov];
-    SKUser *user = [[mapper performMapping] objectAtIndex:0];
+    SKObjectMapper *mapper = [SKObjectMapper mapperWithMIMEType:MIMEType mappingProvider:prov];
+    SKUser *user = [[mapper performMappingWithData:userData] objectAtIndex:0];
     
     GHAssertNotNil(user.products.url, @"Products url should be mapped");
+}
+
+- (void)testSerialization
+{
+    
 }
 
 @end
