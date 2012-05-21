@@ -25,7 +25,7 @@
 - (void)prepareForReuse
 {
     self.previewImageView.image = nil;
-    self.nameLabel = nil;
+    self.nameLabel.text = nil;
 }
 
 - (void)setProduct:(SKProduct *)theProduct
