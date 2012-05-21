@@ -21,7 +21,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     NSURL *baseUrl;
 }
 
-@synthesize apiKey, shopId, userId, secret;
+@synthesize apiKey, shopId, userId, secret, serverTimeOffset;
 
 + (SKClient *)sharedClient
 {

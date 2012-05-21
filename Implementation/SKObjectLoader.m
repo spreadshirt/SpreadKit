@@ -13,6 +13,7 @@
 #import "SKEntityList.h"
 #import "NSURL+PathParameters.h"
 #import "RestKit/NSURL+RestKit.h"
+#import "SKClient.h"
 
 @implementation SKObjectLoader
 
@@ -93,10 +94,25 @@
             return;
         }
         
+        // remember server time offset to sign SprdAuth requests correctly
+        [SKClient sharedClient].serverTimeOffset = [self getServerTimeOffset:(NSHTTPURLResponse *)response];
+        
         id mappingResult = [[SKObjectMapper mapperWithMIMEType:response.MIMEType data:data mappingProvider:mappingProvider andDestinationObject:target] performMapping];
         success(mappingResult);
     }];
+}
+
+- (int)getServerTimeOffset:(NSHTTPURLResponse *)response
+{
+    id dateString = [[response allHeaderFields] objectForKey:@"Date"];
+
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    df.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'";
+    df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     
+    NSDate *serverTime = [df dateFromString:dateString];
+    return [[NSDate date] timeIntervalSinceDate:serverTime];
 }
 
 @end
