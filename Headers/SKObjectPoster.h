@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RestKit/RestKit.h>
 
 @interface SKObjectPoster : NSObject
+
+- (void)postObject:(id)theObject toURL:(NSURL *)theURL mappingProvider:(RKObjectMappingProvider *)mappingProvider onSuccess:(void (^)(id object))success onFailure:(void (^)(NSError *error))failure;
 
 @end

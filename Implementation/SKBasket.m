@@ -10,6 +10,6 @@
 
 @implementation SKBasket
 
-@synthesize token, shop, user, basketItems;
+@synthesize url, token, shop, user, basketItems;
 
 @end
