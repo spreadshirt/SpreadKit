@@ -11,6 +11,7 @@
 #import "SKProduct.h"
 #import "SKUser.h"
 #import "SKShop.h"
+#import "SKProductType.h"
 #import "NSSet+SpreadKit.h"
 #import "SKEntityList.h"
 
@@ -31,13 +32,21 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [resourceMapping mapAttributes:@"mediaType", @"type", nil];
         [resourceMapping mapKeyPath:@"href" toAttribute:@"url"];
         
+        
+        RKObjectMapping *productTypeMapping = [RKObjectMapping mappingForClass:[SKProductType class]];
+        [productTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [productTypeMapping mapAttributes:@"sizes", @"appearences", nil];
+        [self addObjectMapping:productTypeMapping];
+        [self setMapping:productTypeMapping forKeyPath:@"productType"];
+
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
         [productMapping mapAttributes:@"name", @"weight", @"creator", @"restrictions", nil];
         [productMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];;
+        [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [productMapping mapKeyPath:@"productType" toRelationship:@"productType" withMapping:productTypeMapping];
         [self addObjectMapping:productMapping];
-        
+            
         RKObjectMapping *listMapping = [RKObjectMapping mappingForClass:[SKEntityList class]];
         [listMapping mapKeyPath:@"href" toAttribute:@"url"];
         [listMapping mapAttributes:@"count", @"offset", @"limit", nil];

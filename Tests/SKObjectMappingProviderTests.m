@@ -75,6 +75,10 @@
     
     GHAssertEquals([girlieShirt freeColorSelection], YES, @"Product color selection should have been mapped");
     
+    GHAssertNotNil(girlieShirt.productType, @"Product Type should have been mapped");
+    
+    GHAssertEqualObjects(girlieShirt.productType.url, [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/654135/productTypes/95"], @"Product Type shpuld have the right url");
+    
     // filter for the preview resource
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.type MATCHES 'preview'"];
     

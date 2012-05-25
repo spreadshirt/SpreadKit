@@ -9,6 +9,7 @@
 #import "SKProduct.h"
 #import "SKResource.h"
 #import "SKUser.h"
+#import "SKProductType.h"
 
 @implementation SKProduct
 
@@ -21,6 +22,7 @@
 @synthesize user;
 @synthesize restrictions;
 @synthesize freeColorSelection;
+@synthesize productType;
 
 - (void)setFreeColorSelection:(BOOL)freeColorSelection
 {
