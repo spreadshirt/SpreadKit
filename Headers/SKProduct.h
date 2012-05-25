@@ -20,5 +20,7 @@
 @property (nonatomic, strong) NSNumber * weight;
 @property (nonatomic, strong) NSSet *resources;
 @property (nonatomic, strong) SKUser *user;
+@property (nonatomic, strong) NSDictionary* restrictions;
+@property (nonatomic) BOOL freeColorSelection;
 
 @end

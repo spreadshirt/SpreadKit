@@ -19,5 +19,17 @@
 @synthesize url;
 @synthesize weight;
 @synthesize user;
+@synthesize restrictions;
+@synthesize freeColorSelection;
+
+- (void)setFreeColorSelection:(BOOL)freeColorSelection
+{
+    
+}
+
+- (BOOL)freeColorSelection
+{
+    return [[[self restrictions] objectForKey:@"freeColorSelection"] boolValue];
+}
 
 @end

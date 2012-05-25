@@ -71,6 +71,10 @@
     
     GHAssertEquals([[girlieShirt resources] count], (unsigned  int) 3, @"There should be the correct number of product resources");
     
+    GHAssertNotNil([girlieShirt restrictions], @"Product restrictions should have been mapped");
+    
+    GHAssertEquals([girlieShirt freeColorSelection], YES, @"Product color selection should have been mapped");
+    
     // filter for the preview resource
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.type MATCHES 'preview'"];
     

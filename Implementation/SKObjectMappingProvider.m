@@ -32,10 +32,10 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [resourceMapping mapKeyPath:@"href" toAttribute:@"url"];
         
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
-        [productMapping mapAttributes:@"name", @"weight", @"creator", nil];
+        [productMapping mapAttributes:@"name", @"weight", @"creator", @"restrictions", nil];
         [productMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];;
         [self addObjectMapping:productMapping];
         
         RKObjectMapping *listMapping = [RKObjectMapping mappingForClass:[SKEntityList class]];
