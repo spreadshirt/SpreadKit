@@ -18,5 +18,6 @@
 @property (strong) NSString * name;
 @property (strong) SKUser * user;
 @property (strong) SKEntityList * products;
+@property (strong) SKEntityList * articles;
 
 @end

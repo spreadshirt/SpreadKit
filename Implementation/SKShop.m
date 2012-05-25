@@ -15,5 +15,6 @@
 @synthesize name;
 @synthesize user;
 @synthesize products;
+@synthesize articles;
 
 @end
