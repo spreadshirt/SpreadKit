@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSURL* url;
 @property (nonatomic, strong) NSDictionary *sizes;
-@property (nonatomic, strong) NSDictionary *appearances;
+@property (nonatomic, strong) NSSet *appearances;
 
 @end

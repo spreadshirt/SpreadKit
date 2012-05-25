@@ -14,6 +14,7 @@
 #import "SKProductType.h"
 #import "NSSet+SpreadKit.h"
 #import "SKEntityList.h"
+#import "SKAppearance.h"
 
 static SKObjectMappingProvider *sharedMappingProvider = nil;
 
@@ -32,10 +33,16 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [resourceMapping mapAttributes:@"mediaType", @"type", nil];
         [resourceMapping mapKeyPath:@"href" toAttribute:@"url"];
         
+        RKObjectMapping *appearanceMapping = [RKObjectMapping mappingForClass:[SKAppearance class]];
+        [appearanceMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [appearanceMapping mapAttributes:@"name", @"colors", @"printTypes", nil];
+        [appearanceMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [self addObjectMapping:appearanceMapping];
         
         RKObjectMapping *productTypeMapping = [RKObjectMapping mappingForClass:[SKProductType class]];
         [productTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productTypeMapping mapAttributes:@"sizes", @"appearences", nil];
+        [productTypeMapping mapKeyPath:@"appearances" toRelationship:@"appearances" withMapping:appearanceMapping];
         [self addObjectMapping:productTypeMapping];
         [self setMapping:productTypeMapping forKeyPath:@"productType"];
 
