@@ -11,7 +11,6 @@
 #import "SKObjectLoader.h"
 #import "SKObjectMappingProvider.h"
 #import "SKProduct.h"
-#import "SKProductCell.h"
 #import "SKResource.h"
 #import "SKShop.h"
 #import "SKUser.h"
