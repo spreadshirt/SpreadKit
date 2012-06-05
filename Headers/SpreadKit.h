@@ -18,3 +18,4 @@
 #import "SKProductType.h"
 #import "NSSet+SpreadKit.h"
 #import "SKEntityList.h"
+#import "SKArticle.h"
