@@ -11,7 +11,23 @@
 @implementation SKProductType
 
 @synthesize url;
+@synthesize identifier;
+@synthesize weight;
+@synthesize name;
+@synthesize shortDescription;
+@synthesize description;
+@synthesize categoryName;
+@synthesize brand;
+@synthesize shippingFactor;
+@synthesize sizeFitHint;
+@synthesize price;
+@synthesize defaultValues;
 @synthesize sizes;
 @synthesize appearances;
+@synthesize washingInstructions;
+@synthesize views;
+@synthesize printAreas;
+@synthesize stockStates;
+@synthesize resources;
 
 @end

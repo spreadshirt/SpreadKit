@@ -40,7 +40,8 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
                 
         RKObjectMapping *productTypeMapping = [RKObjectMapping mappingForClass:[SKProductType class]];
         [productTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [productTypeMapping mapAttributes:@"sizes", @"appearences", nil];
+        [productTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [productTypeMapping mapAttributes:@"sizes", @"appearences", @"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"price", @"defaultValues", @"sizes", @"washingInstructions", @"views", @"printAreas", @"stockStates", @"resources", nil];
 
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
         [productMapping mapAttributes:@"name", @"weight", @"creator", @"restrictions", nil];
