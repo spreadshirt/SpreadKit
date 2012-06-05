@@ -70,6 +70,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *shopMapping = [RKObjectMapping mappingForClass:[SKShop class]];
         [shopMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [shopMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [shopMapping mapAttributes:@"name", nil];
         
         // relationships
         [appearanceMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
