@@ -288,6 +288,7 @@
 				C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */,
 				C0853405154E87A400CA9F21 /* NSURL+PathParameters.m */,
 				C0D37C13156F8CBC007505BE /* SKAppearance.m */,
+				C0B2FA76156FB392008A103B /* SKArticle.m */,
 				C0BE9B10155414B1002A46A2 /* SKAuthenticationProvider.m */,
 				C079858D155BFEF1008F487D /* SKBasket.m */,
 				C09EF82A14C99579000BB775 /* SKClient.m */,
@@ -315,6 +316,7 @@
 				C0ADF741153813C700CC9AE4 /* NSSet+SpreadKit.h */,
 				C0853404154E87A400CA9F21 /* NSURL+PathParameters.h */,
 				C0D37C12156F8CBC007505BE /* SKAppearance.h */,
+				C0B2FA75156FB392008A103B /* SKArticle.h */,
 				C0BE9B0F155414B1002A46A2 /* SKAuthenticationProvider.h */,
 				C079858C155BFEF1008F487D /* SKBasket.h */,
 				C09EF82914C99579000BB775 /* SKClient.h */,
@@ -332,8 +334,6 @@
 				C07CD8BF152DD6BB0084304D /* SKShop.h */,
 				C07CD8AD152DB0F40084304D /* SKUser.h */,
 				C076A39C14F3A736006C06B8 /* SpreadKit.h */,
-				C0B2FA75156FB392008A103B /* SKArticle.h */,
-				C0B2FA76156FB392008A103B /* SKArticle.m */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
