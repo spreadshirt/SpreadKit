@@ -95,9 +95,6 @@
 		C0E7C8EC1506041A005A185A /* SKObjectLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7C8EA1506041A005A185A /* SKObjectLoader.m */; };
 		C0E7C8ED1506041A005A185A /* SKObjectLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7C8EA1506041A005A185A /* SKObjectLoader.m */; };
 		C0E7C8F315060438005A185A /* SKObjectLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7C8F015060438005A185A /* SKObjectLoaderTests.m */; };
-		C0F019F91529B66A00B0FED1 /* SKProductCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F019F71529B66A00B0FED1 /* SKProductCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0F019FA1529B66A00B0FED1 /* SKProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F019F81529B66A00B0FED1 /* SKProductCell.m */; };
-		C0F019FB1529B66A00B0FED1 /* SKProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F019F81529B66A00B0FED1 /* SKProductCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,8 +199,6 @@
 		C0E7C8E91506041A005A185A /* SKObjectLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectLoader.h; sourceTree = "<group>"; };
 		C0E7C8EA1506041A005A185A /* SKObjectLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectLoader.m; sourceTree = "<group>"; };
 		C0E7C8F015060438005A185A /* SKObjectLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectLoaderTests.m; sourceTree = "<group>"; };
-		C0F019F71529B66A00B0FED1 /* SKProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductCell.h; sourceTree = "<group>"; };
-		C0F019F81529B66A00B0FED1 /* SKProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,7 +299,6 @@
 				C02D2349155D09B800592AA8 /* SKObjectPoster.m */,
 				C0103D11154590580038E798 /* SKPaginator.m */,
 				C053321014D2ED76004CC955 /* SKProduct.m */,
-				C0F019F81529B66A00B0FED1 /* SKProductCell.m */,
 				C0B9EC70156F844A0095A5A0 /* SKProductType.m */,
 				C053320314D2E05A004CC955 /* SKResource.m */,
 				C07CD8C0152DD6BB0084304D /* SKShop.m */,
@@ -332,7 +326,6 @@
 				C02D2348155D09B800592AA8 /* SKObjectPoster.h */,
 				C0103D10154590580038E798 /* SKPaginator.h */,
 				C053320F14D2ED76004CC955 /* SKProduct.h */,
-				C0F019F71529B66A00B0FED1 /* SKProductCell.h */,
 				C0B9EC6F156F844A0095A5A0 /* SKProductType.h */,
 				C053320214D2E05A004CC955 /* SKResource.h */,
 				C07CD8BF152DD6BB0084304D /* SKShop.h */,
@@ -419,7 +412,6 @@
 				C0E7C8EB1506041A005A185A /* SKObjectLoader.h in Headers */,
 				C0A27357153C22E100D1AE45 /* SKEntityList.m in Headers */,
 				C0A27354153C1DA800D1AE45 /* SKEntityList.h in Headers */,
-				C0F019F91529B66A00B0FED1 /* SKProductCell.h in Headers */,
 				C07CD8AF152DB0F40084304D /* SKUser.h in Headers */,
 				C07CD8C1152DD6BB0084304D /* SKShop.h in Headers */,
 				C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */,
@@ -551,7 +543,6 @@
 				C03806F2150103780004BFC4 /* main.m in Sources */,
 				C0E7C8ED1506041A005A185A /* SKObjectLoader.m in Sources */,
 				C0E7C8F315060438005A185A /* SKObjectLoaderTests.m in Sources */,
-				C0F019FB1529B66A00B0FED1 /* SKProductCell.m in Sources */,
 				C07CD8B1152DB0F40084304D /* SKUser.m in Sources */,
 				C07CD8C3152DD6BB0084304D /* SKShop.m in Sources */,
 				C0ADF745153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */,
@@ -581,7 +572,6 @@
 				C096A29F1500E0CC00C70D86 /* SKProduct.m in Sources */,
 				C096A2A01500E0CC00C70D86 /* SKResource.m in Sources */,
 				C0E7C8EC1506041A005A185A /* SKObjectLoader.m in Sources */,
-				C0F019FA1529B66A00B0FED1 /* SKProductCell.m in Sources */,
 				C07CD8B0152DB0F40084304D /* SKUser.m in Sources */,
 				C07CD8C2152DD6BB0084304D /* SKShop.m in Sources */,
 				C0ADF744153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */,
