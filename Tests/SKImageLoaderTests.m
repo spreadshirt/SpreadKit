@@ -26,22 +26,28 @@
 {
     __block UIImage *result1;
     [self prepare];
-    [loader loadImageFromUrl:[NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1"] withWidth:[NSNumber numberWithInt:11] onSuccess:^(UIImage *image, NSURL *url) {
-        result1 = image;
-        [self notify:kGHUnitWaitStatusSuccess];
-    } onFailure:^ (NSError *error) {
-        GHFail(@"There should be no error");
+    
+    [loader loadImageFromUrl:[NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1"] withWidth:[NSNumber numberWithInt:11] completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
+        if (error) {
+            GHFail(@"There should be no error");
+        } else {
+            result1 = image;
+            [self notify:kGHUnitWaitStatusSuccess];
+        }
     }];
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
     GHAssertNotNil(result1, @"image with correct dimensions should load");
     
     __block NSError *result2;
     [self prepare];
-    [loader loadImageFromUrl:[NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1"] withWidth:[NSNumber numberWithInt:12] onSuccess:^(UIImage *image, NSURL *url) {
-        GHFail(@"Should not succeed");
-    } onFailure:^ (NSError *error) {
-        result2 = error;
-        [self notify:kGHUnitWaitStatusSuccess];
+    
+    [loader loadImageFromUrl:[NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1"] withWidth:[NSNumber numberWithInt:12] completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
+        if (error) {
+            result2 = error;
+            [self notify:kGHUnitWaitStatusSuccess];
+        } else {
+            GHFail(@"Should not succeed");
+        }
     }];
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
     GHAssertNotNil(result2, @"error should be set on loading of disallowed dimensions");
@@ -49,11 +55,13 @@
 
     __block NSError *result3;
     [self prepare];
-    [loader loadImageFromUrl:[NSURL URLWithString:@"foo"] withWidth:[NSNumber numberWithInt:11] onSuccess:^(UIImage *image, NSURL *url) {
-        GHFail(@"Should not succeed");
-    } onFailure:^ (NSError *error) {
-        result3 = error;
-        [self notify:kGHUnitWaitStatusSuccess];
+    [loader loadImageFromUrl:[NSURL URLWithString:@"foo"] withWidth:[NSNumber numberWithInt:11] completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
+        if (error) {
+            result3 = error;
+            [self notify:kGHUnitWaitStatusSuccess];
+        } else {
+            GHFail(@"Should not succeed");
+        }
     }];
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
     GHAssertNotNil(result3, @"error should be set on loading of wrong url");

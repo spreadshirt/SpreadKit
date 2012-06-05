@@ -33,10 +33,12 @@
     
     [self prepare];
     
-    [poster postObject:basket toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/baskets?mediaType=json"] mappingProvider:prov onSuccess:^(id object) {
-        [self notify:kGHUnitWaitStatusSuccess];
-    } onFailure:^(NSError *error) {
-        GHFail(@"No Basket");
+    [poster postObject:basket toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/baskets?mediaType=json"] mappingProvider:prov completion:^(id object, NSError *error) {
+        if (error) {
+            GHFail(@"Posting should work");
+        } else {
+            [self notify:kGHUnitWaitStatusSuccess];
+        }
     }];
     
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];

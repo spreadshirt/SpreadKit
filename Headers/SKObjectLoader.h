@@ -13,17 +13,17 @@
 
 @interface SKObjectLoader : NSObject <NSURLConnectionDelegate>
 
-- (void)load:(id)objectStub onSuccess:(void (^)(id loaded))success onFailure:(void (^)(NSError *))failure;
+- (void)load:(id)objectStub completion:(void (^)(id loaded, NSError *error))completion;
 
-- (void)loadSingleObjectStub:(id)theStub onSuccess:(void (^)(id loaded))sucess onFailure:(void (^)(NSError *error))failure;
+- (void)loadSingleObjectStub:(id)theStub completion:(void (^)(id loaded, NSError *error))completion;
 
-- (void)loadEntityList:(SKEntityList *)list onSuccess:(void (^)(NSArray *objects))sucess onFailure:(void (^)(NSError *error))failure;
+- (void)loadEntityList:(SKEntityList *)list completion:(void (^)(NSArray *objects, NSError *error))completion;
 
-- (void)loadSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
+- (void)loadSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping completion:(void (^)(NSArray *objects, NSError *error))completion;
 
 // loads the entity list elements, taking into account the offset and limit
-- (void)loadEntityListFromUrl:(NSURL *)url withParams:(NSDictionary *)params onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
+- (void)loadEntityListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *objects, NSError *error))completion;
 
-- (void)loadResourceFromUrl:(NSURL *)theUrl withParams:(NSDictionary *)params mappingProvdider:(RKObjectMappingProvider *)mappingProvider intoTargetObject:(id)target onSucess:(void (^)(NSArray *objects))success onFailure:(void (^)(NSError *error))failure;
+- (void)loadResourceFromUrl:(NSURL *)theUrl withParams:(NSDictionary *)params mappingProvdider:(RKObjectMappingProvider *)mappingProvider intoTargetObject:(id)target completion:(void (^)(NSArray *objects, NSError *error))completion;
 
 @end

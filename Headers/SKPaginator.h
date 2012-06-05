@@ -16,10 +16,10 @@
 
 + (SKPaginator *)paginatorWithEntityList:(SKEntityList *)list;
 
-- (void)loadNextPageAndOnSuccess:(void (^)(NSArray *pageElements))success onFailure:(void (^)(NSError *error))failure;
+- (void)loadNextPageAndOnCompletion:(void (^)(NSArray *pageElements, NSError *error))completion;
 
 
-- (void)loadPreviousPageAndOnSuccess:(void (^)(NSArray *pageElements))success onFailure:(void (^)(NSError *error))failure;
+- (void)loadPreviousPageAndOnCompletion:(void (^)(NSArray *pageElements, NSError *error))completion;
 
 - (id)initWithList:(SKEntityList *)list;
 

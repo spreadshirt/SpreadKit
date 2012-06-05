@@ -26,11 +26,13 @@
     
     [self prepare];
     
-    [loader1 loadEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] withParams:nil onSucess:^(NSArray *objects) {
-        result = objects;
-        [self notify:kGHUnitWaitStatusSuccess];
-    } onFailure:^(NSError *error) {
-        GHFail(@"Loading should work");
+    [loader1 loadEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] withParams:nil completion:^(NSArray *objects, NSError *error) {
+        if (error) {
+            GHFail(@"Loading should work");
+        } else {
+            result = objects;
+            [self notify:kGHUnitWaitStatusSuccess];
+        }
     }];
     
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
@@ -46,11 +48,13 @@
     
     [self prepare];
     
-    [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil mapping:productMapping onSucess:^(NSArray *objects) {
-        result = objects;
-        [self notify:kGHUnitWaitStatusSuccess];
-    } onFailure:^(NSError *error) {
-        GHFail(@"Loading should work");
+    [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil mapping:productMapping completion:^(NSArray *objects, NSError *error) {
+        if (error) {
+            GHFail(@"Loading should work");
+        } else {
+            result = objects;
+            [self notify:kGHUnitWaitStatusSuccess];
+        }
     }];
     
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
@@ -67,10 +71,12 @@
     
     [self prepare];
     
-    [loader3 load:user.products onSuccess:^(id objects){
-        [self notify:kGHUnitWaitStatusSuccess];
-    } onFailure:^(NSError *error) {
-        GHFail(@"Failure loading products of user");
+    [loader3 load:user.products completion:^(id loaded, NSError *error) {
+        if (error) {
+            GHFail(@"Loading should work");
+        } else {
+            [self notify:kGHUnitWaitStatusSuccess];
+        }
     }];
     
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];

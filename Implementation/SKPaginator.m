@@ -27,7 +27,7 @@
     return [[[self class] alloc] initWithList:theList];
 }
 
-- (void)loadNextPageAndOnSuccess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
+- (void)loadNextPageAndOnCompletion:(void (^)(NSArray *, NSError *))completion
 {
     if (list) {
         NSNumber *newOffset = [NSNumber numberWithUnsignedInt:([self.list.offset unsignedIntValue] + [self.list.limit unsignedIntValue])];
@@ -35,12 +35,12 @@
         if ([newOffset integerValue] < [list.count integerValue])
         {
             self.list.offset = newOffset;
-            [self loadPageAndOnSuccess:success onFailure:failure];
+            [self loadPageAndOnCompletion:completion];
         }
     }
 }
 
-- (void)loadPreviousPageAndOnSuccess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
+- (void)loadPreviousPageAndOnCompletion:(void (^)(NSArray *, NSError *))completion
 {
     if (list) {
         NSNumber *newOffset = [NSNumber numberWithUnsignedInt:([self.list.offset unsignedIntValue] - [self.list.limit unsignedIntValue])];
@@ -48,15 +48,15 @@
         if ([newOffset integerValue] > 0)
         {
             self.list.offset = newOffset;
-            [self loadPageAndOnSuccess:success onFailure:failure];
+            [self loadNextPageAndOnCompletion:completion];
         }
     }
 }
 
-- (void)loadPageAndOnSuccess:(void (^)(NSArray *pageElems))success onFailure:(void (^)(NSError *))failure
+- (void)loadPageAndOnCompletion:(void (^)(NSArray *pageElems, NSError *error))completion
 {
     SKObjectLoader *loader = [[SKObjectLoader alloc] init];
-    [loader loadEntityList:list onSuccess:success onFailure:failure];
+    [loader loadEntityList:list completion:completion];
 }
 
 @end

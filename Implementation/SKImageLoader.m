@@ -10,14 +10,14 @@
 
 @implementation SKImageLoader
 
-- (void)loadImageFromUrl:(NSURL *)url withWidth:(NSNumber *)width onSuccess:(void (^)(UIImage *image, NSURL *imageUrl))success onFailure:(void (^)(NSError *))failure
+- (void)loadImageFromUrl:(NSURL *)url withWidth:(NSNumber *)width completion:(void (^)(UIImage *, NSURL *, NSError *))completion
 {
     // return if image width is not allowed
     if (![[[self class] allowedDimensions] containsObject:width]) {
         NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
         [errorDetail setValue:@"The specified width is not allowed. Check [SKImageLoader allowedDimensions]." forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"SpreadKit" code:50 userInfo:errorDetail];
-        failure(error);
+        completion(nil, nil, error);
         return;
     }
     
@@ -33,9 +33,9 @@
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:theUrl] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connError) {
         if (data) {
             UIImage *image = [[UIImage alloc] initWithData:data];
-            success(image, url);
+            completion(image, url, nil);
         } else {
-            failure(connError);
+            completion(nil, nil, connError);
         }
     }];
 }

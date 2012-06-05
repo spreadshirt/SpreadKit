@@ -67,43 +67,36 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     return self;
 }
 
-- (void)loadShopAndOnSuccess:(void (^)(SKShop *))success onFailure:(void (^)(NSError *))failure
+- (void)loadShopAndOnCompletion:(void (^)(SKShop *, NSError *))completion
 {
-    NSURL *shopUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@", BASE, self.shopId]];
-    
+    NSURL *shopURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@", BASE, self.shopId]];
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
-    
     SKObjectLoader *loader= [[SKObjectLoader alloc] init];
-    [loader loadSingleEntityFromUrl:shopUrl withParams:nil intoTargetObject:nil mapping:mapping onSucess:^(NSArray *objects) {
+    
+    [loader loadSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKShop *shop = (SKShop *)[objects objectAtIndex:0];
-        success(shop);
-    } onFailure:^(NSError *error) {
-        failure(error);
+        completion(shop, error);
     }];
 }
 
-- (void)loadUserAndOnSuccess:(void (^)(SKUser *))success onFailure:(void (^)(NSError *))failure
+- (void)loadUserAndOnCompletion:(void (^)(SKUser *, NSError *))completion
 {
-    NSURL *shopUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", BASE, self.shopId]];
-    
-    RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
-    
+    NSURL *userURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", BASE, self.shopId]];
+    RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKUser class]];
     SKObjectLoader *loader= [[SKObjectLoader alloc] init];
-    [loader loadSingleEntityFromUrl:shopUrl withParams:nil intoTargetObject:nil mapping:mapping onSucess:^(NSArray *objects) {
+    
+    [loader loadSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKUser *user = (SKUser *)[objects objectAtIndex:0];
-        success(user);
-    } onFailure:^(NSError *error) {
-        failure(error);
+        completion(user, error);
     }];
 }
 
-- (void)load:(id)object onSuccess:(void (^)(id loadedObject))success onFailure:(void (^)(NSError *))failure
+
+- (void)load:(id)object completion:(void (^)(id, NSError *))completion
 {
     SKObjectLoader *loader = [[SKObjectLoader alloc] init];
-    [loader load:object onSuccess:^(id loadedObject){
-        success(loadedObject);
-    } onFailure:^(NSError *error) {
-        failure(failure);
+    [loader load:object completion:^(id loaded, NSError *error) {
+        completion(loaded, error);
     }];
 }
 

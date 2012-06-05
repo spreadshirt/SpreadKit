@@ -17,59 +17,61 @@
 
 @implementation SKObjectLoader
 
-- (void)load:(id)objectStub onSuccess:(void (^)(id loadedObject))success onFailure:(void (^)(NSError *))failure
+- (void)load:(id)objectStub completion:(void (^)(id, NSError *))completion
 {
     if ([objectStub isMemberOfClass:[SKEntityList class]]) {
         SKEntityList *el = (SKEntityList *)objectStub;
-        [self loadEntityList:el onSuccess:^(NSArray *objects) {
+        [self loadEntityList:el completion:^(NSArray *objects, NSError *error) {
             el.elements = [NSSet setWithArray:objects];
-            success(el);
-        } onFailure:failure];
+            completion(objects, error);
+        }];
     } else {
-        [self loadSingleObjectStub:objectStub onSuccess:success onFailure:failure];
+        [self loadSingleObjectStub:objectStub completion:completion];
     }
 }
 
-- (void)loadSingleObjectStub:(id)theStub onSuccess:(void (^)(id))sucess onFailure:(void (^)(NSError *))failure
+- (void)loadSingleObjectStub:(id)theStub completion:(void (^)(id, NSError *))completion
 {
     if ([theStub respondsToSelector:@selector(url)]) { 
         RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[theStub class]];
-        [self loadSingleEntityFromUrl:[theStub url] withParams:nil intoTargetObject:theStub mapping:mapping onSucess:^(NSArray *objects) {
-            sucess([objects objectAtIndex:0]);
-        } onFailure:^(NSError *error) {
-            failure(error);
+        [self loadSingleEntityFromUrl:[theStub url] withParams:nil intoTargetObject:theStub mapping:mapping completion:^(NSArray *objects, NSError *error) {
+            completion([objects objectAtIndex:0], error);
         }];
     } else {
-        failure([NSError errorWithDomain:@"SK" code:-1 userInfo:nil]);
+        completion(nil, [NSError errorWithDomain:@"SK" code:-1 userInfo:nil]);
     }
 }
 
-- (void)loadEntityList:(SKEntityList *)list onSuccess:(void (^)(NSArray *))sucess onFailure:(void (^)(NSError *))failure
+- (void)loadEntityList:(SKEntityList *)list completion:(void (^)(NSArray *, NSError *))completion
 {
     NSString *offset = [list.offset stringValue];
     NSString *limit = [list.limit stringValue];
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys: offset, @"offset", limit, @"limit", nil];
-    [self loadSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKEntityList class]] onSucess:^ (NSArray *objects) {
-        [self loadEntityListFromUrl:list.url withParams:params onSucess:sucess onFailure:failure];
-    } onFailure:failure];
+    
+    [self loadSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKEntityList class]] completion:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            [self loadEntityListFromUrl:list.url withParams:params completion:completion];
+        } else {
+            completion(nil, error);
+        }
+    }];
 }
 
-- (void)loadSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
+- (void)loadSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping completion:(void (^)(NSArray *, NSError *))completion
 {
-    // temporary mapping provider without root element
     RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
     [prov setMapping:mapping forKeyPath:@""];
-    [self loadResourceFromUrl:url withParams:params mappingProvdider:prov intoTargetObject:target onSucess:success onFailure:failure];
+    [self loadResourceFromUrl:url withParams:params mappingProvdider:prov intoTargetObject:target completion:completion];
 }
 
-- (void)loadEntityListFromUrl:(NSURL *)url withParams:(NSDictionary *)params onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
+- (void)loadEntityListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion
 {
     RKObjectMappingProvider *prov = [SKObjectMappingProvider sharedMappingProvider];
-    [self loadResourceFromUrl:url withParams:params mappingProvdider:prov intoTargetObject:nil onSucess:success onFailure:failure];
+    [self loadResourceFromUrl:url withParams:params mappingProvdider:prov intoTargetObject:nil completion:completion];
 }
 
-- (void)loadResourceFromUrl:(NSURL *)theUrl withParams:(NSDictionary *)passedParams mappingProvdider:(RKObjectMappingProvider *)mappingProvider intoTargetObject:(id)target onSucess:(void (^)(NSArray *))success onFailure:(void (^)(NSError *))failure
+- (void)loadResourceFromUrl:(NSURL *)theUrl withParams:(NSDictionary *)passedParams mappingProvdider:(RKObjectMappingProvider *)mappingProvider intoTargetObject:(id)target completion:(void (^)(NSArray *, NSError *))completion
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithKeysAndObjects:
                                    @"mediaType", @"json", 
@@ -90,7 +92,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:configuredURL];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
-            failure(error);
+            completion(nil, error);
             return;
         }
         
@@ -99,7 +101,7 @@
         
         id mappingResult = [[SKObjectMapper mapperWithMIMEType:response.MIMEType mappingProvider:mappingProvider andDestinationObject:target] 
                             performMappingWithData:data];
-        success(mappingResult);
+        completion(mappingResult, nil);
     }];
 }
 
