@@ -12,6 +12,11 @@
 
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size completion:(void (^)(UIImage *, NSURL *, NSError *))completion
 {
+    [self loadImageFromUrl:url withSize:size andAppearanceId:nil completion:completion];
+}
+
+- (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size andAppearanceId:(NSString *)appearanceId completion:(void (^)(UIImage *, NSURL *, NSError *))completion
+{
     CGFloat scaleFactor = [[UIScreen mainScreen] scale];
     
     NSUInteger pixelWidth = scaleFactor * size.width;
@@ -33,11 +38,15 @@
     }];
     
     // calculate query parameters
-    NSDictionary *queryParams = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSMutableDictionary *queryParams = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  [NSString stringWithFormat:@"%d", widthToLoad], @"width",
                                  [NSString stringWithFormat:@"%d", heightToLoad], @"height",
                                  @"png", @"mediaType",
                                  nil];
+    if (appearanceId) {
+        [queryParams setObject:appearanceId forKey:@"appearanceId"];
+    }
+    
     NSString *paramUrl = [url.absoluteString appendQueryParams:queryParams];
     NSURL *theUrl = [NSURL URLWithString:paramUrl];
     
