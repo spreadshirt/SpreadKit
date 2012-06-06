@@ -10,10 +10,16 @@
 
 @implementation SKImageLoader
 
+<<<<<<< HEAD
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size completion:(void (^)(UIImage *, NSURL *, NSError *))completion
+=======
+- (void)loadImageFromUrl:(NSURL *)url withWidth:(CGFloat)width completion:(void (^)(UIImage *, NSURL *, NSError *))completion
+>>>>>>> retina-aware-imageloader
 {
-    CGFloat scaleFactor = [[UIScreen mainScreen] scale];
     
+    // calculate needed pixel width for current screen
+    CGFloat scaleFactor = [[UIScreen mainScreen] scale];
+<<<<<<< HEAD
     NSUInteger pixelWidth = scaleFactor * size.width;
     NSUInteger pixelHeight = scaleFactor * size.height;
     
@@ -28,6 +34,15 @@
             heightToLoad = [obj unsignedIntValue];
         }
         if (widthToLoad != 0 && heightToLoad != 0) {
+=======
+    NSUInteger pixelWidth = scaleFactor * width;
+    
+    // get the next biggest allowed size to get from the api
+    __block NSUInteger widthToLoad;
+    [[[self class] allowedDimensions] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj intValue] >= pixelWidth) {
+             widthToLoad = [obj unsignedIntValue];
+>>>>>>> retina-aware-imageloader
             *stop = YES;
         }
     }];
@@ -35,7 +50,10 @@
     // calculate query parameters
     NSDictionary *queryParams = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [NSString stringWithFormat:@"%d", widthToLoad], @"width",
+<<<<<<< HEAD
                                  [NSString stringWithFormat:@"%d", heightToLoad], @"height",
+=======
+>>>>>>> retina-aware-imageloader
                                  @"png", @"mediaType",
                                  nil];
     NSString *paramUrl = [url.absoluteString appendQueryParams:queryParams];
