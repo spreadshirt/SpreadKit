@@ -12,6 +12,6 @@
 
 @interface SKImageLoader : NSObject
 
-- (void)loadImageFromUrl:(NSURL *)url withWidth:(CGFloat)width completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
+- (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
 
 @end

@@ -10,18 +10,25 @@
 
 @implementation SKImageLoader
 
-- (void)loadImageFromUrl:(NSURL *)url withWidth:(CGFloat)width completion:(void (^)(UIImage *, NSURL *, NSError *))completion
+- (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size completion:(void (^)(UIImage *, NSURL *, NSError *))completion
 {
     
     // calculate needed pixel width for current screen
     CGFloat scaleFactor = [[UIScreen mainScreen] scale];
-    NSUInteger pixelWidth = scaleFactor * width;
+    NSUInteger pixelWidth = scaleFactor * size.width;
+    NSUInteger pixelHeight = scaleFactor * size.height;
     
     // get the next biggest allowed size to get from the api
-    __block NSUInteger widthToLoad;
+    __block NSUInteger widthToLoad = 0;
+    __block NSUInteger heightToLoad = 0;
     [[[self class] allowedDimensions] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([obj intValue] >= pixelWidth) {
+        if ([obj unsignedIntValue] >= pixelWidth && widthToLoad == 0) {
              widthToLoad = [obj unsignedIntValue];
+        }
+        if ([obj unsignedIntValue] >= pixelHeight && heightToLoad == 0) {
+            heightToLoad = [obj unsignedIntValue];
+        }
+        if (widthToLoad != 0 && heightToLoad != 0) {
             *stop = YES;
         }
     }];
@@ -29,6 +36,7 @@
     // calculate query parameters
     NSDictionary *queryParams = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [NSString stringWithFormat:@"%d", widthToLoad], @"width",
+                                 [NSString stringWithFormat:@"%d", heightToLoad], @"height",
                                  @"png", @"mediaType",
                                  nil];
     NSString *paramUrl = [url.absoluteString appendQueryParams:queryParams];
