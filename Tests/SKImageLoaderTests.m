@@ -24,17 +24,17 @@
 
 - (void)testRetinaAwareLoading
 {
-    CGFloat neededSizeInPoints = 100.0;
+    CGSize neededSizeInPoints = CGSizeMake(100.0, 50.0);
     
     __block UIImage *result;
     [self prepare];
-    [loader loadImageFromUrl:[NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1"] withWidth:neededSizeInPoints completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
+    [loader loadImageFromUrl:[NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/compositions/25386428/views/1"] withSize:neededSizeInPoints completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
         result = image;
         [self notify:kGHUnitWaitStatusSuccess];
     }];
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
     GHAssertNotNil(result, @"Image should have been loaded");
-    GHAssertEquals(neededSizeInPoints , result.size.width, @"Loaded Image should have the needed width");
+    GHAssertEquals(neededSizeInPoints.width , result.size.width, @"Loaded Image should have the needed width");
     GHAssertEquals(result.scale, [[UIScreen mainScreen] scale], @"Loaded image should be scaled for the current screen");
 }
 
