@@ -16,6 +16,7 @@
 #import "SKEntityList.h"
 #import "SKAppearance.h"
 #import "SKArticle.h"
+#import "SKSize.h"
 
 static SKObjectMappingProvider *sharedMappingProvider = nil;
 
@@ -37,11 +38,15 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *appearanceMapping = [RKObjectMapping mappingForClass:[SKAppearance class]];
         [appearanceMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [appearanceMapping mapAttributes:@"name", @"colors", @"printTypes", nil];
+        
+        RKObjectMapping *sizeMapping = [RKObjectMapping mappingForClass:[SKSize class]];
+        [sizeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [sizeMapping mapAttributes:@"name", @"measures", nil];
                 
         RKObjectMapping *productTypeMapping = [RKObjectMapping mappingForClass:[SKProductType class]];
         [productTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [productTypeMapping mapAttributes:@"sizes", @"appearences", @"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"price", @"defaultValues", @"sizes", @"washingInstructions", @"views", @"printAreas", @"stockStates", @"resources", nil];
+        [productTypeMapping mapAttributes:@"appearences", @"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"price", @"defaultValues", @"washingInstructions", @"views", @"printAreas", @"stockStates", @"resources", nil];
 
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
         [productMapping mapAttributes:@"name", @"weight", @"creator", @"restrictions", nil];
@@ -80,6 +85,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productMapping mapKeyPath:@"productType" toRelationship:@"productType" withMapping:productTypeMapping];
         
         [productTypeMapping mapKeyPath:@"appearances" toRelationship:@"appearances" withMapping:appearanceMapping];
+        [productTypeMapping mapKeyPath:@"sizes" toRelationship:@"sizes" withMapping:sizeMapping];
         
         [articleMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
         [articleMapping mapKeyPath:@"product" toRelationship:@"product" withMapping:productMapping];

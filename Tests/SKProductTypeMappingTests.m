@@ -69,6 +69,10 @@
     GHAssertEqualStrings([[productType.defaultValues objectForKey:@"defaultView"] objectForKey:@"id"], @"1", @"should have the right default view");
     GHAssertEqualStrings([[productType.defaultValues objectForKey:@"defaultAppearance"] objectForKey:@"id"], @"7", @"should have the right default appearance");
     GHAssertEquals(productType.sizes.count, (unsigned int) 4, @"should have the correct amount of sizes");
+    
+    GHAssertEqualStrings([[productType.sizes objectAtIndex:0] name], @"S", @"Size should have the correct name");
+    GHAssertEqualStrings([[productType.sizes objectAtIndex:0] identifier], @"2", @"Size should have the correct id");
+    
     GHAssertEquals(productType.appearances.count, (unsigned int) 12, @"should have the right amount of appearances");
     GHAssertEquals(productType.washingInstructions.count, (unsigned int) 6, @"should have the right amount of washing instructions");
     GHAssertEquals(productType.views.count, (unsigned int) 4, @"should have the right amount of views");

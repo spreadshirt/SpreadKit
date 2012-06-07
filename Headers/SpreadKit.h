@@ -19,3 +19,4 @@
 #import "SKEntityList.h"
 #import "SKArticle.h"
 #import "SKAppearance.h"
+#import "SKSize.h"
