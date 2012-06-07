@@ -23,6 +23,7 @@
 @synthesize restrictions;
 @synthesize freeColorSelection;
 @synthesize productType;
+@synthesize appearance;
 
 - (void)setFreeColorSelection:(BOOL)freeColorSelection
 {

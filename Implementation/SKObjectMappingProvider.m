@@ -83,6 +83,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         [productMapping mapKeyPath:@"productType" toRelationship:@"productType" withMapping:productTypeMapping];
+        [productMapping mapKeyPath:@"appearance" toRelationship:@"appearance" withMapping:appearanceMapping];
         
         [productTypeMapping mapKeyPath:@"appearances" toRelationship:@"appearances" withMapping:appearanceMapping];
         [productTypeMapping mapKeyPath:@"sizes" toRelationship:@"sizes" withMapping:sizeMapping];

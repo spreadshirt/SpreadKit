@@ -11,6 +11,7 @@
 @class SKResource;
 @class SKUser;
 @class SKProductType;
+@class SKAppearance;
 
 @interface SKProduct : NSObject
 
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) SKUser *user;
 @property (nonatomic, strong) SKProductType *productType;
 @property (nonatomic, strong) NSDictionary* restrictions;
+@property (nonatomic, strong) SKAppearance *appearance;
 @property (nonatomic) BOOL freeColorSelection;
 
 @end
