@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @class SKShop;
+@class SKSize;
+@class SKAppearance;
 
 @interface SKBasketItem : NSObject
 
@@ -20,5 +22,10 @@
 @property (nonatomic, strong) NSDictionary * price;
 @property (nonatomic, strong) SKShop * shop;
 @property (nonatomic, strong) NSString * origin;
+@property (nonatomic, strong) NSArray * properties;
+
+@property (nonatomic, weak) id item;
+@property (nonatomic, weak) SKSize * size;
+@property (nonatomic, weak) SKAppearance *appearance;
 
 @end

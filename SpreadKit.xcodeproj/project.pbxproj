@@ -68,6 +68,7 @@
 		C0A041F91581DDF400953AF4 /* SKBasketItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A041F71581DDF400953AF4 /* SKBasketItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A041FA1581DDF400953AF4 /* SKBasketItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A041F81581DDF400953AF4 /* SKBasketItem.m */; };
 		C0A041FC1581DE1000953AF4 /* SKBasketItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A041F81581DDF400953AF4 /* SKBasketItem.m */; };
+		C0A041FF1581E76300953AF4 /* SKBasketItemMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */; };
 		C0A27354153C1DA800D1AE45 /* SKEntityList.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A27352153C1DA800D1AE45 /* SKEntityList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A27355153C1DA800D1AE45 /* SKEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A27353153C1DA800D1AE45 /* SKEntityList.m */; };
 		C0A27357153C22E100D1AE45 /* SKEntityList.m in Headers */ = {isa = PBXBuildFile; fileRef = C0A27353153C1DA800D1AE45 /* SKEntityList.m */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -172,6 +173,7 @@
 		C09EF84314C99F83000BB775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C0A041F71581DDF400953AF4 /* SKBasketItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBasketItem.h; sourceTree = "<group>"; };
 		C0A041F81581DDF400953AF4 /* SKBasketItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketItem.m; sourceTree = "<group>"; };
+		C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketItemMappingTests.m; sourceTree = "<group>"; };
 		C0A27352153C1DA800D1AE45 /* SKEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEntityList.h; sourceTree = "<group>"; };
 		C0A27353153C1DA800D1AE45 /* SKEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEntityList.m; sourceTree = "<group>"; };
 		C0A2E7401578AD18004A3847 /* SKProductTypeMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductTypeMappingTests.m; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			children = (
 				C0B2FA7D156FBB53008A103B /* SKArticleMappingTests.m */,
 				C0A2E7401578AD18004A3847 /* SKProductTypeMappingTests.m */,
+				C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */,
 			);
 			name = MappingTests;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				C0A2E7411578AD18004A3847 /* SKProductTypeMappingTests.m in Sources */,
 				C03A189D1580A82D005D5B8F /* SKSize.m in Sources */,
 				C0A041FC1581DE1000953AF4 /* SKBasketItem.m in Sources */,
+				C0A041FF1581E76300953AF4 /* SKBasketItemMappingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
