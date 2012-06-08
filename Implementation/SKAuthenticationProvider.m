@@ -8,8 +8,15 @@
 
 #import "SKAuthenticationProvider.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "SKClient.h"
 
 @implementation SKAuthenticationProvider
+
++ (NSString *)authorizationHeaderFromApiKey:(NSString *)theApiKey andSecret:(NSString *)theSecret andURL:(NSString *)theURL andMethod:(NSString *)theMethod andSessionId:(NSString *)theSessionId
+{
+    int timeStamp = [[NSDate date] timeIntervalSince1970] - [[SKClient sharedClient] serverTimeOffset];
+    return [self authorizationHeaderFromApiKey:theApiKey andSecret:theSecret andURL:theURL andMethod:theMethod andTimeStamp:[NSString stringWithFormat:@"%d", timeStamp] andSessionId:theSessionId];
+}
 
 + (NSString *)authorizationHeaderFromApiKey:(NSString *)theApiKey andSecret:(NSString *)theSecret andURL:(NSString *)theURL andMethod:(NSString *)theMethod andTimeStamp:(NSString *)theTimestamp andSessionId:(NSString *)theSessionId
 {

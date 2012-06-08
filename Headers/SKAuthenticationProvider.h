@@ -18,4 +18,10 @@
                                andTimeStamp:(NSString *)theTimestamp
                                andSessionId:(NSString *)theSessionId;
 
++ (NSString *)authorizationHeaderFromApiKey:(NSString *)theApiKey
+                                  andSecret:(NSString *)theSecret 
+                                     andURL:(NSString *)theURL 
+                                  andMethod:(NSString *)theMethod
+                               andSessionId:(NSString *)theSessionId;
+
 @end

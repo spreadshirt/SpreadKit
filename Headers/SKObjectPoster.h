@@ -11,6 +11,6 @@
 
 @interface SKObjectPoster : NSObject
 
-- (void)postObject:(id)theObject toURL:(NSURL *)theURL mappingProvider:(RKObjectMappingProvider *)mappingProvider completion:(void (^)(id object, NSError *error))completion;
+- (void)postObject:(id)theObject toURL:(NSURL *)theURL apiKey:(NSString *)apiKey secret:(NSString *)secret mappingProvider:(RKObjectMappingProvider *)mappingProvider completion:(void (^)(id object, NSError *error))completion;
 
 @end

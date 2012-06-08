@@ -13,7 +13,7 @@
 
 @implementation SKObjectPoster
 
-- (void)postObject:(id)theObject toURL:(NSURL *)theURL mappingProvider:(RKObjectMappingProvider *)mappingProvider completion:(void (^)(id, NSError *))completion
+- (void)postObject:(id)theObject toURL:(NSURL *)theURL apiKey:(NSString *)apiKey secret:(NSString *)secret mappingProvider:(RKObjectMappingProvider *)mappingProvider completion:(void (^)(id, NSError *))completion
 {
     // map the object to json
     SKObjectMapper *mapper = [SKObjectMapper mapperWithMIMEType:RKMIMETypeJSON mappingProvider:mappingProvider];
@@ -24,7 +24,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theURL];
     request.HTTPMethod = @"POST";
     request.HTTPBody = requestData;
-    [request setValue:[SKAuthenticationProvider authorizationHeaderFromApiKey:@"xxx" andSecret:@"4b7421c1-aeca-4685-b09b-87aa846a3bcb" andURL:[theURL absoluteString] andMethod:request.HTTPMethod andTimeStamp:@"1337592528" andSessionId:nil] forHTTPHeaderField:@"Authorization"];
+    [request setValue:[SKAuthenticationProvider authorizationHeaderFromApiKey:apiKey andSecret:secret andURL:[theURL absoluteString] andMethod:request.HTTPMethod andSessionId:nil] forHTTPHeaderField:@"Authorization"];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
