@@ -16,6 +16,6 @@
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) SKShop *shop;
 @property (nonatomic, strong) SKUser *user;
-@property (nonatomic, strong) SKEntityList *basketItems;
+@property (nonatomic, strong) NSArray *basketItems;
 
 @end

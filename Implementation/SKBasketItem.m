@@ -50,11 +50,27 @@
     
     NSMutableDictionary * elementMDict = [NSMutableDictionary dictionaryWithDictionary:element];
     
-    NSMutableDictionary * propertiesMDict = [NSMutableDictionary dictionaryWithDictionary:[elementMDict objectForKey:@"properties"]];
+    NSMutableArray * propertiesMArray = [NSMutableArray arrayWithArray:[elementMDict objectForKey:@"properties"]];
     
-    [propertiesMDict setObject:[appearance identifier] forKey:@"appearance"];
     
-    [elementMDict setObject:[NSDictionary dictionaryWithDictionary:propertiesMDict] forKey:@"properties"];
+    NSMutableDictionary *appearanceMDict;
+    // check if properties already contains appearance and override or create
+    BOOL containsAppearance = NO;
+    for (NSDictionary *obj in propertiesMArray) {
+        if ([[obj objectForKey:@"key"] isEqualToString:@"appearance"]) {
+            appearanceMDict = [NSMutableDictionary dictionaryWithDictionary:obj];
+            containsAppearance = YES;
+        }
+    }
+    
+    if (!containsAppearance) {
+        appearanceMDict = [NSMutableDictionary dictionaryWithObject:@"appearance" forKey:@"key"];
+        [propertiesMArray addObject:appearanceMDict];
+    }
+    
+    [appearanceMDict setObject:appearance.identifier forKey:@"value"];
+    
+    [elementMDict setObject:[NSArray arrayWithArray:propertiesMArray] forKey:@"properties"];
     self.element = [NSDictionary dictionaryWithDictionary:elementMDict];
 }
 
@@ -64,13 +80,28 @@
     
     NSMutableDictionary * elementMDict = [NSMutableDictionary dictionaryWithDictionary:element];
     
-    NSMutableDictionary * propertiesMDict = [NSMutableDictionary dictionaryWithDictionary:[elementMDict objectForKey:@"properties"]];
+    NSMutableArray * propertiesMArray = [NSMutableArray arrayWithArray:[elementMDict objectForKey:@"properties"]];
     
-    [propertiesMDict setObject:[size identifier] forKey:@"size"];
     
-    [elementMDict setObject:[NSDictionary dictionaryWithDictionary:propertiesMDict] forKey:@"properties"];
+    NSMutableDictionary *appearanceMDict;
+    // check if properties already contains appearance and override or create
+    BOOL containsSize = NO;
+    for (NSDictionary *obj in propertiesMArray) {
+        if ([[obj objectForKey:@"key"] isEqualToString:@"size"]) {
+            appearanceMDict = [NSMutableDictionary dictionaryWithDictionary:obj];
+            containsSize = YES;
+        }
+    }
+    
+    if (!containsSize) {
+        appearanceMDict = [NSMutableDictionary dictionaryWithObject:@"size" forKey:@"key"];
+        [propertiesMArray addObject:appearanceMDict];
+    }
+    
+    [appearanceMDict setObject:size.identifier forKey:@"value"];
+    
+    [elementMDict setObject:[NSArray arrayWithArray:propertiesMArray] forKey:@"properties"];
     self.element = [NSDictionary dictionaryWithDictionary:elementMDict];
-
 }
 
 @end

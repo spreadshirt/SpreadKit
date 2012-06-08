@@ -50,17 +50,42 @@
     GHAssertNil(testable.element, nil);
     
     testable.appearance = appearance;
+    
+    NSArray *properties = [testable.element objectForKey:@"properties"];
+    
     GHAssertNotNil(testable.element, @"element should have been set");
-    GHAssertEquals([[testable.element objectForKey:@"properties"] count], (unsigned int) 1, @"appearance property should have been set");
-    GHAssertEqualStrings([[testable.element objectForKey:@"properties"] objectForKey:@"appearance"], appearance.identifier, @"appearance id should be correct");
+    GHAssertNotNil(properties, @"properties should have been set");
+    GHAssertEquals([properties count], (unsigned int) 1, @"appearance property should have been set");
+
+    BOOL containsAppearance = NO;
+    for (NSDictionary *object in properties) {
+        if ([[object objectForKey:@"key"] isEqualToString:@"appearance"]) {
+            containsAppearance = YES;
+            GHAssertEqualStrings([object objectForKey:@"value"], appearance.identifier, @"should contain the right appearance");
+        }
+    }
+    
+    GHAssertTrue(containsAppearance, @"properties should contain appearance");
+
     
     SKSize *size = [[SKSize alloc] init];
     size.identifier = @"2";
     
     testable.size = size;
+    properties = [testable.element objectForKey:@"properties"];
+    
     GHAssertNotNil(testable.element, @"element should have been set");
-    GHAssertEquals([[testable.element objectForKey:@"properties"] count], (unsigned int) 2, @"appearance property should have been set");
-    GHAssertEqualStrings([[testable.element objectForKey:@"properties"] objectForKey:@"size"], size.identifier, @"appearance id should be correct");
+    GHAssertNotNil(properties, @"properties should have been set");
+    GHAssertEquals([properties count], (unsigned int) 2, @"size property should have been set");
+    
+    BOOL containsSize = NO;
+    for (NSDictionary *object in properties) {
+        if ([[object objectForKey:@"key"] isEqualToString:@"size"]) {
+            containsSize = YES;
+            GHAssertEqualStrings([object objectForKey:@"value"], size.identifier, @"should contain the right appearance");
+        }
+    }
+    GHAssertTrue(containsSize, @"properties should contain size");
 }
 
 @end
