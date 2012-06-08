@@ -17,6 +17,8 @@
 #import "SKAppearance.h"
 #import "SKArticle.h"
 #import "SKSize.h"
+#import "SKBasket.h"
+#import "SKBasketItem.h"
 
 static SKObjectMappingProvider *sharedMappingProvider = nil;
 
@@ -77,6 +79,15 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [shopMapping mapKeyPath:@"href" toAttribute:@"url"];
         [shopMapping mapAttributes:@"name", nil];
         
+        RKObjectMapping *basketMapping = [RKObjectMapping mappingForClass:[SKBasket class]];
+        [basketMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [basketMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [basketMapping mapAttributes:@"token", nil];
+        
+        RKObjectMapping *basketItemMapping = [RKObjectMapping mappingForClass:[SKBasketItem class]];
+        [basketItemMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [basketItemMapping mapAttributes:@"description", @"quantity", @"links", @"price", @"origin", @"element", nil];
+        
         // relationships
         [appearanceMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
@@ -96,6 +107,10 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         [shopMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
         [shopMapping mapKeyPath:@"articles" toRelationship:@"articles" withMapping:listMapping];
+        
+        [basketMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
+        [basketMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
+        [basketMapping mapKeyPath:@"basketItems" toRelationship:@"basketItems" withMapping:basketItemMapping];
 
         
         // mapping registrations
@@ -105,11 +120,14 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self addObjectMapping:productTypeMapping];
         [self addObjectMapping:productMapping];
         [self addObjectMapping:articleMapping];
+        [self addObjectMapping:basketMapping];
+        [self addObjectMapping:basketItemMapping];
         [self setMapping:articleMapping forKeyPath:@"articles"];
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];
         [self setMapping:productMapping forKeyPath:@"products"];
         [self setMapping:productTypeMapping forKeyPath:@"productType"];
+        [self setMapping:basketItemMapping forKeyPath:@"basketItems"];
     }
     return self;
 }

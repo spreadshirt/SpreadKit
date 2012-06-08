@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) SKShop *shop;
 @property (nonatomic, strong) SKUser *user;
 @property (nonatomic, strong) NSArray *basketItems;

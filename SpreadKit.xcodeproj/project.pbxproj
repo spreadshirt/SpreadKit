@@ -69,6 +69,8 @@
 		C0A041FA1581DDF400953AF4 /* SKBasketItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A041F81581DDF400953AF4 /* SKBasketItem.m */; };
 		C0A041FC1581DE1000953AF4 /* SKBasketItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A041F81581DDF400953AF4 /* SKBasketItem.m */; };
 		C0A041FF1581E76300953AF4 /* SKBasketItemMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */; };
+		C0A04201158219AB00953AF4 /* basket.json in Resources */ = {isa = PBXBuildFile; fileRef = C0A04200158219AB00953AF4 /* basket.json */; };
+		C0A0420415821AEB00953AF4 /* SKBasketMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A0420315821AEB00953AF4 /* SKBasketMappingTests.m */; };
 		C0A27354153C1DA800D1AE45 /* SKEntityList.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A27352153C1DA800D1AE45 /* SKEntityList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A27355153C1DA800D1AE45 /* SKEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A27353153C1DA800D1AE45 /* SKEntityList.m */; };
 		C0A27357153C22E100D1AE45 /* SKEntityList.m in Headers */ = {isa = PBXBuildFile; fileRef = C0A27353153C1DA800D1AE45 /* SKEntityList.m */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -174,6 +176,8 @@
 		C0A041F71581DDF400953AF4 /* SKBasketItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBasketItem.h; sourceTree = "<group>"; };
 		C0A041F81581DDF400953AF4 /* SKBasketItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketItem.m; sourceTree = "<group>"; };
 		C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketItemMappingTests.m; sourceTree = "<group>"; };
+		C0A04200158219AB00953AF4 /* basket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basket.json; sourceTree = "<group>"; };
+		C0A0420315821AEB00953AF4 /* SKBasketMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketMappingTests.m; sourceTree = "<group>"; };
 		C0A27352153C1DA800D1AE45 /* SKEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEntityList.h; sourceTree = "<group>"; };
 		C0A27353153C1DA800D1AE45 /* SKEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEntityList.m; sourceTree = "<group>"; };
 		C0A2E7401578AD18004A3847 /* SKProductTypeMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductTypeMappingTests.m; sourceTree = "<group>"; };
@@ -397,6 +401,7 @@
 				C0B2FA7D156FBB53008A103B /* SKArticleMappingTests.m */,
 				C0A2E7401578AD18004A3847 /* SKProductTypeMappingTests.m */,
 				C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */,
+				C0A0420315821AEB00953AF4 /* SKBasketMappingTests.m */,
 			);
 			name = MappingTests;
 			sourceTree = "<group>";
@@ -404,11 +409,12 @@
 		C0C6922514EE576D0068C18D /* Mock Responses */ = {
 			isa = PBXGroup;
 			children = (
-				C0A2E7421578AE0E004A3847 /* productType.json */,
+				C0A04200158219AB00953AF4 /* basket.json */,
 				C0B2FA7F156FBD63008A103B /* article.json */,
 				C0C6921314EE57440068C18D /* product.json */,
 				C0C6921414EE57440068C18D /* products.json */,
 				C035E4E315063FE800A52242 /* products2.json */,
+				C0A2E7421578AE0E004A3847 /* productType.json */,
 				C0ADF74915381B0E00CC9AE4 /* user.json */,
 			);
 			path = "Mock Responses";
@@ -540,6 +546,7 @@
 				C0ADF74A15381B0E00CC9AE4 /* user.json in Resources */,
 				C0B2FA80156FBD63008A103B /* article.json in Resources */,
 				C0A2E7431578AE0E004A3847 /* productType.json in Resources */,
+				C0A04201158219AB00953AF4 /* basket.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +588,7 @@
 				C03A189D1580A82D005D5B8F /* SKSize.m in Sources */,
 				C0A041FC1581DE1000953AF4 /* SKBasketItem.m in Sources */,
 				C0A041FF1581E76300953AF4 /* SKBasketItemMappingTests.m in Sources */,
+				C0A0420415821AEB00953AF4 /* SKBasketMappingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
