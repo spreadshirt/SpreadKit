@@ -17,6 +17,6 @@
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) SKShop *shop;
 @property (nonatomic, strong) SKUser *user;
-@property (nonatomic, strong) NSArray *basketItems;
+@property (nonatomic, strong) NSMutableArray *basketItems;
 
 @end
