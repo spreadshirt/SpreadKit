@@ -20,3 +20,4 @@
 #import "SKArticle.h"
 #import "SKAppearance.h"
 #import "SKSize.h"
+#import "SKBasketItem.h"
