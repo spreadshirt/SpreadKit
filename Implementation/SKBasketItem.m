@@ -23,7 +23,6 @@
 @synthesize price;
 @synthesize quantity;
 @synthesize element;
-@synthesize properties;
 @synthesize item;
 @synthesize size;
 @synthesize appearance;
