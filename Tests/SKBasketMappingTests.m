@@ -10,6 +10,7 @@
 #import "SKObjectMappingProvider.h"
 #import "SKBasket.h"
 #import "SKBasketItem.h"
+#import "SKArticle.h"
 
 @interface RKObjectMapper (Private)
 
@@ -72,6 +73,28 @@
     
     GHAssertEqualStrings([item.element objectForKey:@"type"], @"sprd:article", @"item should have the right type");
     GHAssertEqualStrings([item.element objectForKey:@"href"], @"http://api.spreadshirt.net/api/v1/shops/611779/articles/19275565", nil);
+}
+
+- (void)testSerialization
+{
+    SKBasket *basket = [[SKBasket alloc] init];
+    basket.token = @"foobar";
+    
+    SKBasketItem *item = [[SKBasketItem alloc] init];
+    SKArticle *article = [[SKArticle alloc] init];
+    article.name = @"test";
+    article.url = [NSURL URLWithString:@"http://foo.bar"];
+    item.item = article;
+    basket.basketItems = [NSMutableArray arrayWithObject:item];
+    
+    RKObjectMapping *serializationMapping = [testable serializationMappingForClass:[SKBasket class]];
+    RKObjectSerializer *serializer = [RKObjectSerializer serializerWithObject:basket mapping:serializationMapping];
+    
+    NSError *error = nil;
+    
+    NSString *serializedString = [serializer serializedObjectForMIMEType:RKMIMETypeJSON error:&error];
+    
+    GHAssertEqualStrings(serializedString, @"{\"token\":\"foobar\",\"basketItems\":[{\"element\":{\"type\":\"sprd:article\",\"href\":\"http://foo.bar\"}}]}", @"basket with items should serialize correctly");
 }
                                       
 @end

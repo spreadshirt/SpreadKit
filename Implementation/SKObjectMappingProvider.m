@@ -111,7 +111,10 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [basketMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
         [basketMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         [basketMapping mapKeyPath:@"basketItems" toRelationship:@"basketItems" withMapping:basketItemMapping];
-
+        
+        // serialization mappings
+        RKObjectMapping *basketSerializationMapping = [basketMapping inverseMapping];
+        [self setSerializationMapping:basketSerializationMapping forClass:[SKBasket class]];
         
         // mapping registrations
         [self addObjectMapping:userMapping];
