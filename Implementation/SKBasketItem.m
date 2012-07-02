@@ -33,7 +33,7 @@
     
     NSMutableDictionary * elementMDict = [NSMutableDictionary dictionaryWithDictionary:element];
 
-    [elementMDict setObject:[item url] forKey:@"href"];
+    [elementMDict setObject:[[item url] absoluteString] forKey:@"href"];
     
     if ([item isKindOfClass:[SKArticle class]]) {
         [elementMDict setObject:@"sprd:article" forKey:@"type"];

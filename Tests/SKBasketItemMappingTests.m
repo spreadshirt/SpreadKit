@@ -32,7 +32,7 @@
     testable.item = article;
     
     GHAssertNotNil(testable.element, @"element info should have been set");
-    GHAssertEqualStrings([testable.element objectForKey:@"href"], article.url, @"element should have the right url");
+    GHAssertEqualStrings([testable.element objectForKey:@"href"], article.url.absoluteString, @"element should have the right url");
     GHAssertEqualStrings([testable.element objectForKey:@"type"], @"sprd:article", @"element should have the right type");
     
     SKProduct *product = [[SKProduct alloc] init];
@@ -40,7 +40,7 @@
     
     testable.item = product;
     GHAssertNotNil(testable.element, @"element info should have been set");
-    GHAssertEqualStrings([testable.element objectForKey:@"href"], product.url, @"element should have the right url");
+    GHAssertEqualStrings([testable.element objectForKey:@"href"], product.url.absoluteString, @"element should have the right url");
     GHAssertEqualStrings([testable.element objectForKey:@"type"], @"sprd:product", @"element should have the right type");
     
     SKAppearance *appearance = [[SKAppearance alloc] init];
