@@ -107,6 +107,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         [shopMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
         [shopMapping mapKeyPath:@"articles" toRelationship:@"articles" withMapping:listMapping];
+        [shopMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:listMapping];
         
         [basketMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
         [basketMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
@@ -129,7 +130,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];
         [self setMapping:productMapping forKeyPath:@"products"];
-        [self setMapping:productTypeMapping forKeyPath:@"productType"];
+        [self setMapping:productTypeMapping forKeyPath:@"productTypes"];
         [self setMapping:basketItemMapping forKeyPath:@"basketItems"];
     }
     return self;

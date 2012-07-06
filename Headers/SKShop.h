@@ -19,5 +19,6 @@
 @property (strong) SKUser * user;
 @property (strong) SKEntityList * products;
 @property (strong) SKEntityList * articles;
+@property (strong) SKEntityList * productTypes;
 
 @end

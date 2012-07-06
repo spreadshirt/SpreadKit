@@ -16,5 +16,6 @@
 @synthesize user;
 @synthesize products;
 @synthesize articles;
+@synthesize productTypes;
 
 @end
