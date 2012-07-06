@@ -47,7 +47,13 @@
     NSString *offset = [list.offset stringValue];
     NSString *limit = [list.limit stringValue];
     
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys: offset, @"offset", limit, @"limit", nil];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    if (offset) {
+        [params setObject:offset forKey:@"offset"];
+    }
+    if (limit) {
+        [params setObject:limit forKey:@"limit"];
+    }
     
     [self loadSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKEntityList class]] completion:^(NSArray *objects, NSError *error) {
         if (!error) {
