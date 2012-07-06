@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSURL * url;
 @property (nonatomic, strong) NSNumber * weight;
-@property (nonatomic, strong) NSSet *resources;
+@property (nonatomic, strong) NSArray *resources;
 @property (nonatomic, strong) SKUser *user;
 @property (nonatomic, strong) SKProductType *productType;
 @property (nonatomic, strong) NSDictionary* restrictions;
