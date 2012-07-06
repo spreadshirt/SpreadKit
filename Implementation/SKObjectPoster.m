@@ -34,8 +34,9 @@
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if (httpResponse.statusCode == 201) {
             [theObject setUrl:[NSURL URLWithString:[[httpResponse allHeaderFields] objectForKey:@"Location"]]];
+            completion(theObject, nil);
         }
-        completion(theObject, nil);
+        completion(nil, nil);
     }];
 }
 

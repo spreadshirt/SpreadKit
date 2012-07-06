@@ -12,4 +12,12 @@
 
 @synthesize url, token, shop, user, basketItems, identifier;
 
+- (id)init
+{
+    if (self = [super init]) {
+        basketItems = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 @end

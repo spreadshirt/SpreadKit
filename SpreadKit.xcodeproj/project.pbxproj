@@ -26,6 +26,9 @@
 		C02D234B155D09B800592AA8 /* SKObjectPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = C02D2349155D09B800592AA8 /* SKObjectPoster.m */; };
 		C02D234C155D09B800592AA8 /* SKObjectPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = C02D2349155D09B800592AA8 /* SKObjectPoster.m */; };
 		C02D2350155D0B8800592AA8 /* SKObjectPosterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C02D234F155D0B8800592AA8 /* SKObjectPosterTests.m */; };
+		C031985C15A19AA500948254 /* SKBasketManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C031985A15A19AA500948254 /* SKBasketManager.h */; };
+		C031985D15A19AA500948254 /* SKBasketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C031985B15A19AA500948254 /* SKBasketManager.m */; };
+		C031985E15A19AA500948254 /* SKBasketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C031985B15A19AA500948254 /* SKBasketManager.m */; };
 		C035E4E415063FE800A52242 /* products2.json in Resources */ = {isa = PBXBuildFile; fileRef = C035E4E315063FE800A52242 /* products2.json */; };
 		C03806E8150103780004BFC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84014C99F83000BB775 /* UIKit.framework */; };
 		C03806E9150103780004BFC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
@@ -104,6 +107,7 @@
 		C0E7C8EC1506041A005A185A /* SKObjectLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7C8EA1506041A005A185A /* SKObjectLoader.m */; };
 		C0E7C8ED1506041A005A185A /* SKObjectLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7C8EA1506041A005A185A /* SKObjectLoader.m */; };
 		C0E7C8F315060438005A185A /* SKObjectLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7C8F015060438005A185A /* SKObjectLoaderTests.m */; };
+		C0FE50D715A1C5550015BC6F /* SKBasketManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +140,8 @@
 		C02D2348155D09B800592AA8 /* SKObjectPoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectPoster.h; sourceTree = "<group>"; };
 		C02D2349155D09B800592AA8 /* SKObjectPoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectPoster.m; sourceTree = "<group>"; };
 		C02D234F155D0B8800592AA8 /* SKObjectPosterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectPosterTests.m; sourceTree = "<group>"; };
+		C031985A15A19AA500948254 /* SKBasketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBasketManager.h; sourceTree = "<group>"; };
+		C031985B15A19AA500948254 /* SKBasketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketManager.m; sourceTree = "<group>"; };
 		C035E4E315063FE800A52242 /* products2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products2.json; sourceTree = "<group>"; };
 		C03806E6150103780004BFC4 /* SpreadKitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpreadKitTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitTests-Info.plist"; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 		C0E7C8E91506041A005A185A /* SKObjectLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectLoader.h; sourceTree = "<group>"; };
 		C0E7C8EA1506041A005A185A /* SKObjectLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectLoader.m; sourceTree = "<group>"; };
 		C0E7C8F015060438005A185A /* SKObjectLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectLoaderTests.m; sourceTree = "<group>"; };
+		C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketManagerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +268,7 @@
 				C0C6921814EE57440068C18D /* SKObjectMappingProviderTests.m */,
 				C02D234F155D0B8800592AA8 /* SKObjectPosterTests.m */,
 				C03806EC150103780004BFC4 /* Supporting Files */,
+				C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 				C0BE9B10155414B1002A46A2 /* SKAuthenticationProvider.m */,
 				C079858D155BFEF1008F487D /* SKBasket.m */,
 				C0A041F81581DDF400953AF4 /* SKBasketItem.m */,
+				C031985B15A19AA500948254 /* SKBasketManager.m */,
 				C09EF82A14C99579000BB775 /* SKClient.m */,
 				C0A27353153C1DA800D1AE45 /* SKEntityList.m */,
 				C05B414114D7F4F2006C4F52 /* SKImageLoader.m */,
@@ -336,6 +345,7 @@
 				C0BE9B0F155414B1002A46A2 /* SKAuthenticationProvider.h */,
 				C079858C155BFEF1008F487D /* SKBasket.h */,
 				C0A041F71581DDF400953AF4 /* SKBasketItem.h */,
+				C031985A15A19AA500948254 /* SKBasketManager.h */,
 				C09EF82914C99579000BB775 /* SKClient.h */,
 				C0A27352153C1DA800D1AE45 /* SKEntityList.h */,
 				C05B414014D7F4F2006C4F52 /* SKImageLoader.h */,
@@ -450,6 +460,7 @@
 				C0B9EC71156F844A0095A5A0 /* SKProductType.h in Headers */,
 				C0C4DBAB15384EEF00ACDC86 /* SKObjectMapper.h in Headers */,
 				C0A041F91581DDF400953AF4 /* SKBasketItem.h in Headers */,
+				C031985C15A19AA500948254 /* SKBasketManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +600,8 @@
 				C0A041FC1581DE1000953AF4 /* SKBasketItem.m in Sources */,
 				C0A041FF1581E76300953AF4 /* SKBasketItemMappingTests.m in Sources */,
 				C0A0420415821AEB00953AF4 /* SKBasketMappingTests.m in Sources */,
+				C031985E15A19AA500948254 /* SKBasketManager.m in Sources */,
+				C0FE50D715A1C5550015BC6F /* SKBasketManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +630,7 @@
 				C0B2FA78156FB392008A103B /* SKArticle.m in Sources */,
 				C03A189C1580A82D005D5B8F /* SKSize.m in Sources */,
 				C0A041FA1581DDF400953AF4 /* SKBasketItem.m in Sources */,
+				C031985D15A19AA500948254 /* SKBasketManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
