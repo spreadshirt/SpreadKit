@@ -16,6 +16,16 @@
 
 @implementation SKClientTests
 
+- (void)setUpClass
+{
+    [SKClient setSharedClient:nil];
+}
+
+- (void)tearDownClass
+{
+    [SKClient setSharedClient:nil];
+}
+
 - (void)testClientInitialization
 {
     SKClient *client = [SKClient sharedClient];
