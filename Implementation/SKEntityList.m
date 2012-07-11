@@ -16,4 +16,9 @@
 @synthesize offset;
 @synthesize count;
 
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id [])buffer count:(NSUInteger)len
+{
+    return [elements countByEnumeratingWithState:state objects:buffer count:len];
+}
+
 @end

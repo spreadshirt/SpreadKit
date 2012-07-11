@@ -81,10 +81,10 @@
     
     // filter for the preview resource
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.type MATCHES 'preview'"];
-    
-    NSSet *filtered = [[girlieShirt resources] filteredSetUsingPredicate:predicate];
+
+    NSArray *filtered = [[girlieShirt resources] filteredArrayUsingPredicate:predicate];
     GHAssertEquals([filtered count], (unsigned int) 1, @"There should be only one preview resource");
-    SKResource *preview = [filtered anyObject];
+    SKResource *preview = [filtered objectAtIndex:0];
     
     GHAssertEqualObjects([preview url], [NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/products/25386428/views/1"], @"Preview resource should have the right url");
 }

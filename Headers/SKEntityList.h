@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKEntityList : NSObject
+@interface SKEntityList : NSObject <NSFastEnumeration>
 
 @property (nonatomic, strong) NSURL * url;
 @property (nonatomic, strong) NSSet * elements;
