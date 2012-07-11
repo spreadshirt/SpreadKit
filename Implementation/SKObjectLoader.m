@@ -21,9 +21,8 @@
 {
     if ([objectStub isMemberOfClass:[SKEntityList class]]) {
         SKEntityList *el = (SKEntityList *)objectStub;
-        [self loadEntityList:el completion:^(NSArray *objects, NSError *error) {
-            el.elements = [NSSet setWithArray:objects];
-            completion(objects, error);
+        [self loadEntityList:el completion:^(SKEntityList *list, NSError *error) {
+            completion(list, error);
         }];
     } else {
         [self loadSingleObjectStub:objectStub completion:completion];
@@ -42,7 +41,7 @@
     }
 }
 
-- (void)loadEntityList:(SKEntityList *)list completion:(void (^)(NSArray *, NSError *))completion
+- (void)loadEntityList:(SKEntityList *)list completion:(void (^)(SKEntityList *, NSError *))completion
 {
     NSString *offset = [list.offset stringValue];
     NSString *limit = [list.limit stringValue];
@@ -57,7 +56,10 @@
     
     [self loadSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKEntityList class]] completion:^(NSArray *objects, NSError *error) {
         if (!error) {
-            [self loadEntityListFromUrl:list.url withParams:params completion:completion];
+            [self loadEntityListFromUrl:list.url withParams:params completion:^(NSArray *objects, NSError *error) {
+                list.elements = [NSSet setWithArray:objects];
+                completion(list, nil);
+            }];
         } else {
             completion(nil, error);
         }
