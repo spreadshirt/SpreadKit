@@ -26,10 +26,10 @@
 
 - (void)testCheckout
 {
-    SKBasketManager *manager = [[SKBasketManager alloc] init];
-    [manager checkoutURLWithCompletion:^(NSURL *checkoutURL, NSError *error) {
-        
-    }];
+//    SKBasketManager *manager = [[SKBasketManager alloc] init];
+//    [manager checkoutURLWithCompletion:^(NSURL *checkoutURL, NSError *error) {
+//        
+//    }];
 }
 
 @end
