@@ -1,6 +1,7 @@
 #import <GHUnitIOS/GHUnit.h>
 #import "SKDesign.h"
 #import "SKUser.h"
+#import "SKResource.h"
 #import "SKObjectMappingProvider.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/RKObjectMapper_Private.h>
@@ -57,7 +58,13 @@
 // test convienience method for getting upload url out of resources
 - (void)testDesignUploadUrl
 {
+    SKDesign *design = [[SKDesign alloc] init];
+    SKResource *uploadResource = [[SKResource alloc] init];
+    uploadResource.type = @"montage";
+    uploadResource.url = [NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/designs/100001143"];
+    design.resources = [NSArray arrayWithObject:uploadResource];
     
+    GHAssertEqualStrings(uploadResource.url.absoluteString, design.uploadUrl.absoluteString, nil);
 }
 
 @end

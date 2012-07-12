@@ -7,6 +7,7 @@
 //
 
 #import "SKDesign.h"
+#import "SKResource.h"
 
 @implementation SKDesign
 
@@ -25,5 +26,17 @@
 @synthesize created;
 @synthesize modified;
 @synthesize url;
+
+- (NSURL *)uploadUrl
+{
+    int index = [self.resources indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        SKResource *res = obj;
+        if ([res.type isEqualToString:@"montage"]) {
+            return YES;
+            *stop = YES;
+        } else return NO;
+    }];
+    return [[self.resources objectAtIndex:index] url];
+}
 
 @end

@@ -28,5 +28,6 @@
 @property (nonatomic, strong) NSArray * resources;
 @property (nonatomic, strong) NSDate * created;
 @property (nonatomic, strong) NSDate * modified;
+@property (nonatomic, strong) NSURL *uploadUrl;
 
 @end
