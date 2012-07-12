@@ -28,6 +28,7 @@
 		C026FA1815AEE6F400FFEB69 /* SKDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = C026FA1515AEE6F400FFEB69 /* SKDesign.m */; };
 		C026FA2015AEF99500FFEB69 /* SKDesignMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C026FA1F15AEF99500FFEB69 /* SKDesignMappingTests.m */; };
 		C026FA2215AEFCD100FFEB69 /* design.json in Resources */ = {isa = PBXBuildFile; fileRef = C026FA2115AEFCD100FFEB69 /* design.json */; };
+		C026FA2615AF0BD600FFEB69 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C026FA2515AF0BD600FFEB69 /* testImage.jpg */; };
 		C02D234A155D09B800592AA8 /* SKObjectPoster.h in Headers */ = {isa = PBXBuildFile; fileRef = C02D2348155D09B800592AA8 /* SKObjectPoster.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C02D234B155D09B800592AA8 /* SKObjectPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = C02D2349155D09B800592AA8 /* SKObjectPoster.m */; };
 		C02D234C155D09B800592AA8 /* SKObjectPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = C02D2349155D09B800592AA8 /* SKObjectPoster.m */; };
@@ -175,6 +176,7 @@
 		C026FA1515AEE6F400FFEB69 /* SKDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDesign.m; sourceTree = "<group>"; };
 		C026FA1F15AEF99500FFEB69 /* SKDesignMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDesignMappingTests.m; sourceTree = "<group>"; };
 		C026FA2115AEFCD100FFEB69 /* design.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = design.json; sourceTree = "<group>"; };
+		C026FA2515AF0BD600FFEB69 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testImage.jpg; path = "Test Data/testImage.jpg"; sourceTree = "<group>"; };
 		C02D2348155D09B800592AA8 /* SKObjectPoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectPoster.h; sourceTree = "<group>"; };
 		C02D2349155D09B800592AA8 /* SKObjectPoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectPoster.m; sourceTree = "<group>"; };
 		C02D234F155D0B8800592AA8 /* SKObjectPosterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectPosterTests.m; sourceTree = "<group>"; };
@@ -307,18 +309,18 @@
 		C03806EB150103780004BFC4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C026FA2515AF0BD600FFEB69 /* testImage.jpg */,
 				C0B2FA7B156FBAC1008A103B /* MappingTests */,
-				C0C6922514EE576D0068C18D /* Mock Responses */,
 				C0C41BC5155BA976009F70FF /* SKAuthenticationProviderTests.m */,
+				C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */,
 				C0C6921614EE57440068C18D /* SKClientTests.m */,
+				C0C7116115AD9DC900302CC4 /* SKEntityListTests.m */,
 				C0C6921714EE57440068C18D /* SKImageLoaderTests.m */,
 				C0E7C8F015060438005A185A /* SKObjectLoaderTests.m */,
 				C0ADF747153819B600CC9AE4 /* SKObjectMapperTests.m */,
 				C0C6921814EE57440068C18D /* SKObjectMappingProviderTests.m */,
 				C02D234F155D0B8800592AA8 /* SKObjectPosterTests.m */,
 				C03806EC150103780004BFC4 /* Supporting Files */,
-				C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */,
-				C0C7116115AD9DC900302CC4 /* SKEntityListTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -456,6 +458,7 @@
 				C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */,
 				C0A0420315821AEB00953AF4 /* SKBasketMappingTests.m */,
 				C026FA1F15AEF99500FFEB69 /* SKDesignMappingTests.m */,
+				C0C6922514EE576D0068C18D /* Mock Responses */,
 			);
 			name = MappingTests;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				C0A2E7431578AE0E004A3847 /* productType.json in Resources */,
 				C0A04201158219AB00953AF4 /* basket.json in Resources */,
 				C026FA2215AEFCD100FFEB69 /* design.json in Resources */,
+				C026FA2615AF0BD600FFEB69 /* testImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

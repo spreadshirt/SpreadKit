@@ -62,6 +62,24 @@
     }];
 }
 
+- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design completion:(void (^)(NSError *))completion
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:design.uploadUrl];
+    request.HTTPMethod = @"PUT";
+    request.HTTPBody = UIImagePNGRepresentation(image);
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if ([httpResponse statusCode] != 200) {
+            NSDictionary *userInfo = [NSDictionary dictionaryWithKeysAndObjects:NSLocalizedDescriptionKey, [NSString stringWithFormat:@"The upload failed and returned HTTP Code %d", [httpResponse statusCode]], nil];
+            NSError *error = [NSError errorWithDomain:@"SKErrorDomain" code:-100 userInfo:userInfo];
+            completion (error);
+        }
+        
+        completion(error);
+    }];
+}
+
 + (NSArray *)allowedDimensions
 {
     static NSArray *sAllowedDimensions;

@@ -38,4 +38,21 @@
     GHAssertEquals(result.scale, [[UIScreen mainScreen] scale], @"Loaded image should be scaled for the current screen");
 }
 
+- (void)testDesignUpload
+{
+    UIImage *testImage = [UIImage imageNamed:@"testImage.jpg"];
+    SKImageLoader *testable = [[SKImageLoader alloc] init];
+    SKDesign *design = [[SKDesign alloc] init];
+    SKResource *uploadResource = [[SKResource alloc] init];
+    uploadResource.url = [NSURL URLWithString:@"http://image.spreadshirt.net/image-server/v1/designs/100001143"];
+    uploadResource.type = @"montage";
+    design.resources = [NSArray arrayWithObject:uploadResource];
+    [testable uploadImage:testImage forDesign:design completion:^(NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
+    
+}
+
 @end
