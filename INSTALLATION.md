@@ -27,6 +27,7 @@ In the 'Link Binary With Libraries' section, add the following frameworks:
 - Security.framework
 - MobileCoreServices.framework
 - SystemConfiguration.framework
+- QuartzCore.framework
 - libxml2.dylib
 
 7. Import SpreadKit
