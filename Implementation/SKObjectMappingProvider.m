@@ -18,6 +18,7 @@
 #import "SKSize.h"
 #import "SKBasket.h"
 #import "SKBasketItem.h"
+#import "SKDesign.h"
 
 static SKObjectMappingProvider *sharedMappingProvider = nil;
 
@@ -87,6 +88,11 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [basketItemMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [basketItemMapping mapAttributes:@"description", @"quantity", @"links", @"price", @"origin", @"element", nil];
         
+        RKObjectMapping *designMapping = [RKObjectMapping mappingForClass:[SKDesign class]];
+        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"color", @"printTypes", @"price", @"created", @"modified", nil];
+        [designMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [designMapping mapKeyPath:@"href" toAttribute:@"url"];
+        
         // relationships
         [appearanceMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
@@ -113,9 +119,18 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [basketMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         [basketMapping mapKeyPath:@"basketItems" toRelationship:@"basketItems" withMapping:basketItemMapping];
         
+        [designMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
+        [designMapping mapKeyPath:@"size" toRelationship:@"size" withMapping:sizeMapping];
+        [designMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        
+        
         // serialization mappings
+        
         RKObjectMapping *basketSerializationMapping = [basketMapping inverseMapping];
+        RKObjectMapping *designSerializationMapping = [designMapping inverseMapping];
+        
         [self setSerializationMapping:basketSerializationMapping forClass:[SKBasket class]];
+        [self setSerializationMapping:designSerializationMapping forClass:[SKDesign class]];
         
         // mapping registrations
         [self addObjectMapping:userMapping];
