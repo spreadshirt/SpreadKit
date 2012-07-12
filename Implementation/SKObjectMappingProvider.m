@@ -89,7 +89,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [basketItemMapping mapAttributes:@"description", @"quantity", @"links", @"price", @"origin", @"element", nil];
         
         RKObjectMapping *designMapping = [RKObjectMapping mappingForClass:[SKDesign class]];
-        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"color", @"printTypes", @"price", @"created", @"modified", nil];
+        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"color", @"printTypes", @"price", @"created", @"modified", @"size", nil];
         [designMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [designMapping mapKeyPath:@"href" toAttribute:@"url"];
         
@@ -120,7 +120,6 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [basketMapping mapKeyPath:@"basketItems" toRelationship:@"basketItems" withMapping:basketItemMapping];
         
         [designMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
-        [designMapping mapKeyPath:@"size" toRelationship:@"size" withMapping:sizeMapping];
         [designMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
         
@@ -141,12 +140,14 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self addObjectMapping:articleMapping];
         [self addObjectMapping:basketMapping];
         [self addObjectMapping:basketItemMapping];
+        [self addObjectMapping:designMapping];
         [self setMapping:articleMapping forKeyPath:@"articles"];
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];
         [self setMapping:productMapping forKeyPath:@"products"];
         [self setMapping:productTypeMapping forKeyPath:@"productTypes"];
         [self setMapping:basketItemMapping forKeyPath:@"basketItems"];
+        [self setMapping:designMapping forKeyPath:@"designs"];
     }
     return self;
 }

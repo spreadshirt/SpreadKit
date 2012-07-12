@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSURL * sourceUrl;
 @property (nonatomic, strong) SKUser * user;
 @property (nonatomic, strong) NSDictionary * restrictions;
-@property (nonatomic, strong) SKSize * size;
+@property (nonatomic, strong) NSDictionary * size;
 @property (nonatomic, strong) NSArray * colors;
 @property (nonatomic, strong) NSArray * printTypes;
 @property (nonatomic, strong) NSDictionary * price;
