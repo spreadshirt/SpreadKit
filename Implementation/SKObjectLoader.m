@@ -12,7 +12,6 @@
 #import "SKObjectMapper.h"
 #import "SKEntityList.h"
 #import "NSURL+PathParameters.h"
-#import "RestKit/NSURL+RestKit.h"
 #import "SKClient.h"
 
 @implementation SKObjectLoader
@@ -89,7 +88,7 @@
         [params addEntriesFromDictionary:passedParams];
     }
     
-    [[theUrl queryDictionary] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    [[theUrl queryParameters] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([params.allKeys containsObject:key]) {
             [params removeObjectForKey:key];
         }

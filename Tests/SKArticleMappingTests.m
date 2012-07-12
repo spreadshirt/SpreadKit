@@ -12,15 +12,8 @@
 #import "SKProduct.h"
 #import "SKShop.h"
 #import "SKProductType.h"
-
-@interface RKObjectMapper (Private)
-
-- (id)mapObject:(id)mappableObject atKeyPath:keyPath usingMapping:(id<RKObjectMappingDefinition>)mapping;
-- (NSArray*)mapCollection:(NSArray*)mappableObjects atKeyPath:(NSString*)keyPath usingMapping:(id<RKObjectMappingDefinition>)mapping;
-- (BOOL)mapFromObject:(id)mappableObject toObject:(id)destinationObject atKeyPath:keyPath usingMapping:(id<RKObjectMappingDefinition>)mapping;
-- (id)objectWithMapping:(id<RKObjectMappingDefinition>)objectMapping andData:(id)mappableData;
-
-@end
+#import <RestKit/RestKit.h>
+#import <RestKit/RKObjectMapper_Private.h>
 
 @interface SKArticleMappingTests : GHTestCase
 {

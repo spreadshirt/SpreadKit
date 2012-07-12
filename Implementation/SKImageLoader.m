@@ -47,7 +47,7 @@
         [queryParams setObject:appearanceId forKey:@"appearanceId"];
     }
     
-    NSString *paramUrl = [url.absoluteString appendQueryParams:queryParams];
+    NSString *paramUrl = [url.absoluteString stringByAppendingQueryParameters:queryParams];
     NSURL *theUrl = [NSURL URLWithString:paramUrl];
     
     // load the image

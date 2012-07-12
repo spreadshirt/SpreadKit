@@ -8,17 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
-
+#import <RestKit/RestKit.h>
+#import <RestKit/RKObjectMapper_Private.h>
 #import "SpreadKit.h"
-
-@interface RKObjectMapper (Private)
-
-- (id)mapObject:(id)mappableObject atKeyPath:keyPath usingMapping:(id<RKObjectMappingDefinition>)mapping;
-- (NSArray*)mapCollection:(NSArray*)mappableObjects atKeyPath:(NSString*)keyPath usingMapping:(id<RKObjectMappingDefinition>)mapping;
-- (BOOL)mapFromObject:(id)mappableObject toObject:(id)destinationObject atKeyPath:keyPath usingMapping:(id<RKObjectMappingDefinition>)mapping;
-- (id)objectWithMapping:(id<RKObjectMappingDefinition>)objectMapping andData:(id)mappableData;
-
-@end
 
 
 @interface SKObjectMappingProviderTests : GHTestCase
