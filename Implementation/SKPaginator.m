@@ -57,7 +57,7 @@
 {
     SKObjectLoader *loader = [[SKObjectLoader alloc] init];
     [loader loadEntityList:list completion:^(SKEntityList *loaded, NSError *error) {
-        completion([loaded.elements allObjects], nil);
+        completion(loaded.elements, nil);
     }];
 }
 

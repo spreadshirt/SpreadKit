@@ -81,9 +81,6 @@
 		C0A27358153C22EF00D1AE45 /* SKEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A27353153C1DA800D1AE45 /* SKEntityList.m */; };
 		C0A2E7411578AD18004A3847 /* SKProductTypeMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A2E7401578AD18004A3847 /* SKProductTypeMappingTests.m */; };
 		C0A2E7431578AE0E004A3847 /* productType.json in Resources */ = {isa = PBXBuildFile; fileRef = C0A2E7421578AE0E004A3847 /* productType.json */; };
-		C0ADF743153813C700CC9AE4 /* NSSet+SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C0ADF741153813C700CC9AE4 /* NSSet+SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0ADF744153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */; };
-		C0ADF745153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */; };
 		C0ADF748153819B600CC9AE4 /* SKObjectMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF747153819B600CC9AE4 /* SKObjectMapperTests.m */; };
 		C0ADF74A15381B0E00CC9AE4 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = C0ADF74915381B0E00CC9AE4 /* user.json */; };
 		C0B2FA77156FB392008A103B /* SKArticle.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2FA75156FB392008A103B /* SKArticle.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -219,8 +216,6 @@
 		C0A27353153C1DA800D1AE45 /* SKEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEntityList.m; sourceTree = "<group>"; };
 		C0A2E7401578AD18004A3847 /* SKProductTypeMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductTypeMappingTests.m; sourceTree = "<group>"; };
 		C0A2E7421578AE0E004A3847 /* productType.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productType.json; sourceTree = "<group>"; };
-		C0ADF741153813C700CC9AE4 /* NSSet+SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+SpreadKit.h"; sourceTree = "<group>"; };
-		C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+SpreadKit.m"; sourceTree = "<group>"; };
 		C0ADF747153819B600CC9AE4 /* SKObjectMapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectMapperTests.m; sourceTree = "<group>"; };
 		C0ADF74915381B0E00CC9AE4 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 		C0B2FA75156FB392008A103B /* SKArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKArticle.h; sourceTree = "<group>"; };
@@ -346,7 +341,6 @@
 		C04A5A081500DB86003C5D68 /* Implemenation */ = {
 			isa = PBXGroup;
 			children = (
-				C0ADF742153813C700CC9AE4 /* NSSet+SpreadKit.m */,
 				C0853405154E87A400CA9F21 /* NSURL+PathParameters.m */,
 				C0D37C13156F8CBC007505BE /* SKAppearance.m */,
 				C0B2FA76156FB392008A103B /* SKArticle.m */,
@@ -376,7 +370,6 @@
 		C08265FD1529AB39001C6A79 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				C0ADF741153813C700CC9AE4 /* NSSet+SpreadKit.h */,
 				C0853404154E87A400CA9F21 /* NSURL+PathParameters.h */,
 				C0D37C12156F8CBC007505BE /* SKAppearance.h */,
 				C0B2FA75156FB392008A103B /* SKArticle.h */,
@@ -406,7 +399,6 @@
 		C09EF80814C9953C000BB775 = {
 			isa = PBXGroup;
 			children = (
-				C026F92815AEC57B00FFEB69 /* QuartzCore.framework */,
 				C08265FD1529AB39001C6A79 /* Headers */,
 				C04A5A081500DB86003C5D68 /* Implemenation */,
 				C03806EB150103780004BFC4 /* Tests */,
@@ -436,6 +428,7 @@
 				C0C4D0E714C9B79500109A96 /* libxml2.dylib */,
 				C0C4D0E114C9B77D00109A96 /* MobileCoreServices.framework */,
 				C03F304D14DC20BA003E2527 /* OCMock */,
+				C026F92815AEC57B00FFEB69 /* QuartzCore.framework */,
 				C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */,
 				C0C4D0E314C9B78600109A96 /* Security.framework */,
 				C0C4D0E514C9B78D00109A96 /* SystemConfiguration.framework */,
@@ -488,7 +481,6 @@
 				C07CD8AF152DB0F40084304D /* SKUser.h in Headers */,
 				C07CD8C1152DD6BB0084304D /* SKShop.h in Headers */,
 				C096A2B11500E3B400C70D86 /* SKObjectMappingProvider.h in Headers */,
-				C0ADF743153813C700CC9AE4 /* NSSet+SpreadKit.h in Headers */,
 				C0103D12154590580038E798 /* SKPaginator.h in Headers */,
 				C0B2FA77156FB392008A103B /* SKArticle.h in Headers */,
 				C0853406154E87A400CA9F21 /* NSURL+PathParameters.h in Headers */,
@@ -649,7 +641,6 @@
 				C0E7C8F315060438005A185A /* SKObjectLoaderTests.m in Sources */,
 				C07CD8B1152DB0F40084304D /* SKUser.m in Sources */,
 				C07CD8C3152DD6BB0084304D /* SKShop.m in Sources */,
-				C0ADF745153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */,
 				C0ADF748153819B600CC9AE4 /* SKObjectMapperTests.m in Sources */,
 				C0C4DBAD15384EEF00ACDC86 /* SKObjectMapper.m in Sources */,
 				C0853408154E87A400CA9F21 /* NSURL+PathParameters.m in Sources */,
@@ -685,7 +676,6 @@
 				C0E7C8EC1506041A005A185A /* SKObjectLoader.m in Sources */,
 				C07CD8B0152DB0F40084304D /* SKUser.m in Sources */,
 				C07CD8C2152DD6BB0084304D /* SKShop.m in Sources */,
-				C0ADF744153813C700CC9AE4 /* NSSet+SpreadKit.m in Sources */,
 				C0C4DBAC15384EEF00ACDC86 /* SKObjectMapper.m in Sources */,
 				C0A27355153C1DA800D1AE45 /* SKEntityList.m in Sources */,
 				C0103D13154590580038E798 /* SKPaginator.m in Sources */,

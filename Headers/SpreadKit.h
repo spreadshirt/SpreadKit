@@ -15,7 +15,6 @@
 #import "SKShop.h"
 #import "SKUser.h"
 #import "SKProductType.h"
-#import "NSSet+SpreadKit.h"
 #import "SKEntityList.h"
 #import "SKArticle.h"
 #import "SKAppearance.h"

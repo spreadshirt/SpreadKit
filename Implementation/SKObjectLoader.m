@@ -56,7 +56,7 @@
     [self loadSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKEntityList class]] completion:^(NSArray *objects, NSError *error) {
         if (!error) {
             [self loadEntityListFromUrl:list.url withParams:params completion:^(NSArray *objects, NSError *error) {
-                list.elements = [NSSet setWithArray:objects];
+                list.elements = objects;
                 completion(list, nil);
             }];
         } else {
