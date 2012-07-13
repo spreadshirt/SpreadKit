@@ -51,6 +51,10 @@
 // gets the shop entity of a shop-scoped client
 - (void)getShopAndOnCompletion:(void (^)(SKShop *shop, NSError *error))completion;
 
+// gets the full details of an object
 - (void)get:(id)object completion:(void (^)(id loadedObject, NSError *error))completion;
+
+// posts a new object and returns the full server object in the completion block.
+- (void)post:(id)object completion:(void (^)(id newObject, NSError *error))completion;
 
 @end

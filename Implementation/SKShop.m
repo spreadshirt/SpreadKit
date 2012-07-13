@@ -17,5 +17,7 @@
 @synthesize products;
 @synthesize articles;
 @synthesize productTypes;
+@synthesize designs;
+@synthesize baskets;
 
 @end

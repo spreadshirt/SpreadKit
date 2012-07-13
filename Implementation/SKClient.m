@@ -11,7 +11,10 @@
 #import "SKProduct.h"
 #import "SKUser.h"
 #import "SKShop.h"
+#import "SKDesign.h"
 #import "SKObjectManager.h"
+#import "SKEntityList.h"
+#import "SKBasket.h"
 
 static SKClient *sharedClient = nil;
 NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
@@ -20,6 +23,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 {
     NSURL *baseUrl;
     SKObjectManager *manager;
+    NSMutableDictionary *postURLs;
 }
 
 @synthesize apiKey, shopId, userId, secret;
@@ -60,6 +64,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
         
         baseUrl = [NSURL URLWithString:BASE];
         manager = [SKObjectManager objectManagerWithApiKey:apiKey andSecret:secret];
+        postURLs = [NSMutableDictionary dictionary];
         
         // set the singleton instance
         if (sharedClient == nil) {
@@ -76,6 +81,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     
     [manager getSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKShop *shop = (SKShop *)[objects objectAtIndex:0];
+        [self extractPostURLsFromObject:shop];
         completion(shop, error);
     }];
 }
@@ -87,6 +93,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     
     [manager getSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKUser *user = (SKUser *)[objects objectAtIndex:0];
+        [self extractPostURLsFromObject:user];
         completion(user, error);
     }];
 }
@@ -97,6 +104,20 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     [manager get:object completion:^(id loaded, NSError *error) {
         completion(loaded, error);
     }];
+}
+
+-(void)post:(id)object completion:(void (^)(id, NSError *))completion
+{
+    
+}
+
+// takes a shop or user and extracts and remembers
+// all URLs for later posting of objects
+- (void)extractPostURLsFromObject:(id)object
+{
+    [postURLs setValue:[[object products] url] forKey:NSStringFromClass([SKProduct class])];
+    [postURLs setValue:[[object designs] url] forKey:NSStringFromClass([SKDesign class])];
+    [postURLs setValue:[[object baskets] url] forKey:NSStringFromClass([SKBasket class])];
 }
 
 @end

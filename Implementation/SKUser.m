@@ -16,5 +16,7 @@
 @synthesize products;
 @synthesize description;
 @synthesize memberSince;
+@synthesize designs;
+@synthesize baskets;
 
 @end

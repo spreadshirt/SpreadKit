@@ -110,10 +110,14 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [articleMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
         [userMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
+        [userMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:listMapping];
+        [userMapping mapKeyPath:@"baskets" toRelationship:@"baskets" withMapping:listMapping];
         
         [shopMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
         [shopMapping mapKeyPath:@"articles" toRelationship:@"articles" withMapping:listMapping];
         [shopMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:listMapping];
+        [shopMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:listMapping];
+        [shopMapping mapKeyPath:@"baskets" toRelationship:@"baskets" withMapping:listMapping];
         
         [basketMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
         [basketMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
@@ -148,6 +152,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self setMapping:productTypeMapping forKeyPath:@"productTypes"];
         [self setMapping:basketItemMapping forKeyPath:@"basketItems"];
         [self setMapping:designMapping forKeyPath:@"designs"];
+        [self setMapping:basketMapping forKeyPath:@"baskets"];
     }
     return self;
 }

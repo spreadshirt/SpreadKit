@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSString * description;
 @property (nonatomic, strong) SKEntityList * products;
+@property (nonatomic, strong) SKEntityList * designs;
 @property (nonatomic, strong) NSDate *memberSince;
+@property (nonatomic, strong) SKEntityList * baskets;
 
 @end
