@@ -13,6 +13,7 @@
 #import "SKUser.h"
 #import "SKEntityList.h"
 #import "SKObjectManager.h"
+#import "SKBasket.h"
 
 @interface SKObjectManagerTests : GHAsyncTestCase
 @end
@@ -83,5 +84,33 @@
     
     GHAssertEquals(user.products.elements.count, (unsigned int) 3, @"");
 }
+
+- (void)testPostBasket
+{
+    SKBasket *basket = [[SKBasket alloc] init];
+    //    basket.token = @"test";
+    
+    SKObjectManager *manager = [SKObjectManager objectManagerWithApiKey:@"xxx" andSecret:@"xxx"];
+    
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+    [mapping mapAttributes:@"token", nil];
+    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
+    [prov setSerializationMapping:mapping forClass:[SKBasket class]];
+    
+    [self prepare];
+    
+    [manager postObject:basket toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/baskets?mediaType=json"] completion:^(id object, NSError *error) {
+        if (error) {
+            GHFail(@"Posting should work");
+        } else {
+            [self notify:kGHUnitWaitStatusSuccess];
+        }
+    }];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    
+    GHAssertNotNil(basket.url, @"Basket should have been created");
+}
+
 
 @end

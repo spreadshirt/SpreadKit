@@ -25,14 +25,13 @@
     SKDesign *design = [[SKDesign alloc] init];
     design.name = @"Super Cool Test Design";
     design.description = @"This is a Design created with SpreadKit";
-    SKObjectPoster *poster = [[SKObjectPoster alloc] init];
+    SKObjectManager *manager = [SKObjectManager objectManagerWithApiKey:apiKey andSecret:secret];
     [self prepare];
-    [poster postObject:design toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/41985/designs?mediaType=json"] apiKey:apiKey secret:secret mappingProvider:[SKObjectMappingProvider sharedMappingProvider] completion:^(id object, NSError *error) {
+    [manager postObject:design toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/41985/designs?mediaType=json"] completion:^(id object, NSError *error) {
         if (error) {
             [self notify:kGHUnitWaitStatusFailure];
         } else {
             SKDesign *postedDesign = (SKDesign *)design;
-            SKObjectManager *manager = [SKObjectManager objectManagerWithApiKey:apiKey andSecret:secret];
             [manager get:postedDesign completion:^(id loaded, NSError *error) {
                 if (error) {
                     [self notify:kGHUnitWaitStatusFailure];

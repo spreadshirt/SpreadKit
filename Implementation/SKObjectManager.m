@@ -117,6 +117,27 @@
     }];
 }
 
+- (void)postObject:(id)theObject toURL:(NSURL *)theURL completion:(void (^)(id, NSError *))completion
+{
+    SKObjectMappingProvider *mappingProvider = [SKObjectMappingProvider sharedMappingProvider];
+    SKObjectMapper *mapper = [SKObjectMapper mapperWithMIMEType:RKMIMETypeJSON mappingProvider:mappingProvider];
+    NSString *json = [mapper serializeObject:theObject];
+    NSData *requestData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [SKURLConnection post:requestData toURL:theURL params:nil apiKey:apiKey secret:secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if (error) {
+            completion(nil, error);
+        }
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (httpResponse.statusCode == 201) {
+            [theObject setUrl:[NSURL URLWithString:[[httpResponse allHeaderFields] objectForKey:@"Location"]]];
+            completion(theObject, nil);
+        }
+        completion(nil, nil);
+    }];
+}
+
 - (int)getServerTimeOffset:(NSHTTPURLResponse *)response
 {
     id dateString = [[response allHeaderFields] objectForKey:@"Date"];
