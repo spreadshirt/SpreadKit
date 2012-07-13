@@ -71,7 +71,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 {
     NSURL *shopURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@", BASE, self.shopId]];
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
-    SKObjectLoader *loader= [[SKObjectLoader alloc] init];
+    SKObjectLoader *loader= [SKObjectLoader loaderWithApiKey:self.apiKey andSecret:self.secret];
     
     [loader getSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKShop *shop = (SKShop *)[objects objectAtIndex:0];
@@ -83,7 +83,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 {
     NSURL *userURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", BASE, self.shopId]];
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKUser class]];
-    SKObjectLoader *loader= [[SKObjectLoader alloc] init];
+    SKObjectLoader *loader= [SKObjectLoader loaderWithApiKey:self.apiKey andSecret:self.secret];
     
     [loader getSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKUser *user = (SKUser *)[objects objectAtIndex:0];

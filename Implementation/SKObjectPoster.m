@@ -8,9 +8,8 @@
 
 #import "SKObjectPoster.h"
 #import "SKObjectMapper.h"
-#import "SKAuthenticationProvider.h"
-#import "SKBasket.h"
 #import "SKURLConnection.h"
+#import "SKBasket.h"
 
 @implementation SKObjectPoster
 
@@ -21,7 +20,7 @@
     NSString *json = [mapper serializeObject:theObject];
     NSData *requestData = [json dataUsingEncoding:NSUTF8StringEncoding];
     
-    [SKURLConnection post:requestData toURL:theURL params:nil authorizationHeader:[SKAuthenticationProvider authorizationHeaderFromApiKey:apiKey andSecret:secret andURL:theURL.absoluteString andMethod:@"POST" andSessionId:nil] completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [SKURLConnection post:requestData toURL:theURL params:nil apiKey:apiKey secret:secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             completion(nil, error);
         }
@@ -32,7 +31,6 @@
             completion(theObject, nil);
         }
         completion(nil, nil);
-        
     }];
 }
 

@@ -13,6 +13,10 @@
 
 @interface SKObjectLoader : NSObject
 
++ (SKObjectLoader *)loaderWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret;
+
+- (id)initWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret;
+
 - (void)get:(id)objectStub completion:(void (^)(id loaded, NSError *error))completion;
 
 - (void)getSingleObjectStub:(id)theStub completion:(void (^)(id loaded, NSError *error))completion;

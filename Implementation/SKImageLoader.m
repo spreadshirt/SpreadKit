@@ -8,10 +8,28 @@
 
 
 #import "SKImageLoader.h"
-#import "SKAuthenticationProvider.h"
 #import "SKURLConnection.h"
 
 @implementation SKImageLoader
+{
+    NSString * _apiKey;
+    NSString * _secret;
+}
+
+- (id)initWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret
+{
+    if (self = [super init])
+    {
+        _apiKey = apiKey;
+        _secret = secret;
+    }
+    return self;
+}
+
++ (SKImageLoader *)loaderWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret
+{
+    return [[self alloc] initWithApiKey:apiKey andSecret:secret];
+}
 
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size completion:(void (^)(UIImage *, NSURL *, NSError *))completion
 {
@@ -49,8 +67,8 @@
     if (appearanceId) {
         [params setObject:appearanceId forKey:@"appearanceId"];
     }
-
-    [SKURLConnection get:url params:params authorizationHeader:nil completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+    
+    [SKURLConnection get:url params:params apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (data) {
             UIImage *image = [[UIImage alloc] initWithData:data];
             image = [UIImage imageWithCGImage:image.CGImage scale:scaleFactor orientation:image.imageOrientation];
@@ -61,11 +79,9 @@
     }];
 }
 
-- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(SKDesign *,NSError *))completion
+- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design completion:(void (^)(SKDesign *design, NSError *))completion;
 {
-    NSString *authorizationHeader = [SKAuthenticationProvider authorizationHeaderFromApiKey:apiKey andSecret:secret andURL:design.uploadUrl.absoluteString andMethod:@"PUT" andSessionId:nil];
-    
-    [SKURLConnection put:UIImagePNGRepresentation(image) toURL:design.uploadUrl params:nil authorizationHeader:authorizationHeader completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [SKURLConnection put:UIImagePNGRepresentation(image) toURL:design.uploadUrl params:nil apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if ([httpResponse statusCode] != 200) {
             NSDictionary *userInfo = [NSDictionary dictionaryWithKeysAndObjects:NSLocalizedDescriptionKey, [NSString stringWithFormat:@"The upload failed with HTTP Code %d", [httpResponse statusCode]], @"ResponseContentKey", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], nil];

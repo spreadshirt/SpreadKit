@@ -9,50 +9,55 @@
 #import "SKURLConnection.h"
 #import <RestKit/NSURL+RKAdditions.h>
 #import "NSURL+PathParameters.h"
+#import "SKAuthenticationProvider.h"
 
 @implementation SKURLConnection
 
-+ (void)get:(NSURL *)url params:(NSDictionary *)params authorizationHeader:(NSString *)authorizationHeader completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion
++ (void)get:(NSURL *)url params:(NSDictionary *)params apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion
 {
     [self sendRequestWithURL:url
                       params:params
                         body:nil
-         authorizationHeader:authorizationHeader
+                      apiKey:apiKey
+                      secret:secret
                       method:@"GET"
                   completion:completion];
 }
 
-+ (void)post:(NSData *)requestData toURL:(NSURL *)url params:(NSDictionary *)params authorizationHeader:(NSString *)authorizationHeader completion:(void (^)(NSURLResponse *, NSData *, NSError *))completion
++ (void)post:(NSData *)requestData toURL:(NSURL *)url params:(NSDictionary *)params apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(NSURLResponse *, NSData *, NSError *))completion
 {
     [self sendRequestWithURL:url
                       params:params
                         body:requestData
-         authorizationHeader:authorizationHeader
+                      apiKey:apiKey
+                      secret:secret
                       method:@"POST"
                   completion:completion];
 }
 
-+ (void)put:(NSData *)requestData toURL:(NSURL *)url params:(NSDictionary *)params authorizationHeader:(NSString *)authorizationHeader completion:(void (^)(NSURLResponse *, NSData *, NSError *))completion
++ (void)put:(NSData *)requestData toURL:(NSURL *)url params:(NSDictionary *)params apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(NSURLResponse *, NSData *, NSError *))completion
 {
     [self sendRequestWithURL:url
                      params:params
                         body:requestData
-         authorizationHeader:authorizationHeader
+                      apiKey:apiKey
+                      secret:secret
                       method:@"PUT"
                   completion:completion];
 }
 
-+ (void)delete:(NSURL *)url params:(NSDictionary *)params authorizationHeader:(NSString *)authorizationHeader completion:(void (^)(NSURLResponse *, NSData *, NSError *))completion
++ (void)delete:(NSURL *)url params:(NSDictionary *)params apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(NSURLResponse *, NSData *, NSError *))completion
 {
     [self sendRequestWithURL:url
                       params:params
                         body:nil
-         authorizationHeader:authorizationHeader
+                      apiKey:apiKey
+                      secret:secret
                       method:@"DELETE"
                   completion:completion];
 }
 
-+ (void)sendRequestWithURL:(NSURL *)url params:(NSDictionary *)passedParams body:(NSData *)data authorizationHeader:(NSString *)authorizationHeader method:(NSString *)method completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion
++ (void)sendRequestWithURL:(NSURL *)url params:(NSDictionary *)passedParams body:(NSData *)data apiKey:(NSString *)apiKey secret:(NSString *)secret method:(NSString *)method completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion
 {
     // strip params already contained in url
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:passedParams];
@@ -64,6 +69,9 @@
     
     // build url with params
     NSURL *configuredURL = [url URLByAppendingParameters:params];
+    
+    // calculate authorization header
+    NSString *authorizationHeader = [SKAuthenticationProvider authorizationHeaderFromApiKey:apiKey andSecret:secret andURL:configuredURL.absoluteString andMethod:method andSessionId:nil];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:configuredURL];
     request.HTTPMethod = method;

@@ -15,6 +15,24 @@
 #import "SKURLConnection.h"
 
 @implementation SKObjectLoader
+{
+    NSString * _apiKey;
+    NSString * _secret;
+}
+
+- (id)initWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret
+{
+    if (self = [super init]) {
+        _apiKey = apiKey;
+        _secret = secret;
+    }
+    return self;
+}
+
++ (SKObjectLoader *)loaderWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret
+{
+    return [[self alloc] initWithApiKey:apiKey andSecret:secret];
+}
 
 - (void)get:(id)objectStub completion:(void (^)(id, NSError *))completion
 {
@@ -88,7 +106,7 @@
         [params addEntriesFromDictionary:passedParams];
     }
     
-    [SKURLConnection get:theUrl params:params authorizationHeader:nil completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [SKURLConnection get:theUrl params:params apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             completion(nil, error);
             return;

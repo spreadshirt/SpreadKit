@@ -11,12 +11,12 @@
 @interface SKURLConnection : NSObject
 
 
-+ (void)get:(NSURL *)url params:(NSDictionary *)params authorizationHeader:(NSString *)authorizationHeader completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;
++ (void)get:(NSURL *)url params:(NSDictionary *)params apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;
 
-+ (void)post:(NSData *)requestData toURL:(NSURL *)url params:(NSDictionary *)params authorizationHeader:(NSString *)authorizationHeader completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;
++ (void)post:(NSData *)requestData toURL:(NSURL *)url params:(NSDictionary *)params apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;
 
-+ (void)put:(NSData *)requestData toURL:(NSURL *)url params:(NSDictionary *)params authorizationHeader:(NSString *)authorizationHeader completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;
++ (void)put:(NSData *)requestData toURL:(NSURL *)url params:(NSDictionary *)params apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;
 
-+ (void)delete:(NSURL *)url params:(NSDictionary *)params authorizationHeader:(NSString *)authorizationHeader completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;
++ (void)delete:(NSURL *)url params:(NSDictionary *)params apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;
 
 @end

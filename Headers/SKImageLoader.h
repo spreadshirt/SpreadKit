@@ -13,8 +13,12 @@
 
 @interface SKImageLoader : NSObject
 
++ (SKImageLoader *)loaderWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret;
+
+- (id)initWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret;
+
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size andAppearanceId:(NSString *)appearanceId completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
-- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(SKDesign *design, NSError *))completion;
+- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design completion:(void (^)(SKDesign *design, NSError *))completion;
 
 @end
