@@ -48,7 +48,7 @@
             // load checkout reference
             SKObjectLoader *loader = [[SKObjectLoader alloc] init];
             NSDictionary *params = [NSDictionary dictionaryWithObject:@"json" forKey:@"mediaType"];
-            [loader loadResourceFromUrl:[NSURL URLWithString:@"/checkout" relativeToURL:[object url]] withParams:params mappingProvdider:[SKObjectMappingProvider sharedMappingProvider] intoTargetObject:nil completion:^(NSArray *objects, NSError *error) {
+            [loader getResourceFromUrl:[NSURL URLWithString:@"/checkout" relativeToURL:[object url]] withParams:params mappingProvdider:[SKObjectMappingProvider sharedMappingProvider] intoTargetObject:nil completion:^(NSArray *objects, NSError *error) {
                 
             }];
         }];

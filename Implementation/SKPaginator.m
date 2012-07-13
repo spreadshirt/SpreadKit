@@ -56,7 +56,7 @@
 - (void)loadPageAndOnCompletion:(void (^)(NSArray *pageElems, NSError *error))completion
 {
     SKObjectLoader *loader = [[SKObjectLoader alloc] init];
-    [loader loadEntityList:list completion:^(SKEntityList *loaded, NSError *error) {
+    [loader getEntityList:list completion:^(SKEntityList *loaded, NSError *error) {
         completion(loaded.elements, nil);
     }];
 }

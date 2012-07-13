@@ -26,7 +26,7 @@
     
     [self prepare];
     
-    [loader1 loadEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] withParams:nil completion:^(NSArray *objects, NSError *error) {
+    [loader1 getEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] withParams:nil completion:^(NSArray *objects, NSError *error) {
         if (error) {
             GHFail(@"Loading should work");
         } else {
@@ -48,7 +48,7 @@
     
     [self prepare];
     
-    [loader2 loadSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil mapping:productMapping completion:^(NSArray *objects, NSError *error) {
+    [loader2 getSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil mapping:productMapping completion:^(NSArray *objects, NSError *error) {
         if (error) {
             GHFail(@"Loading should work");
         } else {
@@ -71,7 +71,7 @@
     
     [self prepare];
     
-    [loader3 load:user.products completion:^(id loaded, NSError *error) {
+    [loader3 get:user.products completion:^(id loaded, NSError *error) {
         if (error) {
             GHFail(@"Loading should work");
         } else {

@@ -48,11 +48,11 @@
                      andSecret:(NSString *)secret;
 
 // gets the user entity of a user-scoped client
-- (void)loadUserAndOnCompletion:(void (^)(SKUser *user, NSError *error))completion;
+- (void)getUserAndOnCompletion:(void (^)(SKUser *user, NSError *error))completion;
 
 // gets the shop entity of a shop-scoped client
-- (void)loadShopAndOnCompletion:(void (^)(SKShop *shop, NSError *error))completion;
+- (void)getShopAndOnCompletion:(void (^)(SKShop *shop, NSError *error))completion;
 
-- (void)load:(id)object completion:(void (^)(id loadedObject, NSError *error))completion;
+- (void)get:(id)object completion:(void (^)(id loadedObject, NSError *error))completion;
 
 @end

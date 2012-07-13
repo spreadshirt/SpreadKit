@@ -30,7 +30,7 @@
         } else {
             SKDesign *postedDesign = (SKDesign *)design;
             SKObjectLoader *loader = [[SKObjectLoader alloc] init];
-            [loader load:postedDesign completion:^(id loaded, NSError *error) {
+            [loader get:postedDesign completion:^(id loaded, NSError *error) {
                 if (error) {
                     [self notify:kGHUnitWaitStatusFailure];
                 } else {

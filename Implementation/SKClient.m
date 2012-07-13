@@ -67,35 +67,35 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     return self;
 }
 
-- (void)loadShopAndOnCompletion:(void (^)(SKShop *, NSError *))completion
+- (void)getShopAndOnCompletion:(void (^)(SKShop *, NSError *))completion
 {
     NSURL *shopURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@", BASE, self.shopId]];
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
     SKObjectLoader *loader= [[SKObjectLoader alloc] init];
     
-    [loader loadSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
+    [loader getSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKShop *shop = (SKShop *)[objects objectAtIndex:0];
         completion(shop, error);
     }];
 }
 
-- (void)loadUserAndOnCompletion:(void (^)(SKUser *, NSError *))completion
+- (void)getUserAndOnCompletion:(void (^)(SKUser *, NSError *))completion
 {
     NSURL *userURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", BASE, self.shopId]];
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKUser class]];
     SKObjectLoader *loader= [[SKObjectLoader alloc] init];
     
-    [loader loadSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
+    [loader getSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKUser *user = (SKUser *)[objects objectAtIndex:0];
         completion(user, error);
     }];
 }
 
 
-- (void)load:(id)object completion:(void (^)(id, NSError *))completion
+- (void)get:(id)object completion:(void (^)(id, NSError *))completion
 {
     SKObjectLoader *loader = [[SKObjectLoader alloc] init];
-    [loader load:object completion:^(id loaded, NSError *error) {
+    [loader get:object completion:^(id loaded, NSError *error) {
         completion(loaded, error);
     }];
 }
