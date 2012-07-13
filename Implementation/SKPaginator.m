@@ -8,7 +8,7 @@
 
 #import "SKPaginator.h"
 #import "SKEntityList.h"
-#import "SKObjectLoader.h"
+#import "SKObjectManager.h"
 
 @implementation SKPaginator
 
@@ -55,8 +55,8 @@
 
 - (void)loadPageAndOnCompletion:(void (^)(NSArray *pageElems, NSError *error))completion
 {
-    SKObjectLoader *loader = [[SKObjectLoader alloc] init];
-    [loader getEntityList:list completion:^(SKEntityList *loaded, NSError *error) {
+    SKObjectManager *manager = [[SKObjectManager alloc] init];
+    [manager getEntityList:list completion:^(SKEntityList *loaded, NSError *error) {
         completion(loaded.elements, nil);
     }];
 }

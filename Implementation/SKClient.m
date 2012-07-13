@@ -8,10 +8,10 @@
 
 #import "SKClient.h"
 #import "SKObjectMappingProvider.h"
-#import "SKObjectLoader.h"
 #import "SKProduct.h"
 #import "SKUser.h"
 #import "SKShop.h"
+#import "SKObjectManager.h"
 
 static SKClient *sharedClient = nil;
 NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
@@ -19,9 +19,10 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 @implementation SKClient
 {
     NSURL *baseUrl;
+    SKObjectManager *manager;
 }
 
-@synthesize apiKey, shopId, userId, secret, serverTimeOffset;
+@synthesize apiKey, shopId, userId, secret;
 
 + (SKClient *)sharedClient
 {
@@ -58,6 +59,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
         shopId = theShopId;
         
         baseUrl = [NSURL URLWithString:BASE];
+        manager = [SKObjectManager objectManagerWithApiKey:apiKey andSecret:secret];
         
         // set the singleton instance
         if (sharedClient == nil) {
@@ -71,9 +73,8 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 {
     NSURL *shopURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@", BASE, self.shopId]];
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
-    SKObjectLoader *loader= [SKObjectLoader loaderWithApiKey:self.apiKey andSecret:self.secret];
     
-    [loader getSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
+    [manager getSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKShop *shop = (SKShop *)[objects objectAtIndex:0];
         completion(shop, error);
     }];
@@ -83,9 +84,8 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 {
     NSURL *userURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", BASE, self.shopId]];
     RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKUser class]];
-    SKObjectLoader *loader= [SKObjectLoader loaderWithApiKey:self.apiKey andSecret:self.secret];
     
-    [loader getSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
+    [manager getSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKUser *user = (SKUser *)[objects objectAtIndex:0];
         completion(user, error);
     }];
@@ -94,8 +94,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 
 - (void)get:(id)object completion:(void (^)(id, NSError *))completion
 {
-    SKObjectLoader *loader = [[SKObjectLoader alloc] init];
-    [loader get:object completion:^(id loaded, NSError *error) {
+    [manager get:object completion:^(id loaded, NSError *error) {
         completion(loaded, error);
     }];
 }

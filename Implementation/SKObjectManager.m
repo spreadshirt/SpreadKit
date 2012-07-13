@@ -1,37 +1,33 @@
 //
-//  SKObjectLoader.m
+//  SKObjectManager.m
 //  SpreadKit
 //
-//  Created by Sebastian Marr on 06.03.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Sebastian Marr on 13.07.12.
+//
 //
 
-#import "SKObjectLoader.h"
-#import "RestKit/RKObjectMapper_Private.h"
-#import "SKObjectMappingProvider.h"
-#import "SKObjectMapper.h"
+#import "SKObjectManager.h"
 #import "SKEntityList.h"
-#import "SKClient.h"
+#import "SKObjectMappingProvider.h"
 #import "SKURLConnection.h"
+#import "SKObjectMapper.h"
 
-@implementation SKObjectLoader
-{
-    NSString * _apiKey;
-    NSString * _secret;
-}
+@implementation SKObjectManager
 
-- (id)initWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret
-{
-    if (self = [super init]) {
-        _apiKey = apiKey;
-        _secret = secret;
-    }
-    return self;
-}
+@synthesize apiKey, secret, serverTimeOffset;
 
-+ (SKObjectLoader *)loaderWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret
++ (SKObjectManager *)objectManagerWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret
 {
     return [[self alloc] initWithApiKey:apiKey andSecret:secret];
+}
+
+- (id)initWithApiKey:(NSString *)theApiKey andSecret:(NSString *)theSecret
+{
+    if (self = [super init]) {
+        apiKey = theApiKey;
+        secret = theSecret;
+    }
+    return self;
 }
 
 - (void)get:(id)objectStub completion:(void (^)(id, NSError *))completion
@@ -106,14 +102,14 @@
         [params addEntriesFromDictionary:passedParams];
     }
     
-    [SKURLConnection get:theUrl params:params apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [SKURLConnection get:theUrl params:params apiKey:apiKey secret:secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             completion(nil, error);
             return;
         }
         
         // remember server time offset to sign SprdAuth requests correctly
-        [SKClient sharedClient].serverTimeOffset = [self getServerTimeOffset:(NSHTTPURLResponse *)response];
+        serverTimeOffset = [self getServerTimeOffset:(NSHTTPURLResponse *)response];
         
         id mappingResult = [[SKObjectMapper mapperWithMIMEType:response.MIMEType mappingProvider:mappingProvider andDestinationObject:target]
                             performMappingWithData:data];

@@ -14,7 +14,7 @@
 
 + (NSString *)authorizationHeaderFromApiKey:(NSString *)theApiKey andSecret:(NSString *)theSecret andURL:(NSString *)theURL andMethod:(NSString *)theMethod andSessionId:(NSString *)theSessionId
 {
-    int timeStamp = [[NSDate date] timeIntervalSince1970] - [[SKClient sharedClient] serverTimeOffset];
+    int timeStamp = [[NSDate date] timeIntervalSince1970];
     return [self authorizationHeaderFromApiKey:theApiKey andSecret:theSecret andURL:theURL andMethod:theMethod andTimeStamp:[NSString stringWithFormat:@"%d", timeStamp] andSessionId:theSessionId];
 }
 

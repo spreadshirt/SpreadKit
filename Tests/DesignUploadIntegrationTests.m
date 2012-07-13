@@ -32,8 +32,8 @@
             [self notify:kGHUnitWaitStatusFailure];
         } else {
             SKDesign *postedDesign = (SKDesign *)design;
-            SKObjectLoader *loader = [SKObjectLoader loaderWithApiKey:apiKey andSecret:secret];
-            [loader get:postedDesign completion:^(id loaded, NSError *error) {
+            SKObjectManager *manager = [SKObjectManager objectManagerWithApiKey:apiKey andSecret:secret];
+            [manager get:postedDesign completion:^(id loaded, NSError *error) {
                 if (error) {
                     [self notify:kGHUnitWaitStatusFailure];
                 } else {

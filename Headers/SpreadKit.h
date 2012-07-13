@@ -8,7 +8,6 @@
 
 #import "SKClient.h"
 #import "SKImageLoader.h"
-#import "SKObjectLoader.h"
 #import "SKObjectMappingProvider.h"
 #import "SKProduct.h"
 #import "SKResource.h"
@@ -23,3 +22,4 @@
 #import "SKBasket.h"
 #import "SKDesign.h"
 #import "SKObjectPoster.h"
+#import "SKObjectManager.h"

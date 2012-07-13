@@ -27,8 +27,6 @@
 // The Shop ID for all operations to the Spreadshirt API.
 @property (strong, readonly) NSString *shopId;
 
-@property int serverTimeOffset;
-
 // Return the shared instance of the client.
 + (SKClient *)sharedClient;
 
