@@ -89,7 +89,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [basketItemMapping mapAttributes:@"description", @"quantity", @"links", @"price", @"origin", @"element", nil];
         
         RKObjectMapping *designMapping = [RKObjectMapping mappingForClass:[SKDesign class]];
-        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"color", @"printTypes", @"price", @"created", @"modified", @"size", nil];
+        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"colors", @"printTypes", @"price", @"created", @"modified", @"size", nil];
         [designMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [designMapping mapKeyPath:@"href" toAttribute:@"url"];
         

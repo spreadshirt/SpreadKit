@@ -15,6 +15,6 @@
 
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size andAppearanceId:(NSString *)appearanceId completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
-- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design completion:(void (^)(NSError *error))completion;
+- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(SKDesign *design, NSError *))completion;
 
 @end

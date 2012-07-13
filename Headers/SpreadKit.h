@@ -22,3 +22,4 @@
 #import "SKBasketItem.h"
 #import "SKBasket.h"
 #import "SKDesign.h"
+#import "SKObjectPoster.h"

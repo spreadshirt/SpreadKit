@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
 #import "SKImageLoader.h"
+#import "SKAuthenticationProvider.h"
 
 @implementation SKImageLoader
 
@@ -62,21 +64,24 @@
     }];
 }
 
-- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design completion:(void (^)(NSError *))completion
+- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(SKDesign *,NSError *))completion
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:design.uploadUrl];
     request.HTTPMethod = @"PUT";
     request.HTTPBody = UIImagePNGRepresentation(image);
+    
+    [request setValue:[SKAuthenticationProvider authorizationHeaderFromApiKey:apiKey andSecret:secret andURL:design.uploadUrl.absoluteString andMethod:request.HTTPMethod andSessionId:nil] forHTTPHeaderField:@"Authorization"];
+    
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if ([httpResponse statusCode] != 200) {
-            NSDictionary *userInfo = [NSDictionary dictionaryWithKeysAndObjects:NSLocalizedDescriptionKey, [NSString stringWithFormat:@"The upload failed and returned HTTP Code %d", [httpResponse statusCode]], nil];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithKeysAndObjects:NSLocalizedDescriptionKey, [NSString stringWithFormat:@"The upload failed with HTTP Code %d", [httpResponse statusCode]], @"ResponseContentKey", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], nil];
             NSError *error = [NSError errorWithDomain:@"SKErrorDomain" code:-100 userInfo:userInfo];
-            completion (error);
+            completion (design, error);
         }
         
-        completion(error);
+        completion(nil, error);
     }];
 }
 
