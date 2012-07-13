@@ -11,7 +11,7 @@
 
 @class SKEntityList;
 
-@interface SKObjectLoader : NSObject <NSURLConnectionDelegate>
+@interface SKObjectLoader : NSObject
 
 - (void)load:(id)objectStub completion:(void (^)(id loaded, NSError *error))completion;
 

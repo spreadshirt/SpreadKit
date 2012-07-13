@@ -9,6 +9,7 @@
 
 #import "SKImageLoader.h"
 #import "SKAuthenticationProvider.h"
+#import "SKURLConnection.h"
 
 @implementation SKImageLoader
 
@@ -40,40 +41,31 @@
     }];
     
     // calculate query parameters
-    NSMutableDictionary *queryParams = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  [NSString stringWithFormat:@"%d", widthToLoad], @"width",
                                  [NSString stringWithFormat:@"%d", heightToLoad], @"height",
                                  @"png", @"mediaType",
                                  nil];
     if (appearanceId) {
-        [queryParams setObject:appearanceId forKey:@"appearanceId"];
+        [params setObject:appearanceId forKey:@"appearanceId"];
     }
-    
-    NSString *paramUrl = [url.absoluteString stringByAppendingQueryParameters:queryParams];
-    NSURL *theUrl = [NSURL URLWithString:paramUrl];
-    
-    // load the image
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:theUrl] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connError) {
+
+    [SKURLConnection get:url params:params authorizationHeader:nil completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (data) {
             UIImage *image = [[UIImage alloc] initWithData:data];
             image = [UIImage imageWithCGImage:image.CGImage scale:scaleFactor orientation:image.imageOrientation];
             completion(image, url, nil);
         } else {
-            completion(nil, nil, connError);
+            completion(nil, nil, error);
         }
     }];
 }
 
 - (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design apiKey:(NSString *)apiKey secret:(NSString *)secret completion:(void (^)(SKDesign *,NSError *))completion
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:design.uploadUrl];
-    request.HTTPMethod = @"PUT";
-    request.HTTPBody = UIImagePNGRepresentation(image);
+    NSString *authorizationHeader = [SKAuthenticationProvider authorizationHeaderFromApiKey:apiKey andSecret:secret andURL:design.uploadUrl.absoluteString andMethod:@"PUT" andSessionId:nil];
     
-    [request setValue:[SKAuthenticationProvider authorizationHeaderFromApiKey:apiKey andSecret:secret andURL:design.uploadUrl.absoluteString andMethod:request.HTTPMethod andSessionId:nil] forHTTPHeaderField:@"Authorization"];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
+    [SKURLConnection put:UIImagePNGRepresentation(image) toURL:design.uploadUrl params:nil authorizationHeader:authorizationHeader completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if ([httpResponse statusCode] != 200) {
             NSDictionary *userInfo = [NSDictionary dictionaryWithKeysAndObjects:NSLocalizedDescriptionKey, [NSString stringWithFormat:@"The upload failed with HTTP Code %d", [httpResponse statusCode]], @"ResponseContentKey", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], nil];
