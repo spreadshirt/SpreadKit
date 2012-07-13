@@ -54,7 +54,7 @@
 // gets the full details of an object
 - (void)get:(id)object completion:(void (^)(id loadedObject, NSError *error))completion;
 
-// posts a new object and returns the full server object in the completion block.
+// posts a new object and sets the url of the created object into the url property
 - (void)post:(id)object completion:(void (^)(id newObject, NSError *error))completion;
 
 @end

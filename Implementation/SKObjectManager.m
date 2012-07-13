@@ -13,6 +13,9 @@
 #import "SKObjectMapper.h"
 
 @implementation SKObjectManager
+{
+    NSDictionary *defaultParams;
+}
 
 @synthesize apiKey, secret, serverTimeOffset;
 
@@ -21,9 +24,17 @@
     return [[self alloc] initWithApiKey:apiKey andSecret:secret];
 }
 
-- (id)initWithApiKey:(NSString *)theApiKey andSecret:(NSString *)theSecret
+- (id)init
 {
     if (self = [super init]) {
+        defaultParams = [NSDictionary dictionaryWithKeysAndObjects:@"mediaType", @"json", @"fullData", @"true", nil];
+    }
+    return self;
+}
+
+- (id)initWithApiKey:(NSString *)theApiKey andSecret:(NSString *)theSecret
+{
+    if (self = [self init]) {
         apiKey = theApiKey;
         secret = theSecret;
     }
@@ -94,10 +105,7 @@
 
 - (void)getResourceFromUrl:(NSURL *)theUrl withParams:(NSDictionary *)passedParams mappingProvdider:(RKObjectMappingProvider *)mappingProvider intoTargetObject:(id)target completion:(void (^)(NSArray *, NSError *))completion
 {
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithKeysAndObjects:
-                                   @"mediaType", @"json",
-                                   @"fullData", @"true",
-                                   nil];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:defaultParams];
     if (passedParams) {
         [params addEntriesFromDictionary:passedParams];
     }
@@ -124,7 +132,7 @@
     NSString *json = [mapper serializeObject:theObject];
     NSData *requestData = [json dataUsingEncoding:NSUTF8StringEncoding];
     
-    [SKURLConnection post:requestData toURL:theURL params:nil apiKey:apiKey secret:secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [SKURLConnection post:requestData toURL:theURL params:defaultParams apiKey:apiKey secret:secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             completion(nil, error);
         }

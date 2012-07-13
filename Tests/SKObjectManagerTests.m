@@ -99,7 +99,7 @@
     
     [self prepare];
     
-    [manager postObject:basket toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/baskets?mediaType=json"] completion:^(id object, NSError *error) {
+    [manager postObject:basket toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/baskets"] completion:^(id object, NSError *error) {
         if (error) {
             GHFail(@"Posting should work");
         } else {

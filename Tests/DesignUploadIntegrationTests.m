@@ -27,7 +27,7 @@
     design.description = @"This is a Design created with SpreadKit";
     SKObjectManager *manager = [SKObjectManager objectManagerWithApiKey:apiKey andSecret:secret];
     [self prepare];
-    [manager postObject:design toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/41985/designs?mediaType=json"] completion:^(id object, NSError *error) {
+    [manager postObject:design toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/41985/designs"] completion:^(id object, NSError *error) {
         if (error) {
             [self notify:kGHUnitWaitStatusFailure];
         } else {
