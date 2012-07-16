@@ -18,3 +18,7 @@
 #import "SKShop.h"
 #import "SKSize.h"
 #import "SKUser.h"
+#import "SKConfigurationOffset.h"
+#import "SKPrintArea.h"
+#import "SKPrintType.h"
+#import "SKProductConfiguration.h"

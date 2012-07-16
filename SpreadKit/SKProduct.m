@@ -24,6 +24,7 @@
 @synthesize freeColorSelection;
 @synthesize productType;
 @synthesize appearance;
+@synthesize configurations;
 
 - (void)setFreeColorSelection:(BOOL)freeColorSelection
 {

@@ -25,6 +25,7 @@
 @property (nonatomic, strong) SKProductType *productType;
 @property (nonatomic, strong) NSDictionary* restrictions;
 @property (nonatomic, strong) SKAppearance *appearance;
+@property (nonatomic, strong) NSArray *configurations;
 @property (nonatomic) BOOL freeColorSelection;
 
 @end

@@ -28,7 +28,22 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         RKObjectMapping *appearanceMapping = [RKObjectMapping mappingForClass:[SKAppearance class]];
         [appearanceMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [appearanceMapping mapAttributes:@"name", @"colors", @"printTypes", nil];
+        [appearanceMapping mapAttributes:@"name", @"colors", nil];
+        
+        RKObjectMapping *printTypeMapping = [RKObjectMapping mappingForClass:[SKPrintType class]];
+        [printTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [printTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [printTypeMapping mapAttributes:@"weight", @"name", @"description", @"dpi", @"restrictions", @"price", nil];
+        
+        RKObjectMapping *offsetMapping = [RKObjectMapping mappingForClass:[SKConfigurationOffset class]];
+        [offsetMapping mapAttributes:@"unit", @"x", @"y", nil];
+        
+        RKObjectMapping *configurationMapping = [RKObjectMapping mappingForClass:[SKProductConfiguration class]];
+        [configurationMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [configurationMapping mapAttributes:@"type", @"content", @"fontFamilies", @"restrictions", nil];
+        
+        RKObjectMapping *printAreaMapping = [RKObjectMapping mappingForClass:[SKPrintArea class]];
+        [printAreaMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         
         RKObjectMapping *sizeMapping = [RKObjectMapping mappingForClass:[SKSize class]];
         [sizeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
@@ -37,7 +52,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *productTypeMapping = [RKObjectMapping mappingForClass:[SKProductType class]];
         [productTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [productTypeMapping mapAttributes:@"appearences", @"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"price", @"defaultValues", @"washingInstructions", @"views", @"printAreas", @"stockStates", nil];
+        [productTypeMapping mapAttributes:@"appearences", @"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"price", @"defaultValues", @"washingInstructions", @"views", @"stockStates", nil];
 
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
         [productMapping mapAttributes:@"name", @"weight", @"creator", @"restrictions", nil];
@@ -78,21 +93,26 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [basketItemMapping mapAttributes:@"description", @"quantity", @"links", @"price", @"origin", @"element", nil];
         
         RKObjectMapping *designMapping = [RKObjectMapping mappingForClass:[SKDesign class]];
-        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"colors", @"printTypes", @"price", @"created", @"modified", @"size", nil];
+        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"colors", @"price", @"created", @"modified", @"size", nil];
         [designMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [designMapping mapKeyPath:@"href" toAttribute:@"url"];
         
         // relationships
         [appearanceMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [appearanceMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:printTypeMapping];
         
         [productMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         [productMapping mapKeyPath:@"productType" toRelationship:@"productType" withMapping:productTypeMapping];
         [productMapping mapKeyPath:@"appearance" toRelationship:@"appearance" withMapping:appearanceMapping];
+        [productMapping mapKeyPath:@"configurations" toRelationship:@"configurations" withMapping:configurationMapping];
+        
+        [printTypeMapping mapKeyPath:@"site" toRelationship:@"size" withMapping:sizeMapping];
         
         [productTypeMapping mapKeyPath:@"appearances" toRelationship:@"appearances" withMapping:appearanceMapping];
         [productTypeMapping mapKeyPath:@"sizes" toRelationship:@"sizes" withMapping:sizeMapping];
         [productTypeMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [productTypeMapping mapKeyPath:@"printAreas" toRelationship:@"printAreas" withMapping:printAreaMapping];
         
         [articleMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
         [articleMapping mapKeyPath:@"product" toRelationship:@"product" withMapping:productMapping];
@@ -114,6 +134,13 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         [designMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         [designMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [designMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:printTypeMapping];
+        
+        [configurationMapping mapKeyPath:@"printArea" toRelationship:@"printArea" withMapping:printAreaMapping];
+        [configurationMapping mapKeyPath:@"printType" toRelationship:@"printType" withMapping:printTypeMapping];
+        [configurationMapping mapKeyPath:@"offset" toRelationship:@"offset" withMapping:offsetMapping];
+        [configurationMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:designMapping];
+        [configurationMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
         
         // serialization mappings
@@ -134,6 +161,9 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self addObjectMapping:basketMapping];
         [self addObjectMapping:basketItemMapping];
         [self addObjectMapping:designMapping];
+        [self addObjectMapping:printTypeMapping];
+        [self addObjectMapping:printAreaMapping];
+        [self addObjectMapping:offsetMapping];
         [self setMapping:articleMapping forKeyPath:@"articles"];
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];
@@ -142,6 +172,8 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self setMapping:basketItemMapping forKeyPath:@"basketItems"];
         [self setMapping:designMapping forKeyPath:@"designs"];
         [self setMapping:basketMapping forKeyPath:@"baskets"];
+        [self setMapping:printTypeMapping forKeyPath:@"printTypes"];
+        [self setMapping:printAreaMapping forKeyPath:@"printAreas"];
     }
     return self;
 }
