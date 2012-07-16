@@ -28,7 +28,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         RKObjectMapping *appearanceMapping = [RKObjectMapping mappingForClass:[SKAppearance class]];
         [appearanceMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [appearanceMapping mapAttributes:@"name", @"colors", nil];
+        [appearanceMapping mapAttributes:@"name", nil];
         
         RKObjectMapping *printTypeMapping = [RKObjectMapping mappingForClass:[SKPrintType class]];
         [printTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
@@ -41,6 +41,12 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *configurationMapping = [RKObjectMapping mappingForClass:[SKProductConfiguration class]];
         [configurationMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [configurationMapping mapAttributes:@"type", @"content", @"fontFamilies", @"restrictions", nil];
+        
+        RKObjectMapping *colorMapping = [RKObjectMapping mappingForClass:[SKColor class]];
+        [colorMapping mapKeyPath:@"index" toAttribute:@"index"];
+        [colorMapping mapKeyPath:@"value" toAttribute:@"representation"];
+        [colorMapping mapKeyPath:@"default" toAttribute:@"defaultColor"];
+        [colorMapping mapKeyPath:@"origin" toAttribute:@"originColor"];
         
         RKObjectMapping *printAreaMapping = [RKObjectMapping mappingForClass:[SKPrintArea class]];
         [printAreaMapping mapKeyPath:@"id" toAttribute:@"identifier"];
@@ -93,13 +99,16 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [basketItemMapping mapAttributes:@"description", @"quantity", @"links", @"price", @"origin", @"element", nil];
         
         RKObjectMapping *designMapping = [RKObjectMapping mappingForClass:[SKDesign class]];
-        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"colors", @"price", @"created", @"modified", @"size", nil];
+        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"price", @"created", @"modified", @"size", nil];
         [designMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [designMapping mapKeyPath:@"href" toAttribute:@"url"];
         
         // relationships
         [appearanceMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         [appearanceMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:printTypeMapping];
+        [appearanceMapping mapKeyPath:@"colors" toRelationship:@"colors" withMapping:colorMapping];
+        
+        [colorMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
         [productMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
@@ -135,6 +144,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [designMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
         [designMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         [designMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:printTypeMapping];
+        [designMapping mapKeyPath:@"colors" toRelationship:@"colors" withMapping:colorMapping];
         
         [configurationMapping mapKeyPath:@"printArea" toRelationship:@"printArea" withMapping:printAreaMapping];
         [configurationMapping mapKeyPath:@"printType" toRelationship:@"printType" withMapping:printTypeMapping];
@@ -164,6 +174,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self addObjectMapping:printTypeMapping];
         [self addObjectMapping:printAreaMapping];
         [self addObjectMapping:offsetMapping];
+        [self addObjectMapping:colorMapping];
         [self setMapping:articleMapping forKeyPath:@"articles"];
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];

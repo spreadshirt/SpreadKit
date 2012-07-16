@@ -22,3 +22,4 @@
 #import "SKPrintArea.h"
 #import "SKPrintType.h"
 #import "SKProductConfiguration.h"
+#import "SKColor.h"
