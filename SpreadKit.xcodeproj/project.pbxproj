@@ -140,6 +140,9 @@
 		C0F68BD015B441A100FFA3BC /* SKLanguage.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F68BCE15B441A000FFA3BC /* SKLanguage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0F68BD115B441A100FFA3BC /* SKLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BCF15B441A000FFA3BC /* SKLanguage.m */; };
 		C0F68BD215B441A100FFA3BC /* SKLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BCF15B441A000FFA3BC /* SKLanguage.m */; };
+		C0F68BD515B44D0300FFA3BC /* SKPrice.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F68BD315B44D0200FFA3BC /* SKPrice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0F68BD615B44D0300FFA3BC /* SKPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BD415B44D0200FFA3BC /* SKPrice.m */; };
+		C0F68BD715B44D0300FFA3BC /* SKPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BD415B44D0200FFA3BC /* SKPrice.m */; };
 		C0FE50D715A1C5550015BC6F /* SKBasketManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */; };
 /* End PBXBuildFile section */
 
@@ -306,6 +309,8 @@
 		C0F68BCA15B43FED00FFA3BC /* SKCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKCurrency.m; path = SpreadKit/SKCurrency.m; sourceTree = "<group>"; };
 		C0F68BCE15B441A000FFA3BC /* SKLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKLanguage.h; path = SpreadKit/SKLanguage.h; sourceTree = "<group>"; };
 		C0F68BCF15B441A000FFA3BC /* SKLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKLanguage.m; path = SpreadKit/SKLanguage.m; sourceTree = "<group>"; };
+		C0F68BD315B44D0200FFA3BC /* SKPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKPrice.h; path = SpreadKit/SKPrice.h; sourceTree = "<group>"; };
+		C0F68BD415B44D0200FFA3BC /* SKPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKPrice.m; path = SpreadKit/SKPrice.m; sourceTree = "<group>"; };
 		C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketManagerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -433,6 +438,8 @@
 				C0F68BCE15B441A000FFA3BC /* SKLanguage.h */,
 				C0F68BCF15B441A000FFA3BC /* SKLanguage.m */,
 				C0F68B3B15B4146B00FFA3BC /* SKModel.h */,
+				C0F68BD315B44D0200FFA3BC /* SKPrice.h */,
+				C0F68BD415B44D0200FFA3BC /* SKPrice.m */,
 				C0F68B9115B4287700FFA3BC /* SKPrintArea.h */,
 				C0F68B9215B4287700FFA3BC /* SKPrintArea.m */,
 				C0F68B9615B42A1A00FFA3BC /* SKPrintType.h */,
@@ -591,6 +598,7 @@
 				C0F68B8E15B41A2500FFA3BC /* SKProductConfiguration.h in Headers */,
 				C0F68BA715B438E500FFA3BC /* SKView.h in Headers */,
 				C0F68BD015B441A100FFA3BC /* SKLanguage.h in Headers */,
+				C0F68BD515B44D0300FFA3BC /* SKPrice.h in Headers */,
 				C0F68B9315B4287700FFA3BC /* SKPrintArea.h in Headers */,
 				C0F68B9815B42A1A00FFA3BC /* SKPrintType.h in Headers */,
 				C0F68B9D15B42C8900FFA3BC /* SKConfigurationOffset.h in Headers */,
@@ -782,6 +790,7 @@
 				C0F68BC815B43F1900FFA3BC /* SKCountry.m in Sources */,
 				C0F68BCD15B43FEE00FFA3BC /* SKCurrency.m in Sources */,
 				C0F68BD215B441A100FFA3BC /* SKLanguage.m in Sources */,
+				C0F68BD715B44D0300FFA3BC /* SKPrice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +829,7 @@
 				C0F68BC715B43F1900FFA3BC /* SKCountry.m in Sources */,
 				C0F68BCC15B43FEE00FFA3BC /* SKCurrency.m in Sources */,
 				C0F68BD115B441A100FFA3BC /* SKLanguage.m in Sources */,
+				C0F68BD615B44D0300FFA3BC /* SKPrice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

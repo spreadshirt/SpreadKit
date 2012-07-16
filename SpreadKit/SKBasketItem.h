@@ -11,6 +11,7 @@
 @class SKShop;
 @class SKSize;
 @class SKAppearance;
+@class SKPrice;
 
 @interface SKBasketItem : NSObject
 
@@ -19,7 +20,7 @@
 @property (nonatomic, strong) NSNumber * quantity;
 @property (nonatomic, strong) NSDictionary * element;
 @property (nonatomic, strong) NSArray * links;
-@property (nonatomic, strong) NSDictionary * price;
+@property (nonatomic, strong) SKPrice * price;
 @property (nonatomic, strong) SKShop * shop;
 @property (nonatomic, strong) NSString * origin;
 

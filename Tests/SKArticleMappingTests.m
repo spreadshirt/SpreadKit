@@ -11,6 +11,8 @@
 #import "SKArticle.h"
 #import "SKProduct.h"
 #import "SKShop.h"
+#import "SKPrice.h"
+#import "SKCurrency.h"
 #import "SKProductType.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/RKObjectMapper_Private.h>
@@ -51,8 +53,8 @@
     GHAssertEqualStrings(article.name, @"Mehr Sellerie!", @"Article should have the right name");
     GHAssertEqualStrings(article.description, @"", @"Article should have the right description");
     GHAssertNotNil(article.price, @"Article price should have been mapped");
-    GHAssertEqualObjects([article.price objectForKey:@"vatExcluded"], [NSNumber numberWithDouble:19.24], @"Article price should be correct");
-    GHAssertEqualObjects([[article.price objectForKey:@"currency"] objectForKey:@"id"], @"1", @"Article should have the right currency");
+    GHAssertEqualObjects(article.price.vatExcluded, [NSNumber numberWithDouble:19.24], @"Article price should be correct");
+    GHAssertEqualObjects(article.price.currency.identifier, @"1", @"Article should have the right currency");
     GHAssertNotNil(article.shop, @"Article shop should have been mapped");
     GHAssertEqualObjects(article.shop.url, [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/41985"], @"Article should have the right shop");
     GHAssertEqualObjects(article.product.url, [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/41985/products/26651586"], @"Article should have the correct product");

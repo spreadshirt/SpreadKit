@@ -10,6 +10,7 @@
 
 @class SKUser;
 @class SKSize;
+@class SKPrice;
 
 @interface SKDesign : NSObject
 
@@ -24,7 +25,7 @@
 @property (nonatomic, strong) NSDictionary * size;
 @property (nonatomic, strong) NSArray * colors;
 @property (nonatomic, strong) NSArray * printTypes;
-@property (nonatomic, strong) NSDictionary * price;
+@property (nonatomic, strong) SKPrice * price;
 @property (nonatomic, strong) NSArray * resources;
 @property (nonatomic, strong) NSDate * created;
 @property (nonatomic, strong) NSDate * modified;

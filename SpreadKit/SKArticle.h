@@ -10,6 +10,7 @@
 
 @class SKShop;
 @class SKProduct;
+@class SKPrice;
 
 @interface SKArticle : NSObject
 
@@ -18,7 +19,7 @@
 @property (nonatomic, strong) NSNumber * weight;
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSString * description;
-@property (nonatomic, strong) NSDictionary * price;
+@property (nonatomic, strong) SKPrice * price;
 @property (nonatomic, weak) SKShop * shop;
 @property (nonatomic, strong) SKProduct * product;
 @property (nonatomic, strong) NSDictionary * articleCategories;

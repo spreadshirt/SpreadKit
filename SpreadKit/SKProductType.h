@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class SKPrice;
+
 @interface SKProductType : NSObject
 
 @property (nonatomic, strong) NSURL* url;
@@ -20,14 +22,14 @@
 @property (nonatomic, strong) NSString * brand;
 @property (nonatomic, strong) NSNumber * shippingFactor;
 @property (nonatomic, strong) NSString * sizeFitHint;
-@property (nonatomic, strong) NSDictionary * price;
+@property (nonatomic, strong) SKPrice * price;
 @property (nonatomic, strong) NSDictionary * defaultValues;
-@property (nonatomic, strong) NSArray *sizes;
-@property (nonatomic, strong) NSArray *appearances;
+@property (nonatomic, strong) NSArray * sizes;
+@property (nonatomic, strong) NSArray * appearances;
 @property (nonatomic, strong) NSArray * washingInstructions;
 @property (nonatomic, strong) NSArray * views;
-@property (nonatomic, strong) NSArray *printAreas;
-@property (nonatomic, strong) NSArray *stockStates;
+@property (nonatomic, strong) NSArray * printAreas;
+@property (nonatomic, strong) NSArray * stockStates;
 @property (nonatomic, strong) NSArray * resources;
 
 @end

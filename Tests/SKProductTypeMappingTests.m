@@ -9,6 +9,8 @@
 #import <GHUnitIOS/GHUnit.h>
 #import "SKObjectMappingProvider.h"
 #import "SKProductType.h"
+#import "SKPrice.h"
+#import "SKCurrency.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/RKObjectMapper_Private.h>
 
@@ -57,8 +59,8 @@
     GHAssertEqualStrings(productType.brand, @"Continental Clothing", @"should have the right brand");
     GHAssertEqualObjects(productType.shippingFactor, [NSNumber numberWithFloat:1.0], @"should have the right shipping factor");
     GHAssertEqualStrings(productType.sizeFitHint, @"slimmer fit", @"should have the right size fit hint");
-    GHAssertEqualObjects([productType.price objectForKey:@"vatExcluded"], [NSNumber numberWithDouble:9.16], @"price should be correct");
-    GHAssertEqualObjects([[productType.price objectForKey:@"currency"] objectForKey:@"id"], @"1", @"should have the right currency");
+    GHAssertEqualObjects(productType.price.vatExcluded, [NSNumber numberWithDouble:9.16], @"price should be correct");
+    GHAssertEqualObjects(productType.price.currency.identifier, @"1", @"should have the right currency");
     
     GHAssertEqualStrings([[productType.defaultValues objectForKey:@"defaultView"] objectForKey:@"id"], @"1", @"should have the right default view");
     GHAssertEqualStrings([[productType.defaultValues objectForKey:@"defaultAppearance"] objectForKey:@"id"], @"7", @"should have the right default appearance");

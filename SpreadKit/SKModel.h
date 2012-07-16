@@ -27,3 +27,4 @@
 #import "SKCountry.h"
 #import "SKCurrency.h"
 #import "SKLanguage.h"
+#import "SKPrice.h"

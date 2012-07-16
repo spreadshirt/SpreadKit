@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class SKSize;
+@class SKPrice;
 
 @interface SKPrintType : NSObject
 
@@ -21,6 +22,6 @@
 @property (nonatomic, strong) NSNumber * dpi;
 @property (nonatomic, strong) NSArray * colors;
 @property (nonatomic, strong) NSDictionary * restrictions;
-@property (nonatomic, strong) NSDictionary * price;
+@property (nonatomic, strong) SKPrice * price;
 
 @end
