@@ -7,8 +7,9 @@
 //
 
 #import "SKShop.h"
-#import "SKUser.h"
-#import "SKEntityList.h"
+
+@class SKUser;
+@class SKEntityList;
 
 @interface SKBasket : NSObject
 

@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKBasketItem.h"
-#import "SKBasket.h"
+
+
+@class SKBasketItem;
+@class SKBasket;
 
 @interface SKBasketManager : NSObject
 

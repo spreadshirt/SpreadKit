@@ -7,18 +7,7 @@
 //
 
 #import "SKObjectMappingProvider.h"
-#import "SKResource.h"
-#import "SKProduct.h"
-#import "SKUser.h"
-#import "SKShop.h"
-#import "SKProductType.h"
-#import "SKEntityList.h"
-#import "SKAppearance.h"
-#import "SKArticle.h"
-#import "SKSize.h"
-#import "SKBasket.h"
-#import "SKBasketItem.h"
-#import "SKDesign.h"
+#import "SKModel.h"
 
 static SKObjectMappingProvider *sharedMappingProvider = nil;
 

@@ -7,6 +7,7 @@
 //
 
 #import "SKBasketManager.h"
+#import "SKBasket.h"
 
 @implementation SKBasketManager
 

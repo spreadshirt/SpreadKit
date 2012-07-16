@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
-#import "SKDesign.h"
+
+
+@class SKDesign;
 
 @interface SKImageLoader : NSObject
 

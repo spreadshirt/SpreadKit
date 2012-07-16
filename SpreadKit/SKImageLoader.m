@@ -9,6 +9,7 @@
 
 #import "SKImageLoader.h"
 #import "SKURLConnection.h"
+#import "SKDesign.h"
 
 @implementation SKImageLoader
 {

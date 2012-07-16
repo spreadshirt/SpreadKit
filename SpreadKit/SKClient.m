@@ -8,13 +8,10 @@
 
 #import "SKClient.h"
 #import "SKObjectMappingProvider.h"
-#import "SKProduct.h"
-#import "SKUser.h"
-#import "SKShop.h"
-#import "SKDesign.h"
 #import "SKObjectManager.h"
-#import "SKEntityList.h"
-#import "SKBasket.h"
+
+#import "SKModel.h"
+
 
 static SKClient *sharedClient = nil;
 NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
