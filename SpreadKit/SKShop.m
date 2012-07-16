@@ -19,5 +19,14 @@
 @synthesize productTypes;
 @synthesize designs;
 @synthesize baskets;
+@synthesize countries;
+@synthesize country;
+@synthesize currencies;
+@synthesize currency;
+@synthesize hidden;
+@synthesize language;
+@synthesize languages;
+@synthesize passwordRestricted;
+@synthesize printTypes;
 
 @end

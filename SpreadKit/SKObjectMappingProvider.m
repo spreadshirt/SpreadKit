@@ -108,7 +108,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *shopMapping = [RKObjectMapping mappingForClass:[SKShop class]];
         [shopMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [shopMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [shopMapping mapAttributes:@"name", nil];
+        [shopMapping mapAttributes:@"name", @"passwordRestricted", @"hidden", nil];
         
         RKObjectMapping *basketMapping = [RKObjectMapping mappingForClass:[SKBasket class]];
         [basketMapping mapKeyPath:@"id" toAttribute:@"identifier"];
@@ -170,6 +170,14 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [shopMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:listMapping];
         [shopMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:listMapping];
         [shopMapping mapKeyPath:@"baskets" toRelationship:@"baskets" withMapping:listMapping];
+        [shopMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
+        [shopMapping mapKeyPath:@"country" toRelationship:@"country" withMapping:countryMapping];
+        [shopMapping mapKeyPath:@"language" toRelationship:@"language" withMapping:languageMapping];
+        [shopMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];
+        [shopMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:listMapping];
+        [shopMapping mapKeyPath:@"currencies" toRelationship:@"currencies" withMapping:listMapping];
+        [shopMapping mapKeyPath:@"countries" toRelationship:@"countries" withMapping:listMapping];
+        [shopMapping mapKeyPath:@"languages" toRelationship:@"languages" withMapping:listMapping];
         
         [basketMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
         [basketMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
