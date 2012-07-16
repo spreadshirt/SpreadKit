@@ -155,7 +155,16 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [userMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
         [userMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:listMapping];
         [userMapping mapKeyPath:@"baskets" toRelationship:@"baskets" withMapping:listMapping];
-        
+        [userMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];
+        [userMapping mapKeyPath:@"country" toRelationship:@"country" withMapping:countryMapping];
+        [userMapping mapKeyPath:@"language" toRelationship:@"language" withMapping:languageMapping];
+        [userMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:listMapping];
+        [userMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:listMapping];
+        [userMapping mapKeyPath:@"shops" toRelationship:@"shops" withMapping:listMapping];
+        [userMapping mapKeyPath:@"currencies" toRelationship:@"currencies" withMapping:listMapping];
+        [userMapping mapKeyPath:@"languages" toRelationship:@"languages" withMapping:listMapping];
+        [userMapping mapKeyPath:@"countries" toRelationship:@"countries" withMapping:listMapping];
+
         [shopMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
         [shopMapping mapKeyPath:@"articles" toRelationship:@"articles" withMapping:listMapping];
         [shopMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:listMapping];
@@ -216,6 +225,9 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self setMapping:basketMapping forKeyPath:@"baskets"];
         [self setMapping:printTypeMapping forKeyPath:@"printTypes"];
         [self setMapping:printAreaMapping forKeyPath:@"printAreas"];
+        [self setMapping:languageMapping forKeyPath:@"languages"];
+        [self setMapping:countryMapping forKeyPath:@"countries"];
+        [self setMapping:currencyMapping forKeyPath:@"currencies"];
     }
     return self;
 }
