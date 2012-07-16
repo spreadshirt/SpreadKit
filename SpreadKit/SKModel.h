@@ -24,3 +24,6 @@
 #import "SKProductConfiguration.h"
 #import "SKColor.h"
 #import "SKView.h"
+#import "SKCountry.h"
+#import "SKCurrency.h"
+#import "SKLanguage.h"

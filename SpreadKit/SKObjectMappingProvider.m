@@ -21,6 +21,22 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         // date formatting
         [RKObjectMapping addDefaultDateFormatterForString:@"dd-MMM-yyyy" inTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
         
+        RKObjectMapping *currencyMapping = [RKObjectMapping mappingForClass:[SKCurrency class]];
+        [currencyMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [currencyMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [currencyMapping mapAttributes:@"plain", @"isoCode", @"symbol", @"decimalCount", @"pattern", nil];
+        
+        RKObjectMapping *countryMapping = [RKObjectMapping mappingForClass:[SKCountry class]];
+        [countryMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [countryMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [countryMapping mapKeyPath:@"length.unit" toAttribute:@"lengthUnit"];
+        [countryMapping mapKeyPath:@"length.unitFactor" toAttribute:@"lengthFactor"];
+        [countryMapping mapAttributes:@"name", @"isoCode", @"thousandsSeparator", @"decimalPoint", nil];
+        
+        RKObjectMapping *languageMapping = [RKObjectMapping mappingForClass:[SKLanguage class]];
+        [languageMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [languageMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [languageMapping mapAttributes:@"name", @"isoCode", nil];
         
         RKObjectMapping *resourceMapping = [RKObjectMapping mappingForClass:[SKResource class]];
         [resourceMapping mapAttributes:@"mediaType", @"type", nil];
@@ -109,6 +125,8 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [designMapping mapKeyPath:@"href" toAttribute:@"url"];
         
         // relationships
+        [countryMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];
+        
         [appearanceMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         [appearanceMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:printTypeMapping];
         [appearanceMapping mapKeyPath:@"colors" toRelationship:@"colors" withMapping:colorMapping];
@@ -185,6 +203,9 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self addObjectMapping:offsetMapping];
         [self addObjectMapping:colorMapping];
         [self addObjectMapping:viewMapping];
+        [self addObjectMapping:countryMapping];
+        [self addObjectMapping:currencyMapping];
+        [self addObjectMapping:languageMapping];
         [self setMapping:articleMapping forKeyPath:@"articles"];
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];
