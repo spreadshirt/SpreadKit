@@ -42,6 +42,10 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [configurationMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [configurationMapping mapAttributes:@"type", @"content", @"fontFamilies", @"restrictions", nil];
         
+        RKObjectMapping *viewMapping = [RKObjectMapping mappingForClass:[SKView class]];
+        [viewMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [viewMapping mapAttributes:@"name", @"perspective", nil];
+        
         RKObjectMapping *colorMapping = [RKObjectMapping mappingForClass:[SKColor class]];
         [colorMapping mapKeyPath:@"index" toAttribute:@"index"];
         [colorMapping mapKeyPath:@"value" toAttribute:@"representation"];
@@ -50,6 +54,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         RKObjectMapping *printAreaMapping = [RKObjectMapping mappingForClass:[SKPrintArea class]];
         [printAreaMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [printAreaMapping mapAttributes:@"appearanceColorIndex", @"restrictions", @"boundary", nil];
         
         RKObjectMapping *sizeMapping = [RKObjectMapping mappingForClass:[SKSize class]];
         [sizeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
@@ -116,7 +121,9 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productMapping mapKeyPath:@"appearance" toRelationship:@"appearance" withMapping:appearanceMapping];
         [productMapping mapKeyPath:@"configurations" toRelationship:@"configurations" withMapping:configurationMapping];
         
-        [printTypeMapping mapKeyPath:@"site" toRelationship:@"size" withMapping:sizeMapping];
+        [printTypeMapping mapKeyPath:@"size" toRelationship:@"size" withMapping:sizeMapping];
+        
+        [printAreaMapping mapKeyPath:@"defaultView" toRelationship:@"defaultView" withMapping:viewMapping];
         
         [productTypeMapping mapKeyPath:@"appearances" toRelationship:@"appearances" withMapping:appearanceMapping];
         [productTypeMapping mapKeyPath:@"sizes" toRelationship:@"sizes" withMapping:sizeMapping];
@@ -152,6 +159,8 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [configurationMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:designMapping];
         [configurationMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
+        [viewMapping mapKeyPath:@"size" toRelationship:@"size" withMapping:sizeMapping];
+        [viewMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
         // serialization mappings
         
@@ -175,6 +184,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self addObjectMapping:printAreaMapping];
         [self addObjectMapping:offsetMapping];
         [self addObjectMapping:colorMapping];
+        [self addObjectMapping:viewMapping];
         [self setMapping:articleMapping forKeyPath:@"articles"];
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];

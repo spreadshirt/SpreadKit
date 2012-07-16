@@ -128,6 +128,9 @@
 		C0F68BA215B434A500FFA3BC /* SKColor.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F68BA015B434A400FFA3BC /* SKColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0F68BA315B434A500FFA3BC /* SKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BA115B434A400FFA3BC /* SKColor.m */; };
 		C0F68BA415B434A500FFA3BC /* SKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BA115B434A400FFA3BC /* SKColor.m */; };
+		C0F68BA715B438E500FFA3BC /* SKView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F68BA515B438E300FFA3BC /* SKView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0F68BA815B438E500FFA3BC /* SKView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BA615B438E400FFA3BC /* SKView.m */; };
+		C0F68BA915B438E500FFA3BC /* SKView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BA615B438E400FFA3BC /* SKView.m */; };
 		C0FE50D715A1C5550015BC6F /* SKBasketManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */; };
 /* End PBXBuildFile section */
 
@@ -286,6 +289,8 @@
 		C0F68B9C15B42C8800FFA3BC /* SKConfigurationOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKConfigurationOffset.m; path = SpreadKit/SKConfigurationOffset.m; sourceTree = "<group>"; };
 		C0F68BA015B434A400FFA3BC /* SKColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKColor.h; path = SpreadKit/SKColor.h; sourceTree = "<group>"; };
 		C0F68BA115B434A400FFA3BC /* SKColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKColor.m; path = SpreadKit/SKColor.m; sourceTree = "<group>"; };
+		C0F68BA515B438E300FFA3BC /* SKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKView.h; path = SpreadKit/SKView.h; sourceTree = "<group>"; };
+		C0F68BA615B438E400FFA3BC /* SKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKView.m; path = SpreadKit/SKView.m; sourceTree = "<group>"; };
 		C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketManagerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -425,6 +430,8 @@
 				C04D270A15B411810080C77F /* SKSize.m */,
 				C04D270D15B411810080C77F /* SKUser.h */,
 				C04D270E15B411810080C77F /* SKUser.m */,
+				C0F68BA515B438E300FFA3BC /* SKView.h */,
+				C0F68BA615B438E400FFA3BC /* SKView.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -561,6 +568,7 @@
 				C04D274A15B411820080C77F /* SKSize.h in Headers */,
 				C0F68B3C15B4146B00FFA3BC /* SKModel.h in Headers */,
 				C0F68B8E15B41A2500FFA3BC /* SKProductConfiguration.h in Headers */,
+				C0F68BA715B438E500FFA3BC /* SKView.h in Headers */,
 				C0F68B9315B4287700FFA3BC /* SKPrintArea.h in Headers */,
 				C0F68B9815B42A1A00FFA3BC /* SKPrintType.h in Headers */,
 				C0F68B9D15B42C8900FFA3BC /* SKConfigurationOffset.h in Headers */,
@@ -746,6 +754,7 @@
 				C0F68B9A15B42A1A00FFA3BC /* SKPrintType.m in Sources */,
 				C0F68B9F15B42C8900FFA3BC /* SKConfigurationOffset.m in Sources */,
 				C0F68BA415B434A500FFA3BC /* SKColor.m in Sources */,
+				C0F68BA915B438E500FFA3BC /* SKView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +789,7 @@
 				C0F68B9915B42A1A00FFA3BC /* SKPrintType.m in Sources */,
 				C0F68B9E15B42C8900FFA3BC /* SKConfigurationOffset.m in Sources */,
 				C0F68BA315B434A500FFA3BC /* SKColor.m in Sources */,
+				C0F68BA815B438E500FFA3BC /* SKView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

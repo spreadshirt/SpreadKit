@@ -11,5 +11,9 @@
 @implementation SKPrintArea
 
 @synthesize identifier;
+@synthesize appearanceColorIndex;
+@synthesize boundary;
+@synthesize defaultView;
+@synthesize restrictions;
 
 @end

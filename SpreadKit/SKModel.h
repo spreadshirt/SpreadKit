@@ -23,3 +23,4 @@
 #import "SKPrintType.h"
 #import "SKProductConfiguration.h"
 #import "SKColor.h"
+#import "SKView.h"
