@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import <RestKit/RestKit.h>
 
 @class SKUser;
 @class SKShop;
@@ -53,6 +52,9 @@
 
 // gets the full details of an object
 - (void)get:(id)object completion:(void (^)(id loadedObject, NSError *error))completion;
+
+// gets an object with just the class and id known
+- (void)get:(Class)classOfObject identifier:(NSString *)identifier completion:(void (^)(id loadedObject, NSError *error))completion;
 
 // posts a new object and sets the url of the created object into the url property
 - (void)post:(id)object completion:(void (^)(id newObject, NSError *error))completion;

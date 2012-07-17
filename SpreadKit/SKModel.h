@@ -6,6 +6,8 @@
 //
 //
 
+#import "SKShop.h"
+#import "SKUser.h"
 #import "SKAppearance.h"
 #import "SKArticle.h"
 #import "SKBasket.h"
@@ -15,9 +17,7 @@
 #import "SKProduct.h"
 #import "SKProductType.h"
 #import "SKResource.h"
-#import "SKShop.h"
 #import "SKSize.h"
-#import "SKUser.h"
 #import "SKConfigurationOffset.h"
 #import "SKPrintArea.h"
 #import "SKPrintType.h"

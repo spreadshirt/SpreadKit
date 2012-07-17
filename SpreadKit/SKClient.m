@@ -20,7 +20,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 {
     NSURL *baseUrl;
     SKObjectManager *manager;
-    NSMutableDictionary *postURLs;
+    NSMutableDictionary *entityURLs;
 }
 
 @synthesize apiKey, shopId, userId, secret;
@@ -61,7 +61,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
         
         baseUrl = [NSURL URLWithString:BASE];
         manager = [SKObjectManager objectManagerWithApiKey:apiKey andSecret:secret];
-        postURLs = [NSMutableDictionary dictionary];
+        entityURLs = [NSMutableDictionary dictionary];
         
         // set the singleton instance
         if (sharedClient == nil) {
@@ -78,7 +78,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     
     [manager getSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKShop *shop = (SKShop *)[objects objectAtIndex:0];
-        [self extractPostURLsFromObject:shop];
+        [self extractEntityURLs:shop];
         completion(shop, error);
     }];
 }
@@ -90,7 +90,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     
     [manager getSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKUser *user = (SKUser *)[objects objectAtIndex:0];
-        [self extractPostURLsFromObject:user];
+        [self extractEntityURLs:user];
         completion(user, error);
     }];
 }
@@ -103,19 +103,40 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     }];
 }
 
+- (void)get:(Class)classOfObject identifier:(NSString *)identifier completion:(void (^)(id, NSError *))completion
+{
+    if ([[entityURLs allKeys] containsObject:NSStringFromClass(classOfObject)]) {
+        NSURL *entityBaseUrl = [entityURLs objectForKey:NSStringFromClass(classOfObject)];
+        id stub = [[classOfObject alloc] init];
+        NSURL *objectURL = [entityBaseUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"/%@", identifier]];
+        [stub setUrl:objectURL];
+        [self get:stub completion:completion];
+    } else {
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"SpreadKit could not infer the download URL for the requested object" forKey:NSLocalizedDescriptionKey];
+        NSError *error = [NSError errorWithDomain:@"SKErrorDomain" code:-10 userInfo:userInfo];
+        completion(nil, error);
+    }
+}
+
 -(void)post:(id)object completion:(void (^)(id, NSError *))completion
 {
-    NSURL *url = [postURLs objectForKey:NSStringFromClass([object class])];
+    NSURL *url = [entityURLs objectForKey:NSStringFromClass([object class])];
     [manager postObject:object toURL:url completion:completion];
 }
 
 // takes a shop or user and extracts and remembers
-// all URLs for later posting of objects
-- (void)extractPostURLsFromObject:(id)object
+// all URLs for later posting and getting via id of objects
+- (void)extractEntityURLs:(id)object
 {
-    [postURLs setValue:[[object products] url] forKey:NSStringFromClass([SKProduct class])];
-    [postURLs setValue:[[object designs] url] forKey:NSStringFromClass([SKDesign class])];
-    [postURLs setValue:[[object baskets] url] forKey:NSStringFromClass([SKBasket class])];
+    [entityURLs setValue:[object products].url forKey:NSStringFromClass([SKProduct class])];
+    [entityURLs setValue:[object designs].url forKey:NSStringFromClass([SKDesign class])];
+    [entityURLs setValue:[object baskets].url forKey:NSStringFromClass([SKBasket class])];
+    [entityURLs setValue:[object articles].url forKey:NSStringFromClass([SKArticle class])];
+    [entityURLs setValue:[object productTypes].url forKey:NSStringFromClass([SKProductType class])];
+    [entityURLs setValue:[object currencies].url forKey:NSStringFromClass([SKCurrency class])];
+    [entityURLs setValue:[object languages].url forKey:NSStringFromClass([SKLanguage class])];
+    [entityURLs setValue:[object countries].url forKey:NSStringFromClass([SKCountry class])];
+    [entityURLs setValue:[object printTypes].url forKey:NSStringFromClass([SKPrintType class])];
 }
 
 @end

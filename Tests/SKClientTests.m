@@ -51,6 +51,21 @@
     GHAssertNotEqualObjects(client, [SKClient sharedClient], @"Shared client should not have been overriden by new instance");
 }
 
+- (void)testDirectIdLoading
+{
+    SKClient *client = [SKClient clientWithShopId:@"654135" andApiKey:@"xxx" andSecret:@"xxx"];
+    [client getShopAndOnCompletion:^(SKShop *shop, NSError *error) {
+        GHAssertNil(error, nil);
+        [client get:[SKProductType class] identifier:@"6" completion:^(id loadedObject, NSError *error) {
+            GHAssertNil(error, nil);
+            GHAssertNotNil(loadedObject, nil);
+        }];
+        [client get:[SKResource class] identifier:@"foo" completion:^(id loadedObject, NSError *error) {
+            GHAssertNotNil(error, nil);
+        }];
+    }];
+}
+
 - (void)tearDown
 {
     [SKClient setSharedClient:nil];
