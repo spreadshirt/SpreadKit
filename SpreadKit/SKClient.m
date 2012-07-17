@@ -12,6 +12,8 @@
 
 #import "SKModel.h"
 
+#import "Constants.h"
+
 
 static SKClient *sharedClient = nil;
 NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
@@ -113,7 +115,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
         [self get:stub completion:completion];
     } else {
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"SpreadKit could not infer the download URL for the requested object" forKey:NSLocalizedDescriptionKey];
-        NSError *error = [NSError errorWithDomain:@"SKErrorDomain" code:-10 userInfo:userInfo];
+        NSError *error = [NSError errorWithDomain:SKErrorDomain code:SKURLInferError userInfo:userInfo];
         completion(nil, error);
     }
 }

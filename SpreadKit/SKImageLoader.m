@@ -7,6 +7,7 @@
 //
 
 
+#import "Constants.h"
 #import "SKImageLoader.h"
 #import "SKURLConnection.h"
 #import "SKDesign.h"
@@ -86,7 +87,7 @@
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if ([httpResponse statusCode] != 200) {
             NSDictionary *userInfo = [NSDictionary dictionaryWithKeysAndObjects:NSLocalizedDescriptionKey, [NSString stringWithFormat:@"The upload failed with HTTP Code %d", [httpResponse statusCode]], @"ResponseContentKey", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], nil];
-            NSError *error = [NSError errorWithDomain:@"SKErrorDomain" code:-100 userInfo:userInfo];
+            NSError *error = [NSError errorWithDomain:SKErrorDomain code:SKImageUploadFailedError userInfo:userInfo];
             completion (design, error);
         }
         

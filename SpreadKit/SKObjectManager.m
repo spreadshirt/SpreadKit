@@ -11,6 +11,7 @@
 #import "SKObjectMappingProvider.h"
 #import "SKURLConnection.h"
 #import "SKObjectMapper.h"
+#import "Constants.h"
 
 @implementation SKObjectManager
 {
@@ -61,7 +62,8 @@
             completion([objects objectAtIndex:0], error);
         }];
     } else {
-        completion(nil, [NSError errorWithDomain:@"SK" code:-1 userInfo:nil]);
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"The object could not be loaded because there it has no URL." forKey:NSLocalizedDescriptionKey];
+        completion(nil, [NSError errorWithDomain:SKErrorDomain code:SKURLMissingError userInfo:userInfo]);
     }
 }
 
