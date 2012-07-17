@@ -26,6 +26,7 @@
 @synthesize created;
 @synthesize modified;
 @synthesize url;
+@synthesize uploadUrl;
 
 - (NSURL *)uploadUrl
 {

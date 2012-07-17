@@ -151,7 +151,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productTypeMapping mapKeyPath:@"sizes" toRelationship:@"sizes" withMapping:sizeMapping];
         [productTypeMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         [productTypeMapping mapKeyPath:@"printAreas" toRelationship:@"printAreas" withMapping:printAreaMapping];
-        [productMapping mapKeyPath:@"price" toRelationship:@"price" withMapping:priceMapping];
+        [productTypeMapping mapKeyPath:@"price" toRelationship:@"price" withMapping:priceMapping];
         
         [articleMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
         [articleMapping mapKeyPath:@"product" toRelationship:@"product" withMapping:productMapping];

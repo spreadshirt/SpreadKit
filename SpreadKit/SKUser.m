@@ -18,5 +18,14 @@
 @synthesize memberSince;
 @synthesize designs;
 @synthesize baskets;
+@synthesize shops;
+@synthesize country;
+@synthesize currency;
+@synthesize language;
+@synthesize countries;
+@synthesize languages;
+@synthesize currencies;
+@synthesize printTypes;
+@synthesize productTypes;
 
 @end
