@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class SKPrice;
+@class SKAppearance;
 @class SKView;
 
 @interface SKProductType : NSObject
@@ -33,5 +34,6 @@
 @property (nonatomic, strong) NSArray * stockStates;
 @property (nonatomic, strong) NSArray * resources;
 @property (nonatomic, strong, readonly) SKView * defaultView;
+@property (nonatomic, strong, readonly) SKAppearance * defaultAppearance;
 
 @end

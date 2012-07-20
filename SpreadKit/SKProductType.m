@@ -30,6 +30,7 @@
 @synthesize stockStates;
 @synthesize resources;
 @synthesize defaultView;
+@synthesize defaultAppearance;
 
 - (SKView *)defaultView
 {
@@ -47,6 +48,24 @@
         }
     }
     return defaultView;
+}
+
+- (SKAppearance *)defaultAppearance
+{
+    NSString *defaultAppearanceIdentifier = [[defaultValues objectForKey:@"defaultAppearance"] objectForKey:@"id"];
+    if (!defaultAppearance) {
+        int defaultAppearanceIndex = [views indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            if ([[obj identifier] isEqualToString:defaultAppearanceIdentifier]) {
+                return YES;
+            } else {
+                return NO;
+            }
+        }];
+        if (defaultAppearanceIndex != NSNotFound) {
+            defaultAppearance = [views objectAtIndex:defaultAppearanceIndex];
+        }
+    }
+    return defaultAppearance;
 }
 
 @end
