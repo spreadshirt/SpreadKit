@@ -13,3 +13,4 @@
 #import "SKImageLoader.h"
 #import "SKObjectMappingProvider.h"
 #import "SKObjectManager.h"
+#import "SKProductView.h"

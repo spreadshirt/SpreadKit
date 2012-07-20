@@ -29,6 +29,9 @@
 		C033ADF215B58CDE0071D341 /* SKViewMap.h in Headers */ = {isa = PBXBuildFile; fileRef = C033ADF015B58CDE0071D341 /* SKViewMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C033ADF315B58CDE0071D341 /* SKViewMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C033ADF115B58CDE0071D341 /* SKViewMap.m */; };
 		C033ADF415B58CDE0071D341 /* SKViewMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C033ADF115B58CDE0071D341 /* SKViewMap.m */; };
+		C033ADFD15B596140071D341 /* SKProductView.h in Headers */ = {isa = PBXBuildFile; fileRef = C033ADFB15B596140071D341 /* SKProductView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C033ADFE15B596140071D341 /* SKProductView.m in Sources */ = {isa = PBXBuildFile; fileRef = C033ADFC15B596140071D341 /* SKProductView.m */; };
+		C033ADFF15B596140071D341 /* SKProductView.m in Sources */ = {isa = PBXBuildFile; fileRef = C033ADFC15B596140071D341 /* SKProductView.m */; };
 		C035E4E415063FE800A52242 /* products2.json in Resources */ = {isa = PBXBuildFile; fileRef = C035E4E315063FE800A52242 /* products2.json */; };
 		C03806E8150103780004BFC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84014C99F83000BB775 /* UIKit.framework */; };
 		C03806E9150103780004BFC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
@@ -220,6 +223,8 @@
 		C033ADE715B58A220071D341 /* SKViewSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKViewSize.m; path = SpreadKit/SKViewSize.m; sourceTree = "<group>"; };
 		C033ADF015B58CDE0071D341 /* SKViewMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKViewMap.h; path = SpreadKit/SKViewMap.h; sourceTree = "<group>"; };
 		C033ADF115B58CDE0071D341 /* SKViewMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKViewMap.m; path = SpreadKit/SKViewMap.m; sourceTree = "<group>"; };
+		C033ADFB15B596140071D341 /* SKProductView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKProductView.h; path = SpreadKit/SKProductView.h; sourceTree = "<group>"; };
+		C033ADFC15B596140071D341 /* SKProductView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKProductView.m; path = SpreadKit/SKProductView.m; sourceTree = "<group>"; };
 		C035E4E315063FE800A52242 /* products2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products2.json; sourceTree = "<group>"; };
 		C03806E6150103780004BFC4 /* SpreadKitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpreadKitTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitTests-Info.plist"; sourceTree = "<group>"; };
@@ -373,6 +378,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C033ADFA15B595F50071D341 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C033ADFB15B596140071D341 /* SKProductView.h */,
+				C033ADFC15B596140071D341 /* SKProductView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		C03806EB150103780004BFC4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,10 +433,11 @@
 		C04D26E115B411430080C77F /* SpreadKit */ = {
 			isa = PBXGroup;
 			children = (
-				C04D270F15B411810080C77F /* SpreadKit.h */,
 				C04D275615B412BB0080C77F /* Client */,
 				C04D275415B4122A0080C77F /* Model */,
+				C04D270F15B411810080C77F /* SpreadKit.h */,
 				C04D275515B412960080C77F /* Support */,
+				C033ADFA15B595F50071D341 /* View */,
 			);
 			name = SpreadKit;
 			sourceTree = "<group>";
@@ -628,6 +643,7 @@
 				C033ADE815B58A240071D341 /* SKViewSize.h in Headers */,
 				C0F68BC615B43F1900FFA3BC /* SKCountry.h in Headers */,
 				C033ADA015B567DA0071D341 /* Constants.h in Headers */,
+				C033ADFD15B596140071D341 /* SKProductView.h in Headers */,
 				C0F68BCB15B43FEE00FFA3BC /* SKCurrency.h in Headers */,
 				C04D275015B411820080C77F /* SKUser.h in Headers */,
 				C04D275315B411820080C77F /* SpreadKit.h in Headers */,
@@ -818,6 +834,7 @@
 				C033ADA215B567DA0071D341 /* Constants.m in Sources */,
 				C033ADEA15B58A240071D341 /* SKViewSize.m in Sources */,
 				C033ADF415B58CDE0071D341 /* SKViewMap.m in Sources */,
+				C033ADFF15B596140071D341 /* SKProductView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,6 +877,7 @@
 				C033ADA115B567DA0071D341 /* Constants.m in Sources */,
 				C033ADE915B58A240071D341 /* SKViewSize.m in Sources */,
 				C033ADF315B58CDE0071D341 /* SKViewMap.m in Sources */,
+				C033ADFE15B596140071D341 /* SKProductView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
