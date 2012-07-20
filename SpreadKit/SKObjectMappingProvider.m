@@ -63,7 +63,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [viewMapping mapAttributes:@"name", @"perspective", nil];
         
         RKObjectMapping *viewMapMapping = [RKObjectMapping mappingForClass:[SKViewMap class]];
-        [viewMapMapping mapKeyPath:@"printType.id" toAttribute:@"printTypeId"];
+        [viewMapMapping mapKeyPath:@"printArea.id" toAttribute:@"printAreaId"];
         
         RKObjectMapping *colorMapping = [RKObjectMapping mappingForClass:[SKColor class]];
         [colorMapping mapKeyPath:@"index" toAttribute:@"index"];
