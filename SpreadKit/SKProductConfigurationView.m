@@ -26,7 +26,7 @@
 - (id) initWithImage:(UIImage *) image andFrame:(CGRect) confFrame{
     if (self = [super initWithFrame:confFrame]){
         [self addImage:image];
-    }    
+    }
     return self;
 }
 
@@ -36,9 +36,11 @@
     }];
 }
 - (void) addImage: (UIImage *) image {
-    UIImageView *designView = [[UIImageView alloc] initWithFrame:[self frame]];
+//    UIView * view = [[UIView alloc] initWithFrame:[self bounds]];
+//    view.backgroundColor = [UIColor blueColor];
+    UIImageView *designView = [[UIImageView alloc] initWithFrame:[self bounds]];
     designView.image = image;
-    designView.contentMode = UIViewContentModeScaleAspectFit;
+    designView.contentMode = UIViewContentModeRedraw;
     [self addSubview:designView];
 }
 @end

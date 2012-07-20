@@ -31,11 +31,16 @@
 - (void) createImageConfigurationWithImage: (UIImage *) image{
     SKPrintArea *printarea = [productType printAreaForView: view];
     CGRect rect= [printarea hardBoundary];
-    rect.origin.y = rect.size.height /4;
+    rect.origin.y = rect.size.height /8;
     
-    rect.size.height /=2;
     float boundaryWidth = rect.size.width;
-    rect.size.width = rect.size.height * image.size.width / image.size.height;
+    if (image.size.height > image.size.width) {
+        rect.size.height /=2;
+        rect.size.width = rect.size.height * image.size.width / image.size.height;
+    } else {
+        rect.size.width /= 1.3;
+        rect.size.height = rect.size.width * image.size.height / image.size.width;
+    }
     rect.origin.x = rect.origin.x + (boundaryWidth - rect.size.width) / 2;
     [self createImageConfigurationWithImage:image andConfigurationRect: rect];
 }
@@ -83,13 +88,6 @@
         productTypeView.image = image;
         productTypeView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:productTypeView];
-
-        SKPrintArea *printarea = [productType printAreaForView: view];
-        CGRect boundaryRect= [self scalePrintareaRectInView:[printarea hardBoundary]];
-        UIView *rectview = [[UIView alloc ] initWithFrame:boundaryRect];
-        rectview.backgroundColor = [UIColor redColor];
-        [self addSubview:rectview];
-        
     }];
 }
 
