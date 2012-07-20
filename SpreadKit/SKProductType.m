@@ -68,4 +68,14 @@
     return defaultAppearance;
 }
 
+- (SKPrintArea *) printAreaById: (NSString *) printAreaId {
+    int printAreaIndex = [printAreas indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        if ([[obj identifier] isEqualToString:printAreaId]) {
+            return YES;
+        } else return NO;
+    }];
+    SKPrintArea *area = [printAreas objectAtIndex:printAreaIndex];
+    return area;
+    
+}
 @end

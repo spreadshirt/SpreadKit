@@ -8,6 +8,7 @@
 //
 
 #import "SKView.h"
+#import "SKViewMap.h"
 
 @implementation SKView
 
@@ -18,4 +19,13 @@
 @synthesize size;
 @synthesize viewMaps;
 
+- (SKViewMap *) viewMapByPrintAreaId: (NSString *)printAreaId{
+    int viewMapIndex = [viewMaps indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        if ([[obj printAreaId] isEqualToString:printAreaId]) {
+            return YES;
+        } else return NO;
+    }];
+    SKViewMap *map = [viewMaps objectAtIndex:viewMapIndex];
+    return map;
+}
 @end

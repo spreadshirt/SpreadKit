@@ -11,6 +11,7 @@
 @class SKPrice;
 @class SKAppearance;
 @class SKView;
+@class SKPrintArea;
 
 @interface SKProductType : NSObject
 
@@ -35,5 +36,7 @@
 @property (nonatomic, strong) NSArray * resources;
 @property (nonatomic, strong, readonly) SKView * defaultView;
 @property (nonatomic, strong, readonly) SKAppearance * defaultAppearance;
+
+- (SKPrintArea *) printAreaById: (NSString *) printAreaId;
 
 @end

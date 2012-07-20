@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class SKViewSize;
+@class SKViewMap;
 
 @interface SKView : NSObject
 
@@ -18,5 +19,7 @@
 @property (nonatomic, strong) NSString * perspective;
 @property (nonatomic, strong) NSArray * resources;
 @property (nonatomic, strong) NSArray * viewMaps;
+
+- (SKViewMap *) viewMapByPrintAreaId: (NSString *)printAreaId;
 
 @end

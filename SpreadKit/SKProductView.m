@@ -7,65 +7,81 @@
 //
 
 #import "SKProductView.h"
-#import "SKModel.h"
+#import "SKProductConfigurationView.h"
 #import "SKImageLoader.h"
 
-@implementation SKProductView
+@interface SKProductView (Private)
+- (void) loadProductTypeImage;
 
-- (id)initWithProduct:(SKProduct *)product andFrame:(CGRect)frame
-{
+@end
+@implementation SKProductView 
+@synthesize productType,product,productConfigurations,view,viewScale;
+
+
+- (id) initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        productType = theProductType;
+        view = productType.defaultView;
+        viewScale = self.frame.size.width / [view.size.width floatValue];
+        [self loadProductTypeImage];
+    }
+    return self;
+}
+- (id) createImageConfigurationWithImage: (UIImage *) image{
+    
+    [self createImageConfigurationWithImage:image andConfigurationRect: view ]
+}
+- (id) createImageConfigurationWithImage: (UIImage *) image andConfigurationRect: (CGRect)rect {
+    
+    rect.size.width *= viewScale;
+    rect.size.height *= viewScale;
+    rect.origin.x *= viewScale;
+    rect.origin.y *= viewScale;
+    
+    SKProductConfigurationView *configurationView =[[SKProductConfigurationView alloc] initWithImage:image andFrame:rect];
+    [self addSubview:configurationView];
+}
+
+- (id)initWithProduct:(SKProduct *)theProduct andFrame:(CGRect)frame
+{
+    if (self = [self initWithProductType:product.productType andFrame:frame]) {
         
         // display product type (default view)
-        SKProductType *productType = product.productType;
-        SKView *defaultView = productType.defaultView;
-        
-        float viewScale = self.frame.size.width / [defaultView.size.width floatValue];
-        
-        NSURL *defaultViewImageURL = [[defaultView.resources objectAtIndex:0] url];
-        [[[SKImageLoader alloc] init] loadImageFromUrl:defaultViewImageURL  withSize:frame.size andAppearanceId:product.appearance.identifier completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
-            UIImageView *productTypeView = [[UIImageView alloc] initWithFrame:self.frame];
-            productTypeView.image = image;
-            productTypeView.contentMode = UIViewContentModeScaleAspectFit;
-            productTypeView.layer.zPosition = 1;
-            [self addSubview:productTypeView];
-        }];
-        
+        product = theProduct;
+        productConfigurations = product.configurations;
+
         // put the configurations on the product type
         
-        for (SKProductConfiguration *conf in product.configurations) {
-            int printAreaIndex = [productType.printAreas indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-                if ([[obj identifier] isEqualToString:conf.printArea.identifier]) {
-                    return YES;
-                } else return NO;
-            }];
-            SKPrintArea *area = [productType.printAreas objectAtIndex:printAreaIndex];
+        for (SKProductConfiguration *conf in productConfigurations) {
+
+            SKPrintArea *area = [productType printAreaById:conf.printArea.identifier];
+            SKViewMap *map = [view viewMapByPrintAreaId:conf.printArea.identifier];
             
-            int viewMapIndex = [defaultView.viewMaps indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-                if ([[obj printAreaId] isEqualToString:area.identifier]) {
-                    return YES;
-                } else return NO;
-            }];
-            SKViewMap *map = [defaultView.viewMaps objectAtIndex:viewMapIndex];
             float viewMapX = [map.offset.x floatValue] * viewScale;
             float viewMapY = [map.offset.y floatValue] * viewScale;
+            float designWidth = [[conf size].width floatValue] * viewScale;
+            float designHeight = [[conf size].height floatValue] * viewScale;
             
             float designOffsetX = [conf.offset.x floatValue] * viewScale;
             float designOffsetY = [conf.offset.y floatValue] * viewScale;
-            float designWidth = [[[[conf.content objectForKey:@"svg"] objectForKey:@"image"] objectForKey:@"width"] floatValue] * viewScale;
-            float designHeight = [[[[conf.content objectForKey:@"svg"] objectForKey:@"image"] objectForKey:@"height"] floatValue] * viewScale;
-            
-            [[[SKImageLoader alloc] init] loadImageFromUrl:[[conf.resources objectAtIndex:0] url] withSize:CGSizeMake(designWidth, designHeight) completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
-                CGRect confFrame = CGRectMake(viewMapX + designOffsetX, viewMapY + designOffsetY, designWidth, designWidth);
-                UIImageView *designView = [[UIImageView alloc] initWithFrame:confFrame];
-                designView.image = image;
-                designView.contentMode = UIViewContentModeScaleAspectFit;
-                designView.layer.zPosition = 2;
-                [self addSubview:designView];
-            }];
+            CGRect confFrame = CGRectMake(viewMapX + designOffsetX, viewMapY + designOffsetY, designWidth, designHeight);
+            SKProductConfigurationView *configurationView =[[SKProductConfigurationView alloc] initWithProductConfiguration:conf andFrame:confFrame];
+            configurationView.layer.zPosition =2;
+            [self addSubview:configurationView];
         }
     }
     return self;
+}
+
+- (void) loadProductTypeImage {
+    NSURL *viewImageURL = [[view.resources objectAtIndex:0] url];
+    [[[SKImageLoader alloc] init] loadImageFromUrl:viewImageURL  withSize:self.frame.size andAppearanceId:product.appearance.identifier completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
+        UIImageView *productTypeView = [[UIImageView alloc] initWithFrame:self.frame];
+        productTypeView.image = image;
+        productTypeView.contentMode = UIViewContentModeScaleAspectFit;
+        productTypeView.layer.zPosition = 1;
+        [self addSubview:productTypeView];
+    }];
 }
 
 @end
