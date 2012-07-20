@@ -11,6 +11,7 @@
 @class SKPrintArea;
 @class SKPrintType;
 @class SKOffset;
+@class SKViewSize;
 
 @interface SKProductConfiguration : NSObject
 
@@ -24,5 +25,6 @@
 @property (nonatomic, strong) NSArray * fontFamilies;
 @property (nonatomic, strong) NSDictionary * restrictions;
 @property (nonatomic, strong) NSArray * resources;
+@property (readonly) SKViewSize * size;
 
 @end
