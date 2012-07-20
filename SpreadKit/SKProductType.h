@@ -38,5 +38,6 @@
 @property (nonatomic, strong, readonly) SKAppearance * defaultAppearance;
 
 - (SKPrintArea *) printAreaById: (NSString *) printAreaId;
+- (SKPrintArea *) printAreaForView: (SKView *) view;
 
 @end

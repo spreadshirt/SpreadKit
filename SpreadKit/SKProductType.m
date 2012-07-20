@@ -7,6 +7,7 @@
 //
 
 #import "SKProductType.h"
+#import "SKView.h"
 
 @implementation SKProductType
 
@@ -78,4 +79,13 @@
     return area;
     
 }
+
+- (SKPrintArea *)printAreaForView:(SKView *)view
+{
+    int printAreaIdx = [self.printAreas indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        return ([[[obj defaultView] identifier] isEqualToString:view.identifier]);
+    }];
+    return [self.printAreas objectAtIndex:printAreaIdx];
+}
+
 @end
