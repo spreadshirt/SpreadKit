@@ -79,7 +79,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *productTypeMapping = [RKObjectMapping mappingForClass:[SKProductType class]];
         [productTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [productTypeMapping mapAttributes:@"appearences", @"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"defaultValues", @"washingInstructions", @"views", @"stockStates", nil];
+        [productTypeMapping mapAttributes:@"appearences", @"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"defaultValues", @"washingInstructions", @"stockStates", nil];
 
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
         [productMapping mapAttributes:@"name", @"weight", @"creator", @"restrictions", nil];
@@ -152,6 +152,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productTypeMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         [productTypeMapping mapKeyPath:@"printAreas" toRelationship:@"printAreas" withMapping:printAreaMapping];
         [productTypeMapping mapKeyPath:@"price" toRelationship:@"price" withMapping:priceMapping];
+        [productTypeMapping mapKeyPath:@"views" toRelationship:@"views" withMapping:viewMapping];
         
         [articleMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
         [articleMapping mapKeyPath:@"product" toRelationship:@"product" withMapping:productMapping];

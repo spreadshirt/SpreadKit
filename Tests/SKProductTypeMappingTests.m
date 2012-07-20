@@ -75,6 +75,8 @@
     GHAssertEquals(productType.printAreas.count, (unsigned int) 4, @"should have the right amount of print areas");
     GHAssertEquals(productType.stockStates.count, (unsigned int) 48, @"should have the right amount of stock states");
     GHAssertEquals(productType.resources.count, (unsigned int) 3, @"should have the right amount of resources");
+    
+    GHAssertNotNil(productType.defaultView, @"Default View accessor should work.");
 }
 
 @end

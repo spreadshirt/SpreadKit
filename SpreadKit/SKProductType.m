@@ -29,5 +29,24 @@
 @synthesize printAreas;
 @synthesize stockStates;
 @synthesize resources;
+@synthesize defaultView;
+
+- (SKView *)defaultView
+{
+    NSString *defaultViewIdentifier = [[defaultValues objectForKey:@"defaultView"] objectForKey:@"id"];
+    if (!defaultView) {
+        int defaultViewIndex = [views indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            if ([[obj identifier] isEqualToString:defaultViewIdentifier]) {
+                return YES;
+            } else {
+                return NO;
+            }
+        }];
+        if (defaultViewIndex != NSNotFound) {
+            defaultView = [views objectAtIndex:defaultViewIndex];
+        }
+    }
+    return defaultView;
+}
 
 @end
