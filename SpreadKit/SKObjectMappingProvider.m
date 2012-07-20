@@ -80,6 +80,9 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [productTypeMapping mapAttributes:@"appearences", @"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"defaultValues", @"washingInstructions", @"stockStates", nil];
+        
+        RKObjectMapping *viewSizeMapping = [RKObjectMapping mappingForClass:[SKViewSize class]];
+        [viewSizeMapping mapAttributes:@"unit", @"width", @"height", nil];
 
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
         [productMapping mapAttributes:@"name", @"weight", @"creator", @"restrictions", nil];
@@ -204,7 +207,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [configurationMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:designMapping];
         [configurationMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
-        [viewMapping mapKeyPath:@"size" toRelationship:@"size" withMapping:sizeMapping];
+        [viewMapping mapKeyPath:@"size" toRelationship:@"size" withMapping:viewSizeMapping];
         [viewMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
         [priceMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];

@@ -11,6 +11,8 @@
 #import "SKProductType.h"
 #import "SKPrice.h"
 #import "SKCurrency.h"
+#import "SKViewSize.h"
+#import "SKView.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/RKObjectMapper_Private.h>
 

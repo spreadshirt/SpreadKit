@@ -23,6 +23,9 @@
 		C033ADA015B567DA0071D341 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = C033AD9E15B567DA0071D341 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C033ADA115B567DA0071D341 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C033AD9F15B567DA0071D341 /* Constants.m */; };
 		C033ADA215B567DA0071D341 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C033AD9F15B567DA0071D341 /* Constants.m */; };
+		C033ADE815B58A240071D341 /* SKViewSize.h in Headers */ = {isa = PBXBuildFile; fileRef = C033ADE615B58A220071D341 /* SKViewSize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C033ADE915B58A240071D341 /* SKViewSize.m in Sources */ = {isa = PBXBuildFile; fileRef = C033ADE715B58A220071D341 /* SKViewSize.m */; };
+		C033ADEA15B58A240071D341 /* SKViewSize.m in Sources */ = {isa = PBXBuildFile; fileRef = C033ADE715B58A220071D341 /* SKViewSize.m */; };
 		C035E4E415063FE800A52242 /* products2.json in Resources */ = {isa = PBXBuildFile; fileRef = C035E4E315063FE800A52242 /* products2.json */; };
 		C03806E8150103780004BFC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84014C99F83000BB775 /* UIKit.framework */; };
 		C03806E9150103780004BFC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
@@ -210,6 +213,8 @@
 		C02F11C915B005D400AF8276 /* DesignUploadIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignUploadIntegrationTests.m; sourceTree = "<group>"; };
 		C033AD9E15B567DA0071D341 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = SpreadKit/Constants.h; sourceTree = "<group>"; };
 		C033AD9F15B567DA0071D341 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = SpreadKit/Constants.m; sourceTree = "<group>"; };
+		C033ADE615B58A220071D341 /* SKViewSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKViewSize.h; path = SpreadKit/SKViewSize.h; sourceTree = "<group>"; };
+		C033ADE715B58A220071D341 /* SKViewSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKViewSize.m; path = SpreadKit/SKViewSize.m; sourceTree = "<group>"; };
 		C035E4E315063FE800A52242 /* products2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products2.json; sourceTree = "<group>"; };
 		C03806E6150103780004BFC4 /* SpreadKitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpreadKitTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitTests-Info.plist"; sourceTree = "<group>"; };
@@ -465,6 +470,8 @@
 				C04D270E15B411810080C77F /* SKUser.m */,
 				C0F68BA515B438E300FFA3BC /* SKView.h */,
 				C0F68BA615B438E400FFA3BC /* SKView.m */,
+				C033ADE615B58A220071D341 /* SKViewSize.h */,
+				C033ADE715B58A220071D341 /* SKViewSize.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -610,6 +617,7 @@
 				C0F68B9815B42A1A00FFA3BC /* SKPrintType.h in Headers */,
 				C0F68B9D15B42C8900FFA3BC /* SKConfigurationOffset.h in Headers */,
 				C04D274D15B411820080C77F /* SKURLConnection.h in Headers */,
+				C033ADE815B58A240071D341 /* SKViewSize.h in Headers */,
 				C0F68BC615B43F1900FFA3BC /* SKCountry.h in Headers */,
 				C033ADA015B567DA0071D341 /* Constants.h in Headers */,
 				C0F68BCB15B43FEE00FFA3BC /* SKCurrency.h in Headers */,
@@ -800,6 +808,7 @@
 				C0F68BD215B441A100FFA3BC /* SKLanguage.m in Sources */,
 				C0F68BD715B44D0300FFA3BC /* SKPrice.m in Sources */,
 				C033ADA215B567DA0071D341 /* Constants.m in Sources */,
+				C033ADEA15B58A240071D341 /* SKViewSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,6 +849,7 @@
 				C0F68BD115B441A100FFA3BC /* SKLanguage.m in Sources */,
 				C0F68BD615B44D0300FFA3BC /* SKPrice.m in Sources */,
 				C033ADA115B567DA0071D341 /* Constants.m in Sources */,
+				C033ADE915B58A240071D341 /* SKViewSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

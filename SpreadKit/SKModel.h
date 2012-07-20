@@ -28,3 +28,4 @@
 #import "SKCurrency.h"
 #import "SKLanguage.h"
 #import "SKPrice.h"
+#import "SKViewSize.h"

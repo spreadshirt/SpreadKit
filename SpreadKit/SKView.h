@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class SKSize;
+@class SKViewSize;
 
 @interface SKView : NSObject
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * name;
-@property (nonatomic, strong) SKSize * size;
+@property (nonatomic, strong) SKViewSize * size;
 @property (nonatomic, strong) NSString * perspective;
 @property (nonatomic, strong) NSArray * resources;
 
