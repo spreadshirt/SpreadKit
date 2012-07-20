@@ -79,6 +79,7 @@
     GHAssertEquals(productType.resources.count, (unsigned int) 3, @"should have the right amount of resources");
     
     GHAssertNotNil(productType.defaultView, @"Default View accessor should work.");
+    GHAssertNotNil(productType.defaultView.viewMaps, @"there should be view maps");
 }
 
 @end

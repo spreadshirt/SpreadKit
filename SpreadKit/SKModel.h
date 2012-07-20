@@ -18,7 +18,7 @@
 #import "SKProductType.h"
 #import "SKResource.h"
 #import "SKSize.h"
-#import "SKConfigurationOffset.h"
+#import "SKOffset.h"
 #import "SKPrintArea.h"
 #import "SKPrintType.h"
 #import "SKProductConfiguration.h"
@@ -29,3 +29,4 @@
 #import "SKLanguage.h"
 #import "SKPrice.h"
 #import "SKViewSize.h"
+#import "SKViewMap.h"

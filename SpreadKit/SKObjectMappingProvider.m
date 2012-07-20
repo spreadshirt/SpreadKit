@@ -51,7 +51,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [printTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
         [printTypeMapping mapAttributes:@"weight", @"name", @"description", @"dpi", @"restrictions", nil];
         
-        RKObjectMapping *offsetMapping = [RKObjectMapping mappingForClass:[SKConfigurationOffset class]];
+        RKObjectMapping *offsetMapping = [RKObjectMapping mappingForClass:[SKOffset class]];
         [offsetMapping mapAttributes:@"unit", @"x", @"y", nil];
         
         RKObjectMapping *configurationMapping = [RKObjectMapping mappingForClass:[SKProductConfiguration class]];
@@ -61,6 +61,9 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *viewMapping = [RKObjectMapping mappingForClass:[SKView class]];
         [viewMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [viewMapping mapAttributes:@"name", @"perspective", nil];
+        
+        RKObjectMapping *viewMapMapping = [RKObjectMapping mappingForClass:[SKViewMap class]];
+        [viewMapMapping mapKeyPath:@"printType.id" toAttribute:@"printTypeId"];
         
         RKObjectMapping *colorMapping = [RKObjectMapping mappingForClass:[SKColor class]];
         [colorMapping mapKeyPath:@"index" toAttribute:@"index"];
@@ -207,8 +210,11 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [configurationMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:designMapping];
         [configurationMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
         
+        [viewMapMapping mapKeyPath:@"offset" toRelationship:@"offset" withMapping:offsetMapping];
+        
         [viewMapping mapKeyPath:@"size" toRelationship:@"size" withMapping:viewSizeMapping];
         [viewMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [viewMapping mapKeyPath:@"viewMaps" toRelationship:@"viewMaps" withMapping:viewMapMapping];
         
         [priceMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];
         
@@ -238,6 +244,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self addObjectMapping:countryMapping];
         [self addObjectMapping:currencyMapping];
         [self addObjectMapping:languageMapping];
+        [self addObjectMapping:viewMapMapping];
         [self setMapping:articleMapping forKeyPath:@"articles"];
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];

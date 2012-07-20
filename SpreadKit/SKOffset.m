@@ -6,9 +6,9 @@
 //
 //
 
-#import "SKConfigurationOffset.h"
+#import "SKOffset.h"
 
-@implementation SKConfigurationOffset
+@implementation SKOffset
 
 @synthesize unit;
 @synthesize x;

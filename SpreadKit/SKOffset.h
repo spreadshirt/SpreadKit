@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKConfigurationOffset : NSObject
+@interface SKOffset : NSObject
 
 @property (nonatomic, strong) NSString * unit;
 @property (nonatomic, strong) NSNumber * x;

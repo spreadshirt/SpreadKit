@@ -16,5 +16,6 @@
 @synthesize name;
 @synthesize perspective;
 @synthesize size;
+@synthesize viewMaps;
 
 @end

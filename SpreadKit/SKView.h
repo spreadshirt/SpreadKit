@@ -17,5 +17,6 @@
 @property (nonatomic, strong) SKViewSize * size;
 @property (nonatomic, strong) NSString * perspective;
 @property (nonatomic, strong) NSArray * resources;
+@property (nonatomic, strong) NSArray * viewMaps;
 
 @end
