@@ -28,8 +28,15 @@
     return self;
 }
 - (id) createImageConfigurationWithImage: (UIImage *) image{
+    SKPrintArea *printarea = [productType printAreaForView: view];
+    CGRect rect= [printarea hardBoundary];
+    rect.origin.y = rect.size.height /4;
     
-    [self createImageConfigurationWithImage:image andConfigurationRect: view ]
+    rect.size.height /=2;
+    float boundaryWidth = rect.size.width;
+    rect.size.width = rect.size.height * image.size.width / image.size.height;
+    rect.origin.x = rect.origin.x + (boundaryWidth - rect.size.width) / 2;
+    [self createImageConfigurationWithImage:image andConfigurationRect: rect];
 }
 - (id) createImageConfigurationWithImage: (UIImage *) image andConfigurationRect: (CGRect)rect {
     

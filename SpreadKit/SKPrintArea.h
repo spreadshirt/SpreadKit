@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @class SKView;
 
 @interface SKPrintArea : NSObject
@@ -17,5 +17,5 @@
 @property (nonatomic, strong) SKView * defaultView;
 @property (nonatomic, strong) NSDictionary * restrictions;
 @property (nonatomic, strong) NSDictionary * boundary;
-
+@property (nonatomic, readonly) CGRect hardBoundary;
 @end
