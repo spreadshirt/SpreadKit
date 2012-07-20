@@ -27,7 +27,7 @@
     }
     return self;
 }
-- (id) createImageConfigurationWithImage: (UIImage *) image{
+- (void) createImageConfigurationWithImage: (UIImage *) image{
     SKPrintArea *printarea = [productType printAreaForView: view];
     CGRect rect= [printarea hardBoundary];
     rect.origin.y = rect.size.height /4;
@@ -38,7 +38,7 @@
     rect.origin.x = rect.origin.x + (boundaryWidth - rect.size.width) / 2;
     [self createImageConfigurationWithImage:image andConfigurationRect: rect];
 }
-- (id) createImageConfigurationWithImage: (UIImage *) image andConfigurationRect: (CGRect)rect {
+- (void) createImageConfigurationWithImage: (UIImage *) image andConfigurationRect: (CGRect)rect {
     
     rect.size.width *= viewScale;
     rect.size.height *= viewScale;
@@ -61,7 +61,6 @@
         
         for (SKProductConfiguration *conf in productConfigurations) {
 
-            SKPrintArea *area = [productType printAreaById:conf.printArea.identifier];
             SKViewMap *map = [view viewMapByPrintAreaId:conf.printArea.identifier];
             
             float viewMapX = [map.offset.x floatValue] * viewScale;

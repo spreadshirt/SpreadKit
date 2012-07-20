@@ -20,6 +20,6 @@
 
 - (id) initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame;
 - (id)initWithProduct:(SKProduct *)product andFrame:(CGRect)frame;
-- (id) createImageConfigurationWithImage: (UIImage *) image andConfigurationRect: (CGRect)rect;
-- (id) createImageConfigurationWithImage: (UIImage *) image;
+- (void) createImageConfigurationWithImage: (UIImage *) image andConfigurationRect: (CGRect)rect;
+- (void) createImageConfigurationWithImage: (UIImage *) image;
 @end

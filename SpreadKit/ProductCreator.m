@@ -19,6 +19,6 @@
      
      
     [product setConfigurations:configurations];
-    
+    return product;
 }
 @end
