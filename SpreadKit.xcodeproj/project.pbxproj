@@ -83,7 +83,7 @@
 		C04D272E15B411820080C77F /* SKImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26F615B411810080C77F /* SKImageLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C04D273015B411820080C77F /* SKImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F815B411810080C77F /* SKImageLoader.m */; };
 		C04D273115B411820080C77F /* SKImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F815B411810080C77F /* SKImageLoader.m */; };
-		C04D273215B411820080C77F /* SKObjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26F915B411810080C77F /* SKObjectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C04D273215B411820080C77F /* SKObjectMappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26F915B411810080C77F /* SKObjectMappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C04D273315B411820080C77F /* SKObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26FA15B411810080C77F /* SKObjectManager.m */; };
 		C04D273415B411820080C77F /* SKObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26FA15B411810080C77F /* SKObjectManager.m */; };
 		C04D273515B411820080C77F /* SKObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26FB15B411810080C77F /* SKObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -217,24 +217,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4752C03E15B94ECE008CE664 /* ProductCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCreator.h; path = SpreadKit/ProductCreator.h; sourceTree = "<group>"; };
-		4752C03F15B94ECE008CE664 /* ProductCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCreator.m; path = SpreadKit/ProductCreator.m; sourceTree = "<group>"; };
-		4752C04415B95717008CE664 /* SKProductView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKProductView.h; path = SpreadKit/SKProductView.h; sourceTree = "<group>"; };
-		4752C04515B95717008CE664 /* SKProductView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKProductView.m; path = SpreadKit/SKProductView.m; sourceTree = "<group>"; };
-		4752C04915B95A21008CE664 /* SKProductConfigurationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKProductConfigurationView.h; path = SpreadKit/SKProductConfigurationView.h; sourceTree = "<group>"; };
-		4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKProductConfigurationView.m; path = SpreadKit/SKProductConfigurationView.m; sourceTree = "<group>"; };
+		4752C03E15B94ECE008CE664 /* ProductCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCreator.h; sourceTree = "<group>"; };
+		4752C03F15B94ECE008CE664 /* ProductCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCreator.m; sourceTree = "<group>"; };
+		4752C04415B95717008CE664 /* SKProductView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductView.h; sourceTree = "<group>"; };
+		4752C04515B95717008CE664 /* SKProductView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductView.m; sourceTree = "<group>"; };
+		4752C04915B95A21008CE664 /* SKProductConfigurationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductConfigurationView.h; sourceTree = "<group>"; };
+		4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductConfigurationView.m; sourceTree = "<group>"; };
 		C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ExternalLibraries/RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		C026F92815AEC57B00FFEB69 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C026FA1F15AEF99500FFEB69 /* SKDesignMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDesignMappingTests.m; sourceTree = "<group>"; };
 		C026FA2115AEFCD100FFEB69 /* design.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = design.json; sourceTree = "<group>"; };
 		C026FA2515AF0BD600FFEB69 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testImage.jpg; path = "Test Data/testImage.jpg"; sourceTree = "<group>"; };
 		C02F11C915B005D400AF8276 /* DesignUploadIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignUploadIntegrationTests.m; sourceTree = "<group>"; };
-		C033AD9E15B567DA0071D341 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = SpreadKit/Constants.h; sourceTree = "<group>"; };
-		C033AD9F15B567DA0071D341 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = SpreadKit/Constants.m; sourceTree = "<group>"; };
-		C033ADE615B58A220071D341 /* SKViewSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKViewSize.h; path = SpreadKit/SKViewSize.h; sourceTree = "<group>"; };
-		C033ADE715B58A220071D341 /* SKViewSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKViewSize.m; path = SpreadKit/SKViewSize.m; sourceTree = "<group>"; };
-		C033ADF015B58CDE0071D341 /* SKViewMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKViewMap.h; path = SpreadKit/SKViewMap.h; sourceTree = "<group>"; };
-		C033ADF115B58CDE0071D341 /* SKViewMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKViewMap.m; path = SpreadKit/SKViewMap.m; sourceTree = "<group>"; };
+		C033AD9E15B567DA0071D341 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C033AD9F15B567DA0071D341 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		C033ADE615B58A220071D341 /* SKViewSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKViewSize.h; sourceTree = "<group>"; };
+		C033ADE715B58A220071D341 /* SKViewSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKViewSize.m; sourceTree = "<group>"; };
+		C033ADF015B58CDE0071D341 /* SKViewMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKViewMap.h; sourceTree = "<group>"; };
+		C033ADF115B58CDE0071D341 /* SKViewMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKViewMap.m; sourceTree = "<group>"; };
 		C035E4E315063FE800A52242 /* products2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products2.json; sourceTree = "<group>"; };
 		C03806E6150103780004BFC4 /* SpreadKitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpreadKitTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitTests-Info.plist"; sourceTree = "<group>"; };
@@ -248,51 +248,51 @@
 		C03F305114DC20BA003E2527 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
 		C03F305214DC20BA003E2527 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		C03F305314DC20BA003E2527 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		C04D26E215B411810080C77F /* NSURL+PathParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+PathParameters.h"; path = "SpreadKit/NSURL+PathParameters.h"; sourceTree = "<group>"; };
-		C04D26E315B411810080C77F /* NSURL+PathParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+PathParameters.m"; path = "SpreadKit/NSURL+PathParameters.m"; sourceTree = "<group>"; };
-		C04D26E415B411810080C77F /* SKAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKAppearance.h; path = SpreadKit/SKAppearance.h; sourceTree = "<group>"; };
-		C04D26E515B411810080C77F /* SKAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKAppearance.m; path = SpreadKit/SKAppearance.m; sourceTree = "<group>"; };
-		C04D26E615B411810080C77F /* SKArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKArticle.h; path = SpreadKit/SKArticle.h; sourceTree = "<group>"; };
-		C04D26E715B411810080C77F /* SKArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKArticle.m; path = SpreadKit/SKArticle.m; sourceTree = "<group>"; };
-		C04D26E815B411810080C77F /* SKAuthenticationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKAuthenticationProvider.h; path = SpreadKit/SKAuthenticationProvider.h; sourceTree = "<group>"; };
-		C04D26E915B411810080C77F /* SKAuthenticationProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKAuthenticationProvider.m; path = SpreadKit/SKAuthenticationProvider.m; sourceTree = "<group>"; };
-		C04D26EA15B411810080C77F /* SKBasket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKBasket.h; path = SpreadKit/SKBasket.h; sourceTree = "<group>"; };
-		C04D26EB15B411810080C77F /* SKBasket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKBasket.m; path = SpreadKit/SKBasket.m; sourceTree = "<group>"; };
-		C04D26EC15B411810080C77F /* SKBasketItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKBasketItem.h; path = SpreadKit/SKBasketItem.h; sourceTree = "<group>"; };
-		C04D26ED15B411810080C77F /* SKBasketItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKBasketItem.m; path = SpreadKit/SKBasketItem.m; sourceTree = "<group>"; };
-		C04D26EE15B411810080C77F /* SKBasketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKBasketManager.h; path = SpreadKit/SKBasketManager.h; sourceTree = "<group>"; };
-		C04D26EF15B411810080C77F /* SKBasketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKBasketManager.m; path = SpreadKit/SKBasketManager.m; sourceTree = "<group>"; };
-		C04D26F015B411810080C77F /* SKClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKClient.h; path = SpreadKit/SKClient.h; sourceTree = "<group>"; };
-		C04D26F115B411810080C77F /* SKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKClient.m; path = SpreadKit/SKClient.m; sourceTree = "<group>"; };
-		C04D26F215B411810080C77F /* SKDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKDesign.h; path = SpreadKit/SKDesign.h; sourceTree = "<group>"; };
-		C04D26F315B411810080C77F /* SKDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKDesign.m; path = SpreadKit/SKDesign.m; sourceTree = "<group>"; };
-		C04D26F415B411810080C77F /* SKEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKEntityList.h; path = SpreadKit/SKEntityList.h; sourceTree = "<group>"; };
-		C04D26F515B411810080C77F /* SKEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKEntityList.m; path = SpreadKit/SKEntityList.m; sourceTree = "<group>"; };
-		C04D26F615B411810080C77F /* SKImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKImageLoader.h; path = SpreadKit/SKImageLoader.h; sourceTree = "<group>"; };
-		C04D26F815B411810080C77F /* SKImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKImageLoader.m; path = SpreadKit/SKImageLoader.m; sourceTree = "<group>"; };
-		C04D26F915B411810080C77F /* SKObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKObjectManager.h; path = SpreadKit/SKObjectManager.h; sourceTree = "<group>"; };
-		C04D26FA15B411810080C77F /* SKObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKObjectManager.m; path = SpreadKit/SKObjectManager.m; sourceTree = "<group>"; };
-		C04D26FB15B411810080C77F /* SKObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKObjectMapper.h; path = SpreadKit/SKObjectMapper.h; sourceTree = "<group>"; };
-		C04D26FC15B411810080C77F /* SKObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKObjectMapper.m; path = SpreadKit/SKObjectMapper.m; sourceTree = "<group>"; };
-		C04D26FD15B411810080C77F /* SKObjectMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKObjectMappingProvider.h; path = SpreadKit/SKObjectMappingProvider.h; sourceTree = "<group>"; };
-		C04D26FE15B411810080C77F /* SKObjectMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKObjectMappingProvider.m; path = SpreadKit/SKObjectMappingProvider.m; sourceTree = "<group>"; };
-		C04D26FF15B411810080C77F /* SKPaginator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKPaginator.h; path = SpreadKit/SKPaginator.h; sourceTree = "<group>"; };
-		C04D270015B411810080C77F /* SKPaginator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKPaginator.m; path = SpreadKit/SKPaginator.m; sourceTree = "<group>"; };
-		C04D270115B411810080C77F /* SKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKProduct.h; path = SpreadKit/SKProduct.h; sourceTree = "<group>"; };
-		C04D270215B411810080C77F /* SKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKProduct.m; path = SpreadKit/SKProduct.m; sourceTree = "<group>"; };
-		C04D270315B411810080C77F /* SKProductType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKProductType.h; path = SpreadKit/SKProductType.h; sourceTree = "<group>"; };
-		C04D270415B411810080C77F /* SKProductType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKProductType.m; path = SpreadKit/SKProductType.m; sourceTree = "<group>"; };
-		C04D270515B411810080C77F /* SKResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKResource.h; path = SpreadKit/SKResource.h; sourceTree = "<group>"; };
-		C04D270615B411810080C77F /* SKResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKResource.m; path = SpreadKit/SKResource.m; sourceTree = "<group>"; };
-		C04D270715B411810080C77F /* SKShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKShop.h; path = SpreadKit/SKShop.h; sourceTree = "<group>"; };
-		C04D270815B411810080C77F /* SKShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKShop.m; path = SpreadKit/SKShop.m; sourceTree = "<group>"; };
-		C04D270915B411810080C77F /* SKSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKSize.h; path = SpreadKit/SKSize.h; sourceTree = "<group>"; };
-		C04D270A15B411810080C77F /* SKSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKSize.m; path = SpreadKit/SKSize.m; sourceTree = "<group>"; };
-		C04D270B15B411810080C77F /* SKURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKURLConnection.h; path = SpreadKit/SKURLConnection.h; sourceTree = "<group>"; };
-		C04D270C15B411810080C77F /* SKURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKURLConnection.m; path = SpreadKit/SKURLConnection.m; sourceTree = "<group>"; };
-		C04D270D15B411810080C77F /* SKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKUser.h; path = SpreadKit/SKUser.h; sourceTree = "<group>"; };
-		C04D270E15B411810080C77F /* SKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKUser.m; path = SpreadKit/SKUser.m; sourceTree = "<group>"; };
-		C04D270F15B411810080C77F /* SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpreadKit.h; path = SpreadKit/SpreadKit.h; sourceTree = "<group>"; };
+		C04D26E215B411810080C77F /* NSURL+PathParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+PathParameters.h"; sourceTree = "<group>"; };
+		C04D26E315B411810080C77F /* NSURL+PathParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PathParameters.m"; sourceTree = "<group>"; };
+		C04D26E415B411810080C77F /* SKAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearance.h; sourceTree = "<group>"; };
+		C04D26E515B411810080C77F /* SKAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAppearance.m; sourceTree = "<group>"; };
+		C04D26E615B411810080C77F /* SKArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKArticle.h; sourceTree = "<group>"; };
+		C04D26E715B411810080C77F /* SKArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKArticle.m; sourceTree = "<group>"; };
+		C04D26E815B411810080C77F /* SKAuthenticationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAuthenticationProvider.h; sourceTree = "<group>"; };
+		C04D26E915B411810080C77F /* SKAuthenticationProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAuthenticationProvider.m; sourceTree = "<group>"; };
+		C04D26EA15B411810080C77F /* SKBasket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBasket.h; sourceTree = "<group>"; };
+		C04D26EB15B411810080C77F /* SKBasket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasket.m; sourceTree = "<group>"; };
+		C04D26EC15B411810080C77F /* SKBasketItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBasketItem.h; sourceTree = "<group>"; };
+		C04D26ED15B411810080C77F /* SKBasketItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketItem.m; sourceTree = "<group>"; };
+		C04D26EE15B411810080C77F /* SKBasketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBasketManager.h; sourceTree = "<group>"; };
+		C04D26EF15B411810080C77F /* SKBasketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketManager.m; sourceTree = "<group>"; };
+		C04D26F015B411810080C77F /* SKClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKClient.h; sourceTree = "<group>"; };
+		C04D26F115B411810080C77F /* SKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKClient.m; sourceTree = "<group>"; };
+		C04D26F215B411810080C77F /* SKDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDesign.h; sourceTree = "<group>"; };
+		C04D26F315B411810080C77F /* SKDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDesign.m; sourceTree = "<group>"; };
+		C04D26F415B411810080C77F /* SKEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEntityList.h; sourceTree = "<group>"; };
+		C04D26F515B411810080C77F /* SKEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEntityList.m; sourceTree = "<group>"; };
+		C04D26F615B411810080C77F /* SKImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKImageLoader.h; sourceTree = "<group>"; };
+		C04D26F815B411810080C77F /* SKImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKImageLoader.m; sourceTree = "<group>"; };
+		C04D26F915B411810080C77F /* SKObjectMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectMappingProvider.h; sourceTree = "<group>"; };
+		C04D26FA15B411810080C77F /* SKObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectManager.m; sourceTree = "<group>"; };
+		C04D26FB15B411810080C77F /* SKObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectMapper.h; sourceTree = "<group>"; };
+		C04D26FC15B411810080C77F /* SKObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectMapper.m; sourceTree = "<group>"; };
+		C04D26FD15B411810080C77F /* SKObjectMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectMappingProvider.h; sourceTree = "<group>"; };
+		C04D26FE15B411810080C77F /* SKObjectMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectMappingProvider.m; sourceTree = "<group>"; };
+		C04D26FF15B411810080C77F /* SKPaginator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPaginator.h; sourceTree = "<group>"; };
+		C04D270015B411810080C77F /* SKPaginator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPaginator.m; sourceTree = "<group>"; };
+		C04D270115B411810080C77F /* SKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProduct.h; sourceTree = "<group>"; };
+		C04D270215B411810080C77F /* SKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProduct.m; sourceTree = "<group>"; };
+		C04D270315B411810080C77F /* SKProductType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductType.h; sourceTree = "<group>"; };
+		C04D270415B411810080C77F /* SKProductType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductType.m; sourceTree = "<group>"; };
+		C04D270515B411810080C77F /* SKResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKResource.h; sourceTree = "<group>"; };
+		C04D270615B411810080C77F /* SKResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKResource.m; sourceTree = "<group>"; };
+		C04D270715B411810080C77F /* SKShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKShop.h; sourceTree = "<group>"; };
+		C04D270815B411810080C77F /* SKShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKShop.m; sourceTree = "<group>"; };
+		C04D270915B411810080C77F /* SKSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSize.h; sourceTree = "<group>"; };
+		C04D270A15B411810080C77F /* SKSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSize.m; sourceTree = "<group>"; };
+		C04D270B15B411810080C77F /* SKURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKURLConnection.h; sourceTree = "<group>"; };
+		C04D270C15B411810080C77F /* SKURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKURLConnection.m; sourceTree = "<group>"; };
+		C04D270D15B411810080C77F /* SKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUser.h; sourceTree = "<group>"; };
+		C04D270E15B411810080C77F /* SKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKUser.m; sourceTree = "<group>"; };
+		C04D270F15B411810080C77F /* SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpreadKit.h; sourceTree = "<group>"; };
 		C096A28B1500E0B000C70D86 /* libSpreadKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpreadKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09EF81614C9953C000BB775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C09EF84014C99F83000BB775 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -320,27 +320,27 @@
 		C0C6921814EE57440068C18D /* SKObjectMappingProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKObjectMappingProviderTests.m; path = ../Tests/SKObjectMappingProviderTests.m; sourceTree = "<group>"; };
 		C0C7116115AD9DC900302CC4 /* SKEntityListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEntityListTests.m; sourceTree = "<group>"; };
 		C0E7C8F015060438005A185A /* SKObjectManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectManagerTests.m; sourceTree = "<group>"; };
-		C0F68B3B15B4146B00FFA3BC /* SKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKModel.h; path = SpreadKit/SKModel.h; sourceTree = "<group>"; };
-		C0F68B8C15B41A2500FFA3BC /* SKProductConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKProductConfiguration.h; path = SpreadKit/SKProductConfiguration.h; sourceTree = "<group>"; };
-		C0F68B8D15B41A2500FFA3BC /* SKProductConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKProductConfiguration.m; path = SpreadKit/SKProductConfiguration.m; sourceTree = "<group>"; };
-		C0F68B9115B4287700FFA3BC /* SKPrintArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKPrintArea.h; path = SpreadKit/SKPrintArea.h; sourceTree = "<group>"; };
-		C0F68B9215B4287700FFA3BC /* SKPrintArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKPrintArea.m; path = SpreadKit/SKPrintArea.m; sourceTree = "<group>"; };
-		C0F68B9615B42A1A00FFA3BC /* SKPrintType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKPrintType.h; path = SpreadKit/SKPrintType.h; sourceTree = "<group>"; };
-		C0F68B9715B42A1A00FFA3BC /* SKPrintType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKPrintType.m; path = SpreadKit/SKPrintType.m; sourceTree = "<group>"; };
-		C0F68B9B15B42C8800FFA3BC /* SKOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKOffset.h; path = SpreadKit/SKOffset.h; sourceTree = "<group>"; };
-		C0F68B9C15B42C8800FFA3BC /* SKOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKOffset.m; path = SpreadKit/SKOffset.m; sourceTree = "<group>"; };
-		C0F68BA015B434A400FFA3BC /* SKColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKColor.h; path = SpreadKit/SKColor.h; sourceTree = "<group>"; };
-		C0F68BA115B434A400FFA3BC /* SKColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKColor.m; path = SpreadKit/SKColor.m; sourceTree = "<group>"; };
-		C0F68BA515B438E300FFA3BC /* SKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKView.h; path = SpreadKit/SKView.h; sourceTree = "<group>"; };
-		C0F68BA615B438E400FFA3BC /* SKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKView.m; path = SpreadKit/SKView.m; sourceTree = "<group>"; };
-		C0F68BC415B43F1900FFA3BC /* SKCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKCountry.h; path = SpreadKit/SKCountry.h; sourceTree = "<group>"; };
-		C0F68BC515B43F1900FFA3BC /* SKCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKCountry.m; path = SpreadKit/SKCountry.m; sourceTree = "<group>"; };
-		C0F68BC915B43FED00FFA3BC /* SKCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKCurrency.h; path = SpreadKit/SKCurrency.h; sourceTree = "<group>"; };
-		C0F68BCA15B43FED00FFA3BC /* SKCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKCurrency.m; path = SpreadKit/SKCurrency.m; sourceTree = "<group>"; };
-		C0F68BCE15B441A000FFA3BC /* SKLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKLanguage.h; path = SpreadKit/SKLanguage.h; sourceTree = "<group>"; };
-		C0F68BCF15B441A000FFA3BC /* SKLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKLanguage.m; path = SpreadKit/SKLanguage.m; sourceTree = "<group>"; };
-		C0F68BD315B44D0200FFA3BC /* SKPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKPrice.h; path = SpreadKit/SKPrice.h; sourceTree = "<group>"; };
-		C0F68BD415B44D0200FFA3BC /* SKPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKPrice.m; path = SpreadKit/SKPrice.m; sourceTree = "<group>"; };
+		C0F68B3B15B4146B00FFA3BC /* SKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModel.h; sourceTree = "<group>"; };
+		C0F68B8C15B41A2500FFA3BC /* SKProductConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductConfiguration.h; sourceTree = "<group>"; };
+		C0F68B8D15B41A2500FFA3BC /* SKProductConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductConfiguration.m; sourceTree = "<group>"; };
+		C0F68B9115B4287700FFA3BC /* SKPrintArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPrintArea.h; sourceTree = "<group>"; };
+		C0F68B9215B4287700FFA3BC /* SKPrintArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPrintArea.m; sourceTree = "<group>"; };
+		C0F68B9615B42A1A00FFA3BC /* SKPrintType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPrintType.h; sourceTree = "<group>"; };
+		C0F68B9715B42A1A00FFA3BC /* SKPrintType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPrintType.m; sourceTree = "<group>"; };
+		C0F68B9B15B42C8800FFA3BC /* SKOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKOffset.h; sourceTree = "<group>"; };
+		C0F68B9C15B42C8800FFA3BC /* SKOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKOffset.m; sourceTree = "<group>"; };
+		C0F68BA015B434A400FFA3BC /* SKColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKColor.h; sourceTree = "<group>"; };
+		C0F68BA115B434A400FFA3BC /* SKColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKColor.m; sourceTree = "<group>"; };
+		C0F68BA515B438E300FFA3BC /* SKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKView.h; sourceTree = "<group>"; };
+		C0F68BA615B438E400FFA3BC /* SKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKView.m; sourceTree = "<group>"; };
+		C0F68BC415B43F1900FFA3BC /* SKCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCountry.h; sourceTree = "<group>"; };
+		C0F68BC515B43F1900FFA3BC /* SKCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCountry.m; sourceTree = "<group>"; };
+		C0F68BC915B43FED00FFA3BC /* SKCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCurrency.h; sourceTree = "<group>"; };
+		C0F68BCA15B43FED00FFA3BC /* SKCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCurrency.m; sourceTree = "<group>"; };
+		C0F68BCE15B441A000FFA3BC /* SKLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLanguage.h; sourceTree = "<group>"; };
+		C0F68BCF15B441A000FFA3BC /* SKLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLanguage.m; sourceTree = "<group>"; };
+		C0F68BD315B44D0200FFA3BC /* SKPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPrice.h; sourceTree = "<group>"; };
+		C0F68BD415B44D0200FFA3BC /* SKPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPrice.m; sourceTree = "<group>"; };
 		C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketManagerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -461,8 +461,8 @@
 				C04D275515B412960080C77F /* Support */,
 				C033ADFA15B595F50071D341 /* View */,
 			);
-			name = SpreadKit;
-			sourceTree = "<group>";
+			path = SpreadKit;
+			sourceTree = SOURCE_ROOT;
 		};
 		C04D275415B4122A0080C77F /* Model */ = {
 			isa = PBXGroup;
@@ -477,8 +477,6 @@
 				C04D26ED15B411810080C77F /* SKBasketItem.m */,
 				C0F68BA015B434A400FFA3BC /* SKColor.h */,
 				C0F68BA115B434A400FFA3BC /* SKColor.m */,
-				C0F68B9B15B42C8800FFA3BC /* SKOffset.h */,
-				C0F68B9C15B42C8800FFA3BC /* SKOffset.m */,
 				C0F68BC415B43F1900FFA3BC /* SKCountry.h */,
 				C0F68BC515B43F1900FFA3BC /* SKCountry.m */,
 				C0F68BC915B43FED00FFA3BC /* SKCurrency.h */,
@@ -490,6 +488,8 @@
 				C0F68BCE15B441A000FFA3BC /* SKLanguage.h */,
 				C0F68BCF15B441A000FFA3BC /* SKLanguage.m */,
 				C0F68B3B15B4146B00FFA3BC /* SKModel.h */,
+				C0F68B9B15B42C8800FFA3BC /* SKOffset.h */,
+				C0F68B9C15B42C8800FFA3BC /* SKOffset.m */,
 				C0F68BD315B44D0200FFA3BC /* SKPrice.h */,
 				C0F68BD415B44D0200FFA3BC /* SKPrice.m */,
 				C0F68B9115B4287700FFA3BC /* SKPrintArea.h */,
@@ -512,10 +512,10 @@
 				C04D270E15B411810080C77F /* SKUser.m */,
 				C0F68BA515B438E300FFA3BC /* SKView.h */,
 				C0F68BA615B438E400FFA3BC /* SKView.m */,
-				C033ADE615B58A220071D341 /* SKViewSize.h */,
-				C033ADE715B58A220071D341 /* SKViewSize.m */,
 				C033ADF015B58CDE0071D341 /* SKViewMap.h */,
 				C033ADF115B58CDE0071D341 /* SKViewMap.m */,
+				C033ADE615B58A220071D341 /* SKViewSize.h */,
+				C033ADE715B58A220071D341 /* SKViewSize.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -542,7 +542,7 @@
 				C04D26F115B411810080C77F /* SKClient.m */,
 				C04D26F615B411810080C77F /* SKImageLoader.h */,
 				C04D26F815B411810080C77F /* SKImageLoader.m */,
-				C04D26F915B411810080C77F /* SKObjectManager.h */,
+				C04D26F915B411810080C77F /* SKObjectMappingProvider.h */,
 				C04D26FA15B411810080C77F /* SKObjectManager.m */,
 				C04D26FB15B411810080C77F /* SKObjectMapper.h */,
 				C04D26FC15B411810080C77F /* SKObjectMapper.m */,
@@ -643,7 +643,7 @@
 				C04D272815B411820080C77F /* SKDesign.h in Headers */,
 				C04D272B15B411820080C77F /* SKEntityList.h in Headers */,
 				C04D272E15B411820080C77F /* SKImageLoader.h in Headers */,
-				C04D273215B411820080C77F /* SKObjectManager.h in Headers */,
+				C04D273215B411820080C77F /* SKObjectMappingProvider.h in Headers */,
 				C04D273515B411820080C77F /* SKObjectMapper.h in Headers */,
 				C04D273815B411820080C77F /* SKObjectMappingProvider.h in Headers */,
 				C04D273B15B411820080C77F /* SKPaginator.h in Headers */,
