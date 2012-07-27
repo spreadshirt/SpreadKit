@@ -83,7 +83,6 @@
 		C04D272E15B411820080C77F /* SKImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26F615B411810080C77F /* SKImageLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C04D273015B411820080C77F /* SKImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F815B411810080C77F /* SKImageLoader.m */; };
 		C04D273115B411820080C77F /* SKImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F815B411810080C77F /* SKImageLoader.m */; };
-		C04D273215B411820080C77F /* SKObjectMappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26F915B411810080C77F /* SKObjectMappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C04D273315B411820080C77F /* SKObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26FA15B411810080C77F /* SKObjectManager.m */; };
 		C04D273415B411820080C77F /* SKObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26FA15B411810080C77F /* SKObjectManager.m */; };
 		C04D273515B411820080C77F /* SKObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26FB15B411810080C77F /* SKObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -270,7 +269,6 @@
 		C04D26F515B411810080C77F /* SKEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEntityList.m; sourceTree = "<group>"; };
 		C04D26F615B411810080C77F /* SKImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKImageLoader.h; sourceTree = "<group>"; };
 		C04D26F815B411810080C77F /* SKImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKImageLoader.m; sourceTree = "<group>"; };
-		C04D26F915B411810080C77F /* SKObjectMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectMappingProvider.h; sourceTree = "<group>"; };
 		C04D26FA15B411810080C77F /* SKObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectManager.m; sourceTree = "<group>"; };
 		C04D26FB15B411810080C77F /* SKObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectMapper.h; sourceTree = "<group>"; };
 		C04D26FC15B411810080C77F /* SKObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectMapper.m; sourceTree = "<group>"; };
@@ -542,7 +540,6 @@
 				C04D26F115B411810080C77F /* SKClient.m */,
 				C04D26F615B411810080C77F /* SKImageLoader.h */,
 				C04D26F815B411810080C77F /* SKImageLoader.m */,
-				C04D26F915B411810080C77F /* SKObjectMappingProvider.h */,
 				C04D26FA15B411810080C77F /* SKObjectManager.m */,
 				C04D26FB15B411810080C77F /* SKObjectMapper.h */,
 				C04D26FC15B411810080C77F /* SKObjectMapper.m */,
@@ -643,7 +640,6 @@
 				C04D272815B411820080C77F /* SKDesign.h in Headers */,
 				C04D272B15B411820080C77F /* SKEntityList.h in Headers */,
 				C04D272E15B411820080C77F /* SKImageLoader.h in Headers */,
-				C04D273215B411820080C77F /* SKObjectMappingProvider.h in Headers */,
 				C04D273515B411820080C77F /* SKObjectMapper.h in Headers */,
 				C04D273815B411820080C77F /* SKObjectMappingProvider.h in Headers */,
 				C04D273B15B411820080C77F /* SKPaginator.h in Headers */,
