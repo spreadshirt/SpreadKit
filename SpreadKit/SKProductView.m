@@ -28,6 +28,7 @@
     }
     return self;
 }
+
 - (void) createImageConfigurationWithImage: (UIImage *) image{
     SKPrintArea *printarea = [productType printAreaForView: view];
     CGRect rect= [printarea hardBoundary];
@@ -53,11 +54,10 @@
 
 - (id)initWithProduct:(SKProduct *)theProduct andFrame:(CGRect)frame
 {
+    product = theProduct;
+    productConfigurations = product.configurations;
+    
     if (self = [self initWithProductType:product.productType andFrame:frame]) {
-        
-        // display product type (default view)
-        product = theProduct;
-        productConfigurations = product.configurations;
 
         // put the configurations on the product type
         
