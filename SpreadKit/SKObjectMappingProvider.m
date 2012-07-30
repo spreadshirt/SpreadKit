@@ -56,7 +56,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         RKObjectMapping *configurationMapping = [RKObjectMapping mappingForClass:[SKProductConfiguration class]];
         [configurationMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [configurationMapping mapAttributes:@"type", @"content", @"fontFamilies", @"restrictions", nil];
+        [configurationMapping mapAttributes:@"type", @"fontFamilies", @"restrictions", nil];
         
         RKObjectMapping *viewMapping = [RKObjectMapping mappingForClass:[SKView class]];
         [viewMapping mapKeyPath:@"id" toAttribute:@"identifier"];
@@ -132,6 +132,28 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         RKObjectMapping *priceMapping = [RKObjectMapping mappingForClass:[SKPrice class]];
         [priceMapping mapAttributes:@"vatExcluded", @"vatIncluded", @"vat", nil];
+        
+        RKObjectMapping *svgImageMapping = [RKObjectMapping mappingForClass:[SKSVGImage class]];
+        [svgImageMapping mapKeyPath:@"image.designId" toAttribute:@"designId"];
+        [svgImageMapping mapKeyPath:@"image.width" toAttribute:@"width"];
+        [svgImageMapping mapKeyPath:@"image.height" toAttribute:@"height"];
+        
+        
+        RKObjectMapping *svgTextMapping = [RKObjectMapping mappingForClass:[SKSVGText class]];
+        
+        RKDynamicObjectMapping *svgMapping = [RKDynamicObjectMapping dynamicMapping];
+        svgMapping.objectMappingForDataBlock = ^ RKObjectMapping* (id mappableData) {
+            
+            NSDictionary *svg = (NSDictionary *)mappableData;
+            
+            if ([[svg allKeys] containsObject:@"image"]) {
+                return svgImageMapping;
+            } else if ([[svg allKeys] containsObject:@"text"]) {
+                return svgTextMapping;
+            }
+            return nil;
+        };
+        
         
         // relationships
         [countryMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];
@@ -209,6 +231,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [configurationMapping mapKeyPath:@"offset" toRelationship:@"offset" withMapping:offsetMapping];
         [configurationMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:designMapping];
         [configurationMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [configurationMapping mapKeyPath:@"content.svg" toRelationship:@"content" withMapping:svgMapping];
         
         [viewMapMapping mapKeyPath:@"offset" toRelationship:@"offset" withMapping:offsetMapping];
         
@@ -222,9 +245,11 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         
         RKObjectMapping *basketSerializationMapping = [basketMapping inverseMapping];
         RKObjectMapping *designSerializationMapping = [designMapping inverseMapping];
+        RKObjectMapping *productSerializationMapping = [productMapping inverseMapping];
         
         [self setSerializationMapping:basketSerializationMapping forClass:[SKBasket class]];
         [self setSerializationMapping:designSerializationMapping forClass:[SKDesign class]];
+        [self setSerializationMapping:productSerializationMapping forClass:[SKProduct class]];
         
         // mapping registrations
         [self addObjectMapping:userMapping];
@@ -245,6 +270,8 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self addObjectMapping:currencyMapping];
         [self addObjectMapping:languageMapping];
         [self addObjectMapping:viewMapMapping];
+        [self addObjectMapping:svgImageMapping];
+        [self addObjectMapping:svgTextMapping];
         [self setMapping:articleMapping forKeyPath:@"articles"];
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];

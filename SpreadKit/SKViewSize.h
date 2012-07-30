@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSNumber * height;
 @property (nonatomic, strong) NSString * unit;
 
+- (id)initWithWidth:(NSNumber *)width andHeight:(NSNumber *)height;
+
 @end

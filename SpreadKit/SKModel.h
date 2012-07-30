@@ -30,3 +30,6 @@
 #import "SKPrice.h"
 #import "SKViewSize.h"
 #import "SKViewMap.h"
+#import "SKSVG.h"
+#import "SKSVGImage.h"
+#import "SKSVGText.h"

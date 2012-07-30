@@ -12,6 +12,7 @@
 @class SKPrintType;
 @class SKOffset;
 @class SKViewSize;
+@class SKSVG;
 
 @interface SKProductConfiguration : NSObject
 
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) SKPrintArea * printArea;
 @property (nonatomic, strong) SKPrintType * printType;
 @property (nonatomic, strong) SKOffset * offset;
-@property (nonatomic, strong) NSDictionary * content;
+@property (nonatomic, strong) SKSVG * content;
 @property (nonatomic, strong) NSArray * designs;
 @property (nonatomic, strong) NSArray * fontFamilies;
 @property (nonatomic, strong) NSDictionary * restrictions;
