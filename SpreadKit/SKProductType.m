@@ -55,7 +55,7 @@
 {
     NSString *defaultAppearanceIdentifier = [[defaultValues objectForKey:@"defaultAppearance"] objectForKey:@"id"];
     if (!defaultAppearance) {
-        int defaultAppearanceIndex = [views indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        int defaultAppearanceIndex = [appearances indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
             if ([[obj identifier] isEqualToString:defaultAppearanceIdentifier]) {
                 return YES;
             } else {
@@ -63,7 +63,7 @@
             }
         }];
         if (defaultAppearanceIndex != NSNotFound) {
-            defaultAppearance = [views objectAtIndex:defaultAppearanceIndex];
+            defaultAppearance = [appearances objectAtIndex:defaultAppearanceIndex];
         }
     }
     return defaultAppearance;

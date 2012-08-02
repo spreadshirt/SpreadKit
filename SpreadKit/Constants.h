@@ -11,4 +11,6 @@
 FOUNDATION_EXPORT NSString *const SKErrorDomain;
 FOUNDATION_EXPORT NSInteger const SKURLInferError;
 FOUNDATION_EXPORT NSInteger const SKImageUploadFailedError;
+FOUNDATION_EXPORT NSInteger const SKPostFailedError;
 FOUNDATION_EXPORT NSInteger const SKURLMissingError;
+FOUNDATION_EXPORT NSString *const SKErrorMessageKey;

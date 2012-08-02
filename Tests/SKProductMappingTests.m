@@ -21,17 +21,44 @@
 - (void)testProductSerialization
 {
     SKProduct *testProduct = [[SKProduct alloc] init];
+    
+    SKProductType *productType = [[SKProductType alloc] init];
+    productType.identifier = @"productTypeID";
+    
+    testProduct.productType = productType;
+    
+    SKAppearance *appearance = [[SKAppearance alloc] init];
+    appearance.identifier = @"appearanceID";
+    appearance.name = @"appearanceName";
+    
+    testProduct.appearance = appearance;
+    
+    
     SKProductConfiguration *conf = [[SKProductConfiguration alloc] init];
-    [conf setIdentifier:@"foo"];
+    [conf setIdentifier:@"configurationID"];
+    
+    SKPrintArea *printArea = [[SKPrintArea alloc] init];
+    printArea.identifier = @"printAreaID";
+    conf.printArea = printArea;
+    
+    SKPrintType *printType = [[SKPrintType alloc] init];
+    printType.identifier = @"printTypeID";
+    conf.printType = printType;
+    
     SKOffset *offset = [[SKOffset alloc] init];
     [offset setUnit:@"mm"];
     [offset setX:@1.0];
     [offset setY:@2.0];
     [conf setOffset:offset];
+    
+    SKSVGImage *content = [[SKSVGImage alloc] init];
+    content.designId = @"designID";
+    content.width = @100;
+    content.height = @200;
+    conf.content = content;
+    
     [testProduct setConfigurations:@[ conf ]];
-    
-    conf.content = [[SKSVGImage alloc] init];
-    
+        
     RKObjectMapping *serializationMapping = [[SKObjectMappingProvider sharedMappingProvider] serializationMappingForClass:[SKProduct class]];
     RKObjectSerializer *serializer = [RKObjectSerializer serializerWithObject:testProduct mapping:serializationMapping];
     

@@ -10,6 +10,10 @@
 #import <UIKit/UIKit.h>
 #import "SKModel.h"
 
-@interface ProductCreator : NSObject
+@interface SKProductCreator : NSObject
+
 - (SKProduct *) createProductWithProductType: (SKProductType *) productType andImage:(UIImage *) image;
+
+- (void)uploadProduct:(SKProduct *)product completion:(void (^)(SKProduct *uploaded, NSError *error))completion;
+
 @end

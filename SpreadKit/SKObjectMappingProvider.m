@@ -78,15 +78,15 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *sizeMapping = [RKObjectMapping mappingForClass:[SKSize class]];
         [sizeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [sizeMapping mapAttributes:@"name", @"measures", nil];
-                
+        
         RKObjectMapping *productTypeMapping = [RKObjectMapping mappingForClass:[SKProductType class]];
         [productTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
         [productTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [productTypeMapping mapAttributes:@"appearences", @"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"defaultValues", @"washingInstructions", @"stockStates", nil];
+        [productTypeMapping mapAttributes:@"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"defaultValues", @"washingInstructions", @"stockStates", nil];
         
         RKObjectMapping *viewSizeMapping = [RKObjectMapping mappingForClass:[SKViewSize class]];
         [viewSizeMapping mapAttributes:@"unit", @"width", @"height", nil];
-
+        
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SKProduct class]];
         [productMapping mapAttributes:@"name", @"weight", @"creator", @"restrictions", nil];
         [productMapping mapKeyPath:@"href" toAttribute:@"url"];
@@ -101,7 +101,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         articleDateFormatter.dateFormat = @"dd.MM.yyyy hh:mm:ss";
         articleDateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
         articleMapping.dateFormatters = [NSArray arrayWithObject:articleDateFormatter];
-            
+        
         RKObjectMapping *listMapping = [RKObjectMapping mappingForClass:[SKEntityList class]];
         [listMapping mapKeyPath:@"href" toAttribute:@"url"];
         [listMapping mapAttributes:@"count", @"offset", @"limit", nil];
@@ -199,7 +199,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [userMapping mapKeyPath:@"currencies" toRelationship:@"currencies" withMapping:listMapping];
         [userMapping mapKeyPath:@"languages" toRelationship:@"languages" withMapping:listMapping];
         [userMapping mapKeyPath:@"countries" toRelationship:@"countries" withMapping:listMapping];
-
+        
         [shopMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
         [shopMapping mapKeyPath:@"articles" toRelationship:@"articles" withMapping:listMapping];
         [shopMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:listMapping];
@@ -246,6 +246,38 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *basketSerializationMapping = [basketMapping inverseMapping];
         RKObjectMapping *designSerializationMapping = [designMapping inverseMapping];
         RKObjectMapping *productSerializationMapping = [productMapping inverseMapping];
+        RKObjectMapping *productTypeSerializationMapping = [productTypeMapping inverseMapping];
+        RKObjectMapping *appearanceSerializationMapping = [appearanceMapping inverseMapping];
+        RKObjectMapping *configurationSerializationMapping = [configurationMapping inverseMapping];
+        
+        RKObjectMapping *printTypeSerializationMapping = [printTypeMapping inverseMapping];
+        [printTypeSerializationMapping removeAllMappings];
+        [printTypeSerializationMapping mapKeyPath:@"identifier" toAttribute:@"id"];
+        
+        
+        RKObjectMapping *printAreaSerializationMapping = [printAreaMapping inverseMapping];
+        [printAreaSerializationMapping removeAllMappings];
+        [printAreaSerializationMapping mapKeyPath:@"identifier" toAttribute:@"id"];
+        
+        RKObjectMapping *svgSerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+        [svgSerializationMapping mapKeyPath:@"svg" toAttribute:@"svg"];
+        
+        [configurationSerializationMapping mapKeyPath:@"content" toRelationship:@"content" withMapping:svgSerializationMapping];
+        [configurationSerializationMapping removeMappingForKeyPath:@"printArea"];
+        [configurationSerializationMapping mapKeyPath:@"printArea" toRelationship:@"printArea" withMapping:printAreaSerializationMapping];
+        [configurationSerializationMapping removeMappingForKeyPath:@"printType"];
+        [configurationSerializationMapping mapKeyPath:@"printType" toRelationship:@"printType" withMapping:printTypeSerializationMapping];
+        
+        [productTypeSerializationMapping removeAllMappings];
+        [productTypeSerializationMapping mapKeyPath:@"identifier" toAttribute:@"id"];
+        
+        [appearanceSerializationMapping removeAllMappings];
+        [appearanceSerializationMapping mapKeyPath:@"identifier" toAttribute:@"id"];
+        
+        [productSerializationMapping removeAllMappings];
+        [productSerializationMapping mapKeyPath:@"appearance" toRelationship:@"appearance" withMapping:appearanceSerializationMapping];
+        [productSerializationMapping mapKeyPath:@"productType" toRelationship:@"productType" withMapping:productTypeSerializationMapping];
+        [productSerializationMapping mapKeyPath:@"configurations" toRelationship:@"configurations" withMapping:configurationSerializationMapping];
         
         [self setSerializationMapping:basketSerializationMapping forClass:[SKBasket class]];
         [self setSerializationMapping:designSerializationMapping forClass:[SKDesign class]];

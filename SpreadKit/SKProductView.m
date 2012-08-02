@@ -45,6 +45,7 @@
     rect.origin.x = rect.origin.x + (boundaryWidth - rect.size.width) / 2;
     [self createImageConfigurationWithImage:image andConfigurationRect: rect];
 }
+
 - (void) createImageConfigurationWithImage: (UIImage *) image andConfigurationRect: (CGRect)rect {
     
     rect = [self scalePrintareaRectInView:rect];

@@ -137,14 +137,21 @@
     [SKURLConnection post:requestData toURL:theURL params:defaultParams apiKey:apiKey secret:secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             completion(nil, error);
+        } else {
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            if (httpResponse.statusCode == 201) {
+                [theObject setUrl:[NSURL URLWithString:[[httpResponse allHeaderFields] objectForKey:@"Location"]]];
+                completion(theObject, nil);
+            } else {
+                NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObjects:@[ message, @"Posting object failed" ] forKeys:@[ SKErrorMessageKey, NSLocalizedDescriptionKey ]];
+                
+                NSError *error = [NSError errorWithDomain:SKErrorDomain code:SKPostFailedError userInfo:userInfo];
+                completion(nil, error);
+            }
         }
-        
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        if (httpResponse.statusCode == 201) {
-            [theObject setUrl:[NSURL URLWithString:[[httpResponse allHeaderFields] objectForKey:@"Location"]]];
-            completion(theObject, nil);
-        }
-        completion(nil, nil);
     }];
 }
 

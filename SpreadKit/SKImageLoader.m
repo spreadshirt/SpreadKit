@@ -91,7 +91,7 @@
             completion (design, error);
         }
         
-        completion(nil, error);
+        completion(design, nil);
     }];
 }
 
