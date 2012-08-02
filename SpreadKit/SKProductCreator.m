@@ -51,10 +51,10 @@
     
     // scale the image
     if (image.size.height > image.size.width) {
-        height = boundary.size.height /= 2;
+        height = boundary.size.height / 2;
         width = height * imageAspectRatio;
     } else {
-        width = boundary.size.width /= 1.3;
+        width = boundary.size.width / 1.3;
         height = width * imageAspectRatio;
     }
     svg.width = [NSNumber numberWithFloat:width];
@@ -62,7 +62,7 @@
     
     // position the image
     x = boundary.origin.x + (boundary.size.width - width) / 2;
-    y = height / 8;
+    y = height / 6;
     configuration.offset = [[SKOffset alloc] init];
     configuration.offset.x = [NSNumber numberWithFloat:x];
     configuration.offset.y = [NSNumber numberWithFloat:y];
