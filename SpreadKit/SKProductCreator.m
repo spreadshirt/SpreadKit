@@ -62,7 +62,7 @@
     
     // position the image
     x = boundary.origin.x + (boundary.size.width - width) / 2;
-    y = height / 6;
+    y = height / 8;
     configuration.offset = [[SKOffset alloc] init];
     configuration.offset.x = [NSNumber numberWithFloat:x];
     configuration.offset.y = [NSNumber numberWithFloat:y];
