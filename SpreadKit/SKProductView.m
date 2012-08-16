@@ -15,24 +15,12 @@
 @property UIImageView *productTypeView;
 
 - (void)loadProductTypeImage;
-- (CGRect)scalePrintareaRectInView: (CGRect) rect;
 
 @end
 
 @implementation SKProductView
 
 @synthesize productType,product,view,viewScale,productTypeView;
-
-- (id)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame]) {
-        self.productTypeView = [[UIImageView alloc] initWithFrame:self.bounds];
-        self.productTypeView.contentMode = UIViewContentModeScaleAspectFit;
-        self.productTypeView.layer.zPosition = 0;
-        [self addSubview:self.productTypeView];
-    }
-    return self;
-}
 
 - (id)initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame {
     if (self = [self initWithFrame:frame]) {
@@ -53,13 +41,24 @@
 {
     productType = theProductType;
     view = productType.defaultView;
-    viewScale = self.frame.size.width / [view.size.width floatValue];
+    viewScale = self.bounds.size.width / [view.size.width floatValue];
+    
+    CGSize scaledPtvSize = CGSizeMake([view.size.width floatValue] * viewScale, [view.size.height floatValue] * viewScale);
+    CGRect ptvFrame = CGRectMake(0.5f*(CGRectGetWidth(self.bounds)-scaledPtvSize.width), 0.5f*(CGRectGetHeight(self.bounds)-scaledPtvSize.height), scaledPtvSize.width, scaledPtvSize.height);
+    
+    [productTypeView removeFromSuperview];
+    
+    productTypeView = [[UIImageView alloc] initWithFrame:ptvFrame];
+    productTypeView.contentMode = UIViewContentModeScaleAspectFill;
+    [self addSubview:productTypeView];
+    
     [self loadProductTypeImage];
 }
 
 - (void)setProduct:(SKProduct *)theProduct
 {
     product = theProduct;
+    self.productType = product.productType;
     
     for (SKProductConfiguration *conf in product.configurations) {
         
@@ -67,40 +66,28 @@
         
         float viewMapX = [map.offset.x floatValue] * viewScale;
         float viewMapY = [map.offset.y floatValue] * viewScale;
+        
         float designWidth = [[conf size].width floatValue] * viewScale;
         float designHeight = [[conf size].height floatValue] * viewScale;
         
         float designOffsetX = [conf.offset.x floatValue] * viewScale;
         float designOffsetY = [conf.offset.y floatValue] * viewScale;
+        
         CGRect confFrame = CGRectMake(viewMapX + designOffsetX, viewMapY + designOffsetY, designWidth, designHeight);
         SKProductConfigurationView *configurationView =[[SKProductConfigurationView alloc] initWithProductConfiguration:conf andFrame:confFrame];
         configurationView.layer.zPosition = 1;
-        [self addSubview:configurationView];
+        [productTypeView addSubview:configurationView];
     }
 }
 
 - (void) loadProductTypeImage {
     NSURL *viewImageURL = [[view.resources objectAtIndex:0] url];
     [[[SKImageLoader alloc] init] loadImageFromUrl:viewImageURL  withSize:self.frame.size andAppearanceId:product.appearance.identifier completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
+        
+        
+        
         self.productTypeView.image = image;
     }];
 }
-
-- (CGRect) scalePrintareaRectInView: (CGRect) rect {
-    SKPrintArea *printarea = [productType printAreaForView: view];
-    SKViewMap *map = [view viewMapByPrintAreaId:printarea.identifier];
-    
-    float viewMapX = [map.offset.x floatValue] * viewScale;
-    float viewMapY = [map.offset.y floatValue] * viewScale;
-    CGRect scaledRect = rect;
-    scaledRect.size.width *= viewScale;
-    scaledRect.size.height *= viewScale;
-    scaledRect.origin.x *= viewScale;
-    scaledRect.origin.y *= viewScale;
-    scaledRect.origin.x += viewMapX ;
-    scaledRect.origin.y += viewMapY + (self.bounds.size.height - self.bounds.size.width) /2;
-    return scaledRect;
-}
-
 
 @end
