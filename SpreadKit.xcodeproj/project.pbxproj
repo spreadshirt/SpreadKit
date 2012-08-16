@@ -234,7 +234,6 @@
 		4752C04515B95717008CE664 /* SKProductView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductView.m; sourceTree = "<group>"; };
 		4752C04915B95A21008CE664 /* SKProductConfigurationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductConfigurationView.h; sourceTree = "<group>"; };
 		4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductConfigurationView.m; sourceTree = "<group>"; };
-		C01D335715C6C32200C77A0B /* ProductCreatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCreatorTests.h; sourceTree = "<group>"; };
 		C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductCreatorTests.m; sourceTree = "<group>"; };
 		C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ExternalLibraries/RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		C026F92815AEC57B00FFEB69 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -443,7 +442,6 @@
 				C0C6921814EE57440068C18D /* SKObjectMappingProviderTests.m */,
 				C03806EC150103780004BFC4 /* Supporting Files */,
 				C026FA2515AF0BD600FFEB69 /* testImage.jpg */,
-				C01D335715C6C32200C77A0B /* ProductCreatorTests.h */,
 				C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */,
 			);
 			path = Tests;
