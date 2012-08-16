@@ -18,7 +18,14 @@
 - (id)initWithProductConfiguration:(SKProductConfiguration *)productConfiguration andFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]){
         configuration = productConfiguration;
-        [self loadConfigurationImage];
+        if ([configuration.content isMemberOfClass:[SKSVGImage class]]) {
+            SKSVGImage *content = (SKSVGImage *)configuration.content;
+            if (content.image) {
+                [self addImage:content.image];
+            } else {
+                [self loadConfigurationImage];
+            }
+        }
     }
     return self;
 }
@@ -36,11 +43,11 @@
     }];
 }
 - (void) addImage: (UIImage *) image {
-//    UIView * view = [[UIView alloc] initWithFrame:[self bounds]];
-//    view.backgroundColor = [UIColor blueColor];
+    //    UIView * view = [[UIView alloc] initWithFrame:[self bounds]];
+    //    view.backgroundColor = [UIColor blueColor];
     UIImageView *designView = [[UIImageView alloc] initWithFrame:[self bounds]];
     designView.image = image;
-    designView.contentMode = UIViewContentModeRedraw;
+    designView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:designView];
 }
 @end

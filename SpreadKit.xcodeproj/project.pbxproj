@@ -127,7 +127,7 @@
 		C079639C15C2839500360DC6 /* SKSVGText.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639A15C2839500360DC6 /* SKSVGText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C079639D15C2839500360DC6 /* SKSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SKSVGText.m */; };
 		C079639E15C2839500360DC6 /* SKSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SKSVGText.m */; };
-		C07963A015C2ABF600360DC6 /* SKObjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639F15C2ABF600360DC6 /* SKObjectManager.h */; };
+		C07963A015C2ABF600360DC6 /* SKObjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639F15C2ABF600360DC6 /* SKObjectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A28C1500E0B000C70D86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
 		C0A041FF1581E76300953AF4 /* SKBasketItemMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */; };
 		C0A04201158219AB00953AF4 /* basket.json in Resources */ = {isa = PBXBuildFile; fileRef = C0A04200158219AB00953AF4 /* basket.json */; };
@@ -693,6 +693,7 @@
 				C033ADE815B58A240071D341 /* SKViewSize.h in Headers */,
 				C0F68BC615B43F1900FFA3BC /* SKCountry.h in Headers */,
 				C033ADA015B567DA0071D341 /* Constants.h in Headers */,
+				C07963A015C2ABF600360DC6 /* SKObjectManager.h in Headers */,
 				C0F68BCB15B43FEE00FFA3BC /* SKCurrency.h in Headers */,
 				C04D275015B411820080C77F /* SKUser.h in Headers */,
 				C079639215C2837400360DC6 /* SKSVG.h in Headers */,
@@ -702,7 +703,6 @@
 				4752C04B15B95A21008CE664 /* SKProductConfigurationView.h in Headers */,
 				4752C04015B94ECE008CE664 /* SKProductCreator.h in Headers */,
 				C04D275315B411820080C77F /* SpreadKit.h in Headers */,
-				C07963A015C2ABF600360DC6 /* SKObjectManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

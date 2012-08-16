@@ -10,85 +10,79 @@
 #import "SKProductConfigurationView.h"
 #import "SKImageLoader.h"
 
-@interface SKProductView (Private)
-- (void) loadProductTypeImage;
-- (CGRect) scalePrintareaRectInView: (CGRect) rect;
+@interface SKProductView ()
+
+@property UIImageView *productTypeView;
+
+- (void)loadProductTypeImage;
+- (CGRect)scalePrintareaRectInView: (CGRect) rect;
 
 @end
-@implementation SKProductView 
-@synthesize productType,product,productConfigurations,view,viewScale;
 
+@implementation SKProductView
 
-- (id) initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame {
+@synthesize productType,product,view,viewScale,productTypeView;
+
+- (id)initWithFrame:(CGRect)frame
+{
     if (self = [super initWithFrame:frame]) {
-        productType = theProductType;
-        view = productType.defaultView;
-        viewScale = self.frame.size.width / [view.size.width floatValue];
-        [self loadProductTypeImage];
+        self.productTypeView = [[UIImageView alloc] initWithFrame:self.bounds];
+        self.productTypeView.contentMode = UIViewContentModeScaleAspectFit;
+        self.productTypeView.layer.zPosition = 0;
+        [self addSubview:self.productTypeView];
     }
     return self;
 }
 
-- (void) createImageConfigurationWithImage: (UIImage *) image{
-    SKPrintArea *printarea = [productType printAreaForView: view];
-    CGRect rect= [printarea hardBoundary];
-    rect.origin.y = rect.size.height /8;
-    
-    float boundaryWidth = rect.size.width;
-    if (image.size.height > image.size.width) {
-        rect.size.height /=2;
-        rect.size.width = rect.size.height * image.size.width / image.size.height;
-    } else {
-        rect.size.width /= 1.3;
-        rect.size.height = rect.size.width * image.size.height / image.size.width;
+- (id)initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame {
+    if (self = [self initWithFrame:frame]) {
+        self.productType = theProductType;
     }
-    rect.origin.x = rect.origin.x + (boundaryWidth - rect.size.width) / 2;
-    [self createImageConfigurationWithImage:image andConfigurationRect: rect];
-}
-
-- (void) createImageConfigurationWithImage: (UIImage *) image andConfigurationRect: (CGRect)rect {
-    
-    rect = [self scalePrintareaRectInView:rect];
-    SKProductConfigurationView *configurationView =[[SKProductConfigurationView alloc] initWithImage:image andFrame:rect];
-    [self addSubview:configurationView];
+    return self;
 }
 
 - (id)initWithProduct:(SKProduct *)theProduct andFrame:(CGRect)frame
 {
-    product = theProduct;
-    productConfigurations = product.configurations;
-    
-    if (self = [self initWithProductType:product.productType andFrame:frame]) {
-
-        // put the configurations on the product type
-        
-        for (SKProductConfiguration *conf in productConfigurations) {
-
-            SKViewMap *map = [view viewMapByPrintAreaId:conf.printArea.identifier];
-            
-            float viewMapX = [map.offset.x floatValue] * viewScale;
-            float viewMapY = [map.offset.y floatValue] * viewScale;
-            float designWidth = [[conf size].width floatValue] * viewScale;
-            float designHeight = [[conf size].height floatValue] * viewScale;
-            
-            float designOffsetX = [conf.offset.x floatValue] * viewScale;
-            float designOffsetY = [conf.offset.y floatValue] * viewScale;
-            CGRect confFrame = CGRectMake(viewMapX + designOffsetX, viewMapY + designOffsetY, designWidth, designHeight);
-            SKProductConfigurationView *configurationView =[[SKProductConfigurationView alloc] initWithProductConfiguration:conf andFrame:confFrame];
-            [self addSubview:configurationView];
-        }
+    if (self = [self initWithFrame:frame]) {
+        self.product = theProduct;
     }
     return self;
+}
+
+- (void)setProductType:(SKProductType *)theProductType
+{
+    productType = theProductType;
+    view = productType.defaultView;
+    viewScale = self.frame.size.width / [view.size.width floatValue];
+    [self loadProductTypeImage];
+}
+
+- (void)setProduct:(SKProduct *)theProduct
+{
+    product = theProduct;
+    
+    for (SKProductConfiguration *conf in product.configurations) {
+        
+        SKViewMap *map = [view viewMapByPrintAreaId:conf.printArea.identifier];
+        
+        float viewMapX = [map.offset.x floatValue] * viewScale;
+        float viewMapY = [map.offset.y floatValue] * viewScale;
+        float designWidth = [[conf size].width floatValue] * viewScale;
+        float designHeight = [[conf size].height floatValue] * viewScale;
+        
+        float designOffsetX = [conf.offset.x floatValue] * viewScale;
+        float designOffsetY = [conf.offset.y floatValue] * viewScale;
+        CGRect confFrame = CGRectMake(viewMapX + designOffsetX, viewMapY + designOffsetY, designWidth, designHeight);
+        SKProductConfigurationView *configurationView =[[SKProductConfigurationView alloc] initWithProductConfiguration:conf andFrame:confFrame];
+        configurationView.layer.zPosition = 1;
+        [self addSubview:configurationView];
+    }
 }
 
 - (void) loadProductTypeImage {
     NSURL *viewImageURL = [[view.resources objectAtIndex:0] url];
     [[[SKImageLoader alloc] init] loadImageFromUrl:viewImageURL  withSize:self.frame.size andAppearanceId:product.appearance.identifier completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
-        UIImageView *productTypeView = [[UIImageView alloc] initWithFrame:self.bounds];
-
-        productTypeView.image = image;
-        productTypeView.contentMode = UIViewContentModeScaleAspectFit;
-        [self addSubview:productTypeView];
+        self.productTypeView.image = image;
     }];
 }
 

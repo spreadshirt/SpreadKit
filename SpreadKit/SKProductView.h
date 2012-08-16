@@ -11,15 +11,14 @@
 #import "SKModel.h"
 
 
-@interface SKProductView : UIView 
-@property (readonly) SKProduct *product;
-@property (readonly) SKProductType *productType;
-@property (readonly) NSArray *productConfigurations;
+@interface SKProductView : UIView
+
+@property (nonatomic) SKProduct *product;
+@property (nonatomic) SKProductType *productType;
 @property (readonly) SKView *view;
 @property (readonly) float viewScale;
 
-- (id) initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame;
+- (id)initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame;
 - (id)initWithProduct:(SKProduct *)product andFrame:(CGRect)frame;
-- (void) createImageConfigurationWithImage: (UIImage *) image andConfigurationRect: (CGRect)rect;
-- (void) createImageConfigurationWithImage: (UIImage *) image;
+
 @end
