@@ -126,6 +126,11 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     [manager postObject:object toURL:url completion:completion];
 }
 
+- (void)put:(id)object completion:(void (^)(id, NSError *))completion
+{
+    [manager putObject:object completion:completion];
+}
+
 // takes a shop or user and extracts and remembers
 // all URLs for later posting and getting via id of objects
 - (void)extractEntityURLs:(id)object

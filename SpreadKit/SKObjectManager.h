@@ -29,4 +29,7 @@
 // post objects
 - (void)postObject:(id)theObject toURL:(NSURL *)theURL completion:(void (^)(id object, NSError *error))completion;
 
+// put objects
+- (void)putObject:(id)theObject completion:(void (^)(id object, NSError *error))completion;
+
 @end

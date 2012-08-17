@@ -127,12 +127,19 @@
     }];
 }
 
-- (void)postObject:(id)theObject toURL:(NSURL *)theURL completion:(void (^)(id, NSError *))completion
+- (NSData *)requestDataFromObject:(id)theObject
 {
     SKObjectMappingProvider *mappingProvider = [SKObjectMappingProvider sharedMappingProvider];
     SKObjectMapper *mapper = [SKObjectMapper mapperWithMIMEType:RKMIMETypeJSON mappingProvider:mappingProvider];
     NSString *json = [mapper serializeObject:theObject];
     NSData *requestData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    return requestData;
+}
+
+- (void)postObject:(id)theObject toURL:(NSURL *)theURL completion:(void (^)(id, NSError *))completion
+{
+    NSData *requestData;
+    requestData = [self requestDataFromObject:theObject];
     
     [SKURLConnection post:requestData toURL:theURL params:defaultParams apiKey:apiKey secret:secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
@@ -154,6 +161,28 @@
         }
     }];
 }
+
+- (void)putObject:(id)theObject completion:(void (^)(id, NSError *))completion
+{
+    [SKURLConnection put:[self requestDataFromObject:theObject] toURL:[theObject url] params:defaultParams apiKey:apiKey secret:secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if (error) {
+            completion(nil, error);
+        } else {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            if (httpResponse.statusCode == 200) {
+                completion(theObject, nil);
+            } else {
+                NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObjects:@[ message, @"Updating object failed" ] forKeys:@[ SKErrorMessageKey, NSLocalizedDescriptionKey ]];
+                
+                NSError *error = [NSError errorWithDomain:SKErrorDomain code:SKPostFailedError userInfo:userInfo];
+                completion(theObject, error);
+            }
+        }
+    }];
+}
+
 
 - (int)getServerTimeOffset:(NSHTTPURLResponse *)response
 {

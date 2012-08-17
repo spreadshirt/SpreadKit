@@ -59,4 +59,7 @@
 // posts a new object and sets the url of the created object into the url property
 - (void)post:(id)object completion:(void (^)(id newObject, NSError *error))completion;
 
+// updates an existing entity
+- (void)put:(id)object completion:(void (^)(id updatedObject, NSError *error))completion;
+
 @end

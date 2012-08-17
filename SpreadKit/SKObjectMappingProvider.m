@@ -250,6 +250,8 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *appearanceSerializationMapping = [appearanceMapping inverseMapping];
         RKObjectMapping *configurationSerializationMapping = [configurationMapping inverseMapping];
         
+        [basketSerializationMapping removeMappingForKeyPath:@"url"];
+        
         RKObjectMapping *printTypeSerializationMapping = [printTypeMapping inverseMapping];
         [printTypeSerializationMapping removeAllMappings];
         [printTypeSerializationMapping mapKeyPath:@"identifier" toAttribute:@"id"];

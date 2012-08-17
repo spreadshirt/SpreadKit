@@ -8,6 +8,7 @@
 
 #import "SKBasketManager.h"
 #import "SKBasket.h"
+#import "SKClient.h"
 
 @implementation SKBasketManager
 
@@ -38,7 +39,16 @@
 
 - (void)checkoutURLWithCompletion:(void (^)(NSURL *checkoutURL, NSError* error))completion
 {
-    // TODO
+    [[SKClient sharedClient] post:basket completion:^(id newObject, NSError *error) {
+        if (error) {
+            completion(nil, error);
+        } else {
+            // TODO: workaround, just posting will be sufficient later
+            [[SKClient sharedClient] put:newObject completion:^(id updatedObject, NSError *error) {
+                NSLog(@"%@", [newObject url]);
+            }];
+        }
+    }];
 }
 
 @end

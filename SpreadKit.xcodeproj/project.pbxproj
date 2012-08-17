@@ -398,6 +398,8 @@
 		4752C03815B94E01008CE664 /* Process */ = {
 			isa = PBXGroup;
 			children = (
+				C04D26EE15B411810080C77F /* SKBasketManager.h */,
+				C04D26EF15B411810080C77F /* SKBasketManager.m */,
 				4752C03E15B94ECE008CE664 /* SKProductCreator.h */,
 				4752C03F15B94ECE008CE664 /* SKProductCreator.m */,
 			);
@@ -474,9 +476,9 @@
 		C04D26E115B411430080C77F /* SpreadKit */ = {
 			isa = PBXGroup;
 			children = (
-				4752C03815B94E01008CE664 /* Process */,
 				C04D275615B412BB0080C77F /* Client */,
 				C04D275415B4122A0080C77F /* Model */,
+				4752C03815B94E01008CE664 /* Process */,
 				C04D270F15B411810080C77F /* SpreadKit.h */,
 				C04D275515B412960080C77F /* Support */,
 				C033ADFA15B595F50071D341 /* View */,
@@ -562,8 +564,6 @@
 			children = (
 				C04D26E815B411810080C77F /* SKAuthenticationProvider.h */,
 				C04D26E915B411810080C77F /* SKAuthenticationProvider.m */,
-				C04D26EE15B411810080C77F /* SKBasketManager.h */,
-				C04D26EF15B411810080C77F /* SKBasketManager.m */,
 				C04D26F015B411810080C77F /* SKClient.h */,
 				C04D26F115B411810080C77F /* SKClient.m */,
 				C04D26F615B411810080C77F /* SKImageLoader.h */,
