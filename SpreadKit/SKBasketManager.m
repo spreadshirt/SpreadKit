@@ -9,6 +9,7 @@
 #import "SKBasketManager.h"
 #import "SKBasket.h"
 #import "SKClient.h"
+#import "SKURLConnection.h"
 
 @implementation SKBasketManager
 
@@ -45,7 +46,18 @@
         } else {
             // TODO: workaround, just posting will be sufficient later
             [[SKClient sharedClient] put:newObject completion:^(id updatedObject, NSError *error) {
-                NSLog(@"%@", [newObject url]);
+                // retrieve checkout URL
+                NSURL *checkoutRetrieval = [NSURL URLWithString:[NSString stringWithFormat:@"%@/checkout?mediaType=json", [updatedObject url].absoluteString]];
+                [SKURLConnection get:checkoutRetrieval params:nil apiKey:[SKClient sharedClient].apiKey secret:[SKClient sharedClient].secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+                    NSError *decodeError;
+                    id decoded = [[JSONDecoder decoder] objectWithData:data error:&decodeError];
+                    if (decodeError) {
+                        completion(nil, decodeError);
+                    } else {
+                        NSURL *COURL = [NSURL URLWithString:[decoded objectForKey:@"href"]];
+                        completion(COURL, nil);
+                    }
+                }];
             }];
         }
     }];
