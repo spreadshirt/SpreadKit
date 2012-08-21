@@ -103,13 +103,14 @@
                                     [(SKSVGImage *)[configuration content] setDesignId:design.identifier];
                                     
                                     // load the design again for available print types
-                                    [[SKClient sharedClient] get:[SKDesign class] identifier:design.identifier completion:^(id loadedObject, NSError *error) {
-                                        
-                                        // find allowed print type
-                                        
-                                        configuration.printType = [self printTypeForDesign:loadedObject onProduct:product];
-                                        
-                                        [self configurationUploaded:configuration forProduct:product completion:completion];
+                                    [[SKClient sharedClient] get:design completion:^(id loadedObject, NSError *error) {
+                                        if (error) {
+                                            completion(nil, error);
+                                        } else {
+                                            // find allowed print type
+                                            configuration.printType = [self printTypeForDesign:loadedObject onProduct:product];
+                                            [self configurationUploaded:configuration forProduct:product completion:completion];
+                                        }
                                     }];
                                 }
                             }];
@@ -147,7 +148,9 @@
     if (designPrintTypeIndex != NSNotFound) {
         return [design.printTypes objectAtIndex:designPrintTypeIndex];
     } else {
-        return nil;
+        SKPrintType *defaultPrintType = [[SKPrintType alloc] init];
+        defaultPrintType.identifier = @"17";
+        return defaultPrintType;
     }
 }
 
