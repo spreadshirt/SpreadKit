@@ -121,9 +121,19 @@
         // remember server time offset to sign SprdAuth requests correctly
         serverTimeOffset = [self getServerTimeOffset:(NSHTTPURLResponse *)response];
         
-        id mappingResult = [[SKObjectMapper mapperWithMIMEType:response.MIMEType mappingProvider:mappingProvider andDestinationObject:target]
-                            performMappingWithData:data];
-        completion(mappingResult, nil);
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (httpResponse.statusCode != 200) {
+            NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObjects:@[ message, @"Getting object failed" ] forKeys:@[ SKErrorMessageKey, NSLocalizedDescriptionKey ]];
+            
+            NSError *error = [NSError errorWithDomain:SKErrorDomain code:SKPostFailedError userInfo:userInfo];
+            completion(nil, error);
+        } else {
+            id mappingResult = [[SKObjectMapper mapperWithMIMEType:response.MIMEType mappingProvider:mappingProvider andDestinationObject:target]
+                                performMappingWithData:data];
+            completion(mappingResult, nil);
+        }
     }];
 }
 
