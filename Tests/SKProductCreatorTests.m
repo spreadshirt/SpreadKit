@@ -40,7 +40,7 @@
     // get a product type
     [self prepare];
     __block SKProductType *type;
-    [[SKClient sharedClient] get:[SKProductType class] identifier:@"3" completion:^(id loadedObject, NSError *error) {
+    [[SKClient sharedClient] get:[SKProductType class] identifier:@"6" completion:^(id loadedObject, NSError *error) {
         type = (SKProductType *)loadedObject;
         GHAssertNil(error, nil);
         [self notify:kGHUnitWaitStatusSuccess];
