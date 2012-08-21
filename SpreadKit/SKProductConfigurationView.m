@@ -47,7 +47,7 @@
     //    view.backgroundColor = [UIColor blueColor];
     UIImageView *designView = [[UIImageView alloc] initWithFrame:[self bounds]];
     designView.image = image;
-    designView.contentMode = UIViewContentModeScaleAspectFit;
+    designView.contentMode = UIViewContentModeRedraw;
     [self addSubview:designView];
 }
 @end
