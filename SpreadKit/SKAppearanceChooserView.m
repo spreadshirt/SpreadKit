@@ -92,7 +92,6 @@
     }
     
     UIImageView *colorView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    colorView.backgroundColor = [UIColor redColor];
     cell.contentView = colorView;
     
     SKAppearance *appearance = [self.appearances objectAtIndex:index];

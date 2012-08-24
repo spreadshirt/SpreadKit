@@ -31,46 +31,50 @@
     
     // Create an image configuration with default offset and size
     
-    SKProductConfiguration *configuration = [[SKProductConfiguration alloc] init];
-    
-    configuration.type = @"design";
-    configuration.printArea = [productType printAreaForView:productType.defaultView];
-
-    
-    SKSVGImage *svg = [[SKSVGImage alloc] init];
-    configuration.content = svg;
-    
-    CGRect boundary = configuration.printArea.hardBoundary;
-    
-    CGFloat imageAspectRatio = image.size.width / image.size.height;
-    
-    CGFloat width;
-    CGFloat height;
-    CGFloat x;
-    CGFloat y;
-    
-    // scale the image
-    if (image.size.height > image.size.width) {
-        height = boundary.size.height / 2;
-        width = height * imageAspectRatio;
-    } else {
-        width = boundary.size.width / 1.3;
-        height = width / imageAspectRatio;
+    if (image) {
+        
+        SKProductConfiguration *configuration = [[SKProductConfiguration alloc] init];
+        
+        configuration.type = @"design";
+        configuration.printArea = [productType printAreaForView:productType.defaultView];
+        
+        
+        SKSVGImage *svg = [[SKSVGImage alloc] init];
+        configuration.content = svg;
+        
+        CGRect boundary = configuration.printArea.hardBoundary;
+        
+        CGFloat imageAspectRatio = image.size.width / image.size.height;
+        
+        CGFloat width;
+        CGFloat height;
+        CGFloat x;
+        CGFloat y;
+        
+        // scale the image
+        if (image.size.height > image.size.width) {
+            height = boundary.size.height / 2;
+            width = height * imageAspectRatio;
+        } else {
+            width = boundary.size.width / 1.3;
+            height = width / imageAspectRatio;
+        }
+        svg.width = [NSNumber numberWithFloat:width];
+        svg.height = [NSNumber numberWithFloat:height];
+        
+        // position the image
+        x = boundary.origin.x + (boundary.size.width - width) / 2;
+        y = boundary.size.height / 8;
+        configuration.offset = [[SKOffset alloc] init];
+        configuration.offset.x = [NSNumber numberWithFloat:x];
+        configuration.offset.y = [NSNumber numberWithFloat:y];
+        
+        // link the image for later use
+        svg.image = image;
+        
+        product.configurations = [NSArray arrayWithObject:configuration];
+        
     }
-    svg.width = [NSNumber numberWithFloat:width];
-    svg.height = [NSNumber numberWithFloat:height];
-    
-    // position the image
-    x = boundary.origin.x + (boundary.size.width - width) / 2;
-    y = boundary.size.height / 8;
-    configuration.offset = [[SKOffset alloc] init];
-    configuration.offset.x = [NSNumber numberWithFloat:x];
-    configuration.offset.y = [NSNumber numberWithFloat:y];
-    
-    // link the image for later use
-    svg.image = image;
-    
-    product.configurations = [NSArray arrayWithObject:configuration];
     
     return product;
 }
