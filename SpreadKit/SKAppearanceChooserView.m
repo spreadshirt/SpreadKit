@@ -73,6 +73,7 @@
     grid.scrollEnabled = NO;
     [self addSubview:grid];
     grid.dataSource = self;
+    grid.actionDelegate = self;
     grid.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutHorizontal];
 }
 
@@ -108,6 +109,11 @@
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView
 {
     return self.appearances.count;
+}
+
+- (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
+{
+    [self.delegate appearanceChooser:self didSelectAppearance:[self.appearances objectAtIndex:position]];
 }
 
 @end

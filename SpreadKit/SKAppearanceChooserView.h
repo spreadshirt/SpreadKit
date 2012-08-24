@@ -21,7 +21,7 @@
 
 @end
 
-@interface SKAppearanceChooserView : UIView <GMGridViewDataSource>
+@interface SKAppearanceChooserView : UIView <GMGridViewDataSource, GMGridViewActionDelegate>
 
 @property (nonatomic, weak) id<SKAppearanceChooserViewDelegate> delegate;
 @property (nonatomic, weak) SKProductView * productView;
