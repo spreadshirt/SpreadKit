@@ -11,6 +11,7 @@
 #import "SKImageLoader.h"
 #import "SKURLConnection.h"
 #import "SKDesign.h"
+#import "UIImage+Orientation.h"
 
 @implementation SKImageLoader
 {
@@ -83,7 +84,10 @@
 
 - (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design completion:(void (^)(SKDesign *design, NSError *))completion;
 {
-    [SKURLConnection put:UIImagePNGRepresentation(image) toURL:design.uploadUrl params:nil apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+    // rotate image correctly before serialization
+    UIImage *rotatedImage = [image rotatedImageWithOrientation:image.imageOrientation];
+    
+    [SKURLConnection put:UIImagePNGRepresentation(rotatedImage) toURL:design.uploadUrl params:nil apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if ([httpResponse statusCode] != 200) {
             NSDictionary *userInfo = [NSDictionary dictionaryWithKeysAndObjects:NSLocalizedDescriptionKey, [NSString stringWithFormat:@"The upload failed with HTTP Code %d", [httpResponse statusCode]], @"ResponseContentKey", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], nil];
