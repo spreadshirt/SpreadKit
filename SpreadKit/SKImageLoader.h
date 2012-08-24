@@ -21,6 +21,11 @@
 
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size andAppearanceId:(NSString *)appearanceId completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
+
+// uploads a design image using maximum quality
 - (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design completion:(void (^)(SKDesign *design, NSError *))completion;
+
+// uploads a design image with possibilty to choose compression quality (between 0 and 1.0)
+- (void)uploadImage:(UIImage *)image withQuality:(float)quality forDesign:(SKDesign *)design completion:(void (^)(SKDesign *, NSError *))completion;
 
 @end

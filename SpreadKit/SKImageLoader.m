@@ -82,12 +82,17 @@
     }];
 }
 
-- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design completion:(void (^)(SKDesign *design, NSError *))completion;
+- (void)uploadImage:(UIImage *)image forDesign:(SKDesign *)design completion:(void (^)(SKDesign *, NSError *))completion
+{
+    [self uploadImage:image withQuality:1.0 forDesign:design completion:completion];
+}
+
+- (void)uploadImage:(UIImage *)image withQuality:(float)quality forDesign:(SKDesign *)design completion:(void (^)(SKDesign *, NSError *))completion
 {
     // rotate image correctly before serialization
     UIImage *rotatedImage = [image rotatedImageWithOrientation:image.imageOrientation];
     
-    [SKURLConnection put:UIImagePNGRepresentation(rotatedImage) toURL:design.uploadUrl params:nil apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [SKURLConnection put:UIImageJPEGRepresentation(rotatedImage, quality) toURL:design.uploadUrl params:nil apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if ([httpResponse statusCode] != 200) {
             NSDictionary *userInfo = [NSDictionary dictionaryWithKeysAndObjects:NSLocalizedDescriptionKey, [NSString stringWithFormat:@"The upload failed with HTTP Code %d", [httpResponse statusCode]], @"ResponseContentKey", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], nil];
