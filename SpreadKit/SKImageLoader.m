@@ -99,40 +99,7 @@
 {
     static NSArray *sAllowedDimensions;
     if (!sAllowedDimensions) {
-        sAllowedDimensions = [NSArray arrayWithObjects:
-                              [NSNumber numberWithInt:11],
-                              [NSNumber numberWithInt:35],
-                              [NSNumber numberWithInt:42],
-                              [NSNumber numberWithInt:51],
-                              [NSNumber numberWithInt:75],
-                              [NSNumber numberWithInt:130],
-                              [NSNumber numberWithInt:190],
-                              [NSNumber numberWithInt:280],
-                              [NSNumber numberWithInt:560],
-                              [NSNumber numberWithInt:50],
-                              [NSNumber numberWithInt:100],
-                              [NSNumber numberWithInt:150],
-                              [NSNumber numberWithInt:200],
-                              [NSNumber numberWithInt:250],
-                              [NSNumber numberWithInt:300],
-                              [NSNumber numberWithInt:350],
-                              [NSNumber numberWithInt:400],
-                              [NSNumber numberWithInt:450],
-                              [NSNumber numberWithInt:500],
-                              [NSNumber numberWithInt:550],
-                              [NSNumber numberWithInt:600],
-                              [NSNumber numberWithInt:650],
-                              [NSNumber numberWithInt:750],
-                              [NSNumber numberWithInt:800],
-                              [NSNumber numberWithInt:850],
-                              [NSNumber numberWithInt:900],
-                              [NSNumber numberWithInt:950],
-                              [NSNumber numberWithInt:1000],
-                              [NSNumber numberWithInt:1050],
-                              [NSNumber numberWithInt:1100],
-                              [NSNumber numberWithInt:1150],
-                              [NSNumber numberWithInt:1200],
-                              nil];
+        sAllowedDimensions = @[ @11, @35, @42, @51, @75, @130, @190, @280, @560, @50, @100, @150, @200, @250, @300, @350, @400, @450, @500, @550, @600, @650, @700, @750, @800, @850, @900, @950, @1000, @1050, @1100, @1150, @1200 ];
         NSSortDescriptor *lowestToHighest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
         sAllowedDimensions = [sAllowedDimensions sortedArrayUsingDescriptors:[NSArray arrayWithObject:lowestToHighest]];
     }
