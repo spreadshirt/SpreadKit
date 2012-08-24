@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GMGridView/GMGridView.h>
+#import <GMGridView/GMGridViewLayoutStrategies.h>
 
 @class SKAppearanceChooserView;
 @class SKAppearance;
@@ -19,7 +21,7 @@
 
 @end
 
-@interface SKAppearanceChooserView : UIView
+@interface SKAppearanceChooserView : UIView <GMGridViewDataSource>
 
 @property (nonatomic, weak) id<SKAppearanceChooserViewDelegate> delegate;
 @property (nonatomic, weak) SKProductView * productView;

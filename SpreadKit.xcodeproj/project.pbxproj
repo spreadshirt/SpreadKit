@@ -24,12 +24,13 @@
 		C0136D71150108CF0044BB55 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0E314C9B78600109A96 /* Security.framework */; };
 		C0136D72150108D40044BB55 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0E114C9B77D00109A96 /* MobileCoreServices.framework */; };
 		C01D335915C6C32200C77A0B /* SKProductCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */; };
-		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; };
+		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C025362B15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
 		C025362C15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
-		C02536AA15E7AC8E000FA70E /* SKAppearanceChooserView.h in Headers */ = {isa = PBXBuildFile; fileRef = C02536A815E7AC8E000FA70E /* SKAppearanceChooserView.h */; };
+		C02536AA15E7AC8E000FA70E /* SKAppearanceChooserView.h in Headers */ = {isa = PBXBuildFile; fileRef = C02536A815E7AC8E000FA70E /* SKAppearanceChooserView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C02536AB15E7AC8E000FA70E /* SKAppearanceChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C02536A915E7AC8E000FA70E /* SKAppearanceChooserView.m */; };
 		C02536AC15E7AC8E000FA70E /* SKAppearanceChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C02536A915E7AC8E000FA70E /* SKAppearanceChooserView.m */; };
+		C02536D315E7B58C000FA70E /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C02536CD15E7B520000FA70E /* libGMGridView.a */; };
 		C026F92715AEC56C00FFEB69 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C026F90615AEC1BE00FFEB69 /* libRestKit.a */; };
 		C026F92915AEC57B00FFEB69 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C026F92815AEC57B00FFEB69 /* QuartzCore.framework */; };
 		C026FA2015AEF99500FFEB69 /* SKDesignMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C026FA1F15AEF99500FFEB69 /* SKDesignMappingTests.m */; };
@@ -182,6 +183,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C02536CC15E7B520000FA70E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C02536C515E7B520000FA70E /* GMGridView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 78509312149FAC2E000787E4;
+			remoteInfo = GMGridView;
+		};
+		C02536CF15E7B57B000FA70E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C02536C515E7B520000FA70E /* GMGridView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 78509311149FAC2E000787E4;
+			remoteInfo = GMGridView;
+		};
+		C02536D115E7B587000FA70E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C02536C515E7B520000FA70E /* GMGridView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 78509311149FAC2E000787E4;
+			remoteInfo = GMGridView;
+		};
 		C026F90515AEC1BE00FFEB69 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
@@ -245,6 +267,7 @@
 		C025362915E7744D000FA70E /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
 		C02536A815E7AC8E000FA70E /* SKAppearanceChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearanceChooserView.h; sourceTree = "<group>"; };
 		C02536A915E7AC8E000FA70E /* SKAppearanceChooserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAppearanceChooserView.m; sourceTree = "<group>"; };
+		C02536C515E7B520000FA70E /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMGridView.xcodeproj; path = ExternalLibraries/GMGridView/GMGridView.xcodeproj; sourceTree = "<group>"; };
 		C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ExternalLibraries/RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		C026F92815AEC57B00FFEB69 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C026FA1F15AEF99500FFEB69 /* SKDesignMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDesignMappingTests.m; sourceTree = "<group>"; };
@@ -378,6 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02536D315E7B58C000FA70E /* libGMGridView.a in Frameworks */,
 				C026F92915AEC57B00FFEB69 /* QuartzCore.framework in Frameworks */,
 				C026F92715AEC56C00FFEB69 /* libRestKit.a in Frameworks */,
 				C0136D72150108D40044BB55 /* MobileCoreServices.framework in Frameworks */,
@@ -414,6 +438,14 @@
 				4752C03F15B94ECE008CE664 /* SKProductCreator.m */,
 			);
 			name = Process;
+			sourceTree = "<group>";
+		};
+		C02536C615E7B520000FA70E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C02536CD15E7B520000FA70E /* libGMGridView.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C026F8FB15AEC1BD00FFEB69 /* Products */ = {
@@ -623,6 +655,7 @@
 				C09EF84314C99F83000BB775 /* CoreGraphics.framework */,
 				C09EF81614C9953C000BB775 /* Foundation.framework */,
 				C03806FA150103A20004BFC4 /* GHUnitIOS.framework */,
+				C02536C515E7B520000FA70E /* GMGridView.xcodeproj */,
 				C03F304B14DC20AC003E2527 /* libOCMock.a */,
 				C0C4D0E714C9B79500109A96 /* libxml2.dylib */,
 				C0C4D0E114C9B77D00109A96 /* MobileCoreServices.framework */,
@@ -705,18 +738,18 @@
 				C033ADE815B58A240071D341 /* SKViewSize.h in Headers */,
 				C0F68BC615B43F1900FFA3BC /* SKCountry.h in Headers */,
 				C033ADA015B567DA0071D341 /* Constants.h in Headers */,
+				C02536AA15E7AC8E000FA70E /* SKAppearanceChooserView.h in Headers */,
 				C07963A015C2ABF600360DC6 /* SKObjectManager.h in Headers */,
 				C0F68BCB15B43FEE00FFA3BC /* SKCurrency.h in Headers */,
 				C04D275015B411820080C77F /* SKUser.h in Headers */,
 				C079639215C2837400360DC6 /* SKSVG.h in Headers */,
+				C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */,
 				C079639715C2838900360DC6 /* SKSVGImage.h in Headers */,
 				C079639C15C2839500360DC6 /* SKSVGText.h in Headers */,
 				4752C04615B95717008CE664 /* SKProductView.h in Headers */,
 				4752C04B15B95A21008CE664 /* SKProductConfigurationView.h in Headers */,
 				4752C04015B94ECE008CE664 /* SKProductCreator.h in Headers */,
 				C04D275315B411820080C77F /* SpreadKit.h in Headers */,
-				C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */,
-				C02536AA15E7AC8E000FA70E /* SKAppearanceChooserView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,6 +767,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C02536D215E7B587000FA70E /* PBXTargetDependency */,
 				C026F92015AEC30A00FFEB69 /* PBXTargetDependency */,
 			);
 			name = SpreadKitTests;
@@ -752,6 +786,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C02536D015E7B57B000FA70E /* PBXTargetDependency */,
 				C026F91E15AEC30400FFEB69 /* PBXTargetDependency */,
 			);
 			name = SpreadKit;
@@ -779,6 +814,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = C02536C615E7B520000FA70E /* Products */;
+					ProjectRef = C02536C515E7B520000FA70E /* GMGridView.xcodeproj */;
+				},
+				{
 					ProductGroup = C026F8FB15AEC1BD00FFEB69 /* Products */;
 					ProjectRef = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
 				},
@@ -792,6 +831,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C02536CD15E7B520000FA70E /* libGMGridView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGMGridView.a;
+			remoteRef = C02536CC15E7B520000FA70E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C026F90615AEC1BE00FFEB69 /* libRestKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -970,6 +1016,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C02536D015E7B57B000FA70E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GMGridView;
+			targetProxy = C02536CF15E7B57B000FA70E /* PBXContainerItemProxy */;
+		};
+		C02536D215E7B587000FA70E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GMGridView;
+			targetProxy = C02536D115E7B587000FA70E /* PBXContainerItemProxy */;
+		};
 		C026F91E15AEC30400FFEB69 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RestKit;
