@@ -47,6 +47,7 @@
     window.layer.cornerRadius = 5;
     
     [window addSubview:self.contentView];
+    self.contentView.clipsToBounds = YES;
     
     UIImage *closeButtonImage = [UIImage spreadKitImageNamed:@"close"];
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];

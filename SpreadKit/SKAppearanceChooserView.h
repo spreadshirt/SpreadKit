@@ -26,6 +26,7 @@
 
 @property (nonatomic, weak) id<SKAppearanceChooserViewDelegate> delegate;
 @property (nonatomic, weak) SKProductView * productView;
+@property (nonatomic, weak) SKAppearance * selectedAppearance;
 
 - (id)initWithProductView:(SKProductView *)productView andDelegate:(id<SKAppearanceChooserViewDelegate>)delegate andFrame:(CGRect)frame;
 + (SKAppearanceChooserView *)appearanceChooserWithProductView:(SKProductView *)productView andDelegate:(id<SKAppearanceChooserViewDelegate>)delegate andFrame:(CGRect)frame;

@@ -102,13 +102,13 @@
 
 - (IBAction)tapped:(id)sender {
     
-    CGSize popupSize = CGSizeMake(280, 375);
+    CGSize popupSize = CGSizeMake(280, 250);
     
     GMGridView *appearancesGrid = [[GMGridView alloc] initWithFrame:CGRectMake(10, 10, popupSize.width - 20, popupSize.height - 20)];
     appearancesGrid.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     appearancesGrid.style = GMGridViewStyleSwap;
     appearancesGrid.itemSpacing = 10;
-    appearancesGrid.minEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    appearancesGrid.minEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     appearancesGrid.centerGrid = YES;
     appearancesGrid.dataSource = self;
     appearancesGrid.actionDelegate = self;
@@ -132,12 +132,18 @@
         cell = [[GMGridViewCell alloc] init];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.bounds];
         cell.contentView = imageView;
+        cell.layer.masksToBounds = YES;
+        cell.layer.cornerRadius = 5;
+        cell.layer.borderWidth = 2;
+        cell.layer.borderColor = [[UIColor darkGrayColor] CGColor];
     }
     
     UIImageView *preview = (UIImageView *)cell.contentView;
     preview.image = nil;
     
-    [[[SKImageLoader alloc] init] loadImageFromUrl:[[[[self.appearances objectAtIndex:index] resources] objectAtIndex:0] url] withSize:size completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
+    SKAppearance *appearance = [self.appearances objectAtIndex:index];
+    
+    [[[SKImageLoader alloc] init] loadImageFromUrl:[[[appearance resources] objectAtIndex:0] url] withSize:size completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
         preview.image = image;
     }];
     
@@ -152,6 +158,7 @@
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
     [popup hide];
+    self.selectedAppearance = [self.appearances objectAtIndex:position];
     [self.delegate appearanceChooser:self didSelectAppearance:[self.appearances objectAtIndex:position]];
 }
 
