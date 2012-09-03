@@ -11,8 +11,12 @@
 #import "SKImageLoader.h"
 #import "SKAppearance.h"
 #import "UIImage+SpreadKit.h"
+#import "SKFullscreenPopup.h"
 
 @interface SKAppearanceChooserView ()
+{
+    SKFullscreenPopup * popup;
+}
 
 @property (nonatomic)  NSArray * appearances;
 
@@ -97,32 +101,11 @@
 }
 
 - (IBAction)tapped:(id)sender {
-
-    CGFloat appearanceWindowWidth = 280;
-    CGFloat appearanceWindowHeight = 375;
     
-    // show appearances pop up
-    UIView *appearancesPopUp = [[UIView alloc] initWithFrame:self.window.bounds];
-    appearancesPopUp.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
-    appearancesPopUp.alpha = 0;
+    CGSize popupSize = CGSizeMake(280, 375);
     
-    UIView *appearancesWindow = [[UIView alloc] initWithFrame:CGRectMake(appearancesPopUp.bounds.size.width / 2 - appearanceWindowWidth  / 2, appearancesPopUp.bounds.size.height / 2 - appearanceWindowHeight / 2, appearanceWindowWidth, appearanceWindowHeight)];
-    appearancesWindow.backgroundColor = [UIColor whiteColor];
-    appearancesWindow.layer.cornerRadius = 5;
-    [appearancesPopUp addSubview:appearancesWindow];
-    
-    UIImage *closeBtnImage = [UIImage spreadKitImageNamed:@"close"];
-    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    closeButton.frame = CGRectMake(appearancesWindow.frame.origin.x + appearancesWindow.bounds.size.width - closeBtnImage.size.width / 1.5, appearancesWindow.frame.origin.y - closeBtnImage.size.height / 2.5, closeBtnImage.size.width, closeBtnImage.size.height);
-    [closeButton setImage:closeBtnImage forState:UIControlStateNormal];
-    closeButton.showsTouchWhenHighlighted = YES;
-    [closeButton addTarget:self action:@selector(closePopup:) forControlEvents:UIControlEventTouchUpInside];
-    [appearancesPopUp addSubview:closeButton];
-    
-    // add appearances grid
-    GMGridView *appearancesGrid = [[GMGridView alloc] initWithFrame:CGRectMake(10, 10, appearancesWindow.bounds.size.width - 20, appearancesWindow.bounds.size.height - 20)];
+    GMGridView *appearancesGrid = [[GMGridView alloc] initWithFrame:CGRectMake(10, 10, popupSize.width - 20, popupSize.height - 20)];
     appearancesGrid.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [appearancesWindow addSubview:appearancesGrid];
     appearancesGrid.style = GMGridViewStyleSwap;
     appearancesGrid.itemSpacing = 10;
     appearancesGrid.minEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -130,20 +113,9 @@
     appearancesGrid.dataSource = self;
     appearancesGrid.actionDelegate = self;
     
-    [[[UIApplication sharedApplication] keyWindow] addSubview:appearancesPopUp];
-    // fade in pop up
-    [UIView animateWithDuration:0.3 animations:^{
-        appearancesPopUp.alpha = 1;
-    }];
-}
+    popup = [[SKFullscreenPopup alloc] initWithSize:popupSize contentView:appearancesGrid];
 
-- (void)closePopup:(id)popup
-{
-    [UIView animateWithDuration:0.3 animations:^{
-        [popup superview].alpha = 0;
-    } completion:^(BOOL finished) {
-       [[popup superview] removeFromSuperview];
-    }];
+    [popup show];
 }
 
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView
@@ -179,7 +151,7 @@
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
-    [self closePopup:gridView.superview];
+    [popup hide];
     [self.delegate appearanceChooser:self didSelectAppearance:[self.appearances objectAtIndex:position]];
 }
 
