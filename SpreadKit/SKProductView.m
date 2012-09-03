@@ -41,7 +41,12 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-        self.appearanceChooserView = [[SKAppearanceChooserView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+        CGRect appearanceChooserFrame = CGRectMake(5,
+                                                   5,
+                                                   44,
+                                                   44);
+        
+        self.appearanceChooserView = [[SKAppearanceChooserView alloc] initWithFrame:appearanceChooserFrame];
         self.appearanceChooserView.productView = self;
         [self addSubview:self.appearanceChooserView];
         
@@ -71,6 +76,7 @@
 {
     product = theProduct;
     self.productType = product.productType;
+    self.appearanceChooserView.selectedAppearance = product.appearance;
     
     for (SKProductConfiguration *conf in product.configurations) {
         

@@ -16,15 +16,10 @@
 @interface SKAppearanceChooserView ()
 {
     SKFullscreenPopup * popup;
+    UIButton *button;
 }
 
 @property (nonatomic)  NSArray * appearances;
-
-@property (nonatomic, strong) UIImageView * preview1;
-@property (nonatomic, strong) UIImageView * preview2;
-@property (nonatomic, strong) UIImageView * preview3;
-@property (nonatomic, strong) UIImageView * preview4;
-@property (nonatomic, strong) NSArray * previewViews;
 
 @end
 
@@ -35,27 +30,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        UIButton *invisibleButton = [[UIButton alloc] initWithFrame:self.bounds];
-        [invisibleButton addTarget:self action:@selector(tapped:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:invisibleButton];
-        
-        CGFloat miniWidth = self.bounds.size.width / 2;
-        CGFloat miniHeight = self.bounds.size.height / 2;
-        
-        CGFloat x = self.bounds.origin.x;
-        CGFloat y = self.bounds.origin.y;
-        
-        self.preview1 = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, miniWidth, miniHeight)];
-        self.preview2 = [[UIImageView alloc] initWithFrame:CGRectMake(x + miniWidth, y, miniWidth, miniHeight)];
-        self.preview3 = [[UIImageView alloc] initWithFrame:CGRectMake(x, y + miniHeight, miniWidth, miniHeight)];
-        self.preview4 = [[UIImageView alloc] initWithFrame:CGRectMake(x + miniWidth, y + miniHeight, miniWidth, miniHeight)];
-        
-        self.previewViews = @[ self.preview1, self.preview2, self.preview3, self.preview4 ];
-        
-        [invisibleButton addSubview:self.preview1];
-        [invisibleButton addSubview:self.preview2];
-        [invisibleButton addSubview:self.preview3];
-        [invisibleButton addSubview:self.preview4];
+        button = [[UIButton alloc] initWithFrame:self.bounds];
+        button.layer.cornerRadius = 5;
+        button.layer.borderColor = [[UIColor darkGrayColor] CGColor];
+        button.layer.borderWidth = 2;
+        button.layer.masksToBounds = YES;
+        [button addTarget:self action:@selector(tapped:) forControlEvents:UIControlEventTouchUpInside];
+        button.showsTouchWhenHighlighted = YES;
+        [self addSubview:button];
     }
     return self;
 }
@@ -85,18 +67,14 @@
 - (void)setAppearances:(NSArray *)appearances
 {
     _appearances = appearances;
-    
-    // display a selection of the appearances on the little thumbnail button
-    [appearances enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if (idx == 4) {
-            *stop = YES;
-        } else {
-            SKAppearance *appearance = (SKAppearance *)obj;
-            UIImageView *previewView = [self.previewViews objectAtIndex:idx];
-            [[[SKImageLoader alloc] initWithApiKey:[SKClient sharedClient].apiKey andSecret:[SKClient sharedClient].secret] loadImageFromUrl:[[appearance.resources  objectAtIndex:0] url] withSize:previewView.frame.size completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
-                previewView.image = image;
-            }];
-        }
+}
+
+- (void)setSelectedAppearance:(SKAppearance *)selectedAppearance
+{
+    _selectedAppearance = selectedAppearance;
+    NSURL *appearancePreview = [[selectedAppearance.resources objectAtIndex:0] url];
+    [[[SKImageLoader alloc] initWithApiKey:[SKClient sharedClient].apiKey andSecret:[SKClient sharedClient].secret] loadImageFromUrl:appearancePreview withSize:button.frame.size completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
+        [button setImage:image forState:UIControlStateNormal];
     }];
 }
 
@@ -114,7 +92,7 @@
     appearancesGrid.actionDelegate = self;
     
     popup = [[SKFullscreenPopup alloc] initWithSize:popupSize contentView:appearancesGrid];
-
+    
     [popup show];
 }
 
