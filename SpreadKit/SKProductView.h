@@ -22,7 +22,6 @@
 
 @property (nonatomic, strong) SKAppearanceChooserView * appearanceChooserView;
 
-- (id)initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame;
 - (id)initWithProduct:(SKProduct *)product andFrame:(CGRect)frame;
 
 @end

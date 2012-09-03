@@ -13,6 +13,7 @@
 @interface SKProductView ()
 
 @property UIImageView *productTypeView;
+@property UIView *activityIndicatorView;
 
 - (void)loadProductTypeImage;
 
@@ -21,13 +22,6 @@
 @implementation SKProductView
 
 @synthesize productType,product,view,viewScale,productTypeView;
-
-- (id)initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame {
-    if (self = [self initWithFrame:frame]) {
-        self.productType = theProductType;
-    }
-    return self;
-}
 
 - (id)initWithProduct:(SKProduct *)theProduct andFrame:(CGRect)frame
 {
@@ -40,18 +34,30 @@
 - (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        
-        CGRect appearanceChooserFrame = CGRectMake(5,
-                                                   5,
-                                                   44,
-                                                   44);
-        
-        self.appearanceChooserView = [[SKAppearanceChooserView alloc] initWithFrame:appearanceChooserFrame];
-        self.appearanceChooserView.productView = self;
-        [self addSubview:self.appearanceChooserView];
-        
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit
+{
+    // appearance chooser
+    CGRect appearanceChooserFrame = CGRectMake(5, 5, 44, 44);
+    self.appearanceChooserView = [[SKAppearanceChooserView alloc] initWithFrame:appearanceChooserFrame];
+    self.appearanceChooserView.productView = self;
+    [self addSubview:self.appearanceChooserView];
+    
+    // activity indicator
+    self.activityIndicatorView = [[UIView alloc] initWithFrame:self.bounds];
+    self.activityIndicatorView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    self.activityIndicatorView.layer.zPosition = 10;
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [activityIndicator startAnimating];
+    activityIndicator.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin); // center activity indicator
+    [self.activityIndicatorView addSubview:activityIndicator];
+    activityIndicator.center = self.activityIndicatorView.center;
+    self.activityIndicatorView.alpha = 0;
+    [self addSubview:self.activityIndicatorView];
 }
 
 - (void)setProductType:(SKProductType *)theProductType
@@ -99,12 +105,25 @@
 }
 
 - (void) loadProductTypeImage {
+    [self showActivity];
     NSURL *viewImageURL = [[view.resources objectAtIndex:0] url];
     [[[SKImageLoader alloc] init] loadImageFromUrl:viewImageURL  withSize:self.frame.size andAppearanceId:product.appearance.identifier completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
-        
-        
-        
         self.productTypeView.image = image;
+        [self hideActivity];
+    }];
+}
+
+- (void)showActivity
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.activityIndicatorView.alpha = 1;
+    }];
+}
+
+- (void)hideActivity
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.activityIndicatorView.alpha = 0;
     }];
 }
 
