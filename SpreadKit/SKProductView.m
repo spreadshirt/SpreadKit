@@ -37,6 +37,18 @@
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        
+        self.appearanceChooserView = [[SKAppearanceChooserView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+        self.appearanceChooserView.productView = self;
+        [self addSubview:self.appearanceChooserView];
+        
+    }
+    return self;
+}
+
 - (void)setProductType:(SKProductType *)theProductType
 {
     productType = theProductType;

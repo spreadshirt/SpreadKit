@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "SKModel.h"
 
+
+#import "SKModel.h"
+#import "SKAppearanceChooserView.h"
 
 @interface SKProductView : UIView
 
@@ -17,6 +19,8 @@
 @property (nonatomic) SKProductType *productType;
 @property (readonly) SKView *view;
 @property (readonly) float viewScale;
+
+@property (nonatomic, strong) SKAppearanceChooserView * appearanceChooserView;
 
 - (id)initWithProductType: (SKProductType *)theProductType andFrame:(CGRect)frame;
 - (id)initWithProduct:(SKProduct *)product andFrame:(CGRect)frame;

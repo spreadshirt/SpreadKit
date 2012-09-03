@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <GMGridView/GMGridView.h>
 #import <GMGridView/GMGridViewLayoutStrategies.h>
+#import <QuartzCore/QuartzCore.h>
 
 @class SKAppearanceChooserView;
 @class SKAppearance;

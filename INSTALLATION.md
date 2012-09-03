@@ -30,5 +30,8 @@ In the 'Link Binary With Libraries' section, add the following frameworks:
 - QuartzCore.framework
 - libxml2.dylib
 
+7. Copy Resources
+Drag the file 'SpreadKitResources.bundle' in the project navigator under 'SpreadKit.xcodeproj/Products' to the 'Copy Bundle Resources' section.
+
 7. Import SpreadKit
 Wherever you want to use SpreadKit, or in your Prefix Header, '#import <SpreadKit/SpreadKit.h>'. If everything builds fine after that, you're good to go!

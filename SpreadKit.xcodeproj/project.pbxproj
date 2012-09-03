@@ -136,6 +136,11 @@
 		C079639E15C2839500360DC6 /* SKSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SKSVGText.m */; };
 		C07963A015C2ABF600360DC6 /* SKObjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639F15C2ABF600360DC6 /* SKObjectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096A28C1500E0B000C70D86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
+		C0A00EA515F0ACC30068685D /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A00EA315F0ACC30068685D /* close.png */; };
+		C0A00EA615F0ACC30068685D /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A00EA415F0ACC30068685D /* close@2x.png */; };
+		C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */; };
+		C0A00EC415F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
+		C0A00EC515F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
 		C0A041FF1581E76300953AF4 /* SKBasketItemMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */; };
 		C0A04201158219AB00953AF4 /* basket.json in Resources */ = {isa = PBXBuildFile; fileRef = C0A04200158219AB00953AF4 /* basket.json */; };
 		C0A0420415821AEB00953AF4 /* SKBasketMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A0420315821AEB00953AF4 /* SKBasketMappingTests.m */; };
@@ -253,7 +258,26 @@
 			remoteGlobalIDString = 25160D1514564E810060A5C5;
 			remoteInfo = RestKit;
 		};
+		C0A00EAB15F0AD320068685D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C09EF80A14C9953C000BB775 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0A00E9015F0AC770068685D;
+			remoteInfo = SpreadKitResources;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C0B8938E15F0A2B00003706F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4752C03E15B94ECE008CE664 /* SKProductCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductCreator.h; sourceTree = "<group>"; };
@@ -349,6 +373,15 @@
 		C09EF81614C9953C000BB775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C09EF84014C99F83000BB775 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C09EF84314C99F83000BB775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C0A00E9115F0AC770068685D /* SpreadKitResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpreadKitResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0A00E9215F0AC770068685D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		C0A00E9615F0AC770068685D /* SpreadKitResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitResources-Info.plist"; sourceTree = "<group>"; };
+		C0A00E9815F0AC770068685D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C0A00E9A15F0AC770068685D /* SpreadKitResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpreadKitResources-Prefix.pch"; sourceTree = "<group>"; };
+		C0A00EA315F0ACC30068685D /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		C0A00EA415F0ACC30068685D /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SpreadKit.h"; sourceTree = "<group>"; };
+		C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SpreadKit.m"; sourceTree = "<group>"; };
 		C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketItemMappingTests.m; sourceTree = "<group>"; };
 		C0A04200158219AB00953AF4 /* basket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basket.json; sourceTree = "<group>"; };
 		C0A0420315821AEB00953AF4 /* SKBasketMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketMappingTests.m; sourceTree = "<group>"; };
@@ -423,6 +456,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C096A28C1500E0B000C70D86 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0A00E8E15F0AC770068685D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +641,8 @@
 				C033AD9F15B567DA0071D341 /* Constants.m */,
 				C025362815E7744D000FA70E /* UIImage+Orientation.h */,
 				C025362915E7744D000FA70E /* UIImage+Orientation.m */,
+				C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */,
+				C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -631,9 +673,10 @@
 		C09EF80814C9953C000BB775 = {
 			isa = PBXGroup;
 			children = (
-				C04D26E115B411430080C77F /* SpreadKit */,
+				C0A00E9415F0AC770068685D /* SpreadKitResources */,
 				C09EF81514C9953C000BB775 /* Frameworks */,
 				C09EF81414C9953C000BB775 /* Products */,
+				C04D26E115B411430080C77F /* SpreadKit */,
 				C03806EB150103780004BFC4 /* Tests */,
 			);
 			sourceTree = "<group>";
@@ -643,6 +686,7 @@
 			children = (
 				C096A28B1500E0B000C70D86 /* libSpreadKit.a */,
 				C03806E6150103780004BFC4 /* SpreadKitTests.app */,
+				C0A00E9115F0AC770068685D /* SpreadKitResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -665,8 +709,29 @@
 				C0C4D0E314C9B78600109A96 /* Security.framework */,
 				C0C4D0E514C9B78D00109A96 /* SystemConfiguration.framework */,
 				C09EF84014C99F83000BB775 /* UIKit.framework */,
+				C0A00E9215F0AC770068685D /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0A00E9415F0AC770068685D /* SpreadKitResources */ = {
+			isa = PBXGroup;
+			children = (
+				C0A00EA315F0ACC30068685D /* close.png */,
+				C0A00EA415F0ACC30068685D /* close@2x.png */,
+				C0A00E9515F0AC770068685D /* Supporting Files */,
+			);
+			path = SpreadKitResources;
+			sourceTree = "<group>";
+		};
+		C0A00E9515F0AC770068685D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0A00E9615F0AC770068685D /* SpreadKitResources-Info.plist */,
+				C0A00E9715F0AC770068685D /* InfoPlist.strings */,
+				C0A00E9A15F0AC770068685D /* SpreadKitResources-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C0B2FA7B156FBAC1008A103B /* MappingTests */ = {
@@ -750,6 +815,7 @@
 				4752C04B15B95A21008CE664 /* SKProductConfigurationView.h in Headers */,
 				4752C04015B94ECE008CE664 /* SKProductCreator.h in Headers */,
 				C04D275315B411820080C77F /* SpreadKit.h in Headers */,
+				C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,10 +848,12 @@
 				C096A2871500E0B000C70D86 /* Sources */,
 				C096A2881500E0B000C70D86 /* Frameworks */,
 				C096A2891500E0B000C70D86 /* Headers */,
+				C0B8938E15F0A2B00003706F /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C0A00EAC15F0AD320068685D /* PBXTargetDependency */,
 				C02536D015E7B57B000FA70E /* PBXTargetDependency */,
 				C026F91E15AEC30400FFEB69 /* PBXTargetDependency */,
 			);
@@ -793,6 +861,23 @@
 			productName = SpreadKit;
 			productReference = C096A28B1500E0B000C70D86 /* libSpreadKit.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		C0A00E9015F0AC770068685D /* SpreadKitResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0A00E9F15F0AC770068685D /* Build configuration list for PBXNativeTarget "SpreadKitResources" */;
+			buildPhases = (
+				C0A00E8D15F0AC770068685D /* Sources */,
+				C0A00E8E15F0AC770068685D /* Frameworks */,
+				C0A00E8F15F0AC770068685D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpreadKitResources;
+			productName = SpreadKitResources;
+			productReference = C0A00E9115F0AC770068685D /* SpreadKitResources.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -826,6 +911,7 @@
 			targets = (
 				C096A28A1500E0B000C70D86 /* SpreadKit */,
 				C03806E5150103780004BFC4 /* SpreadKitTests */,
+				C0A00E9015F0AC770068685D /* SpreadKitResources */,
 			);
 		};
 /* End PBXProject section */
@@ -890,6 +976,15 @@
 				C0A04201158219AB00953AF4 /* basket.json in Resources */,
 				C026FA2215AEFCD100FFEB69 /* design.json in Resources */,
 				C026FA2615AF0BD600FFEB69 /* testImage.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0A00E8F15F0AC770068685D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0A00EA515F0ACC30068685D /* close.png in Resources */,
+				C0A00EA615F0ACC30068685D /* close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,6 +1055,7 @@
 				C01D335915C6C32200C77A0B /* SKProductCreatorTests.m in Sources */,
 				C025362C15E7744D000FA70E /* UIImage+Orientation.m in Sources */,
 				C02536AC15E7AC8E000FA70E /* SKAppearanceChooserView.m in Sources */,
+				C0A00EC515F0AFF60068685D /* UIImage+SpreadKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,6 +1106,14 @@
 				C079639D15C2839500360DC6 /* SKSVGText.m in Sources */,
 				C025362B15E7744D000FA70E /* UIImage+Orientation.m in Sources */,
 				C02536AB15E7AC8E000FA70E /* SKAppearanceChooserView.m in Sources */,
+				C0A00EC415F0AFF60068685D /* UIImage+SpreadKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0A00E8D15F0AC770068685D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1036,6 +1140,11 @@
 			name = RestKit;
 			targetProxy = C026F91F15AEC30A00FFEB69 /* PBXContainerItemProxy */;
 		};
+		C0A00EAC15F0AD320068685D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0A00E9015F0AC770068685D /* SpreadKitResources */;
+			targetProxy = C0A00EAB15F0AD320068685D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1046,6 +1155,14 @@
 			);
 			name = InfoPlist.strings;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C0A00E9715F0AC770068685D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0A00E9815F0AC770068685D /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1179,6 +1296,52 @@
 			};
 			name = Release;
 		};
+		C0A00EA015F0AC770068685D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = NO;
+				COMPRESS_PNG_FILES = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpreadKitResources/SpreadKitResources-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "SpreadKitResources/SpreadKitResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C0A00EA115F0AC770068685D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = NO;
+				COMPRESS_PNG_FILES = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpreadKitResources/SpreadKitResources-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "SpreadKitResources/SpreadKitResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1205,6 +1368,15 @@
 			buildConfigurations = (
 				C09EF81E14C9953C000BB775 /* Debug */,
 				C09EF81F14C9953C000BB775 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0A00E9F15F0AC770068685D /* Build configuration list for PBXNativeTarget "SpreadKitResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0A00EA015F0AC770068685D /* Debug */,
+				C0A00EA115F0AC770068685D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
