@@ -45,6 +45,7 @@
     CGRect appearanceChooserFrame = CGRectMake(5, 5, 44, 44);
     self.appearanceChooserView = [[SKAppearanceChooserView alloc] initWithFrame:appearanceChooserFrame];
     self.appearanceChooserView.productView = self;
+    self.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.appearanceChooserView];
     
     // activity indicator
