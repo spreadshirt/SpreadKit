@@ -59,7 +59,7 @@
 		C0380700150104780004BFC4 /* SKObjectMappingProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C6921814EE57440068C18D /* SKObjectMappingProviderTests.m */; };
 		C0380701150104810004BFC4 /* product.json in Resources */ = {isa = PBXBuildFile; fileRef = C0C6921314EE57440068C18D /* product.json */; };
 		C0380702150104810004BFC4 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = C0C6921414EE57440068C18D /* products.json */; };
-		C03DFA8515F0BB24004A2C82 /* SKFullscreenPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = C03DFA8315F0BB24004A2C82 /* SKFullscreenPopup.h */; };
+		C03DFA8515F0BB24004A2C82 /* SKFullscreenPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = C03DFA8315F0BB24004A2C82 /* SKFullscreenPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C03DFA8615F0BB24004A2C82 /* SKFullscreenPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = C03DFA8415F0BB24004A2C82 /* SKFullscreenPopup.m */; };
 		C03DFA8715F0BB24004A2C82 /* SKFullscreenPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = C03DFA8415F0BB24004A2C82 /* SKFullscreenPopup.m */; };
 		C04D271015B411810080C77F /* NSURL+PathParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26E215B411810080C77F /* NSURL+PathParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -141,7 +141,7 @@
 		C096A28C1500E0B000C70D86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
 		C0A00EA515F0ACC30068685D /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A00EA315F0ACC30068685D /* close.png */; };
 		C0A00EA615F0ACC30068685D /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A00EA415F0ACC30068685D /* close@2x.png */; };
-		C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */; };
+		C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A00EC415F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
 		C0A00EC515F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
 		C0A041FF1581E76300953AF4 /* SKBasketItemMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */; };
@@ -155,6 +155,9 @@
 		C0B2FA80156FBD63008A103B /* article.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B2FA7F156FBD63008A103B /* article.json */; };
 		C0C41BC6155BA976009F70FF /* SKAuthenticationProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C41BC5155BA976009F70FF /* SKAuthenticationProviderTests.m */; };
 		C0C7116215AD9DC900302CC4 /* SKEntityListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C7116115AD9DC900302CC4 /* SKEntityListTests.m */; };
+		C0E5A3A015F5E54F00447D14 /* SKProductViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C0E5A39E15F5E54F00447D14 /* SKProductViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0E5A3A115F5E54F00447D14 /* SKProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5A39F15F5E54F00447D14 /* SKProductViewController.m */; };
+		C0E5A3A215F5E54F00447D14 /* SKProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5A39F15F5E54F00447D14 /* SKProductViewController.m */; };
 		C0E7C8F315060438005A185A /* SKObjectManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E7C8F015060438005A185A /* SKObjectManagerTests.m */; };
 		C0F68B3C15B4146B00FFA3BC /* SKModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F68B3B15B4146B00FFA3BC /* SKModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0F68B8E15B41A2500FFA3BC /* SKProductConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F68B8C15B41A2500FFA3BC /* SKProductConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -409,6 +412,8 @@
 		C0C6921714EE57440068C18D /* SKImageLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKImageLoaderTests.m; path = ../Tests/SKImageLoaderTests.m; sourceTree = "<group>"; };
 		C0C6921814EE57440068C18D /* SKObjectMappingProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKObjectMappingProviderTests.m; path = ../Tests/SKObjectMappingProviderTests.m; sourceTree = "<group>"; };
 		C0C7116115AD9DC900302CC4 /* SKEntityListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEntityListTests.m; sourceTree = "<group>"; };
+		C0E5A39E15F5E54F00447D14 /* SKProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductViewController.h; sourceTree = "<group>"; };
+		C0E5A39F15F5E54F00447D14 /* SKProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductViewController.m; sourceTree = "<group>"; };
 		C0E7C8F015060438005A185A /* SKObjectManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectManagerTests.m; sourceTree = "<group>"; };
 		C0F68B3B15B4146B00FFA3BC /* SKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModel.h; sourceTree = "<group>"; };
 		C0F68B8C15B41A2500FFA3BC /* SKProductConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductConfiguration.h; sourceTree = "<group>"; };
@@ -516,6 +521,8 @@
 				4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */,
 				4752C04415B95717008CE664 /* SKProductView.h */,
 				4752C04515B95717008CE664 /* SKProductView.m */,
+				C0E5A39E15F5E54F00447D14 /* SKProductViewController.h */,
+				C0E5A39F15F5E54F00447D14 /* SKProductViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -777,6 +784,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */,
+				C0E5A3A015F5E54F00447D14 /* SKProductViewController.h in Headers */,
+				C03DFA8515F0BB24004A2C82 /* SKFullscreenPopup.h in Headers */,
 				C0F68BA215B434A500FFA3BC /* SKColor.h in Headers */,
 				C04D271015B411810080C77F /* NSURL+PathParameters.h in Headers */,
 				C04D271315B411820080C77F /* SKAppearance.h in Headers */,
@@ -822,8 +832,6 @@
 				4752C04B15B95A21008CE664 /* SKProductConfigurationView.h in Headers */,
 				4752C04015B94ECE008CE664 /* SKProductCreator.h in Headers */,
 				C04D275315B411820080C77F /* SpreadKit.h in Headers */,
-				C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */,
-				C03DFA8515F0BB24004A2C82 /* SKFullscreenPopup.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1065,6 +1073,7 @@
 				C02536AC15E7AC8E000FA70E /* SKAppearanceChooserView.m in Sources */,
 				C0A00EC515F0AFF60068685D /* UIImage+SpreadKit.m in Sources */,
 				C03DFA8715F0BB24004A2C82 /* SKFullscreenPopup.m in Sources */,
+				C0E5A3A215F5E54F00447D14 /* SKProductViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,6 +1126,7 @@
 				C02536AB15E7AC8E000FA70E /* SKAppearanceChooserView.m in Sources */,
 				C0A00EC415F0AFF60068685D /* UIImage+SpreadKit.m in Sources */,
 				C03DFA8615F0BB24004A2C82 /* SKFullscreenPopup.m in Sources */,
+				C0E5A3A115F5E54F00447D14 /* SKProductViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
