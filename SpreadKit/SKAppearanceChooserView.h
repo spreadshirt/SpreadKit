@@ -17,7 +17,6 @@
 
 @protocol SKAppearanceChooserViewDelegate <NSObject>
 
-- (NSArray *)appearanceChooserDidRequestAppearances:(SKAppearanceChooserView *)appearanceChooser;
 - (void)appearanceChooser:(SKAppearanceChooserView *)appearanceChooser didSelectAppearance:(SKAppearance *)appearance;
 
 @end
@@ -27,6 +26,7 @@
 @property (nonatomic, weak) id<SKAppearanceChooserViewDelegate> delegate;
 @property (nonatomic, weak) SKProductView * productView;
 @property (nonatomic, weak) SKAppearance * selectedAppearance;
+@property (nonatomic)  NSArray * appearances;
 
 - (id)initWithProductView:(SKProductView *)productView andDelegate:(id<SKAppearanceChooserViewDelegate>)delegate andFrame:(CGRect)frame;
 + (SKAppearanceChooserView *)appearanceChooserWithProductView:(SKProductView *)productView andDelegate:(id<SKAppearanceChooserViewDelegate>)delegate andFrame:(CGRect)frame;

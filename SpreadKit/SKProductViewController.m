@@ -22,8 +22,8 @@
 {
     _product = product;
     self.productView = nil;
-    self.productView.backgroundColor = [UIColor redColor];
     self.productView = [[SKProductView alloc] initWithProduct:product andFrame:self.view.bounds];
+    self.productView.appearanceChooserView.appearances = self.product.productType.appearances;
     self.productView.appearanceChooserView.delegate = self;
     [self.view addSubview:self.productView];
 }
@@ -43,11 +43,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (NSArray *)appearanceChooserDidRequestAppearances:(SKAppearanceChooserView *)appearanceChooser
-{
-    return _product.productType.appearances;
 }
 
 - (void)appearanceChooser:(SKAppearanceChooserView *)appearanceChooser didSelectAppearance:(SKAppearance *)appearance
