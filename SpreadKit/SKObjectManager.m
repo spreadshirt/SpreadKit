@@ -15,7 +15,7 @@
 
 @implementation SKObjectManager
 {
-    NSDictionary *defaultParams;
+    NSMutableDictionary *defaultParams;
 }
 
 @synthesize apiKey, secret, serverTimeOffset;
@@ -28,7 +28,7 @@
 - (id)init
 {
     if (self = [super init]) {
-        defaultParams = [NSDictionary dictionaryWithKeysAndObjects:@"mediaType", @"json", @"fullData", @"true", nil];
+        defaultParams = [NSMutableDictionary dictionaryWithKeysAndObjects:@"mediaType", @"json", @"fullData", @"true", nil];
     }
     return self;
 }
@@ -205,6 +205,12 @@
     
     NSDate *serverTime = [df dateFromString:dateString];
     return [[NSDate date] timeIntervalSinceDate:serverTime];
+}
+
+- (void)setLocale:(NSLocale *)locale
+{
+    _locale = locale;
+    [defaultParams setObject:locale.localeIdentifier forKey:@"locale"];
 }
 
 @end

@@ -9,9 +9,7 @@
 #import "SKClient.h"
 #import "SKObjectMappingProvider.h"
 #import "SKObjectManager.h"
-
 #import "SKModel.h"
-
 #import "Constants.h"
 
 
@@ -80,8 +78,9 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     
     [manager getSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKShop *shop = (SKShop *)[objects objectAtIndex:0];
-        [self extractEntityURLs:shop];
-        completion(shop, error);
+        [self setup:shop completion:^{
+            completion(shop, error);
+        }];
     }];
 }
 
@@ -92,8 +91,9 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     
     [manager getSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
         SKUser *user = (SKUser *)[objects objectAtIndex:0];
-        [self extractEntityURLs:user];
-        completion(user, error);
+        [self setup:user completion:^{
+            completion(user, error);
+        }];
     }];
 }
 
@@ -147,7 +147,8 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 
 // takes a shop or user and extracts and remembers
 // all URLs for later posting and getting via id of objects
-- (void)extractEntityURLs:(id)object
+// sets locale on object manager
+-  (void)setup:(id)object completion:(void (^)(void))completion
 {
     [entityURLs setValue:[object products].url forKey:NSStringFromClass([SKProduct class])];
     [entityURLs setValue:[object designs].url forKey:NSStringFromClass([SKDesign class])];
@@ -158,6 +159,36 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     [entityURLs setValue:[object languages].url forKey:NSStringFromClass([SKLanguage class])];
     [entityURLs setValue:[object countries].url forKey:NSStringFromClass([SKCountry class])];
     [entityURLs setValue:[object printTypes].url forKey:NSStringFromClass([SKPrintType class])];
+    
+    NSString *countryCode = [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
+    NSString *languageCode = [[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode];
+    
+    __block NSString *countryCodeToUse;
+    __block NSString *languageCodeToUse;
+    
+    [self getAll:[SKLanguage class] completion:^(SKEntityList *objects, NSError *error) {
+        for (SKLanguage *language in objects) {
+            if ([language.isoCode isEqualToString:languageCode]) {
+                languageCodeToUse = languageCode;
+            }
+        }
+        if (languageCodeToUse) {
+            [self getAll:[SKCountry class] completion:^(SKEntityList *objects, NSError *error) {
+                for (SKCountry *country in objects) {
+                    if ([country.isoCode isEqualToString:countryCode]) {
+                        countryCodeToUse = countryCode;
+                    }
+                }
+                if (countryCodeToUse)
+                {
+                    manager.locale = [NSLocale currentLocale];
+                }
+                completion();
+            }];
+        } else {
+            completion();
+        }
+    }];
 }
 
 @end

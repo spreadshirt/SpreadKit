@@ -16,6 +16,7 @@
 @property (nonatomic, readonly) NSString *apiKey;
 @property (nonatomic, readonly) NSString *secret;
 @property (nonatomic, readonly) int serverTimeOffset;
+@property (nonatomic, strong) NSLocale *locale;
 
 + (SKObjectManager *)objectManagerWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret;
 - (id)initWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret;
