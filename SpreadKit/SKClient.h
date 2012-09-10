@@ -11,6 +11,7 @@
 
 @class SKUser;
 @class SKShop;
+@class SKEntityList;
 
 @interface SKClient : NSObject
 
@@ -55,6 +56,9 @@
 
 // gets an object with just the class and id known
 - (void)get:(Class)classOfObject identifier:(NSString *)identifier completion:(void (^)(id loadedObject, NSError *error))completion;
+
+// gets a list of all (!) objects of a certian class
+- (void)getAll:(Class)classOfObjects completion:(void (^)(SKEntityList *objects, NSError *error))completion;
 
 // posts a new object and sets the url of the created object into the url property
 - (void)post:(id)object completion:(void (^)(id newObject, NSError *error))completion;

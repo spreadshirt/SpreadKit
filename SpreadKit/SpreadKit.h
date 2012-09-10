@@ -18,4 +18,5 @@
 #import "SKProductCreator.h"
 #import "SKBasketManager.h"
 #import "SKAppearanceChooserView.h"
+#import "SKProductTypeChooserView.h"
 #import "SKProductViewController.h"

@@ -54,11 +54,6 @@
     return [[self alloc] initWithProductView:productView andDelegate:delegate andFrame:frame];
 }
 
-- (void)setAppearances:(NSArray *)appearances
-{
-    _appearances = appearances;
-}
-
 - (void)setSelectedAppearance:(SKAppearance *)selectedAppearance
 {
     _selectedAppearance = selectedAppearance;

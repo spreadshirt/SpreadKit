@@ -120,6 +120,20 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     }
 }
 
+- (void)getAll:(Class)classOfObjects completion:(void (^)(SKEntityList *, NSError *))completion
+{
+    if ([[entityURLs allKeys] containsObject:NSStringFromClass(classOfObjects)]) {
+        NSURL *listUrl = [entityURLs objectForKey:NSStringFromClass(classOfObjects)];
+        SKEntityList *list = [[SKEntityList alloc] init];
+        // set limit to maximum. warning, possibly slow
+        list.limit = @1000;
+        [list setUrl:listUrl];
+        [self get:list completion:^(id loadedObject, NSError *error) {
+            completion(loadedObject, error);
+        }];
+    }
+}
+
 -(void)post:(id)object completion:(void (^)(id, NSError *))completion
 {
     NSURL *url = [entityURLs objectForKey:NSStringFromClass([object class])];

@@ -12,6 +12,7 @@
 
 #import "SKModel.h"
 #import "SKAppearanceChooserView.h"
+#import "SKProductTypeChooserView.h"
 
 @interface SKProductView : UIView
 
@@ -21,6 +22,7 @@
 @property (readonly) float viewScale;
 
 @property (nonatomic, strong) SKAppearanceChooserView * appearanceChooserView;
+@property (nonatomic, strong) SKProductTypeChooserView * productTypeChooserView;
 
 - (id)initWithProduct:(SKProduct *)product andFrame:(CGRect)frame;
 

@@ -128,6 +128,9 @@
 		C04D275115B411820080C77F /* SKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D270E15B411810080C77F /* SKUser.m */; };
 		C04D275215B411820080C77F /* SKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D270E15B411810080C77F /* SKUser.m */; };
 		C04D275315B411820080C77F /* SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D270F15B411810080C77F /* SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C077529515F742B100E19A60 /* SKProductTypeChooserView.h in Headers */ = {isa = PBXBuildFile; fileRef = C077529315F742B100E19A60 /* SKProductTypeChooserView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C077529615F742B100E19A60 /* SKProductTypeChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C077529415F742B100E19A60 /* SKProductTypeChooserView.m */; };
+		C077529715F742B100E19A60 /* SKProductTypeChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C077529415F742B100E19A60 /* SKProductTypeChooserView.m */; };
 		C079639215C2837400360DC6 /* SKSVG.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639015C2837400360DC6 /* SKSVG.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C079639315C2837400360DC6 /* SKSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639115C2837400360DC6 /* SKSVG.m */; };
 		C079639415C2837400360DC6 /* SKSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639115C2837400360DC6 /* SKSVG.m */; };
@@ -370,6 +373,8 @@
 		C04D270D15B411810080C77F /* SKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUser.h; sourceTree = "<group>"; };
 		C04D270E15B411810080C77F /* SKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKUser.m; sourceTree = "<group>"; };
 		C04D270F15B411810080C77F /* SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpreadKit.h; sourceTree = "<group>"; };
+		C077529315F742B100E19A60 /* SKProductTypeChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductTypeChooserView.h; sourceTree = "<group>"; };
+		C077529415F742B100E19A60 /* SKProductTypeChooserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductTypeChooserView.m; sourceTree = "<group>"; };
 		C079639015C2837400360DC6 /* SKSVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSVG.h; sourceTree = "<group>"; };
 		C079639115C2837400360DC6 /* SKSVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSVG.m; sourceTree = "<group>"; };
 		C079639515C2838900360DC6 /* SKSVGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSVGImage.h; sourceTree = "<group>"; };
@@ -523,6 +528,8 @@
 				4752C04515B95717008CE664 /* SKProductView.m */,
 				C0E5A39E15F5E54F00447D14 /* SKProductViewController.h */,
 				C0E5A39F15F5E54F00447D14 /* SKProductViewController.m */,
+				C077529315F742B100E19A60 /* SKProductTypeChooserView.h */,
+				C077529415F742B100E19A60 /* SKProductTypeChooserView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -828,6 +835,7 @@
 				C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */,
 				C079639715C2838900360DC6 /* SKSVGImage.h in Headers */,
 				C079639C15C2839500360DC6 /* SKSVGText.h in Headers */,
+				C077529515F742B100E19A60 /* SKProductTypeChooserView.h in Headers */,
 				4752C04615B95717008CE664 /* SKProductView.h in Headers */,
 				4752C04B15B95A21008CE664 /* SKProductConfigurationView.h in Headers */,
 				4752C04015B94ECE008CE664 /* SKProductCreator.h in Headers */,
@@ -1074,6 +1082,7 @@
 				C0A00EC515F0AFF60068685D /* UIImage+SpreadKit.m in Sources */,
 				C03DFA8715F0BB24004A2C82 /* SKFullscreenPopup.m in Sources */,
 				C0E5A3A215F5E54F00447D14 /* SKProductViewController.m in Sources */,
+				C077529715F742B100E19A60 /* SKProductTypeChooserView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1127,6 +1136,7 @@
 				C0A00EC415F0AFF60068685D /* UIImage+SpreadKit.m in Sources */,
 				C03DFA8615F0BB24004A2C82 /* SKFullscreenPopup.m in Sources */,
 				C0E5A3A115F5E54F00447D14 /* SKProductViewController.m in Sources */,
+				C077529615F742B100E19A60 /* SKProductTypeChooserView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

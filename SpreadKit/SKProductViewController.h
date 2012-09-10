@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SKAppearanceChooserView.h"
+#import "SKProductTypeChooserView.h"
 #import "SKProduct.h"
 
-@interface SKProductViewController : UIViewController <SKAppearanceChooserViewDelegate>
+@interface SKProductViewController : UIViewController <SKAppearanceChooserViewDelegate, SKProductTypeChooserViewDelegate>
 
 @property (nonatomic, strong) SKProduct *product;
 

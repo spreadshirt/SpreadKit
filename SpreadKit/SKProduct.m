@@ -22,7 +22,6 @@
 @synthesize user;
 @synthesize restrictions;
 @synthesize freeColorSelection;
-@synthesize productType;
 @synthesize appearance;
 @synthesize configurations;
 
@@ -34,6 +33,12 @@
 - (BOOL)freeColorSelection
 {
     return [[[self restrictions] objectForKey:@"freeColorSelection"] boolValue];
+}
+
+- (void)setProductType:(SKProductType *)productType
+{
+    _productType = productType;
+    self.appearance = productType.defaultAppearance;
 }
 
 @end

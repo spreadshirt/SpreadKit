@@ -21,8 +21,6 @@
 
 @implementation SKProductView
 
-@synthesize productType,product,view,viewScale,productTypeView;
-
 - (id)initWithProduct:(SKProduct *)theProduct andFrame:(CGRect)frame
 {
     if (self = [self initWithFrame:frame]) {
@@ -41,12 +39,23 @@
 
 - (void)commonInit
 {
+    self.backgroundColor = [UIColor whiteColor];
+    
+    self.productTypeView = [[UIImageView alloc] init];
+    self.productTypeView.contentMode = UIViewContentModeScaleAspectFill;
+    [self addSubview:self.productTypeView];
+    
     // appearance chooser
     CGRect appearanceChooserFrame = CGRectMake(5, 5, 44, 44);
     self.appearanceChooserView = [[SKAppearanceChooserView alloc] initWithFrame:appearanceChooserFrame];
     self.appearanceChooserView.productView = self;
-    self.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.appearanceChooserView];
+    
+    // product type chooser
+    CGRect productTypeChooserFrame = CGRectMake(5, self.bounds.size.height - 44 -5, 44, 44);
+    self.productTypeChooserView = [[SKProductTypeChooserView alloc] initWithFrame:productTypeChooserFrame];
+    self.productTypeChooserView.productView = self;
+    [self addSubview:self.productTypeChooserView];
     
     // activity indicator
     self.activityIndicatorView = [[UIView alloc] initWithFrame:self.bounds];
@@ -63,55 +72,53 @@
 
 - (void)setProductType:(SKProductType *)theProductType
 {
-    productType = theProductType;
-    view = productType.defaultView;
-    viewScale = self.bounds.size.width / [view.size.width floatValue];
+    _productType = theProductType;
+    _view = self.productType.defaultView;
+    _viewScale = self.bounds.size.width / [self.view.size.width floatValue];
     
-    CGSize scaledPtvSize = CGSizeMake([view.size.width floatValue] * viewScale, [view.size.height floatValue] * viewScale);
+    CGSize scaledPtvSize = CGSizeMake([self.view.size.width floatValue] * self.viewScale, [self.view.size.height floatValue] * self.viewScale);
     CGRect ptvFrame = CGRectMake(0.5f*(CGRectGetWidth(self.bounds)-scaledPtvSize.width), 0.5f*(CGRectGetHeight(self.bounds)-scaledPtvSize.height), scaledPtvSize.width, scaledPtvSize.height);
     
-    [productTypeView removeFromSuperview];
-    
-    productTypeView = [[UIImageView alloc] initWithFrame:ptvFrame];
-    productTypeView.contentMode = UIViewContentModeScaleAspectFill;
-    [self addSubview:productTypeView];
-    
+    self.productTypeView.frame = ptvFrame;
     [self loadProductTypeImage];
 }
 
 - (void)setProduct:(SKProduct *)theProduct
 {
-    product = theProduct;
-    self.productType = product.productType;
-    self.appearanceChooserView.selectedAppearance = product.appearance;
+    _product = theProduct;
+    self.productType = _product.productType;
     
-    for (SKProductConfiguration *conf in product.configurations) {
+    for (SKProductConfiguration *conf in _product.configurations) {
         
-        SKViewMap *map = [view viewMapByPrintAreaId:conf.printArea.identifier];
+        SKViewMap *map = [self.view viewMapByPrintAreaId:conf.printArea.identifier];
         
-        float viewMapX = [map.offset.x floatValue] * viewScale;
-        float viewMapY = [map.offset.y floatValue] * viewScale;
+        float viewMapX = [map.offset.x floatValue] * self.viewScale;
+        float viewMapY = [map.offset.y floatValue] * self.viewScale;
         
-        float designWidth = [[conf size].width floatValue] * viewScale;
-        float designHeight = [[conf size].height floatValue] * viewScale;
+        float designWidth = [[conf size].width floatValue] * self.viewScale;
+        float designHeight = [[conf size].height floatValue] * self.viewScale;
         
-        float designOffsetX = [conf.offset.x floatValue] * viewScale;
-        float designOffsetY = [conf.offset.y floatValue] * viewScale;
+        float designOffsetX = [conf.offset.x floatValue] * self.viewScale;
+        float designOffsetY = [conf.offset.y floatValue] * self.viewScale;
         
         CGRect confFrame = CGRectMake(viewMapX + designOffsetX, viewMapY + designOffsetY, designWidth, designHeight);
         SKProductConfigurationView *configurationView =[[SKProductConfigurationView alloc] initWithProductConfiguration:conf andFrame:confFrame];
         configurationView.layer.zPosition = 1;
-        [productTypeView addSubview:configurationView];
+        [self.productTypeView addSubview:configurationView];
     }
 }
 
 - (void) loadProductTypeImage {
     [self showActivity];
-    NSURL *viewImageURL = [[view.resources objectAtIndex:0] url];
-    [[[SKImageLoader alloc] init] loadImageFromUrl:viewImageURL  withSize:self.frame.size andAppearanceId:product.appearance.identifier completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
-        self.productTypeView.image = image;
+    NSURL *viewImageURL = [[self.view.resources objectAtIndex:0] url];
+    [[[SKImageLoader alloc] init] loadImageFromUrl:viewImageURL  withSize:self.bounds.size andAppearanceId:self.product.appearance.identifier completion:^(UIImage *image, NSURL *imageUrl, NSError *error) {
+        [self performSelectorOnMainThread:@selector(setProductTypeImage:) withObject:image waitUntilDone:NO];
         [self hideActivity];
     }];
+}
+
+- (void)setProductTypeImage:(UIImage *)image {
+    self.productTypeView.image = image;
 }
 
 - (void)showActivity
