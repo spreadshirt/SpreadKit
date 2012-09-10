@@ -72,7 +72,8 @@
     }
     
     [SKURLConnection get:url params:params apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
-        if (data) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (httpResponse.statusCode == 200 && data) {
             UIImage *image = [[UIImage alloc] initWithData:data];
             image = [UIImage imageWithCGImage:image.CGImage scale:scaleFactor orientation:image.imageOrientation];
             completion(image, url, nil);
