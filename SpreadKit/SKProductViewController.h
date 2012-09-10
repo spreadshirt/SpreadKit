@@ -15,4 +15,6 @@
 
 @property (nonatomic, strong) SKProduct *product;
 
+- (void)productTypeChooserDidSelectProductType:(SKProductType *)productType;
+
 @end

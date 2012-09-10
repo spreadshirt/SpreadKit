@@ -62,10 +62,14 @@
 
 - (void)productTypeChooser:(SKProductTypeChooserView *)productTypeChooser didSelectProductType:(SKProductType *)productType
 {
-    _product.productType = productType;
-    self.productView.product = _product;
     self.productView.appearanceChooserView.appearances = _product.productType.appearances;
     self.productView.appearanceChooserView.selectedAppearance = _product.appearance;
+    [self productTypeChooserDidSelectProductType:productType];
+}
+
+- (void)productTypeChooserDidSelectProductType:(SKProductType *)productType
+{
+    [NSException raise:NSInternalInconsistencyException format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
 }
 
 @end
