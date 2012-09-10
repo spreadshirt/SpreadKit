@@ -64,6 +64,8 @@
 {
     _product.productType = productType;
     self.productView.product = _product;
+    self.productView.appearanceChooserView.appearances = _product.productType.appearances;
+    self.productView.appearanceChooserView.selectedAppearance = _product.appearance;
 }
 
 @end
