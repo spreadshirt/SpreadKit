@@ -161,7 +161,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     [entityURLs setValue:[object printTypes].url forKey:NSStringFromClass([SKPrintType class])];
     
     NSString *countryCode = [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
-    NSString *languageCode = [[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode];
+    NSString *languageCode = [[NSLocale preferredLanguages] objectAtIndex:0];
     
     __block NSString *countryCodeToUse;
     __block NSString *languageCodeToUse;
@@ -181,7 +181,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
                 }
                 if (countryCodeToUse)
                 {
-                    manager.locale = [NSLocale currentLocale];
+                    manager.locale = [[NSLocale alloc] initWithLocaleIdentifier:[NSString stringWithFormat:@"%@_%@", languageCode, countryCode]];
                 }
                 completion();
             }];
