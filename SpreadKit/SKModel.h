@@ -33,3 +33,5 @@
 #import "SKSVG.h"
 #import "SKSVGImage.h"
 #import "SKSVGText.h"
+#import "SKProductTypeDepartment.h"
+#import "SKProductTypeCategory.h"

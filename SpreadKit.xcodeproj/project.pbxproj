@@ -152,6 +152,12 @@
 		C0A0420415821AEB00953AF4 /* SKBasketMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A0420315821AEB00953AF4 /* SKBasketMappingTests.m */; };
 		C0A2E7411578AD18004A3847 /* SKProductTypeMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A2E7401578AD18004A3847 /* SKProductTypeMappingTests.m */; };
 		C0A2E7431578AE0E004A3847 /* productType.json in Resources */ = {isa = PBXBuildFile; fileRef = C0A2E7421578AE0E004A3847 /* productType.json */; };
+		C0ADDA0F15FE208E00EF8867 /* SKProductTypeDepartment.h in Headers */ = {isa = PBXBuildFile; fileRef = C0ADDA0D15FE208E00EF8867 /* SKProductTypeDepartment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0ADDA1015FE208E00EF8867 /* SKProductTypeDepartment.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADDA0E15FE208E00EF8867 /* SKProductTypeDepartment.m */; };
+		C0ADDA1115FE208E00EF8867 /* SKProductTypeDepartment.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADDA0E15FE208E00EF8867 /* SKProductTypeDepartment.m */; };
+		C0ADDA1915FE20FA00EF8867 /* SKProductTypeCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = C0ADDA1715FE20FA00EF8867 /* SKProductTypeCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0ADDA1A15FE20FA00EF8867 /* SKProductTypeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADDA1815FE20FA00EF8867 /* SKProductTypeCategory.m */; };
+		C0ADDA1B15FE20FA00EF8867 /* SKProductTypeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADDA1815FE20FA00EF8867 /* SKProductTypeCategory.m */; };
 		C0ADF748153819B600CC9AE4 /* SKObjectMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF747153819B600CC9AE4 /* SKObjectMapperTests.m */; };
 		C0ADF74A15381B0E00CC9AE4 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = C0ADF74915381B0E00CC9AE4 /* user.json */; };
 		C0B2FA7E156FBB53008A103B /* SKArticleMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2FA7D156FBB53008A103B /* SKArticleMappingTests.m */; };
@@ -400,6 +406,10 @@
 		C0A0420315821AEB00953AF4 /* SKBasketMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketMappingTests.m; sourceTree = "<group>"; };
 		C0A2E7401578AD18004A3847 /* SKProductTypeMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductTypeMappingTests.m; sourceTree = "<group>"; };
 		C0A2E7421578AE0E004A3847 /* productType.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productType.json; sourceTree = "<group>"; };
+		C0ADDA0D15FE208E00EF8867 /* SKProductTypeDepartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductTypeDepartment.h; sourceTree = "<group>"; };
+		C0ADDA0E15FE208E00EF8867 /* SKProductTypeDepartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductTypeDepartment.m; sourceTree = "<group>"; };
+		C0ADDA1715FE20FA00EF8867 /* SKProductTypeCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductTypeCategory.h; sourceTree = "<group>"; };
+		C0ADDA1815FE20FA00EF8867 /* SKProductTypeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductTypeCategory.m; sourceTree = "<group>"; };
 		C0ADF747153819B600CC9AE4 /* SKObjectMapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectMapperTests.m; sourceTree = "<group>"; };
 		C0ADF74915381B0E00CC9AE4 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 		C0B2FA7D156FBB53008A103B /* SKArticleMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKArticleMappingTests.m; sourceTree = "<group>"; };
@@ -629,12 +639,20 @@
 				C0F68B8D15B41A2500FFA3BC /* SKProductConfiguration.m */,
 				C04D270315B411810080C77F /* SKProductType.h */,
 				C04D270415B411810080C77F /* SKProductType.m */,
+				C0ADDA0D15FE208E00EF8867 /* SKProductTypeDepartment.h */,
+				C0ADDA0E15FE208E00EF8867 /* SKProductTypeDepartment.m */,
 				C04D270515B411810080C77F /* SKResource.h */,
 				C04D270615B411810080C77F /* SKResource.m */,
 				C04D270715B411810080C77F /* SKShop.h */,
 				C04D270815B411810080C77F /* SKShop.m */,
 				C04D270915B411810080C77F /* SKSize.h */,
 				C04D270A15B411810080C77F /* SKSize.m */,
+				C079639015C2837400360DC6 /* SKSVG.h */,
+				C079639115C2837400360DC6 /* SKSVG.m */,
+				C079639515C2838900360DC6 /* SKSVGImage.h */,
+				C079639615C2838900360DC6 /* SKSVGImage.m */,
+				C079639A15C2839500360DC6 /* SKSVGText.h */,
+				C079639B15C2839500360DC6 /* SKSVGText.m */,
 				C04D270D15B411810080C77F /* SKUser.h */,
 				C04D270E15B411810080C77F /* SKUser.m */,
 				C0F68BA515B438E300FFA3BC /* SKView.h */,
@@ -643,12 +661,8 @@
 				C033ADF115B58CDE0071D341 /* SKViewMap.m */,
 				C033ADE615B58A220071D341 /* SKViewSize.h */,
 				C033ADE715B58A220071D341 /* SKViewSize.m */,
-				C079639015C2837400360DC6 /* SKSVG.h */,
-				C079639115C2837400360DC6 /* SKSVG.m */,
-				C079639515C2838900360DC6 /* SKSVGImage.h */,
-				C079639615C2838900360DC6 /* SKSVGImage.m */,
-				C079639A15C2839500360DC6 /* SKSVGText.h */,
-				C079639B15C2839500360DC6 /* SKSVGText.m */,
+				C0ADDA1715FE20FA00EF8867 /* SKProductTypeCategory.h */,
+				C0ADDA1815FE20FA00EF8867 /* SKProductTypeCategory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -822,6 +836,8 @@
 				C0F68B9315B4287700FFA3BC /* SKPrintArea.h in Headers */,
 				C0F68B9815B42A1A00FFA3BC /* SKPrintType.h in Headers */,
 				C0F68B9D15B42C8900FFA3BC /* SKOffset.h in Headers */,
+				C0ADDA0F15FE208E00EF8867 /* SKProductTypeDepartment.h in Headers */,
+				C0ADDA1915FE20FA00EF8867 /* SKProductTypeCategory.h in Headers */,
 				C04D274D15B411820080C77F /* SKURLConnection.h in Headers */,
 				C033ADF215B58CDE0071D341 /* SKViewMap.h in Headers */,
 				C033ADE815B58A240071D341 /* SKViewSize.h in Headers */,
@@ -1083,6 +1099,8 @@
 				C03DFA8715F0BB24004A2C82 /* SKFullscreenPopup.m in Sources */,
 				C0E5A3A215F5E54F00447D14 /* SKProductViewController.m in Sources */,
 				C077529715F742B100E19A60 /* SKProductTypeChooserView.m in Sources */,
+				C0ADDA1115FE208E00EF8867 /* SKProductTypeDepartment.m in Sources */,
+				C0ADDA1B15FE20FA00EF8867 /* SKProductTypeCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,6 +1155,8 @@
 				C03DFA8615F0BB24004A2C82 /* SKFullscreenPopup.m in Sources */,
 				C0E5A3A115F5E54F00447D14 /* SKProductViewController.m in Sources */,
 				C077529615F742B100E19A60 /* SKProductTypeChooserView.m in Sources */,
+				C0ADDA1015FE208E00EF8867 /* SKProductTypeDepartment.m in Sources */,
+				C0ADDA1A15FE20FA00EF8867 /* SKProductTypeCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

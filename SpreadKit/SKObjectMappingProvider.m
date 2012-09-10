@@ -84,6 +84,15 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [productTypeMapping mapAttributes:@"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"defaultValues", @"washingInstructions", @"stockStates", nil];
         
+        RKObjectMapping *productTypeDepartmentMapping = [RKObjectMapping mappingForClass:[SKProductTypeDepartment class]];
+        [productTypeDepartmentMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [productTypeDepartmentMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [productTypeMapping mapAttributes:@"weight", nil];
+        
+        RKObjectMapping *productTypeCategoryMapping = [RKObjectMapping mappingForClass:[SKProductTypeCategory class]];
+        [productTypeCategoryMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [productTypeCategoryMapping mapAttributes:@"name", nil];
+        
         RKObjectMapping *viewSizeMapping = [RKObjectMapping mappingForClass:[SKViewSize class]];
         [viewSizeMapping mapAttributes:@"unit", @"width", @"height", nil];
         
@@ -181,6 +190,10 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [productTypeMapping mapKeyPath:@"printAreas" toRelationship:@"printAreas" withMapping:printAreaMapping];
         [productTypeMapping mapKeyPath:@"price" toRelationship:@"price" withMapping:priceMapping];
         [productTypeMapping mapKeyPath:@"views" toRelationship:@"views" withMapping:viewMapping];
+        
+        [productTypeDepartmentMapping mapKeyPath:@"categories" toRelationship:@"categories" withMapping:productTypeCategoryMapping];
+        
+        [productTypeCategoryMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:productTypeMapping];
         
         [articleMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
         [articleMapping mapKeyPath:@"product" toRelationship:@"product" withMapping:productMapping];
@@ -306,6 +319,8 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [self addObjectMapping:viewMapMapping];
         [self addObjectMapping:svgImageMapping];
         [self addObjectMapping:svgTextMapping];
+        [self addObjectMapping:productTypeCategoryMapping];
+        [self addObjectMapping:productTypeDepartmentMapping];
         [self setMapping:articleMapping forKeyPath:@"articles"];
         [self setMapping:shopMapping forKeyPath:@"shop"];
         [self setMapping:userMapping forKeyPath:@"user"];
