@@ -14,5 +14,6 @@
 @property NSURL * url;
 @property NSNumber * weight;
 @property NSArray * categories;
+@property NSString * name;
 
 @end
