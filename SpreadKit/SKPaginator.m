@@ -56,8 +56,8 @@
 - (void)loadPageAndOnCompletion:(void (^)(NSArray *pageElems, NSError *error))completion
 {
     SKObjectManager *manager = [[SKObjectManager alloc] init];
-    [manager getEntityList:list completion:^(SKEntityList *loaded, NSError *error) {
-        completion(loaded.elements, nil);
+    [manager get:list completion:^(id loaded, NSError *error) {
+        completion([loaded elements], error);
     }];
 }
 

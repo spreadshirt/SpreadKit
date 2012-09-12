@@ -15,6 +15,14 @@
 #import "SKObjectManager.h"
 #import "SKBasket.h"
 
+@interface SKObjectManager (Private)
+
+- (void)getSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping completion:(void (^)(NSArray *, NSError *))completion;
+- (void)getEntityList:(SKEntityList *)list completion:(void (^)(SKEntityList *, NSError *))completion;
+- (void)getEntityListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
+
+@end
+
 @interface SKObjectManagerTests : GHAsyncTestCase
 @end
 

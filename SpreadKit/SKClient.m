@@ -47,8 +47,8 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     return client;
 }
 
-- (id)initWithApiKey:(NSString *)theApiKey 
-           andSecret:(NSString *)theSecret 
+- (id)initWithApiKey:(NSString *)theApiKey
+           andSecret:(NSString *)theSecret
            andUserId:(NSString *)theUserId
            andShopId:(NSString *)theShopId
 {
@@ -74,12 +74,13 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 - (void)getShopAndOnCompletion:(void (^)(SKShop *, NSError *))completion
 {
     NSURL *shopURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@", BASE, self.shopId]];
-    RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKShop class]];
     
-    [manager getSingleEntityFromUrl:shopURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
-        SKShop *shop = (SKShop *)[objects objectAtIndex:0];
-        [self setup:shop completion:^{
-            completion(shop, error);
+    SKShop *stubShop = [[SKShop alloc] init];
+    stubShop.url = shopURL;
+    
+    [self get:stubShop completion:^(id loadedObject, NSError *error) {
+        [self setup:loadedObject completion:^{
+            completion(loadedObject, error);
         }];
     }];
 }
@@ -87,12 +88,13 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 - (void)getUserAndOnCompletion:(void (^)(SKUser *, NSError *))completion
 {
     NSURL *userURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", BASE, self.shopId]];
-    RKObjectMapping *mapping = [[SKObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SKUser class]];
     
-    [manager getSingleEntityFromUrl:userURL withParams:nil intoTargetObject:nil mapping:mapping completion:^(NSArray *objects, NSError *error) {
-        SKUser *user = (SKUser *)[objects objectAtIndex:0];
-        [self setup:user completion:^{
-            completion(user, error);
+    SKUser *stubUser = [[SKUser alloc] init];
+    stubUser.url = userURL;
+    
+    [self get:stubUser completion:^(id loadedObject, NSError *error) {
+        [self setup:loadedObject completion:^{
+            completion(loadedObject, error);
         }];
     }];
 }
