@@ -66,6 +66,8 @@
     
     NSString *serialized = [serializer serializedObjectForMIMEType:RKMIMETypeJSON error:&error];
     
+    GHAssertEqualStrings(serialized, @"{\"appearance\":{\"id\":\"appearanceID\"},\"configurations\":[{\"printArea\":{\"id\":\"printAreaID\"},\"id\":\"configurationID\",\"content\":{\"svg\":{\"image\":{\"width\":100,\"designId\":\"designID\",\"height\":200}}},\"offset\":{\"unit\":\"mm\",\"x\":1,\"y\":2},\"printType\":{\"id\":\"printTypeID\"}}],\"productType\":{\"id\":\"productTypeID\"}}", nil);
+    
 }
 
 @end
