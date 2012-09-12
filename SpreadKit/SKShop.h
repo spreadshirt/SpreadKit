@@ -29,6 +29,7 @@
 @property (strong) SKEntityList * designs;
 @property (strong) SKEntityList * articles;
 @property (strong) SKEntityList * productTypes;
+@property (strong) SKEntityList * productTypeDepartments;
 @property (strong) SKEntityList * printTypes;
 @property (strong) SKEntityList * baskets;
 @property (strong) SKEntityList * currencies;

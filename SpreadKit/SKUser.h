@@ -26,6 +26,7 @@
 @property (nonatomic, strong) SKEntityList * products;
 @property (nonatomic, strong) SKEntityList * designs;
 @property (nonatomic, strong) SKEntityList * productTypes;
+@property (nonatomic, strong) SKEntityList * productTypeDepartments;
 @property (nonatomic, strong) SKEntityList * printTypes;
 @property (nonatomic, strong) SKEntityList * baskets;
 @property (nonatomic, strong) SKEntityList * currencies;

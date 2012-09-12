@@ -212,6 +212,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         [userMapping mapKeyPath:@"currencies" toRelationship:@"currencies" withMapping:listMapping];
         [userMapping mapKeyPath:@"languages" toRelationship:@"languages" withMapping:listMapping];
         [userMapping mapKeyPath:@"countries" toRelationship:@"countries" withMapping:listMapping];
+        [userMapping mapKeyPath:@"productTypeDepartments" toRelationship:@"productTypeDepartments" withMapping:listMapping];
         
         [shopMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
         [shopMapping mapKeyPath:@"articles" toRelationship:@"articles" withMapping:listMapping];
