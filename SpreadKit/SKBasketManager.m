@@ -44,17 +44,13 @@
         if (error) {
             completion(nil, error);
         } else {
-            // retrieve checkout URL
-            NSURL *checkoutRetrieval = [NSURL URLWithString:[NSString stringWithFormat:@"%@/checkout?mediaType=json", [newObject url].absoluteString]];
-            [SKURLConnection get:checkoutRetrieval params:nil apiKey:[SKClient sharedClient].apiKey secret:[SKClient sharedClient].secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
-                NSError *decodeError;
-                id decoded = [[JSONDecoder decoder] objectWithData:data error:&decodeError];
-                if (decodeError) {
-                    completion(nil, decodeError);
-                } else {
-                    NSURL *COURL = [NSURL URLWithString:[decoded objectForKey:@"href"]];
-                    completion(COURL, nil);
-                }
+            [[SKClient sharedClient] get:basket completion:^(id loadedBasket, NSError *error) {
+                [[loadedBasket links] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    if ([[obj objectForKey:@"type"] isEqualToString:@"platformCheckout"]) {
+                        NSURL *checkout = [NSURL URLWithString:[obj objectForKey:@"href"]];
+                        completion(checkout, nil);
+                    }
+                }];
             }];
         }
     }];

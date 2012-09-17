@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <RestKit/JSONKit.h>
 
 @class SKBasketItem;
 @class SKBasket;

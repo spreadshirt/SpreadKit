@@ -128,6 +128,7 @@ static SKObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *basketMapping = [RKObjectMapping mappingForClass:[SKBasket class]];
         [basketMapping mapKeyPath:@"id" toAttribute:@"identifier"];
         [basketMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [basketMapping mapKeyPath:@"links" toAttribute:@"links"];
         [basketMapping mapAttributes:@"token", nil];
         
         RKObjectMapping *basketItemMapping = [RKObjectMapping mappingForClass:[SKBasketItem class]];
