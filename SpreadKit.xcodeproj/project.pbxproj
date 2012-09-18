@@ -16,13 +16,6 @@
 		4752C04B15B95A21008CE664 /* SKProductConfigurationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4752C04915B95A21008CE664 /* SKProductConfigurationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4752C04C15B95A21008CE664 /* SKProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */; };
 		4752C04D15B95A21008CE664 /* SKProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */; };
-		C0136D6C150108A30044BB55 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C03F304B14DC20AC003E2527 /* libOCMock.a */; };
-		C0136D6D150108B20044BB55 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0DF14C9B77500109A96 /* CoreData.framework */; };
-		C0136D6E150108B80044BB55 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0DD14C9B76D00109A96 /* CFNetwork.framework */; };
-		C0136D6F150108C20044BB55 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0E514C9B78D00109A96 /* SystemConfiguration.framework */; };
-		C0136D70150108C90044BB55 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0E714C9B79500109A96 /* libxml2.dylib */; };
-		C0136D71150108CF0044BB55 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0E314C9B78600109A96 /* Security.framework */; };
-		C0136D72150108D40044BB55 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4D0E114C9B77D00109A96 /* MobileCoreServices.framework */; };
 		C01D335915C6C32200C77A0B /* SKProductCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */; };
 		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C025362B15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
@@ -30,9 +23,6 @@
 		C02536AA15E7AC8E000FA70E /* SKAppearanceChooserView.h in Headers */ = {isa = PBXBuildFile; fileRef = C02536A815E7AC8E000FA70E /* SKAppearanceChooserView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C02536AB15E7AC8E000FA70E /* SKAppearanceChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C02536A915E7AC8E000FA70E /* SKAppearanceChooserView.m */; };
 		C02536AC15E7AC8E000FA70E /* SKAppearanceChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C02536A915E7AC8E000FA70E /* SKAppearanceChooserView.m */; };
-		C02536D315E7B58C000FA70E /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C02536CD15E7B520000FA70E /* libGMGridView.a */; };
-		C026F92715AEC56C00FFEB69 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C026F90615AEC1BE00FFEB69 /* libRestKit.a */; };
-		C026F92915AEC57B00FFEB69 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C026F92815AEC57B00FFEB69 /* QuartzCore.framework */; };
 		C026FA2015AEF99500FFEB69 /* SKDesignMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C026FA1F15AEF99500FFEB69 /* SKDesignMappingTests.m */; };
 		C026FA2215AEFCD100FFEB69 /* design.json in Resources */ = {isa = PBXBuildFile; fileRef = C026FA2115AEFCD100FFEB69 /* design.json */; };
 		C026FA2615AF0BD600FFEB69 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C026FA2515AF0BD600FFEB69 /* testImage.jpg */; };
@@ -49,11 +39,8 @@
 		C035E4E415063FE800A52242 /* products2.json in Resources */ = {isa = PBXBuildFile; fileRef = C035E4E315063FE800A52242 /* products2.json */; };
 		C0369C1415C2BF53008548AE /* SKProductMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0369C1315C2BF53008548AE /* SKProductMappingTests.m */; };
 		C03806E8150103780004BFC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84014C99F83000BB775 /* UIKit.framework */; };
-		C03806E9150103780004BFC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
-		C03806EA150103780004BFC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84314C99F83000BB775 /* CoreGraphics.framework */; };
 		C03806F0150103780004BFC4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C03806EE150103780004BFC4 /* InfoPlist.strings */; };
 		C03806F2150103780004BFC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C03806F1150103780004BFC4 /* main.m */; };
-		C03806FB150103A20004BFC4 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03806FA150103A20004BFC4 /* GHUnitIOS.framework */; };
 		C03806FE150104780004BFC4 /* SKClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C6921614EE57440068C18D /* SKClientTests.m */; };
 		C03806FF150104780004BFC4 /* SKImageLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C6921714EE57440068C18D /* SKImageLoaderTests.m */; };
 		C0380700150104780004BFC4 /* SKObjectMappingProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C6921814EE57440068C18D /* SKObjectMappingProviderTests.m */; };
@@ -131,6 +118,7 @@
 		C077529515F742B100E19A60 /* SKProductTypeChooserView.h in Headers */ = {isa = PBXBuildFile; fileRef = C077529315F742B100E19A60 /* SKProductTypeChooserView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C077529615F742B100E19A60 /* SKProductTypeChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C077529415F742B100E19A60 /* SKProductTypeChooserView.m */; };
 		C077529715F742B100E19A60 /* SKProductTypeChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C077529415F742B100E19A60 /* SKProductTypeChooserView.m */; };
+		C07813D91608684F00B713B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07813D81608684F00B713B7 /* CoreGraphics.framework */; };
 		C079639215C2837400360DC6 /* SKSVG.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639015C2837400360DC6 /* SKSVG.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C079639315C2837400360DC6 /* SKSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639115C2837400360DC6 /* SKSVG.m */; };
 		C079639415C2837400360DC6 /* SKSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639115C2837400360DC6 /* SKSVG.m */; };
@@ -141,7 +129,6 @@
 		C079639D15C2839500360DC6 /* SKSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SKSVGText.m */; };
 		C079639E15C2839500360DC6 /* SKSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SKSVGText.m */; };
 		C07963A015C2ABF600360DC6 /* SKObjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639F15C2ABF600360DC6 /* SKObjectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C096A28C1500E0B000C70D86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF81614C9953C000BB775 /* Foundation.framework */; };
 		C0A00EA515F0ACC30068685D /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A00EA315F0ACC30068685D /* close.png */; };
 		C0A00EA615F0ACC30068685D /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A00EA415F0ACC30068685D /* close@2x.png */; };
 		C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -202,79 +189,11 @@
 		C0F68BD615B44D0300FFA3BC /* SKPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BD415B44D0200FFA3BC /* SKPrice.m */; };
 		C0F68BD715B44D0300FFA3BC /* SKPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BD415B44D0200FFA3BC /* SKPrice.m */; };
 		C0FE50D715A1C5550015BC6F /* SKBasketManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FE50D615A1C5550015BC6F /* SKBasketManagerTests.m */; };
+		DC019FE162A84B5DBCDE4809 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FF5DBAA913476D8F2222BB /* libPods.a */; };
+		E5D666DA07C74346B7622F44 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 594FB9197CC14363ADCC792C /* libPods-test.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C02536CC15E7B520000FA70E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C02536C515E7B520000FA70E /* GMGridView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 78509312149FAC2E000787E4;
-			remoteInfo = GMGridView;
-		};
-		C02536CF15E7B57B000FA70E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C02536C515E7B520000FA70E /* GMGridView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 78509311149FAC2E000787E4;
-			remoteInfo = GMGridView;
-		};
-		C02536D115E7B587000FA70E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C02536C515E7B520000FA70E /* GMGridView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 78509311149FAC2E000787E4;
-			remoteInfo = GMGridView;
-		};
-		C026F90515AEC1BE00FFEB69 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160D1614564E810060A5C5;
-			remoteInfo = RestKit;
-		};
-		C026F90715AEC1BE00FFEB69 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160D2614564E820060A5C5;
-			remoteInfo = RestKitTests;
-		};
-		C026F90915AEC1BE00FFEB69 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E62145651060060A5C5;
-			remoteInfo = RestKitFramework;
-		};
-		C026F90B15AEC1BE00FFEB69 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E78145651060060A5C5;
-			remoteInfo = RestKitFrameworkTests;
-		};
-		C026F90D15AEC1BE00FFEB69 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 259C301615128079003066A2;
-			remoteInfo = RestKitResources;
-		};
-		C026F91D15AEC30400FFEB69 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25160D1514564E810060A5C5;
-			remoteInfo = RestKit;
-		};
-		C026F91F15AEC30A00FFEB69 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25160D1514564E810060A5C5;
-			remoteInfo = RestKit;
-		};
 		C0A00EAB15F0AD320068685D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C09EF80A14C9953C000BB775 /* Project object */;
@@ -297,20 +216,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		205C0A4BC23344FE976E4652 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		4752C03E15B94ECE008CE664 /* SKProductCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductCreator.h; sourceTree = "<group>"; };
 		4752C03F15B94ECE008CE664 /* SKProductCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductCreator.m; sourceTree = "<group>"; };
 		4752C04415B95717008CE664 /* SKProductView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductView.h; sourceTree = "<group>"; };
 		4752C04515B95717008CE664 /* SKProductView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductView.m; sourceTree = "<group>"; };
 		4752C04915B95A21008CE664 /* SKProductConfigurationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductConfigurationView.h; sourceTree = "<group>"; };
 		4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductConfigurationView.m; sourceTree = "<group>"; };
+		58FF5DBAA913476D8F2222BB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		594FB9197CC14363ADCC792C /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = SOURCE_ROOT; };
 		C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductCreatorTests.m; sourceTree = "<group>"; };
 		C025362815E7744D000FA70E /* UIImage+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Orientation.h"; sourceTree = "<group>"; };
 		C025362915E7744D000FA70E /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
 		C02536A815E7AC8E000FA70E /* SKAppearanceChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearanceChooserView.h; sourceTree = "<group>"; };
 		C02536A915E7AC8E000FA70E /* SKAppearanceChooserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAppearanceChooserView.m; sourceTree = "<group>"; };
-		C02536C515E7B520000FA70E /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMGridView.xcodeproj; path = ExternalLibraries/GMGridView/GMGridView.xcodeproj; sourceTree = "<group>"; };
-		C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ExternalLibraries/RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
-		C026F92815AEC57B00FFEB69 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C026FA1F15AEF99500FFEB69 /* SKDesignMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDesignMappingTests.m; sourceTree = "<group>"; };
 		C026FA2115AEFCD100FFEB69 /* design.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = design.json; sourceTree = "<group>"; };
 		C026FA2515AF0BD600FFEB69 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testImage.jpg; path = "Test Data/testImage.jpg"; sourceTree = "<group>"; };
@@ -327,16 +247,8 @@
 		C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitTests-Info.plist"; sourceTree = "<group>"; };
 		C03806EF150103780004BFC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C03806F1150103780004BFC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C03806FA150103A20004BFC4 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = ExternalLibraries/GHUnitIOS.framework; sourceTree = "<group>"; };
 		C03DFA8315F0BB24004A2C82 /* SKFullscreenPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKFullscreenPopup.h; sourceTree = "<group>"; };
 		C03DFA8415F0BB24004A2C82 /* SKFullscreenPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKFullscreenPopup.m; sourceTree = "<group>"; };
-		C03F304B14DC20AC003E2527 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ExternalLibraries/libOCMock.a; sourceTree = "<group>"; };
-		C03F304E14DC20BA003E2527 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		C03F304F14DC20BA003E2527 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		C03F305014DC20BA003E2527 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		C03F305114DC20BA003E2527 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		C03F305214DC20BA003E2527 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		C03F305314DC20BA003E2527 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		C04D26E215B411810080C77F /* NSURL+PathParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+PathParameters.h"; sourceTree = "<group>"; };
 		C04D26E315B411810080C77F /* NSURL+PathParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PathParameters.m"; sourceTree = "<group>"; };
 		C04D26E415B411810080C77F /* SKAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearance.h; sourceTree = "<group>"; };
@@ -383,6 +295,7 @@
 		C04D270F15B411810080C77F /* SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpreadKit.h; sourceTree = "<group>"; };
 		C077529315F742B100E19A60 /* SKProductTypeChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductTypeChooserView.h; sourceTree = "<group>"; };
 		C077529415F742B100E19A60 /* SKProductTypeChooserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductTypeChooserView.m; sourceTree = "<group>"; };
+		C07813D81608684F00B713B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C079639015C2837400360DC6 /* SKSVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSVG.h; sourceTree = "<group>"; };
 		C079639115C2837400360DC6 /* SKSVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSVG.m; sourceTree = "<group>"; };
 		C079639515C2838900360DC6 /* SKSVGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSVGImage.h; sourceTree = "<group>"; };
@@ -391,9 +304,7 @@
 		C079639B15C2839500360DC6 /* SKSVGText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSVGText.m; sourceTree = "<group>"; };
 		C079639F15C2ABF600360DC6 /* SKObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectManager.h; sourceTree = "<group>"; };
 		C096A28B1500E0B000C70D86 /* libSpreadKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpreadKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C09EF81614C9953C000BB775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C09EF84014C99F83000BB775 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C09EF84314C99F83000BB775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C09EF84014C99F83000BB775 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C0A00E9115F0AC770068685D /* SpreadKitResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpreadKitResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A00E9215F0AC770068685D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C0A00E9615F0AC770068685D /* SpreadKitResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitResources-Info.plist"; sourceTree = "<group>"; };
@@ -417,12 +328,6 @@
 		C0B2FA7D156FBB53008A103B /* SKArticleMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKArticleMappingTests.m; sourceTree = "<group>"; };
 		C0B2FA7F156FBD63008A103B /* article.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = article.json; sourceTree = "<group>"; };
 		C0C41BC5155BA976009F70FF /* SKAuthenticationProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAuthenticationProviderTests.m; sourceTree = "<group>"; };
-		C0C4D0DD14C9B76D00109A96 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		C0C4D0DF14C9B77500109A96 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		C0C4D0E114C9B77D00109A96 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		C0C4D0E314C9B78600109A96 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		C0C4D0E514C9B78D00109A96 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		C0C4D0E714C9B79500109A96 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		C0C6921314EE57440068C18D /* product.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = product.json; sourceTree = "<group>"; };
 		C0C6921414EE57440068C18D /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		C0C6921614EE57440068C18D /* SKClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKClientTests.m; path = ../Tests/SKClientTests.m; sourceTree = "<group>"; };
@@ -463,20 +368,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C02536D315E7B58C000FA70E /* libGMGridView.a in Frameworks */,
-				C026F92915AEC57B00FFEB69 /* QuartzCore.framework in Frameworks */,
-				C026F92715AEC56C00FFEB69 /* libRestKit.a in Frameworks */,
-				C0136D72150108D40044BB55 /* MobileCoreServices.framework in Frameworks */,
-				C0136D71150108CF0044BB55 /* Security.framework in Frameworks */,
-				C0136D70150108C90044BB55 /* libxml2.dylib in Frameworks */,
-				C0136D6F150108C20044BB55 /* SystemConfiguration.framework in Frameworks */,
-				C0136D6E150108B80044BB55 /* CFNetwork.framework in Frameworks */,
-				C0136D6D150108B20044BB55 /* CoreData.framework in Frameworks */,
+				C07813D91608684F00B713B7 /* CoreGraphics.framework in Frameworks */,
 				C03806E8150103780004BFC4 /* UIKit.framework in Frameworks */,
-				C03806E9150103780004BFC4 /* Foundation.framework in Frameworks */,
-				C03806EA150103780004BFC4 /* CoreGraphics.framework in Frameworks */,
-				C0136D6C150108A30044BB55 /* libOCMock.a in Frameworks */,
-				C03806FB150103A20004BFC4 /* GHUnitIOS.framework in Frameworks */,
+				E5D666DA07C74346B7622F44 /* libPods-test.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C096A28C1500E0B000C70D86 /* Foundation.framework in Frameworks */,
+				DC019FE162A84B5DBCDE4809 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,26 +401,6 @@
 				4752C03F15B94ECE008CE664 /* SKProductCreator.m */,
 			);
 			name = Process;
-			sourceTree = "<group>";
-		};
-		C02536C615E7B520000FA70E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C02536CD15E7B520000FA70E /* libGMGridView.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C026F8FB15AEC1BD00FFEB69 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C026F90615AEC1BE00FFEB69 /* libRestKit.a */,
-				C026F90815AEC1BE00FFEB69 /* RestKitTests.octest */,
-				C026F90A15AEC1BE00FFEB69 /* RestKit.framework */,
-				C026F90C15AEC1BE00FFEB69 /* RestKitFrameworkTests.octest */,
-				C026F90E15AEC1BE00FFEB69 /* RestKitResources.bundle */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		C033ADFA15B595F50071D341 /* View */ = {
@@ -576,20 +450,6 @@
 				C03806F1150103780004BFC4 /* main.m */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C03F304D14DC20BA003E2527 /* OCMock */ = {
-			isa = PBXGroup;
-			children = (
-				C03F304E14DC20BA003E2527 /* NSNotificationCenter+OCMAdditions.h */,
-				C03F304F14DC20BA003E2527 /* OCMArg.h */,
-				C03F305014DC20BA003E2527 /* OCMConstraint.h */,
-				C03F305114DC20BA003E2527 /* OCMock.h */,
-				C03F305214DC20BA003E2527 /* OCMockObject.h */,
-				C03F305314DC20BA003E2527 /* OCMockRecorder.h */,
-			);
-			name = OCMock;
-			path = ExternalLibraries/OCMock;
 			sourceTree = "<group>";
 		};
 		C04D26E115B411430080C77F /* SpreadKit */ = {
@@ -712,6 +572,7 @@
 		C09EF80814C9953C000BB775 = {
 			isa = PBXGroup;
 			children = (
+				C07813D81608684F00B713B7 /* CoreGraphics.framework */,
 				C0A00E9415F0AC770068685D /* SpreadKitResources */,
 				C09EF81514C9953C000BB775 /* Frameworks */,
 				C09EF81414C9953C000BB775 /* Products */,
@@ -733,22 +594,12 @@
 		C09EF81514C9953C000BB775 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C0C4D0DD14C9B76D00109A96 /* CFNetwork.framework */,
-				C0C4D0DF14C9B77500109A96 /* CoreData.framework */,
-				C09EF84314C99F83000BB775 /* CoreGraphics.framework */,
-				C09EF81614C9953C000BB775 /* Foundation.framework */,
-				C03806FA150103A20004BFC4 /* GHUnitIOS.framework */,
-				C02536C515E7B520000FA70E /* GMGridView.xcodeproj */,
-				C03F304B14DC20AC003E2527 /* libOCMock.a */,
-				C0C4D0E714C9B79500109A96 /* libxml2.dylib */,
-				C0C4D0E114C9B77D00109A96 /* MobileCoreServices.framework */,
-				C03F304D14DC20BA003E2527 /* OCMock */,
-				C026F92815AEC57B00FFEB69 /* QuartzCore.framework */,
-				C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */,
-				C0C4D0E314C9B78600109A96 /* Security.framework */,
-				C0C4D0E514C9B78D00109A96 /* SystemConfiguration.framework */,
-				C09EF84014C99F83000BB775 /* UIKit.framework */,
 				C0A00E9215F0AC770068685D /* CoreFoundation.framework */,
+				594FB9197CC14363ADCC792C /* libPods-test.a */,
+				58FF5DBAA913476D8F2222BB /* libPods.a */,
+				872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */,
+				205C0A4BC23344FE976E4652 /* Pods.xcconfig */,
+				C09EF84014C99F83000BB775 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -875,12 +726,11 @@
 				C03806E2150103780004BFC4 /* Sources */,
 				C03806E3150103780004BFC4 /* Frameworks */,
 				C03806E4150103780004BFC4 /* Resources */,
+				3C8216D214134F818B8337CF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C02536D215E7B587000FA70E /* PBXTargetDependency */,
-				C026F92015AEC30A00FFEB69 /* PBXTargetDependency */,
 			);
 			name = SpreadKitTests;
 			productName = SpreadKitTests;
@@ -895,13 +745,12 @@
 				C096A2881500E0B000C70D86 /* Frameworks */,
 				C096A2891500E0B000C70D86 /* Headers */,
 				C0B8938E15F0A2B00003706F /* CopyFiles */,
+				F386A4E5181B478EB339746A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C0A00EAC15F0AD320068685D /* PBXTargetDependency */,
-				C02536D015E7B57B000FA70E /* PBXTargetDependency */,
-				C026F91E15AEC30400FFEB69 /* PBXTargetDependency */,
 			);
 			name = SpreadKit;
 			productName = SpreadKit;
@@ -943,16 +792,6 @@
 			mainGroup = C09EF80814C9953C000BB775;
 			productRefGroup = C09EF81414C9953C000BB775 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = C02536C615E7B520000FA70E /* Products */;
-					ProjectRef = C02536C515E7B520000FA70E /* GMGridView.xcodeproj */;
-				},
-				{
-					ProductGroup = C026F8FB15AEC1BD00FFEB69 /* Products */;
-					ProjectRef = C026F8FA15AEC1BD00FFEB69 /* RestKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				C096A28A1500E0B000C70D86 /* SpreadKit */,
@@ -961,51 +800,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		C02536CD15E7B520000FA70E /* libGMGridView.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGMGridView.a;
-			remoteRef = C02536CC15E7B520000FA70E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C026F90615AEC1BE00FFEB69 /* libRestKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKit.a;
-			remoteRef = C026F90515AEC1BE00FFEB69 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C026F90815AEC1BE00FFEB69 /* RestKitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitTests.octest;
-			remoteRef = C026F90715AEC1BE00FFEB69 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C026F90A15AEC1BE00FFEB69 /* RestKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RestKit.framework;
-			remoteRef = C026F90915AEC1BE00FFEB69 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C026F90C15AEC1BE00FFEB69 /* RestKitFrameworkTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitFrameworkTests.octest;
-			remoteRef = C026F90B15AEC1BE00FFEB69 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C026F90E15AEC1BE00FFEB69 /* RestKitResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitResources.bundle;
-			remoteRef = C026F90D15AEC1BE00FFEB69 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C03806E4150103780004BFC4 /* Resources */ = {
@@ -1036,6 +830,37 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C8216D214134F818B8337CF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-test-resources.sh\"\n";
+		};
+		F386A4E5181B478EB339746A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C03806E2150103780004BFC4 /* Sources */ = {
@@ -1178,26 +1003,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C02536D015E7B57B000FA70E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GMGridView;
-			targetProxy = C02536CF15E7B57B000FA70E /* PBXContainerItemProxy */;
-		};
-		C02536D215E7B587000FA70E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GMGridView;
-			targetProxy = C02536D115E7B587000FA70E /* PBXContainerItemProxy */;
-		};
-		C026F91E15AEC30400FFEB69 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RestKit;
-			targetProxy = C026F91D15AEC30400FFEB69 /* PBXContainerItemProxy */;
-		};
-		C026F92015AEC30A00FFEB69 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RestKit;
-			targetProxy = C026F91F15AEC30A00FFEB69 /* PBXContainerItemProxy */;
-		};
 		C0A00EAC15F0AD320068685D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C0A00E9015F0AC770068685D /* SpreadKitResources */;
@@ -1228,6 +1033,7 @@
 /* Begin XCBuildConfiguration section */
 		C03806F8150103780004BFC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1235,24 +1041,16 @@
 					"\"$(SRCROOT)/ExternalLibraries\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
-					"$(SRCROOT)/ExternalLibraries",
-				);
 				INFOPLIST_FILE = "Tests/Supporting Files/SpreadKitTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ExternalLibraries";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		C03806F9150103780004BFC4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1260,55 +1058,39 @@
 					"\"$(SRCROOT)/ExternalLibraries\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
-					"$(SRCROOT)/ExternalLibraries",
-				);
 				INFOPLIST_FILE = "Tests/Supporting Files/SpreadKitTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ExternalLibraries";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		C096A2971500E0B000C70D86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 205C0A4BC23344FE976E4652 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/SpreadKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH)/Private";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 			};
 			name = Debug;
 		};
 		C096A2981500E0B000C70D86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 205C0A4BC23344FE976E4652 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/SpreadKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)/**",
-					"\"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts\"",
-				);
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH)/Private";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/** \"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts\"";
 			};
 			name = Release;
 		};
