@@ -6,9 +6,10 @@ Pod::Spec.new do |s|
   s.author       = "Sebastian Marr"
   s.homepage     = 'http://developer.spreadshirt.net'
   s.source       = { :svn => 'https://svn.spreadomat.net/repos/discovery/papper-prototype/trunk/SpreadKit' }
-  s.platform     = :ios
+  s.platform     = :ios, '5.0'
   s.source_files = 'SpreadKit/*'
   s.requires_arc = true
+  s.frameworks   = 'CoreGraphics', 'UIKit'
   s.dependency 'RestKit'
   s.dependency 'GMGridView'
 end
