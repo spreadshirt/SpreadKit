@@ -572,7 +572,6 @@
 		C09EF80814C9953C000BB775 = {
 			isa = PBXGroup;
 			children = (
-				C07813D81608684F00B713B7 /* CoreGraphics.framework */,
 				C0A00E9415F0AC770068685D /* SpreadKitResources */,
 				C09EF81514C9953C000BB775 /* Frameworks */,
 				C09EF81414C9953C000BB775 /* Products */,
@@ -595,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				C0A00E9215F0AC770068685D /* CoreFoundation.framework */,
+				C07813D81608684F00B713B7 /* CoreGraphics.framework */,
 				594FB9197CC14363ADCC792C /* libPods-test.a */,
 				58FF5DBAA913476D8F2222BB /* libPods.a */,
 				872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */,
