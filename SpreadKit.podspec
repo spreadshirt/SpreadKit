@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :svn => 'https://svn.spreadomat.net/repos/discovery/papper-prototype/trunk/SpreadKit' }
   s.platform     = :ios, '5.0'
   s.source_files = 'SpreadKit/*'
+  s.resource     = 'SpreadKitResources.bundle'
   s.requires_arc = true
   s.frameworks   = 'CoreGraphics', 'UIKit'
   s.dependency 'RestKit'

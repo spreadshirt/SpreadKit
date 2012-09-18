@@ -129,8 +129,6 @@
 		C079639D15C2839500360DC6 /* SKSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SKSVGText.m */; };
 		C079639E15C2839500360DC6 /* SKSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SKSVGText.m */; };
 		C07963A015C2ABF600360DC6 /* SKObjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639F15C2ABF600360DC6 /* SKObjectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0A00EA515F0ACC30068685D /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A00EA315F0ACC30068685D /* close.png */; };
-		C0A00EA615F0ACC30068685D /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A00EA415F0ACC30068685D /* close@2x.png */; };
 		C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A00EC415F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
 		C0A00EC515F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
@@ -153,6 +151,7 @@
 		C0C7116215AD9DC900302CC4 /* SKEntityListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C7116115AD9DC900302CC4 /* SKEntityListTests.m */; };
 		C0CDD926160074F200965127 /* productTypeDepartment.json in Resources */ = {isa = PBXBuildFile; fileRef = C0CDD925160074F200965127 /* productTypeDepartment.json */; };
 		C0CDD92E1600751500965127 /* SKProductTypeDepartmentMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CDD92D1600751500965127 /* SKProductTypeDepartmentMappingTests.m */; };
+		C0DACB781608902C0041073D /* SpreadKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C0DACB771608902C0041073D /* SpreadKitResources.bundle */; };
 		C0E5A3A015F5E54F00447D14 /* SKProductViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C0E5A39E15F5E54F00447D14 /* SKProductViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0E5A3A115F5E54F00447D14 /* SKProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5A39F15F5E54F00447D14 /* SKProductViewController.m */; };
 		C0E5A3A215F5E54F00447D14 /* SKProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E5A39F15F5E54F00447D14 /* SKProductViewController.m */; };
@@ -192,16 +191,6 @@
 		DC019FE162A84B5DBCDE4809 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FF5DBAA913476D8F2222BB /* libPods.a */; };
 		E5D666DA07C74346B7622F44 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 594FB9197CC14363ADCC792C /* libPods-test.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C0A00EAB15F0AD320068685D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C09EF80A14C9953C000BB775 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C0A00E9015F0AC770068685D;
-			remoteInfo = SpreadKitResources;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C0B8938E15F0A2B00003706F /* CopyFiles */ = {
@@ -305,13 +294,7 @@
 		C079639F15C2ABF600360DC6 /* SKObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectManager.h; sourceTree = "<group>"; };
 		C096A28B1500E0B000C70D86 /* libSpreadKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpreadKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09EF84014C99F83000BB775 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C0A00E9115F0AC770068685D /* SpreadKitResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpreadKitResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A00E9215F0AC770068685D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		C0A00E9615F0AC770068685D /* SpreadKitResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitResources-Info.plist"; sourceTree = "<group>"; };
-		C0A00E9815F0AC770068685D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C0A00E9A15F0AC770068685D /* SpreadKitResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpreadKitResources-Prefix.pch"; sourceTree = "<group>"; };
-		C0A00EA315F0ACC30068685D /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
-		C0A00EA415F0ACC30068685D /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SpreadKit.h"; sourceTree = "<group>"; };
 		C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SpreadKit.m"; sourceTree = "<group>"; };
 		C0A041FE1581E76300953AF4 /* SKBasketItemMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasketItemMappingTests.m; sourceTree = "<group>"; };
@@ -336,6 +319,7 @@
 		C0C7116115AD9DC900302CC4 /* SKEntityListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEntityListTests.m; sourceTree = "<group>"; };
 		C0CDD925160074F200965127 /* productTypeDepartment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productTypeDepartment.json; sourceTree = "<group>"; };
 		C0CDD92D1600751500965127 /* SKProductTypeDepartmentMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductTypeDepartmentMappingTests.m; sourceTree = "<group>"; };
+		C0DACB771608902C0041073D /* SpreadKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SpreadKitResources.bundle; sourceTree = "<group>"; };
 		C0E5A39E15F5E54F00447D14 /* SKProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProductViewController.h; sourceTree = "<group>"; };
 		C0E5A39F15F5E54F00447D14 /* SKProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductViewController.m; sourceTree = "<group>"; };
 		C0E7C8F015060438005A185A /* SKObjectManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectManagerTests.m; sourceTree = "<group>"; };
@@ -379,13 +363,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC019FE162A84B5DBCDE4809 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0A00E8E15F0AC770068685D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +549,7 @@
 		C09EF80814C9953C000BB775 = {
 			isa = PBXGroup;
 			children = (
-				C0A00E9415F0AC770068685D /* SpreadKitResources */,
+				C0DACB771608902C0041073D /* SpreadKitResources.bundle */,
 				C09EF81514C9953C000BB775 /* Frameworks */,
 				C09EF81414C9953C000BB775 /* Products */,
 				C04D26E115B411430080C77F /* SpreadKit */,
@@ -585,7 +562,6 @@
 			children = (
 				C096A28B1500E0B000C70D86 /* libSpreadKit.a */,
 				C03806E6150103780004BFC4 /* SpreadKitTests.app */,
-				C0A00E9115F0AC770068685D /* SpreadKitResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -602,26 +578,6 @@
 				C09EF84014C99F83000BB775 /* UIKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C0A00E9415F0AC770068685D /* SpreadKitResources */ = {
-			isa = PBXGroup;
-			children = (
-				C0A00EA315F0ACC30068685D /* close.png */,
-				C0A00EA415F0ACC30068685D /* close@2x.png */,
-				C0A00E9515F0AC770068685D /* Supporting Files */,
-			);
-			path = SpreadKitResources;
-			sourceTree = "<group>";
-		};
-		C0A00E9515F0AC770068685D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C0A00E9615F0AC770068685D /* SpreadKitResources-Info.plist */,
-				C0A00E9715F0AC770068685D /* InfoPlist.strings */,
-				C0A00E9A15F0AC770068685D /* SpreadKitResources-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C0B2FA7B156FBAC1008A103B /* MappingTests */ = {
@@ -750,29 +706,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				C0A00EAC15F0AD320068685D /* PBXTargetDependency */,
 			);
 			name = SpreadKit;
 			productName = SpreadKit;
 			productReference = C096A28B1500E0B000C70D86 /* libSpreadKit.a */;
 			productType = "com.apple.product-type.library.static";
-		};
-		C0A00E9015F0AC770068685D /* SpreadKitResources */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C0A00E9F15F0AC770068685D /* Build configuration list for PBXNativeTarget "SpreadKitResources" */;
-			buildPhases = (
-				C0A00E8D15F0AC770068685D /* Sources */,
-				C0A00E8E15F0AC770068685D /* Frameworks */,
-				C0A00E8F15F0AC770068685D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SpreadKitResources;
-			productName = SpreadKitResources;
-			productReference = C0A00E9115F0AC770068685D /* SpreadKitResources.bundle */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -796,7 +734,6 @@
 			targets = (
 				C096A28A1500E0B000C70D86 /* SpreadKit */,
 				C03806E5150103780004BFC4 /* SpreadKitTests */,
-				C0A00E9015F0AC770068685D /* SpreadKitResources */,
 			);
 		};
 /* End PBXProject section */
@@ -817,15 +754,7 @@
 				C026FA2215AEFCD100FFEB69 /* design.json in Resources */,
 				C026FA2615AF0BD600FFEB69 /* testImage.jpg in Resources */,
 				C0CDD926160074F200965127 /* productTypeDepartment.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0A00E8F15F0AC770068685D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0A00EA515F0ACC30068685D /* close.png in Resources */,
-				C0A00EA615F0ACC30068685D /* close@2x.png in Resources */,
+				C0DACB781608902C0041073D /* SpreadKitResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -993,22 +922,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0A00E8D15F0AC770068685D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C0A00EAC15F0AD320068685D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C0A00E9015F0AC770068685D /* SpreadKitResources */;
-			targetProxy = C0A00EAB15F0AD320068685D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C03806EE150103780004BFC4 /* InfoPlist.strings */ = {
@@ -1018,14 +932,6 @@
 			);
 			name = InfoPlist.strings;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		C0A00E9715F0AC770068685D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C0A00E9815F0AC770068685D /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1136,52 +1042,6 @@
 			};
 			name = Release;
 		};
-		C0A00EA015F0AC770068685D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = NO;
-				COMPRESS_PNG_FILES = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpreadKitResources/SpreadKitResources-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "SpreadKitResources/SpreadKitResources-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		C0A00EA115F0AC770068685D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = NO;
-				COMPRESS_PNG_FILES = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpreadKitResources/SpreadKitResources-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "SpreadKitResources/SpreadKitResources-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1208,15 +1068,6 @@
 			buildConfigurations = (
 				C09EF81E14C9953C000BB775 /* Debug */,
 				C09EF81F14C9953C000BB775 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C0A00E9F15F0AC770068685D /* Build configuration list for PBXNativeTarget "SpreadKitResources" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0A00EA015F0AC770068685D /* Debug */,
-				C0A00EA115F0AC770068685D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
