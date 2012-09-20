@@ -16,6 +16,9 @@
 		4752C04B15B95A21008CE664 /* SKProductConfigurationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4752C04915B95A21008CE664 /* SKProductConfigurationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4752C04C15B95A21008CE664 /* SKProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */; };
 		4752C04D15B95A21008CE664 /* SKProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */; };
+		C01A9B2F1609A67700511423 /* SKClientHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B2E1609A67700511423 /* SKClientHeaders.h */; };
+		C01A9B321609A70100511423 /* SKProcess.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B311609A70100511423 /* SKProcess.h */; };
+		C01A9B341609EE5C00511423 /* SKViewHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B331609EE5C00511423 /* SKViewHeaders.h */; };
 		C01D335915C6C32200C77A0B /* SKProductCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */; };
 		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C025362B15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
@@ -215,6 +218,9 @@
 		58FF5DBAA913476D8F2222BB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		594FB9197CC14363ADCC792C /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = SOURCE_ROOT; };
+		C01A9B2E1609A67700511423 /* SKClientHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKClientHeaders.h; sourceTree = "<group>"; };
+		C01A9B311609A70100511423 /* SKProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProcess.h; sourceTree = "<group>"; };
+		C01A9B331609EE5C00511423 /* SKViewHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKViewHeaders.h; sourceTree = "<group>"; };
 		C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductCreatorTests.m; sourceTree = "<group>"; };
 		C025362815E7744D000FA70E /* UIImage+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Orientation.h"; sourceTree = "<group>"; };
 		C025362915E7744D000FA70E /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
@@ -376,6 +382,7 @@
 				C04D26EF15B411810080C77F /* SKBasketManager.m */,
 				4752C03E15B94ECE008CE664 /* SKProductCreator.h */,
 				4752C03F15B94ECE008CE664 /* SKProductCreator.m */,
+				C01A9B311609A70100511423 /* SKProcess.h */,
 			);
 			name = Process;
 			sourceTree = "<group>";
@@ -395,6 +402,7 @@
 				C0E5A39F15F5E54F00447D14 /* SKProductViewController.m */,
 				C077529315F742B100E19A60 /* SKProductTypeChooserView.h */,
 				C077529415F742B100E19A60 /* SKProductTypeChooserView.m */,
+				C01A9B331609EE5C00511423 /* SKViewHeaders.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -542,6 +550,7 @@
 				C04D270015B411810080C77F /* SKPaginator.m */,
 				C04D270B15B411810080C77F /* SKURLConnection.h */,
 				C04D270C15B411810080C77F /* SKURLConnection.m */,
+				C01A9B2E1609A67700511423 /* SKClientHeaders.h */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -669,6 +678,9 @@
 				4752C04B15B95A21008CE664 /* SKProductConfigurationView.h in Headers */,
 				4752C04015B94ECE008CE664 /* SKProductCreator.h in Headers */,
 				C04D275315B411820080C77F /* SpreadKit.h in Headers */,
+				C01A9B2F1609A67700511423 /* SKClientHeaders.h in Headers */,
+				C01A9B321609A70100511423 /* SKProcess.h in Headers */,
+				C01A9B341609EE5C00511423 /* SKViewHeaders.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,13 +954,8 @@
 			baseConfigurationReference = 872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ExternalLibraries\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Tests/Supporting Files/SpreadKitTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ExternalLibraries";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -959,13 +966,8 @@
 			baseConfigurationReference = 872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ExternalLibraries\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Tests/Supporting Files/SpreadKitTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ExternalLibraries";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
