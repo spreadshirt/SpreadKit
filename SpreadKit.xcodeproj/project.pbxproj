@@ -20,6 +20,7 @@
 		C01A9B321609A70100511423 /* SKProcess.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B311609A70100511423 /* SKProcess.h */; };
 		C01A9B341609EE5C00511423 /* SKViewHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B331609EE5C00511423 /* SKViewHeaders.h */; };
 		C01D335915C6C32200C77A0B /* SKProductCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */; };
+		C02462C0160B10AC006413C0 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02462BF160B10AC006413C0 /* GHUnitIOS.framework */; };
 		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C025362B15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
 		C025362C15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
@@ -222,6 +223,7 @@
 		C01A9B311609A70100511423 /* SKProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProcess.h; sourceTree = "<group>"; };
 		C01A9B331609EE5C00511423 /* SKViewHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKViewHeaders.h; sourceTree = "<group>"; };
 		C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductCreatorTests.m; sourceTree = "<group>"; };
+		C02462BF160B10AC006413C0 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		C025362815E7744D000FA70E /* UIImage+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Orientation.h"; sourceTree = "<group>"; };
 		C025362915E7744D000FA70E /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
 		C02536A815E7AC8E000FA70E /* SKAppearanceChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearanceChooserView.h; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				C07813D91608684F00B713B7 /* CoreGraphics.framework in Frameworks */,
 				C03806E8150103780004BFC4 /* UIKit.framework in Frameworks */,
 				E5D666DA07C74346B7622F44 /* libPods-test.a in Frameworks */,
+				C02462C0160B10AC006413C0 /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +583,7 @@
 			children = (
 				C0A00E9215F0AC770068685D /* CoreFoundation.framework */,
 				C07813D81608684F00B713B7 /* CoreGraphics.framework */,
+				C02462BF160B10AC006413C0 /* GHUnitIOS.framework */,
 				594FB9197CC14363ADCC792C /* libPods-test.a */,
 				58FF5DBAA913476D8F2222BB /* libPods.a */,
 				872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */,
@@ -954,6 +958,10 @@
 			baseConfigurationReference = 872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Tests/Supporting Files/SpreadKitTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -966,6 +974,10 @@
 			baseConfigurationReference = 872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Tests/Supporting Files/SpreadKitTests-Info.plist";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
