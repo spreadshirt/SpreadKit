@@ -34,17 +34,19 @@ NSString* const SKObjectCacheKeyPathKey = @"SKObjectCacheKeyPathKey";
 
 - (void)addObject:(id)object
 {
-    
-    [self.cache setObject:object forKey:[object url].absoluteString];
-    [self pointReferencesToNewObject:object];
-    // scan for attached entities
-    for (RTProperty *property in [[object class] rt_properties]) {
-        id propertyObject = [object valueForKey:[property name]];
-        if ([[propertyObject class] isSubclassOfClass:[SKEntity class]]) {
-            if ([propertyObject respondsToSelector:@selector(url)]) {
-                [self addReferenceForURL:[propertyObject url] byObject:object atKeyPath:property.name];
+    if ([object respondsToSelector:@selector(url)])
+    {
+        [self.cache setObject:object forKey:[object url].absoluteString];
+        [self pointReferencesToNewObject:object];
+        // scan for attached entities
+        for (RTProperty *property in [[object class] rt_properties]) {
+            id propertyObject = [object valueForKey:[property name]];
+            if ([[propertyObject class] isSubclassOfClass:[SKEntity class]]) {
+                if ([propertyObject respondsToSelector:@selector(url)]) {
+                    [self addReferenceForURL:[propertyObject url] byObject:object atKeyPath:property.name];
+                }
+                [self addObject:propertyObject];
             }
-            [self addObject:propertyObject];
         }
     }
 }
