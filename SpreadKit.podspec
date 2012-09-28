@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'CoreGraphics', 'UIKit'
   s.dependency 'RestKit'
   s.dependency 'GMGridView'
+  s.dependency 'MAObjCRuntime'
 end
