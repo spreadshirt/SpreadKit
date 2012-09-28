@@ -11,7 +11,7 @@
 #import "SKSVG.h"
 #import "SKEntity.h"
 
-@interface SKSVGImage : SKEntity
+@interface SKSVGImage : SKSVG
 
 @property NSNumber * width;
 @property NSNumber * height;
