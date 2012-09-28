@@ -16,6 +16,9 @@
 		4752C04B15B95A21008CE664 /* SKProductConfigurationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4752C04915B95A21008CE664 /* SKProductConfigurationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4752C04C15B95A21008CE664 /* SKProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */; };
 		4752C04D15B95A21008CE664 /* SKProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SKProductConfigurationView.m */; };
+		C00EDC0C160B1F05008F8021 /* SKObjectCache.h in Headers */ = {isa = PBXBuildFile; fileRef = C00EDC0A160B1F05008F8021 /* SKObjectCache.h */; };
+		C00EDC0D160B1F05008F8021 /* SKObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C00EDC0B160B1F05008F8021 /* SKObjectCache.m */; };
+		C00EDC0E160B1F05008F8021 /* SKObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C00EDC0B160B1F05008F8021 /* SKObjectCache.m */; };
 		C01A9B2F1609A67700511423 /* SKClientHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B2E1609A67700511423 /* SKClientHeaders.h */; };
 		C01A9B321609A70100511423 /* SKProcess.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B311609A70100511423 /* SKProcess.h */; };
 		C01A9B341609EE5C00511423 /* SKViewHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B331609EE5C00511423 /* SKViewHeaders.h */; };
@@ -222,6 +225,8 @@
 		58FF5DBAA913476D8F2222BB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		594FB9197CC14363ADCC792C /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = SOURCE_ROOT; };
+		C00EDC0A160B1F05008F8021 /* SKObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectCache.h; sourceTree = "<group>"; };
+		C00EDC0B160B1F05008F8021 /* SKObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectCache.m; sourceTree = "<group>"; };
 		C01A9B2E1609A67700511423 /* SKClientHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKClientHeaders.h; sourceTree = "<group>"; };
 		C01A9B311609A70100511423 /* SKProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProcess.h; sourceTree = "<group>"; };
 		C01A9B331609EE5C00511423 /* SKViewHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKViewHeaders.h; sourceTree = "<group>"; };
@@ -561,6 +566,8 @@
 				C04D270B15B411810080C77F /* SKURLConnection.h */,
 				C04D270C15B411810080C77F /* SKURLConnection.m */,
 				C01A9B2E1609A67700511423 /* SKClientHeaders.h */,
+				C00EDC0A160B1F05008F8021 /* SKObjectCache.h */,
+				C00EDC0B160B1F05008F8021 /* SKObjectCache.m */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -692,6 +699,7 @@
 				C01A9B2F1609A67700511423 /* SKClientHeaders.h in Headers */,
 				C01A9B321609A70100511423 /* SKProcess.h in Headers */,
 				C01A9B341609EE5C00511423 /* SKViewHeaders.h in Headers */,
+				C00EDC0C160B1F05008F8021 /* SKObjectCache.h in Headers */,
 				C0373041160B46BF003EDAD6 /* SKEntity.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -887,6 +895,7 @@
 				C0ADDA1115FE208E00EF8867 /* SKProductTypeDepartment.m in Sources */,
 				C0ADDA1B15FE20FA00EF8867 /* SKProductTypeCategory.m in Sources */,
 				C0CDD92E1600751500965127 /* SKProductTypeDepartmentMappingTests.m in Sources */,
+				C00EDC0E160B1F05008F8021 /* SKObjectCache.m in Sources */,
 				C0373043160B46BF003EDAD6 /* SKEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,6 +953,7 @@
 				C077529615F742B100E19A60 /* SKProductTypeChooserView.m in Sources */,
 				C0ADDA1015FE208E00EF8867 /* SKProductTypeDepartment.m in Sources */,
 				C0ADDA1A15FE20FA00EF8867 /* SKProductTypeCategory.m in Sources */,
+				C00EDC0D160B1F05008F8021 /* SKObjectCache.m in Sources */,
 				C0373042160B46BF003EDAD6 /* SKEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

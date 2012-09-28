@@ -14,3 +14,4 @@
 #import "SKObjectMappingProvider.h"
 #import "SKPaginator.h"
 #import "SKURLConnection.h"
+#import "SKObjectCache.h"
