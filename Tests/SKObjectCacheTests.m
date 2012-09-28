@@ -79,23 +79,23 @@
     
     GHAssertEquals(article.shop, shop, nil);
     
-//    SKUser *userStub = [[SKUser alloc] init];
-//    userStub.url = [NSURL URLWithString:@"http://foo.user"];
-//    userStub.identifier = @"foo";
-//    
-//    [self.cache addObject:userStub];
-//    
-//    SKUser *user = [[SKUser alloc] init];
-//    user.url = [NSURL URLWithString:@"http://foo.user"];
-//    user.identifier = @"foo";
-//    user.name = @"foo";
-//    
-//    SKDesign *design = [[SKDesign alloc] init];
-//    design.user = user;
-//    
-//    [self.cache addObject:design];
-//    
-//    GHAssertEquals(design.user, user, nil);
+    SKUser *userStub = [[SKUser alloc] init];
+    userStub.url = [NSURL URLWithString:@"http://foo.user"];
+    userStub.identifier = @"foo";
+    
+    [self.cache addObject:userStub];
+    
+    SKUser *user = [[SKUser alloc] init];
+    user.url = [NSURL URLWithString:@"http://foo.user"];
+    user.identifier = @"foo";
+    user.name = @"foo";
+    
+    SKDesign *design = [[SKDesign alloc] init];
+    design.user = user;
+    
+    [self.cache addObject:design];
+    
+    GHAssertEquals(design.user, user, nil);
 }
 
 @end

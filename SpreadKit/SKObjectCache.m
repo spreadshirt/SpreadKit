@@ -9,6 +9,7 @@
 #import "SKObjectCache.h"
 
 #import "SKModel.h"
+#import "SKEntity+Caching.h"
 
 NSString* const SKObjectCacheObjectKey = @"SKObjectCacheObjectKey";
 NSString* const SKObjectCacheKeyPathKey = @"SKObjectCacheKeyPathKey";
@@ -34,29 +35,32 @@ NSString* const SKObjectCacheKeyPathKey = @"SKObjectCacheKeyPathKey";
 
 - (void)addObject:(id)object
 {
-    if (!([object respondsToSelector:@selector(url)] && [object url])) {
-        // not cachable, no unique identifier
+    if (![object cachingIdentifier]) {
+        // not cachable, because no id;
         return;
     }
     
-    id cached = [self.cache objectForKey:[object url].absoluteString];
+    id cached = [self.cache objectForKey:[object cachingIdentifier]];
     if (cached && ![self should:cached beReplacedBy:object]) {
         // cached object is better
         return;
     } else {
-        [self.cache setObject:object forKey:[object url].absoluteString];
+        [self.cache setObject:object forKey:[object cachingIdentifier]];
         [self pointReferencesToNewObject:object];
         for (RTProperty *property in [object class].rt_properties) {
             id propertyObject = [object valueForKey:[property name]];
             
             NSString *type = [[property.typeEncoding  stringByReplacingOccurrencesOfString:@"@" withString:@""] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-            if ([NSClassFromString(type) isSubclassOfClass:[SKEntity class]]) {
+            if ([NSClassFromString(type) isSubclassOfClass:[SKEntity class]] && [propertyObject cachingIdentifier]) {
                 
-                [self addReferenceForURL:[propertyObject url] byObject:object atKeyPath:property.name];
+                if ([propertyObject respondsToSelector:@selector(url)])
+                {
+                    [self addReferenceForURL:[propertyObject url] byObject:object atKeyPath:property.name];
+                }
                 
                 if (propertyObject)
                 {
-                    id cachedProperty = [self.cache objectForKey:[propertyObject url].absoluteString];
+                    id cachedProperty = [self.cache objectForKey:[propertyObject cachingIdentifier]];
                     if (!cachedProperty || [self should:propertyObject beReplacedBy:cachedProperty]) {
                         [object setValue:cachedProperty forKey:property.name];
                     }
@@ -81,7 +85,7 @@ NSString* const SKObjectCacheKeyPathKey = @"SKObjectCacheKeyPathKey";
 
 - (void)pointReferencesToNewObject:(id)object
 {
-    NSMutableArray * objectsAndKeyPaths = [self.entityReferences objectForKey:[object url].absoluteString];
+    NSMutableArray * objectsAndKeyPaths = [self.entityReferences objectForKey:[object cachingIdentifier]];
     for (NSDictionary * reference in objectsAndKeyPaths) {
         id referencingObject = reference[SKObjectCacheObjectKey];
         NSString * keyPath = reference[SKObjectCacheKeyPathKey];

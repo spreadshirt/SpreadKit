@@ -15,3 +15,4 @@
 #import "SKPaginator.h"
 #import "SKURLConnection.h"
 #import "SKObjectCache.h"
+#import "SKEntity+Caching.h"
