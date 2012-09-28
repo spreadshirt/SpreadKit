@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKShop;
 @class SKProduct;
 @class SKPrice;
 
-@interface SKArticle : NSObject
+@interface SKArticle : SKEntity
 
 @property (nonatomic, strong) NSURL * url;
 @property (nonatomic, strong) NSString * identifier;

@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SKSVG.h"
+#import "SKEntity.h"
 
-@interface SKSVGImage : SKSVG
+@interface SKSVGImage : SKEntity
 
 @property NSNumber * width;
 @property NSNumber * height;

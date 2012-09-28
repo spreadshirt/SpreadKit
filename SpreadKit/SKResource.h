@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface SKResource : NSObject
+#import "SKEntity.h"
+
+@interface SKResource : SKEntity
 
 @property (nonatomic, strong) NSString * mediaType;
 @property (nonatomic, strong) NSString * type;

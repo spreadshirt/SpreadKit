@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKPrintArea;
 @class SKPrintType;
 @class SKOffset;
 @class SKViewSize;
 @class SKSVG;
 
-@interface SKProductConfiguration : NSObject
+@interface SKProductConfiguration : SKEntity
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * type;

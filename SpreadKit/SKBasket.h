@@ -8,10 +8,12 @@
 
 #import "SKShop.h"
 
+#import "SKEntity.h"
+
 @class SKUser;
 @class SKEntityList;
 
-@interface SKBasket : NSObject
+@interface SKBasket : SKEntity
 
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSString *token;

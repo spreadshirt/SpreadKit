@@ -42,6 +42,9 @@
 		C033ADF415B58CDE0071D341 /* SKViewMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C033ADF115B58CDE0071D341 /* SKViewMap.m */; };
 		C035E4E415063FE800A52242 /* products2.json in Resources */ = {isa = PBXBuildFile; fileRef = C035E4E315063FE800A52242 /* products2.json */; };
 		C0369C1415C2BF53008548AE /* SKProductMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0369C1315C2BF53008548AE /* SKProductMappingTests.m */; };
+		C0373041160B46BF003EDAD6 /* SKEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = C037303F160B46BF003EDAD6 /* SKEntity.h */; };
+		C0373042160B46BF003EDAD6 /* SKEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C0373040160B46BF003EDAD6 /* SKEntity.m */; };
+		C0373043160B46BF003EDAD6 /* SKEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C0373040160B46BF003EDAD6 /* SKEntity.m */; };
 		C03806E8150103780004BFC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84014C99F83000BB775 /* UIKit.framework */; };
 		C03806F0150103780004BFC4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C03806EE150103780004BFC4 /* InfoPlist.strings */; };
 		C03806F2150103780004BFC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C03806F1150103780004BFC4 /* main.m */; };
@@ -240,6 +243,8 @@
 		C033ADF115B58CDE0071D341 /* SKViewMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKViewMap.m; sourceTree = "<group>"; };
 		C035E4E315063FE800A52242 /* products2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products2.json; sourceTree = "<group>"; };
 		C0369C1315C2BF53008548AE /* SKProductMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProductMappingTests.m; sourceTree = "<group>"; };
+		C037303F160B46BF003EDAD6 /* SKEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEntity.h; sourceTree = "<group>"; };
+		C0373040160B46BF003EDAD6 /* SKEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEntity.m; sourceTree = "<group>"; };
 		C03806E6150103780004BFC4 /* SpreadKitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpreadKitTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03806ED150103780004BFC4 /* SpreadKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpreadKitTests-Info.plist"; sourceTree = "<group>"; };
 		C03806EF150103780004BFC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -515,6 +520,8 @@
 				C033ADE715B58A220071D341 /* SKViewSize.m */,
 				C0ADDA1715FE20FA00EF8867 /* SKProductTypeCategory.h */,
 				C0ADDA1815FE20FA00EF8867 /* SKProductTypeCategory.m */,
+				C037303F160B46BF003EDAD6 /* SKEntity.h */,
+				C0373040160B46BF003EDAD6 /* SKEntity.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -685,6 +692,7 @@
 				C01A9B2F1609A67700511423 /* SKClientHeaders.h in Headers */,
 				C01A9B321609A70100511423 /* SKProcess.h in Headers */,
 				C01A9B341609EE5C00511423 /* SKViewHeaders.h in Headers */,
+				C0373041160B46BF003EDAD6 /* SKEntity.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,6 +887,7 @@
 				C0ADDA1115FE208E00EF8867 /* SKProductTypeDepartment.m in Sources */,
 				C0ADDA1B15FE20FA00EF8867 /* SKProductTypeCategory.m in Sources */,
 				C0CDD92E1600751500965127 /* SKProductTypeDepartmentMappingTests.m in Sources */,
+				C0373043160B46BF003EDAD6 /* SKEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +944,7 @@
 				C077529615F742B100E19A60 /* SKProductTypeChooserView.m in Sources */,
 				C0ADDA1015FE208E00EF8867 /* SKProductTypeDepartment.m in Sources */,
 				C0ADDA1A15FE20FA00EF8867 /* SKProductTypeCategory.m in Sources */,
+				C0373042160B46BF003EDAD6 /* SKEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

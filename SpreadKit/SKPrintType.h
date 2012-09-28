@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKSize;
 @class SKPrice;
 
-@interface SKPrintType : NSObject
+@interface SKPrintType : SKEntity
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSURL * url;

@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKProductTypeCategory : NSObject
+#import "SKEntity.h"
+
+@interface SKProductTypeCategory : SKEntity
 
 @property NSString * identifier;
 @property NSString * name;

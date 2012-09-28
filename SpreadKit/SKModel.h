@@ -6,6 +6,7 @@
 //
 //
 
+#import "SKEntity.h"
 #import "SKShop.h"
 #import "SKUser.h"
 #import "SKAppearance.h"

@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKPrice;
 @class SKAppearance;
 @class SKView;
 @class SKPrintArea;
 
-@interface SKProductType : NSObject
+@interface SKProductType : SKEntity
 
 @property (nonatomic, strong) NSURL* url;
 @property (nonatomic, strong) NSString * identifier;

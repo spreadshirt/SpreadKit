@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKSize : NSObject
+#import "SKEntity.h"
+
+@interface SKSize : SKEntity
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * name;

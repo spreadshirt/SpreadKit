@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKViewSize;
 
-@interface SKSVG : NSObject
+@interface SKSVG : SKEntity
 
 @property NSString * transform;
 @property NSString * printColorIds;

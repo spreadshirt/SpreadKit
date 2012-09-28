@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "SKSVG.h"
+#import "SKEntity.h"
 
-@interface SKSVGText : SKSVG
+@interface SKSVGText : SKEntity
 
 @property NSString * fontStyle;
 @property NSString * fontSize;

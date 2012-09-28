@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKColor : NSObject
+#import "SKEntity.h"
+
+@interface SKColor : SKEntity
 
 @property (nonatomic, strong) NSNumber * index;
 @property (nonatomic, strong) NSString * representation;

@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKAppearance : NSObject
+#import "SKEntity.h"
+
+@interface SKAppearance : SKEntity
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *name;

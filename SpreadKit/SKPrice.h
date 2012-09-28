@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKCurrency;
 
-@interface SKPrice : NSObject
+@interface SKPrice : SKEntity
 
 @property (nonatomic, strong) NSNumber * vatExcluded;
 @property (nonatomic, strong) NSNumber * vatIncluded;

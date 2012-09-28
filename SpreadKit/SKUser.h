@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKEntityList;
 @class SKCurrency;
 @class SKLanguage;
 @class SKCountry;
 
-@interface SKUser : NSObject
+@interface SKUser : SKEntity
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSURL * url;

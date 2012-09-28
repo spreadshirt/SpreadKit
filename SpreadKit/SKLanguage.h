@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKLanguage : NSObject
+#import "SKEntity.h"
+
+@interface SKLanguage : SKEntity
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSURL * url;

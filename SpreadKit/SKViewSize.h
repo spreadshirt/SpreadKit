@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKViewSize : NSObject
+#import "SKEntity.h"
+
+@interface SKViewSize : SKEntity
 
 @property (nonatomic, strong) NSNumber * width;
 @property (nonatomic, strong) NSNumber * height;

@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKUser;
 @class SKEntityList;
 @class SKCountry;
 @class SKCurrency;
 @class SKLanguage;
 
-@interface SKShop : NSObject
+@interface SKShop : SKEntity
 
 @property (strong) NSURL * url;
 @property (strong) NSString * identifier;

@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKProductTypeDepartment : NSObject
+#import "SKEntity.h"
+
+@interface SKProductTypeDepartment : SKEntity
 
 @property NSString * identifier;
 @property NSURL * url;

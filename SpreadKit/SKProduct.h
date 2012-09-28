@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKResource;
 @class SKUser;
 @class SKProductType;
 @class SKAppearance;
 
-@interface SKProduct : NSObject
+@interface SKProduct : SKEntity
 
 @property (nonatomic, strong) NSString * creator;
 @property (nonatomic, strong) NSString * identifier;

@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKViewSize;
 @class SKViewMap;
 
-@interface SKView : NSObject
+@interface SKView : SKEntity
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * name;

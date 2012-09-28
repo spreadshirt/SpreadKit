@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SKEntity.h"
+
 @class SKShop;
 @class SKSize;
 @class SKAppearance;
 @class SKPrice;
 
-@interface SKBasketItem : NSObject
+@interface SKBasketItem : SKEntity
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * description;

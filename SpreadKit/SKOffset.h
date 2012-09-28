@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKOffset : NSObject
+#import "SKEntity.h"
+
+@interface SKOffset : SKEntity
 
 @property (nonatomic, strong) NSString * unit;
 @property (nonatomic, strong) NSNumber * x;

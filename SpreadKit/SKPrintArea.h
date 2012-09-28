@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#import "SKEntity.h"
+
 @class SKView;
 
-@interface SKPrintArea : NSObject
+@interface SKPrintArea : SKEntity
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSNumber * appearanceColorIndex;
