@@ -16,6 +16,7 @@ NSString* const SKObjectCacheKeyPathKey = @"SKObjectCacheKeyPathKey";
 @interface SKObjectCache ()
 
 @property NSMutableDictionary * entityReferences;
+@property NSCache * cache;
 
 @end
 
@@ -26,14 +27,17 @@ NSString* const SKObjectCacheKeyPathKey = @"SKObjectCacheKeyPathKey";
     self = [super init];
     if (self) {
         self.entityReferences = [NSMutableDictionary dictionary];
+        self.cache = [[NSCache alloc] init];
     }
     return self;
 }
 
 - (void)addObject:(id)object
 {
-    // scan for attached entities
     
+    [self.cache setObject:object forKey:[object url].absoluteString];
+    [self pointReferencesToNewObject:object];
+    // scan for attached entities
     for (RTProperty *property in [[object class] rt_properties]) {
         id propertyObject = [object valueForKey:[property name]];
         if ([[propertyObject class] isSubclassOfClass:[SKEntity class]]) {
@@ -43,8 +47,6 @@ NSString* const SKObjectCacheKeyPathKey = @"SKObjectCacheKeyPathKey";
             [self addObject:propertyObject];
         }
     }
-    
-    NSLog(@"foo");
 }
 
 - (void)addReferenceForURL:(NSURL *)url byObject:(id)object atKeyPath:(NSString *)keyPath
@@ -57,9 +59,19 @@ NSString* const SKObjectCacheKeyPathKey = @"SKObjectCacheKeyPathKey";
     [objectsAndKeyPaths addObject:@{SKObjectCacheObjectKey : object, SKObjectCacheKeyPathKey : keyPath}];
 }
 
+- (void)pointReferencesToNewObject:(id)object
+{
+    NSMutableArray * objectsAndKeyPaths = [self.entityReferences objectForKey:[object url].absoluteString];
+    for (NSDictionary * reference in objectsAndKeyPaths) {
+        id referencingObject = reference[SKObjectCacheObjectKey];
+        NSString * keyPath = reference[SKObjectCacheKeyPathKey];
+        [referencingObject setValue:object forKey:keyPath];
+    }
+}
+
 - (id)objectForUrl:(NSURL *)url
 {
-    
+    return [self.cache objectForKey:url.absoluteString];
 }
 
 

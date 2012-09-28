@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 
+#import "SKObjectCache.h"
+
 @class SKEntityList;
 
 @interface SKObjectManager : NSObject

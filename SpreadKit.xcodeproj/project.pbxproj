@@ -139,6 +139,7 @@
 		C079639D15C2839500360DC6 /* SKSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SKSVGText.m */; };
 		C079639E15C2839500360DC6 /* SKSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SKSVGText.m */; };
 		C07963A015C2ABF600360DC6 /* SKObjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639F15C2ABF600360DC6 /* SKObjectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C09795FC161055B3003DD4D2 /* SKObjectCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C09795FB161055B3003DD4D2 /* SKObjectCacheTests.m */; };
 		C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A00EC415F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
 		C0A00EC515F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
@@ -311,6 +312,7 @@
 		C079639B15C2839500360DC6 /* SKSVGText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSVGText.m; sourceTree = "<group>"; };
 		C079639F15C2ABF600360DC6 /* SKObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKObjectManager.h; sourceTree = "<group>"; };
 		C096A28B1500E0B000C70D86 /* libSpreadKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpreadKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C09795FB161055B3003DD4D2 /* SKObjectCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKObjectCacheTests.m; sourceTree = "<group>"; };
 		C09EF84014C99F83000BB775 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C0A00E9215F0AC770068685D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SpreadKit.h"; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				C03806EC150103780004BFC4 /* Supporting Files */,
 				C026FA2515AF0BD600FFEB69 /* testImage.jpg */,
 				C01D335815C6C32200C77A0B /* SKProductCreatorTests.m */,
+				C09795FB161055B3003DD4D2 /* SKObjectCacheTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				C0CDD92E1600751500965127 /* SKProductTypeDepartmentMappingTests.m in Sources */,
 				C00EDC0E160B1F05008F8021 /* SKObjectCache.m in Sources */,
 				C0373043160B46BF003EDAD6 /* SKEntity.m in Sources */,
+				C09795FC161055B3003DD4D2 /* SKObjectCacheTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

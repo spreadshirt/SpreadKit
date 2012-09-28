@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <MAObjCRuntime/MARTNSObject.h>
-#include <MAObjCRuntime/RTProperty.h>
-#include <MAObjCRuntime/RTMethod.h>
+#import <MAObjCRuntime/RTProperty.h>
+#import <MAObjCRuntime/RTMethod.h>
 
 @interface SKObjectCache : NSObject
 

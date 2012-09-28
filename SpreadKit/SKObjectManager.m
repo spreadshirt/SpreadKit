@@ -16,6 +16,7 @@
 @implementation SKObjectManager
 {
     NSMutableDictionary *defaultParams;
+    SKObjectCache *cache;
 }
 
 @synthesize apiKey, secret, serverTimeOffset;
@@ -29,6 +30,7 @@
 {
     if (self = [super init]) {
         defaultParams = [NSMutableDictionary dictionaryWithKeysAndObjects:@"mediaType", @"json", @"fullData", @"true", nil];
+        cache = [[SKObjectCache alloc] init];
     }
     return self;
 }
@@ -50,7 +52,10 @@
             completion(list, error);
         }];
     } else {
-        [self getSingleObjectStub:objectStub completion:completion];
+        [self getSingleObjectStub:objectStub completion:^(id loaded, NSError *error) {
+            [cache addObject:loaded];
+            completion(loaded, error);
+        }];
     }
 }
 
