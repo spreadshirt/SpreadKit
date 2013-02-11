@@ -43,7 +43,8 @@
     
     client = [SPClient clientWithShopId:@"foo"
                               andApiKey:@"bar" 
-                              andSecret:@"baz"];
+                              andSecret:@"baz"
+                            andPlatform:SPPlatformEU];
     
     GHAssertNotNil(client, @"Local client should be initialized");
     GHAssertNotNil(client, @"Shared client should have been set");
@@ -55,13 +56,13 @@
     GHAssertEqualStrings(client.shopId, @"foo", @"Client should have the right shop ID");
     
     // initialize another client
-    client = [SPClient clientWithUserId:@"" andApiKey:@"" andSecret:@""];
+    client = [SPClient clientWithUserId:@"" andApiKey:@"" andSecret:@"" andPlatform:SPPlatformEU];
     GHAssertNotEqualObjects(client, [SPClient sharedClient], @"Shared client should not have been overriden by new instance");
 }
 
 - (void)testDirectIdLoading
 {
-    SPClient *directClient = [SPClient clientWithShopId:@"654135" andApiKey:@"xxx" andSecret:@"xxx"];
+    SPClient *directClient = [SPClient clientWithShopId:@"654135" andApiKey:@"xxx" andSecret:@"xxx" andPlatform:SPPlatformEU];
     [directClient getShopAndOnCompletion:^(SPShop *shop, NSError *error) {
         GHAssertNil(error, nil);
         [directClient get:[SPProductType class] identifier:@"6" completion:^(id loadedObject, NSError *error) {
@@ -72,23 +73,6 @@
             GHAssertNotNil(error, nil);
         }];
     }];
-}
-
-- (void)testPlatformSwitch
-{
-    client = [SPClient clientWithShopId:@"" andApiKey:@"" andSecret:@""];
-    
-    NSString *currentCountryCode = [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
-    
-    NSArray *naLocales = @[@"US", @"CA"];
-    
-    if ([naLocales containsObject:currentCountryCode]) {
-        GHAssertEqualStrings([SPClient sharedClient].platform, SPPlatformNA, nil);
-        GHAssertEqualStrings([SPClient sharedClient].baseURL, @"http://api.spreadshirt.com/api/v1", nil);
-    } else {
-        GHAssertEqualStrings([SPClient sharedClient].platform, SPPlatformEU, nil);
-        GHAssertEqualStrings([SPClient sharedClient].baseURL, @"http://api.spreadshirt.net/api/v1", nil);
-    }
 }
 
 - (void)testManualPlatformSelection {

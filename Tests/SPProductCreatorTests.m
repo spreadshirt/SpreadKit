@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
 
+#import "SPConstants.h"
 #import "SPClient.h"
 #import "SPProductCreator.h"
 
@@ -20,7 +21,7 @@
 
 - (void)setUp
 {
-    [SPClient setSharedClient:[SPClient clientWithShopId:@"654135" andApiKey:@"xxx" andSecret:@"xxx"]];
+    [SPClient setSharedClient:[SPClient clientWithShopId:@"654135" andApiKey:@"xxx" andSecret:@"xxx" andPlatform:SPPlatformEU]];
     [self prepare];
     [[SPClient sharedClient] getShopAndOnCompletion:^(SPShop *shop, NSError *error) {
         [self notify:kGHUnitWaitStatusSuccess];

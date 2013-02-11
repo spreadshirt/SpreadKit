@@ -70,11 +70,7 @@ static SPClient *sharedClient = nil;
         userId = theUserId;
         shopId = theShopId;
         
-        if (!thePlatform) {
-            [self setPlatformDependingOnCurrentLocale];
-        } else {
-            platform = thePlatform;
-        }
+        platform = thePlatform;
         
         [self setBaseUrlForPlatform];
         
@@ -94,15 +90,6 @@ static SPClient *sharedClient = nil;
         baseURL = @"http://api.spreadshirt.net/api/v1";
     } else if ([self.platform isEqualToString:SPPlatformNA]) {
         baseURL = @"http://api.spreadshirt.com/api/v1";
-    }
-}
-
-- (void)setPlatformDependingOnCurrentLocale {
-    NSArray *countriesNA = @[@"US", @"CA"];
-    if ([countriesNA containsObject:[[NSLocale currentLocale] objectForKey:NSLocaleCountryCode]]) {
-        platform = SPPlatformNA;
-    } else {
-        platform = SPPlatformEU;
     }
 }
 

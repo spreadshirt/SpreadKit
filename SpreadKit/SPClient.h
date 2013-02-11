@@ -38,18 +38,6 @@
 // Set the shared instance of the client.
 + (void)setSharedClient:(SPClient *)client;
 
-// Return a client scoped to a particular shop. If the singleton is nil,
-// the return client is set as the singleton.
-+ (SPClient *)clientWithShopId:(NSString *)shopId
-                     andApiKey:(NSString *)apiKey
-                     andSecret:(NSString *)secret;
-
-// Return a client scoped to a particular user. If the singleton is nil,
-// the return client is set as the singleton.
-+ (SPClient *)clientWithUserId:(NSString *)userId
-                    andApiKey:(NSString *)apiKey
-                     andSecret:(NSString *)secret;
-
 // Return a client scoped to a particular user and a specified Spreadshirt platform.
 // If the singleton is nil, the return client is set as the singleton.
 + (SPClient *)clientWithUserId:(NSString *)userId

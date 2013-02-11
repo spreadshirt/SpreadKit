@@ -12,6 +12,7 @@
 #import "SPBasketManager.h"
 #import "SPArticle.h"
 #import "SPClient.h"
+#import "SPConstants.h"
 
 @interface SPBasketManagerTests : GHAsyncTestCase
 
@@ -21,7 +22,7 @@
 
 - (void)setUpClass
 {
-    [SPClient clientWithShopId:@"" andApiKey:@"xxx" andSecret:@"xxx"];
+    [SPClient clientWithShopId:@"" andApiKey:@"xxx" andSecret:@"xxx" andPlatform:SPPlatformEU];
 }
 
 - (void)testCheckout
