@@ -91,4 +91,24 @@
     }
 }
 
+- (void)testManualPlatformSelection {
+    
+    SPClient *client1 = [SPClient clientWithShopId:@"" andApiKey:@"" andSecret:@"" andPlatform:SPPlatformEU];
+    GHAssertEqualStrings(client1.platform, SPPlatformEU, nil);
+    GHAssertEqualStrings(client1.baseURL, @"http://api.spreadshirt.net/api/v1", nil);
+    
+    SPClient *client2 = [SPClient clientWithShopId:@"" andApiKey:@"" andSecret:@"" andPlatform:SPPlatformNA];
+    GHAssertEqualStrings(client2.platform, SPPlatformNA, nil);
+    GHAssertEqualStrings(client2.baseURL, @"http://api.spreadshirt.com/api/v1", nil);
+
+    SPClient *client3 = [SPClient clientWithUserId:@"" andApiKey:@"" andSecret:@"" andPlatform:SPPlatformEU];
+    GHAssertEqualStrings(client3.platform, SPPlatformEU, nil);
+    GHAssertEqualStrings(client3.baseURL, @"http://api.spreadshirt.net/api/v1", nil);
+
+    SPClient* client4 = [SPClient clientWithUserId:@"" andApiKey:@"" andSecret:@"" andPlatform:SPPlatformNA];
+    GHAssertEqualStrings(client4.platform, SPPlatformNA, nil);
+    GHAssertEqualStrings(client4.baseURL, @"http://api.spreadshirt.com/api/v1", nil);
+
+}
+
 @end

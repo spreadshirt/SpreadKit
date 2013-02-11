@@ -35,13 +35,25 @@ static SPClient *sharedClient = nil;
 
 + (SPClient *)clientWithShopId:(NSString *)shopId andApiKey:(NSString *)apiKey andSecret:(NSString *)secret
 {
-    SPClient *client = [[SPClient alloc] initWithApiKey:apiKey andSecret:secret andUserId:nil andShopId:shopId];
+    SPClient *client = [[SPClient alloc] initWithApiKey:apiKey andSecret:secret andUserId:nil andShopId:shopId andPlatform:nil];
+    return client;
+}
+
++ (SPClient *)clientWithShopId:(NSString *)shopId andApiKey:(NSString *)apiKey andSecret:(NSString *)secret andPlatform:(NSString *)platform
+{
+    SPClient *client = [[SPClient alloc] initWithApiKey:apiKey andSecret:secret andUserId:nil andShopId:shopId andPlatform:platform];
     return client;
 }
 
 + (SPClient *)clientWithUserId:(NSString *)userId andApiKey:(NSString *)apiKey andSecret:(NSString *)secret
 {
-    SPClient *client = [[SPClient alloc] initWithApiKey:apiKey andSecret:secret andUserId:userId andShopId:nil];
+    SPClient *client = [[SPClient alloc] initWithApiKey:apiKey andSecret:secret andUserId:userId andShopId:nil andPlatform:nil];
+    return client;
+}
+
++ (SPClient *)clientWithUserId:(NSString *)userId andApiKey:(NSString *)apiKey andSecret:(NSString *)secret andPlatform:(NSString *)platform
+{
+    SPClient *client = [[SPClient alloc] initWithApiKey:apiKey andSecret:secret andUserId:userId andShopId:nil andPlatform:platform];
     return client;
 }
 
@@ -49,6 +61,7 @@ static SPClient *sharedClient = nil;
            andSecret:(NSString *)theSecret
            andUserId:(NSString *)theUserId
            andShopId:(NSString *)theShopId
+         andPlatform:(NSString *)thePlatform;
 {
     self = [self init];
     if (self) {
@@ -57,7 +70,13 @@ static SPClient *sharedClient = nil;
         userId = theUserId;
         shopId = theShopId;
         
-        [self setPlatformDependingOnCurrentLocale];
+        if (!thePlatform) {
+            [self setPlatformDependingOnCurrentLocale];
+        } else {
+            platform = thePlatform;
+        }
+        
+        [self setBaseUrlForPlatform];
         
         manager = [SPObjectManager objectManagerWithApiKey:apiKey andSecret:secret];
         entityURLs = [NSMutableDictionary dictionary];
@@ -70,14 +89,20 @@ static SPClient *sharedClient = nil;
     return self;
 }
 
+- (void)setBaseUrlForPlatform {
+    if ([self.platform isEqualToString:SPPlatformEU]) {
+        baseURL = @"http://api.spreadshirt.net/api/v1";
+    } else if ([self.platform isEqualToString:SPPlatformNA]) {
+        baseURL = @"http://api.spreadshirt.com/api/v1";
+    }
+}
+
 - (void)setPlatformDependingOnCurrentLocale {
     NSArray *countriesNA = @[@"US", @"CA"];
     if ([countriesNA containsObject:[[NSLocale currentLocale] objectForKey:NSLocaleCountryCode]]) {
         platform = SPPlatformNA;
-        baseURL = @"http://api.spreadshirt.com/api/v1";
     } else {
         platform = SPPlatformEU;
-        baseURL = @"http://api.spreadshirt.net/api/v1";
     }
 }
 
