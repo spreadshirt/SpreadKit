@@ -163,6 +163,7 @@
 		C0B2FA80156FBD63008A103B /* article.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B2FA7F156FBD63008A103B /* article.json */; };
 		C0C41BC6155BA976009F70FF /* SPAuthenticationProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C41BC5155BA976009F70FF /* SPAuthenticationProviderTests.m */; };
 		C0C7116215AD9DC900302CC4 /* SPEntityListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C7116115AD9DC900302CC4 /* SPEntityListTests.m */; };
+		C0C978ED16C4F30900F107E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C978EC16C4F30900F107E0 /* Default-568h@2x.png */; };
 		C0CDD926160074F200965127 /* productTypeDepartment.json in Resources */ = {isa = PBXBuildFile; fileRef = C0CDD925160074F200965127 /* productTypeDepartment.json */; };
 		C0CDD92E1600751500965127 /* SPProductTypeDepartmentMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CDD92D1600751500965127 /* SPProductTypeDepartmentMappingTests.m */; };
 		C0DACB781608902C0041073D /* SpreadKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C0DACB771608902C0041073D /* SpreadKitResources.bundle */; };
@@ -342,6 +343,7 @@
 		C0C6921714EE57440068C18D /* SPImageLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPImageLoaderTests.m; sourceTree = "<group>"; };
 		C0C6921814EE57440068C18D /* SPObjectMappingProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SPObjectMappingProviderTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C0C7116115AD9DC900302CC4 /* SPEntityListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPEntityListTests.m; sourceTree = "<group>"; };
+		C0C978EC16C4F30900F107E0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C0CDD925160074F200965127 /* productTypeDepartment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productTypeDepartment.json; sourceTree = "<group>"; };
 		C0CDD92D1600751500965127 /* SPProductTypeDepartmentMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProductTypeDepartmentMappingTests.m; sourceTree = "<group>"; };
 		C0DACB771608902C0041073D /* SpreadKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SpreadKitResources.bundle; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 		C09EF80814C9953C000BB775 = {
 			isa = PBXGroup;
 			children = (
+				C0C978EC16C4F30900F107E0 /* Default-568h@2x.png */,
 				C0DACB771608902C0041073D /* SpreadKitResources.bundle */,
 				C09EF81514C9953C000BB775 /* Frameworks */,
 				C09EF81414C9953C000BB775 /* Products */,
@@ -762,7 +765,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SP;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "sprd.net AG";
 			};
 			buildConfigurationList = C09EF80D14C9953C000BB775 /* Build configuration list for PBXProject "SpreadKit" */;
@@ -800,6 +803,7 @@
 				C026FA2615AF0BD600FFEB69 /* testImage.jpg in Resources */,
 				C0CDD926160074F200965127 /* productTypeDepartment.json in Resources */,
 				C0DACB781608902C0041073D /* SpreadKitResources.bundle in Resources */,
+				C0C978ED16C4F30900F107E0 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1056,6 +1060,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1068,6 +1076,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
@@ -1080,11 +1089,16 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
