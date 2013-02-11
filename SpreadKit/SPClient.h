@@ -27,6 +27,11 @@
 // The Shop ID for all operations to the Spreadshirt API.
 @property (strong, readonly) NSString *shopId;
 
+// The Platform of the client, valid Values are SPPlatformEU and SPPlatformNA
+@property (strong, readonly) NSString *platform;
+
+@property (strong, readonly) NSString *baseURL;
+
 // Return the shared instance of the client.
 + (SPClient *)sharedClient;
 

@@ -14,3 +14,5 @@ FOUNDATION_EXPORT NSInteger const SPImageUploadFailedError;
 FOUNDATION_EXPORT NSInteger const SPPostFailedError;
 FOUNDATION_EXPORT NSInteger const SPURLMissingError;
 FOUNDATION_EXPORT NSString *const SPErrorMessageKey;
+FOUNDATION_EXPORT NSString *const SPPlatformNA;
+FOUNDATION_EXPORT NSString *const SPPlatformEU;

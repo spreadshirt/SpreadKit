@@ -14,3 +14,6 @@ NSInteger const SPImageUploadFailedError = -20;
 NSInteger const SPURLMissingError = -30;
 NSInteger const SPPostFailedError = -40;
 NSString *const SPErrorMessageKey = @"SPErrorMessageKey";
+
+NSString *const SPPlatformNA = @"SPPlatformNA";
+NSString *const SPPlatformEU = @"SPPlatformEU";

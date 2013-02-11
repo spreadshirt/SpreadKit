@@ -14,16 +14,14 @@
 
 
 static SPClient *sharedClient = nil;
-NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 
 @implementation SPClient
 {
-    NSURL *baseUrl;
     SPObjectManager *manager;
     NSMutableDictionary *entityURLs;
 }
 
-@synthesize apiKey, shopId, userId, secret;
+@synthesize apiKey, shopId, userId, secret, platform, baseURL;
 
 + (SPClient *)sharedClient
 {
@@ -59,7 +57,8 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
         userId = theUserId;
         shopId = theShopId;
         
-        baseUrl = [NSURL URLWithString:BASE];
+        [self setPlatformDependingOnCurrentLocale];
+        
         manager = [SPObjectManager objectManagerWithApiKey:apiKey andSecret:secret];
         entityURLs = [NSMutableDictionary dictionary];
         
@@ -71,9 +70,20 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
     return self;
 }
 
+- (void)setPlatformDependingOnCurrentLocale {
+    NSArray *countriesNA = @[@"US", @"CA"];
+    if ([countriesNA containsObject:[[NSLocale currentLocale] objectForKey:NSLocaleCountryCode]]) {
+        platform = SPPlatformNA;
+        baseURL = @"http://api.spreadshirt.com/api/v1";
+    } else {
+        platform = SPPlatformEU;
+        baseURL = @"http://api.spreadshirt.net/api/v1";
+    }
+}
+
 - (void)getShopAndOnCompletion:(void (^)(SPShop *, NSError *))completion
 {
-    NSURL *shopURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@", BASE, self.shopId]];
+    NSURL *shopURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/shops/%@", baseURL, self.shopId]];
     
     SPShop *stubShop = [[SPShop alloc] init];
     stubShop.url = shopURL;
@@ -87,7 +97,7 @@ NSString * const BASE = @"http://api.spreadshirt.net/api/v1";
 
 - (void)getUserAndOnCompletion:(void (^)(SPUser *, NSError *))completion
 {
-    NSURL *userURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", BASE, self.shopId]];
+    NSURL *userURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", baseURL, self.shopId]];
     
     SPUser *stubUser = [[SPUser alloc] init];
     stubUser.url = userURL;

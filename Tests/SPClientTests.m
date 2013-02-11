@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
+#import <OCMock/OCMock.h>
 
 #import "SpreadKit.h"
 
 @interface SPClientTests : GHTestCase
+{
+    SPClient *client;
+}
 @end
 
 @implementation SPClientTests
@@ -21,14 +25,18 @@
     [SPClient setSharedClient:nil];
 }
 
-- (void)tearDownClass
+- (void)setUp
+{
+    client = [SPClient sharedClient];
+}
+
+- (void)tearDown
 {
     [SPClient setSharedClient:nil];
 }
 
 - (void)testClientInitialization
 {
-    SPClient *client = [SPClient sharedClient];
     GHAssertNil(client, @"Shared client should be nil at the beginning");
     
     // initialize the shared client
@@ -53,22 +61,34 @@
 
 - (void)testDirectIdLoading
 {
-    SPClient *client = [SPClient clientWithShopId:@"654135" andApiKey:@"xxx" andSecret:@"xxx"];
-    [client getShopAndOnCompletion:^(SPShop *shop, NSError *error) {
+    SPClient *directClient = [SPClient clientWithShopId:@"654135" andApiKey:@"xxx" andSecret:@"xxx"];
+    [directClient getShopAndOnCompletion:^(SPShop *shop, NSError *error) {
         GHAssertNil(error, nil);
-        [client get:[SPProductType class] identifier:@"6" completion:^(id loadedObject, NSError *error) {
+        [directClient get:[SPProductType class] identifier:@"6" completion:^(id loadedObject, NSError *error) {
             GHAssertNil(error, nil);
             GHAssertNotNil(loadedObject, nil);
         }];
-        [client get:[SPResource class] identifier:@"foo" completion:^(id loadedObject, NSError *error) {
+        [directClient get:[SPResource class] identifier:@"foo" completion:^(id loadedObject, NSError *error) {
             GHAssertNotNil(error, nil);
         }];
     }];
 }
 
-- (void)tearDown
+- (void)testPlatformSwitch
 {
-    [SPClient setSharedClient:nil];
+    client = [SPClient clientWithShopId:@"" andApiKey:@"" andSecret:@""];
+    
+    NSString *currentCountryCode = [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
+    
+    NSArray *naLocales = @[@"US", @"CA"];
+    
+    if ([naLocales containsObject:currentCountryCode]) {
+        GHAssertEqualStrings([SPClient sharedClient].platform, SPPlatformNA, nil);
+        GHAssertEqualStrings([SPClient sharedClient].baseURL, @"http://api.spreadshirt.com/api/v1", nil);
+    } else {
+        GHAssertEqualStrings([SPClient sharedClient].platform, SPPlatformEU, nil);
+        GHAssertEqualStrings([SPClient sharedClient].baseURL, @"http://api.spreadshirt.net/api/v1", nil);
+    }
 }
 
 @end
