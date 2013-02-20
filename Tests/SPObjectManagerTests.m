@@ -11,14 +11,14 @@
 #import <RestKit/RestKit.h>
 #import "SPObjectMappingProvider.h"
 #import "SPUser.h"
-#import "SPEntityList.h"
+#import "SPList.h"
 #import "SPObjectManager.h"
 #import "SPBasket.h"
 
 @interface SPObjectManager (Private)
 
 - (void)getSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping completion:(void (^)(NSArray *, NSError *))completion;
-- (void)getEntityList:(SPEntityList *)list completion:(void (^)(SPEntityList *, NSError *))completion;
+- (void)getEntityList:(SPList *)list completion:(void (^)(SPList *, NSError *))completion;
 - (void)getEntityListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
 
 @end
@@ -74,7 +74,7 @@
 - (void)testRelatedListLoading 
 {
     SPUser *user = [[SPUser alloc] init];
-    user.products = [[SPEntityList alloc] init];
+    user.products = [[SPList alloc] init];
     user.products.url = [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"];
     SPObjectManager *manager3 = [[SPObjectManager alloc] init];
     

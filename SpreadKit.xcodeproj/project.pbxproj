@@ -86,9 +86,9 @@
 		C04D272815B411820080C77F /* SPDesign.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26F215B411810080C77F /* SPDesign.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C04D272915B411820080C77F /* SPDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F315B411810080C77F /* SPDesign.m */; };
 		C04D272A15B411820080C77F /* SPDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F315B411810080C77F /* SPDesign.m */; };
-		C04D272B15B411820080C77F /* SPEntityList.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26F415B411810080C77F /* SPEntityList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C04D272C15B411820080C77F /* SPEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F515B411810080C77F /* SPEntityList.m */; };
-		C04D272D15B411820080C77F /* SPEntityList.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F515B411810080C77F /* SPEntityList.m */; };
+		C04D272B15B411820080C77F /* SPList.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26F415B411810080C77F /* SPList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C04D272C15B411820080C77F /* SPList.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F515B411810080C77F /* SPList.m */; };
+		C04D272D15B411820080C77F /* SPList.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F515B411810080C77F /* SPList.m */; };
 		C04D272E15B411820080C77F /* SPImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26F615B411810080C77F /* SPImageLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C04D273015B411820080C77F /* SPImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F815B411810080C77F /* SPImageLoader.m */; };
 		C04D273115B411820080C77F /* SPImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26F815B411810080C77F /* SPImageLoader.m */; };
@@ -279,8 +279,8 @@
 		C04D26F115B411810080C77F /* SPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPClient.m; sourceTree = "<group>"; };
 		C04D26F215B411810080C77F /* SPDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDesign.h; sourceTree = "<group>"; };
 		C04D26F315B411810080C77F /* SPDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDesign.m; sourceTree = "<group>"; };
-		C04D26F415B411810080C77F /* SPEntityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPEntityList.h; sourceTree = "<group>"; };
-		C04D26F515B411810080C77F /* SPEntityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPEntityList.m; sourceTree = "<group>"; };
+		C04D26F415B411810080C77F /* SPList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPList.h; sourceTree = "<group>"; };
+		C04D26F515B411810080C77F /* SPList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPList.m; sourceTree = "<group>"; };
 		C04D26F615B411810080C77F /* SPImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPImageLoader.h; sourceTree = "<group>"; };
 		C04D26F815B411810080C77F /* SPImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPImageLoader.m; sourceTree = "<group>"; };
 		C04D26FA15B411810080C77F /* SPObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPObjectManager.m; sourceTree = "<group>"; };
@@ -484,8 +484,8 @@
 				C04D26F315B411810080C77F /* SPDesign.m */,
 				C037303F160B46BF003EDAD6 /* SPEntity.h */,
 				C0373040160B46BF003EDAD6 /* SPEntity.m */,
-				C04D26F415B411810080C77F /* SPEntityList.h */,
-				C04D26F515B411810080C77F /* SPEntityList.m */,
+				C04D26F415B411810080C77F /* SPList.h */,
+				C04D26F515B411810080C77F /* SPList.m */,
 				C0F68BCE15B441A000FFA3BC /* SPLanguage.h */,
 				C0F68BCF15B441A000FFA3BC /* SPLanguage.m */,
 				C0F68B9B15B42C8800FFA3BC /* SPOffset.h */,
@@ -671,7 +671,7 @@
 				C04D272215B411820080C77F /* SPBasketManager.h in Headers */,
 				C04D272515B411820080C77F /* SPClient.h in Headers */,
 				C04D272815B411820080C77F /* SPDesign.h in Headers */,
-				C04D272B15B411820080C77F /* SPEntityList.h in Headers */,
+				C04D272B15B411820080C77F /* SPList.h in Headers */,
 				C04D272E15B411820080C77F /* SPImageLoader.h in Headers */,
 				C04D273515B411820080C77F /* SPObjectMapper.h in Headers */,
 				C04D273815B411820080C77F /* SPObjectMappingProvider.h in Headers */,
@@ -869,7 +869,7 @@
 				C04D272415B411820080C77F /* SPBasketManager.m in Sources */,
 				C04D272715B411820080C77F /* SPClient.m in Sources */,
 				C04D272A15B411820080C77F /* SPDesign.m in Sources */,
-				C04D272D15B411820080C77F /* SPEntityList.m in Sources */,
+				C04D272D15B411820080C77F /* SPList.m in Sources */,
 				C04D273115B411820080C77F /* SPImageLoader.m in Sources */,
 				C04D273415B411820080C77F /* SPObjectManager.m in Sources */,
 				C04D273715B411820080C77F /* SPObjectMapper.m in Sources */,
@@ -932,7 +932,7 @@
 				C04D272315B411820080C77F /* SPBasketManager.m in Sources */,
 				C04D272615B411820080C77F /* SPClient.m in Sources */,
 				C04D272915B411820080C77F /* SPDesign.m in Sources */,
-				C04D272C15B411820080C77F /* SPEntityList.m in Sources */,
+				C04D272C15B411820080C77F /* SPList.m in Sources */,
 				C04D273015B411820080C77F /* SPImageLoader.m in Sources */,
 				C04D273315B411820080C77F /* SPObjectManager.m in Sources */,
 				C04D273615B411820080C77F /* SPObjectMapper.m in Sources */,

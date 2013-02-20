@@ -10,7 +10,7 @@
 
 #import "SPEntity.h"
 
-@class SPEntityList;
+@class SPList;
 @class SPCurrency;
 @class SPLanguage;
 @class SPCountry;
@@ -25,15 +25,15 @@
 @property (nonatomic, strong) SPCurrency * currency;
 @property (nonatomic, strong) SPCountry * country;
 @property (nonatomic, strong) SPLanguage * language;
-@property (nonatomic, strong) SPEntityList * products;
-@property (nonatomic, strong) SPEntityList * designs;
-@property (nonatomic, strong) SPEntityList * productTypes;
-@property (nonatomic, strong) SPEntityList * productTypeDepartments;
-@property (nonatomic, strong) SPEntityList * printTypes;
-@property (nonatomic, strong) SPEntityList * baskets;
-@property (nonatomic, strong) SPEntityList * currencies;
-@property (nonatomic, strong) SPEntityList * languages;
-@property (nonatomic, strong) SPEntityList * countries;
-@property (nonatomic, strong) SPEntityList * shops;
+@property (nonatomic, strong) SPList * products;
+@property (nonatomic, strong) SPList * designs;
+@property (nonatomic, strong) SPList * productTypes;
+@property (nonatomic, strong) SPList * productTypeDepartments;
+@property (nonatomic, strong) SPList * printTypes;
+@property (nonatomic, strong) SPList * baskets;
+@property (nonatomic, strong) SPList * currencies;
+@property (nonatomic, strong) SPList * languages;
+@property (nonatomic, strong) SPList * countries;
+@property (nonatomic, strong) SPList * shops;
 
 @end

@@ -6,14 +6,13 @@
 //  Copyright (c) 2012 sprd.net AG. All rights reserved.
 //
 
-#import "SPEntityList.h"
+#import "SPList.h"
 
-@implementation SPEntityList
+@implementation SPList
 
 @synthesize url;
 @synthesize elements;
 @synthesize limit;
-@synthesize offset;
 @synthesize count;
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id [])buffer count:(NSUInteger)len

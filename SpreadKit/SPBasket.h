@@ -11,7 +11,7 @@
 #import "SPEntity.h"
 
 @class SPUser;
-@class SPEntityList;
+@class SPList;
 
 @interface SPBasket : SPEntity
 

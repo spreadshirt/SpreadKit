@@ -14,7 +14,7 @@
 #import "SPBasket.h"
 #import "SPBasketItem.h"
 #import "SPDesign.h"
-#import "SPEntityList.h"
+#import "SPList.h"
 #import "SPProduct.h"
 #import "SPProductType.h"
 #import "SPResource.h"

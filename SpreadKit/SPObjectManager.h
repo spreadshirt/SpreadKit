@@ -11,7 +11,7 @@
 
 #import "SPObjectCache.h"
 
-@class SPEntityList;
+@class SPList;
 
 @interface SPObjectManager : NSObject
 

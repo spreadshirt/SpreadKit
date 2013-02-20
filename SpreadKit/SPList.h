@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SPEntityList : NSObject <NSFastEnumeration>
+@interface SPList : NSObject <NSFastEnumeration>
 
 @property (nonatomic, strong) NSURL * url;
 @property (nonatomic, strong) NSArray * elements;
-@property (nonatomic, strong) NSNumber * offset;
 @property (nonatomic, strong) NSNumber * limit;
 @property (nonatomic, strong) NSNumber * count;
 

@@ -11,7 +11,7 @@
 #import "SPEntity.h"
 
 @class SPUser;
-@class SPEntityList;
+@class SPList;
 @class SPCountry;
 @class SPCurrency;
 @class SPLanguage;
@@ -27,15 +27,15 @@
 @property (strong) SPCurrency * currency;
 @property  BOOL passwordRestricted;
 @property  BOOL hidden;
-@property (strong) SPEntityList * products;
-@property (strong) SPEntityList * designs;
-@property (strong) SPEntityList * articles;
-@property (strong) SPEntityList * productTypes;
-@property (strong) SPEntityList * productTypeDepartments;
-@property (strong) SPEntityList * printTypes;
-@property (strong) SPEntityList * baskets;
-@property (strong) SPEntityList * currencies;
-@property (strong) SPEntityList * languages;
-@property (strong) SPEntityList * countries;
+@property (strong) SPList * products;
+@property (strong) SPList * designs;
+@property (strong) SPList * articles;
+@property (strong) SPList * productTypes;
+@property (strong) SPList * productTypeDepartments;
+@property (strong) SPList * printTypes;
+@property (strong) SPList * baskets;
+@property (strong) SPList * currencies;
+@property (strong) SPList * languages;
+@property (strong) SPList * countries;
 
 @end

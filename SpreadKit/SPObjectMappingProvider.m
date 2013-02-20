@@ -111,7 +111,7 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
         articleDateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
         articleMapping.dateFormatters = [NSArray arrayWithObject:articleDateFormatter];
         
-        RKObjectMapping *listMapping = [RKObjectMapping mappingForClass:[SPEntityList class]];
+        RKObjectMapping *listMapping = [RKObjectMapping mappingForClass:[SPList class]];
         [listMapping mapKeyPath:@"href" toAttribute:@"url"];
         [listMapping mapAttributes:@"count", @"offset", @"limit", nil];
         

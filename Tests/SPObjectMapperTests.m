@@ -12,7 +12,7 @@
 #import "SpreadKit.h"
 #import "SPObjectMapper.h"
 #import "SPObjectMappingProvider.h"
-#import "SPEntityList.h"
+#import "SPList.h"
 #import "SPBasket.h"
 
 @interface SPObjectMapperTests : GHTestCase

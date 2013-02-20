@@ -7,14 +7,14 @@
 //
 
 #import "SPPaginator.h"
-#import "SPEntityList.h"
+#import "SPList.h"
 #import "SPObjectManager.h"
 
 @implementation SPPaginator
 
 @synthesize list;
 
-- (id)initWithList:(SPEntityList *)theList
+- (id)initWithList:(SPList *)theList
 {
     if (self = [super init]) {
         self.list = theList;
@@ -22,7 +22,7 @@
     return self;
 }
 
-+ (SPPaginator *)paginatorWithEntityList:(SPEntityList *)theList
++ (SPPaginator *)paginatorWithEntityList:(SPList *)theList
 {
     return [[[self class] alloc] initWithList:theList];
 }

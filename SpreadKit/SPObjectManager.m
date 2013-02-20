@@ -7,7 +7,7 @@
 //
 
 #import "SPObjectManager.h"
-#import "SPEntityList.h"
+#import "SPList.h"
 #import "SPObjectMappingProvider.h"
 #import "SPURLConnection.h"
 #import "SPObjectMapper.h"
@@ -46,9 +46,9 @@
 
 - (void)get:(id)objectStub completion:(void (^)(id, NSError *))completion
 {
-    if ([objectStub isMemberOfClass:[SPEntityList class]]) {
-        SPEntityList *el = (SPEntityList *)objectStub;
-        [self getEntityList:el completion:^(SPEntityList *list, NSError *error) {
+    if ([objectStub isMemberOfClass:[SPList class]]) {
+        SPList *el = (SPList *)objectStub;
+        [self getEntityList:el completion:^(SPList *list, NSError *error) {
             completion(list, error);
         }];
     } else {
@@ -72,7 +72,7 @@
     }
 }
 
-- (void)getEntityList:(SPEntityList *)list completion:(void (^)(SPEntityList *, NSError *))completion
+- (void)getEntityList:(SPList *)list completion:(void (^)(SPList *, NSError *))completion
 {
     NSString *offset = [list.offset stringValue];
     NSString *limit = [list.limit stringValue];
@@ -85,7 +85,7 @@
         [params setObject:limit forKey:@"limit"];
     }
     
-    [self getSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPEntityList class]] completion:^(NSArray *objects, NSError *error) {
+    [self getSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPList class]] completion:^(NSArray *objects, NSError *error) {
         if (!error) {
             [self getEntityListFromUrl:list.url withParams:params completion:^(NSArray *objects, NSError *error) {
                 list.elements = objects;

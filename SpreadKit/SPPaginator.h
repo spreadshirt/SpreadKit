@@ -8,19 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@class SPEntityList;
+@class SPList;
 
 @interface SPPaginator : NSObject
 
-@property SPEntityList *list;
+@property SPList *list;
 
-+ (SPPaginator *)paginatorWithEntityList:(SPEntityList *)list;
++ (SPPaginator *)paginatorWithEntityList:(SPList *)list;
 
 - (void)loadNextPageAndOnCompletion:(void (^)(NSArray *pageElements, NSError *error))completion;
 
 
 - (void)loadPreviousPageAndOnCompletion:(void (^)(NSArray *pageElements, NSError *error))completion;
 
-- (id)initWithList:(SPEntityList *)list;
+- (id)initWithList:(SPList *)list;
 
 @end

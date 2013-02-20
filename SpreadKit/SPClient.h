@@ -11,7 +11,7 @@
 
 @class SPUser;
 @class SPShop;
-@class SPEntityList;
+@class SPList;
 
 @interface SPClient : NSObject
 
@@ -65,7 +65,7 @@
 - (void)get:(Class)classOfObject identifier:(NSString *)identifier completion:(void (^)(id loadedObject, NSError *error))completion;
 
 // gets a list of all (!) objects of a certian class
-- (void)getAll:(Class)classOfObjects completion:(void (^)(SPEntityList *objects, NSError *error))completion;
+- (void)getAll:(Class)classOfObjects completion:(void (^)(SPList *objects, NSError *error))completion;
 
 // posts a new object and sets the url of the created object into the url property
 - (void)post:(id)object completion:(void (^)(id newObject, NSError *error))completion;
