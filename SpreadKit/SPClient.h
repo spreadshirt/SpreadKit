@@ -64,8 +64,8 @@
 // gets an object with just the class and id known
 - (void)get:(Class)classOfObject identifier:(NSString *)identifier completion:(void (^)(id loadedObject, NSError *error))completion;
 
-// gets a list of all (!) objects of a certian class
-- (void)getAll:(Class)classOfObjects completion:(void (^)(SPList *objects, NSError *error))completion;
+// gets a list reference to the object class specified. Returns nil if not possible.
+- (SPList *)listOf:(Class)classOfObjects;
 
 // posts a new object and sets the url of the created object into the url property
 - (void)post:(id)object completion:(void (^)(id newObject, NSError *error))completion;

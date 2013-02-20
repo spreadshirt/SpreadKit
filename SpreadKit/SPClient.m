@@ -144,17 +144,15 @@ static SPClient *sharedClient = nil;
     }
 }
 
-- (void)getAll:(Class)classOfObjects completion:(void (^)(SPList *, NSError *))completion
+- (SPList *)listOf:(Class)classOfObjects
 {
     if ([[entityURLs allKeys] containsObject:NSStringFromClass(classOfObjects)]) {
         NSURL *listUrl = [entityURLs objectForKey:NSStringFromClass(classOfObjects)];
         SPList *list = [[SPList alloc] init];
-        // set limit to maximum. warning, possibly slow
-        list.limit = @1000;
         [list setUrl:listUrl];
-        [self get:list completion:^(id loadedObject, NSError *error) {
-            completion(loadedObject, error);
-        }];
+        return list;
+    } else {
+        return nil;
     }
 }
 
@@ -190,14 +188,19 @@ static SPClient *sharedClient = nil;
     __block NSString *countryCodeToUse;
     __block NSString *languageCodeToUse;
     
-    [self getAll:[SPLanguage class] completion:^(SPList *objects, NSError *error) {
+    SPList *languages = [self listOf:[SPLanguage class]];
+    languages.limit = @1000;
+    SPList *countries = [self listOf:[SPCountry class]];
+    countries.limit = @1000;
+    
+    [self get:languages completion:^(NSArray *objects, NSError *error) {
         for (SPLanguage *language in objects) {
             if ([language.isoCode isEqualToString:languageCode]) {
                 languageCodeToUse = languageCode;
             }
         }
         if (languageCodeToUse) {
-            [self getAll:[SPCountry class] completion:^(SPList *objects, NSError *error) {
+            [self get:countries completion:^(NSArray *objects, NSError *error) {
                 for (SPCountry *country in objects) {
                     if ([country.isoCode isEqualToString:countryCode]) {
                         countryCodeToUse = countryCode;

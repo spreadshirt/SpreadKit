@@ -30,8 +30,12 @@
     
     self.productView.productTypeChooserView.selectedProductType = self.product.productType;
     self.productView.productTypeChooserView.delegate = self;
-    [[SPClient sharedClient] getAll:[SPProductType class] completion:^(SPList *objects, NSError *error) {
-        self.productView.productTypeChooserView.productTypes = objects.elements;
+    
+    SPList *productTypes = [[SPClient sharedClient] listOf:[SPProductType class]];
+    productTypes.limit = @1000;
+    
+    [[SPClient sharedClient] get:productTypes completion:^(NSArray *objects, NSError *error) {
+        self.productView.productTypeChooserView.productTypes = objects;
     }];
     
     [self.view addSubview:self.productView];
