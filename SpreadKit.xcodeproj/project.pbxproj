@@ -16,12 +16,12 @@
 		4752C04B15B95A21008CE664 /* SPProductConfigurationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4752C04915B95A21008CE664 /* SPProductConfigurationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4752C04C15B95A21008CE664 /* SPProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SPProductConfigurationView.m */; };
 		4752C04D15B95A21008CE664 /* SPProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SPProductConfigurationView.m */; };
-		C00EDC0C160B1F05008F8021 /* SPObjectCache.h in Headers */ = {isa = PBXBuildFile; fileRef = C00EDC0A160B1F05008F8021 /* SPObjectCache.h */; };
+		C00EDC0C160B1F05008F8021 /* SPObjectCache.h in Headers */ = {isa = PBXBuildFile; fileRef = C00EDC0A160B1F05008F8021 /* SPObjectCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C00EDC0D160B1F05008F8021 /* SPObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C00EDC0B160B1F05008F8021 /* SPObjectCache.m */; };
 		C00EDC0E160B1F05008F8021 /* SPObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C00EDC0B160B1F05008F8021 /* SPObjectCache.m */; };
-		C01A9B2F1609A67700511423 /* SPClientHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B2E1609A67700511423 /* SPClientHeaders.h */; };
-		C01A9B321609A70100511423 /* SPProcess.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B311609A70100511423 /* SPProcess.h */; };
-		C01A9B341609EE5C00511423 /* SPViewHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B331609EE5C00511423 /* SPViewHeaders.h */; };
+		C01A9B2F1609A67700511423 /* SPClientHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B2E1609A67700511423 /* SPClientHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C01A9B321609A70100511423 /* SPProcess.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B311609A70100511423 /* SPProcess.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C01A9B341609EE5C00511423 /* SPViewHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B331609EE5C00511423 /* SPViewHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C01D335915C6C32200C77A0B /* SPProductCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01D335815C6C32200C77A0B /* SPProductCreatorTests.m */; };
 		C02462C0160B10AC006413C0 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02462BF160B10AC006413C0 /* GHUnitIOS.framework */; };
 		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,7 +45,7 @@
 		C033ADF415B58CDE0071D341 /* SPViewMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C033ADF115B58CDE0071D341 /* SPViewMap.m */; };
 		C035E4E415063FE800A52242 /* products2.json in Resources */ = {isa = PBXBuildFile; fileRef = C035E4E315063FE800A52242 /* products2.json */; };
 		C0369C1415C2BF53008548AE /* SPProductMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0369C1315C2BF53008548AE /* SPProductMappingTests.m */; };
-		C0373041160B46BF003EDAD6 /* SPEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = C037303F160B46BF003EDAD6 /* SPEntity.h */; };
+		C0373041160B46BF003EDAD6 /* SPEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = C037303F160B46BF003EDAD6 /* SPEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0373042160B46BF003EDAD6 /* SPEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C0373040160B46BF003EDAD6 /* SPEntity.m */; };
 		C0373043160B46BF003EDAD6 /* SPEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C0373040160B46BF003EDAD6 /* SPEntity.m */; };
 		C03806E8150103780004BFC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09EF84014C99F83000BB775 /* UIKit.framework */; };
@@ -59,6 +59,9 @@
 		C03DFA8515F0BB24004A2C82 /* SPFullscreenPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = C03DFA8315F0BB24004A2C82 /* SPFullscreenPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C03DFA8615F0BB24004A2C82 /* SPFullscreenPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = C03DFA8415F0BB24004A2C82 /* SPFullscreenPopup.m */; };
 		C03DFA8715F0BB24004A2C82 /* SPFullscreenPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = C03DFA8415F0BB24004A2C82 /* SPFullscreenPopup.m */; };
+		C0467DA816CC371200D4D919 /* SPListPage.h in Headers */ = {isa = PBXBuildFile; fileRef = C0467DA616CC371200D4D919 /* SPListPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0467DA916CC371200D4D919 /* SPListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = C0467DA716CC371200D4D919 /* SPListPage.m */; };
+		C0467DAA16CC371200D4D919 /* SPListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = C0467DA716CC371200D4D919 /* SPListPage.m */; };
 		C04D271015B411810080C77F /* NSURL+PathParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26E215B411810080C77F /* NSURL+PathParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C04D271115B411810080C77F /* NSURL+PathParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26E315B411810080C77F /* NSURL+PathParameters.m */; };
 		C04D271215B411810080C77F /* NSURL+PathParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26E315B411810080C77F /* NSURL+PathParameters.m */; };
@@ -136,7 +139,7 @@
 		C079639D15C2839500360DC6 /* SPSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SPSVGText.m */; };
 		C079639E15C2839500360DC6 /* SPSVGText.m in Sources */ = {isa = PBXBuildFile; fileRef = C079639B15C2839500360DC6 /* SPSVGText.m */; };
 		C07963A015C2ABF600360DC6 /* SPObjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C079639F15C2ABF600360DC6 /* SPObjectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C0831BF81614497400631303 /* SPEntity+Caching.h in Headers */ = {isa = PBXBuildFile; fileRef = C0831BF61614497400631303 /* SPEntity+Caching.h */; };
+		C0831BF81614497400631303 /* SPEntity+Caching.h in Headers */ = {isa = PBXBuildFile; fileRef = C0831BF61614497400631303 /* SPEntity+Caching.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0831BF91614497400631303 /* SPEntity+Caching.m in Sources */ = {isa = PBXBuildFile; fileRef = C0831BF71614497400631303 /* SPEntity+Caching.m */; };
 		C0831BFA1614497400631303 /* SPEntity+Caching.m in Sources */ = {isa = PBXBuildFile; fileRef = C0831BF71614497400631303 /* SPEntity+Caching.m */; };
 		C09795FC161055B3003DD4D2 /* SPObjectCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C09795FB161055B3003DD4D2 /* SPObjectCacheTests.m */; };
@@ -159,7 +162,7 @@
 		C0B2FA7E156FBB53008A103B /* SPArticleMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2FA7D156FBB53008A103B /* SPArticleMappingTests.m */; };
 		C0B2FA80156FBD63008A103B /* article.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B2FA7F156FBD63008A103B /* article.json */; };
 		C0C41BC6155BA976009F70FF /* SPAuthenticationProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C41BC5155BA976009F70FF /* SPAuthenticationProviderTests.m */; };
-		C0C7116215AD9DC900302CC4 /* SPEntityListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C7116115AD9DC900302CC4 /* SPEntityListTests.m */; };
+		C0C7116215AD9DC900302CC4 /* SPListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C7116115AD9DC900302CC4 /* SPListTests.m */; };
 		C0C978ED16C4F30900F107E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C978EC16C4F30900F107E0 /* Default-568h@2x.png */; };
 		C0CDD926160074F200965127 /* productTypeDepartment.json in Resources */ = {isa = PBXBuildFile; fileRef = C0CDD925160074F200965127 /* productTypeDepartment.json */; };
 		C0CDD92E1600751500965127 /* SPProductTypeDepartmentMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CDD92D1600751500965127 /* SPProductTypeDepartmentMappingTests.m */; };
@@ -258,6 +261,8 @@
 		C03806F1150103780004BFC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C03DFA8315F0BB24004A2C82 /* SPFullscreenPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFullscreenPopup.h; sourceTree = "<group>"; };
 		C03DFA8415F0BB24004A2C82 /* SPFullscreenPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFullscreenPopup.m; sourceTree = "<group>"; };
+		C0467DA616CC371200D4D919 /* SPListPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPListPage.h; sourceTree = "<group>"; };
+		C0467DA716CC371200D4D919 /* SPListPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPListPage.m; sourceTree = "<group>"; };
 		C04D26E215B411810080C77F /* NSURL+PathParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+PathParameters.h"; sourceTree = "<group>"; };
 		C04D26E315B411810080C77F /* NSURL+PathParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PathParameters.m"; sourceTree = "<group>"; };
 		C04D26E415B411810080C77F /* SPAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SPAppearance.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -337,7 +342,7 @@
 		C0C6921614EE57440068C18D /* SPClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPClientTests.m; sourceTree = "<group>"; };
 		C0C6921714EE57440068C18D /* SPImageLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPImageLoaderTests.m; sourceTree = "<group>"; };
 		C0C6921814EE57440068C18D /* SPObjectMappingProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SPObjectMappingProviderTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C0C7116115AD9DC900302CC4 /* SPEntityListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPEntityListTests.m; sourceTree = "<group>"; };
+		C0C7116115AD9DC900302CC4 /* SPListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPListTests.m; sourceTree = "<group>"; };
 		C0C978EC16C4F30900F107E0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C0CDD925160074F200965127 /* productTypeDepartment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productTypeDepartment.json; sourceTree = "<group>"; };
 		C0CDD92D1600751500965127 /* SPProductTypeDepartmentMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProductTypeDepartmentMappingTests.m; sourceTree = "<group>"; };
@@ -432,7 +437,7 @@
 				C0C41BC5155BA976009F70FF /* SPAuthenticationProviderTests.m */,
 				C0FE50D615A1C5550015BC6F /* SPBasketManagerTests.m */,
 				C0C6921614EE57440068C18D /* SPClientTests.m */,
-				C0C7116115AD9DC900302CC4 /* SPEntityListTests.m */,
+				C0C7116115AD9DC900302CC4 /* SPListTests.m */,
 				C0C6921714EE57440068C18D /* SPImageLoaderTests.m */,
 				C0E7C8F015060438005A185A /* SPObjectManagerTests.m */,
 				C0ADF747153819B600CC9AE4 /* SPObjectMapperTests.m */,
@@ -532,6 +537,8 @@
 				C0F68BA015B434A400FFA3BC /* SPColor.h */,
 				C0F68BA115B434A400FFA3BC /* SPColor.m */,
 				C0F68B3B15B4146B00FFA3BC /* SPModel.h */,
+				C0467DA616CC371200D4D919 /* SPListPage.h */,
+				C0467DA716CC371200D4D919 /* SPListPage.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -707,6 +714,7 @@
 				C00EDC0C160B1F05008F8021 /* SPObjectCache.h in Headers */,
 				C0373041160B46BF003EDAD6 /* SPEntity.h in Headers */,
 				C0831BF81614497400631303 /* SPEntity+Caching.h in Headers */,
+				C0467DA816CC371200D4D919 /* SPListPage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -849,7 +857,7 @@
 				C0A041FF1581E76300953AF4 /* SPBasketItemMappingTests.m in Sources */,
 				C0A0420415821AEB00953AF4 /* SPBasketMappingTests.m in Sources */,
 				C0FE50D715A1C5550015BC6F /* SPBasketManagerTests.m in Sources */,
-				C0C7116215AD9DC900302CC4 /* SPEntityListTests.m in Sources */,
+				C0C7116215AD9DC900302CC4 /* SPListTests.m in Sources */,
 				C026FA2015AEF99500FFEB69 /* SPDesignMappingTests.m in Sources */,
 				C02F11D115B008FC00AF8276 /* SPDesignUploadIntegrationTests.m in Sources */,
 				C04D271215B411810080C77F /* NSURL+PathParameters.m in Sources */,
@@ -907,6 +915,7 @@
 				C0373043160B46BF003EDAD6 /* SPEntity.m in Sources */,
 				C09795FC161055B3003DD4D2 /* SPObjectCacheTests.m in Sources */,
 				C0831BFA1614497400631303 /* SPEntity+Caching.m in Sources */,
+				C0467DAA16CC371200D4D919 /* SPListPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +974,7 @@
 				C00EDC0D160B1F05008F8021 /* SPObjectCache.m in Sources */,
 				C0373042160B46BF003EDAD6 /* SPEntity.m in Sources */,
 				C0831BF91614497400631303 /* SPEntity+Caching.m in Sources */,
+				C0467DA916CC371200D4D919 /* SPListPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

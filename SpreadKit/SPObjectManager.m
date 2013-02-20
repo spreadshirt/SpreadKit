@@ -48,8 +48,12 @@
 {
     if ([objectStub isMemberOfClass:[SPList class]]) {
         SPList *el = (SPList *)objectStub;
-        [self getEntityList:el completion:^(SPList *list, NSError *error) {
-            completion(list, error);
+        [self getList:el completion:^(NSArray *elements, NSError *error) {
+            completion(elements, error);
+        }];
+    } else if ([objectStub isMemberOfClass:[SPListPage class]]) {
+        [self getListPage:objectStub completion:^(NSArray *elements, NSError *error) {
+            completion(elements, error);
         }];
     } else {
         [self getSingleObjectStub:objectStub completion:^(id loaded, NSError *error) {
@@ -57,6 +61,21 @@
             completion(loaded, error);
         }];
     }
+}
+
+- (void)getListPage:(SPListPage *)page completion:(void (^)(NSArray *elements, NSError *error))completion
+{
+    int offset = page.list.limit.integerValue * (page.page - 1);
+    
+    NSDictionary *params = @{@"offset": [NSString stringWithFormat:@"%d", offset], @"limit": page.list.limit.stringValue};
+    [self getListFromUrl:page.list.url withParams:params completion:^(NSArray *elements, NSError *error) {
+        if (error) {
+            completion(nil, error);
+        } else {
+            page.list.elements = [page.list.elements arrayByAddingObjectsFromArray:elements];
+            completion(elements, nil);
+        }
+    }];
 }
 
 - (void)getSingleObjectStub:(id)theStub completion:(void (^)(id, NSError *))completion
@@ -72,24 +91,16 @@
     }
 }
 
-- (void)getEntityList:(SPList *)list completion:(void (^)(SPList *, NSError *))completion
+- (void)getList:(SPList *)list completion:(void (^)(NSArray *elements, NSError *error))completion
 {
-    NSString *offset = [list.offset stringValue];
-    NSString *limit = [list.limit stringValue];
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    if (offset) {
-        [params setObject:offset forKey:@"offset"];
-    }
-    if (limit) {
-        [params setObject:limit forKey:@"limit"];
-    }
-    
-    [self getSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPList class]] completion:^(NSArray *objects, NSError *error) {
+    [self getSingleEntityFromUrl:list.url withParams:nil intoTargetObject:list mapping:[[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPList class]] completion:^(NSArray *objects, NSError *error) {
         if (!error) {
-            [self getEntityListFromUrl:list.url withParams:params completion:^(NSArray *objects, NSError *error) {
-                list.elements = objects;
-                completion(list, nil);
+            [self getListPage:list.current completion:^(NSArray *elements, NSError *error) {
+                if (!error) {
+                    completion(elements, nil);
+                } else {
+                    completion(nil, error);
+                }
             }];
         } else {
             completion(nil, error);
@@ -104,7 +115,7 @@
     [self getResourceFromUrl:url withParams:params mappingProvdider:prov intoTargetObject:target completion:completion];
 }
 
-- (void)getEntityListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion
+- (void)getListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion
 {
     RKObjectMappingProvider *prov = [SPObjectMappingProvider sharedMappingProvider];
     [self getResourceFromUrl:url withParams:params mappingProvdider:prov intoTargetObject:nil completion:completion];

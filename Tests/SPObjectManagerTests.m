@@ -18,24 +18,30 @@
 @interface SPObjectManager (Private)
 
 - (void)getSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping completion:(void (^)(NSArray *, NSError *))completion;
-- (void)getEntityList:(SPList *)list completion:(void (^)(SPList *, NSError *))completion;
-- (void)getEntityListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
+- (void)getList:(SPList *)list completion:(void (^)(SPList *, NSError *))completion;
+- (void)getListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
 
 @end
 
 @interface SPObjectManagerTests : GHAsyncTestCase
+{
+    SPObjectManager *manager;
+}
 @end
 
 @implementation SPObjectManagerTests
 
+- (void)setUp{
+    manager = [SPObjectManager objectManagerWithApiKey:@"xxx" andSecret:@"xxx"];
+}
+
 - (void)testListLoadingFromUrl
 {
-    SPObjectManager *manager1 = [[SPObjectManager alloc] init];
     __block NSArray *result;
     
     [self prepare];
     
-    [manager1 getEntityListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] withParams:nil completion:^(NSArray *objects, NSError *error) {
+    [manager getListFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"] withParams:nil completion:^(NSArray *objects, NSError *error) {
         if (error) {
             GHFail(@"Loading should work");
         } else {
@@ -51,13 +57,12 @@
 
 - (void)testSingleResourceLoadingFromUrl
 {
-    SPObjectManager *manager2 = [[SPObjectManager alloc] init];
     RKObjectMapping *productMapping = [[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPProduct class]];
     __block NSArray *result;
     
     [self prepare];
     
-    [manager2 getSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil mapping:productMapping completion:^(NSArray *objects, NSError *error) {
+    [manager getSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil mapping:productMapping completion:^(NSArray *objects, NSError *error) {
         if (error) {
             GHFail(@"Loading should work");
         } else {
@@ -76,29 +81,72 @@
     SPUser *user = [[SPUser alloc] init];
     user.products = [[SPList alloc] init];
     user.products.url = [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"];
-    SPObjectManager *manager3 = [[SPObjectManager alloc] init];
     
     [self prepare];
     
-    [manager3 get:user.products completion:^(id loaded, NSError *error) {
+    __block id loadedStuff;
+    
+    [manager get:user.products completion:^(id loaded, NSError *error) {
         if (error) {
             GHFail(@"Loading should work");
         } else {
+            loadedStuff = loaded;
             [self notify:kGHUnitWaitStatusSuccess];
         }
     }];
     
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
     
-    GHAssertEquals(user.products.elements.count, (unsigned int) 3, @"");
+    GHAssertTrue([loadedStuff isKindOfClass:[NSArray class]], @"Loading a list should return the loaded elements");
+    GHAssertEquals(user.products.elements.count, (unsigned int) 3, @"Loading a list should save the loaded elements");
+}
+
+- (void)testListPagination
+{
+    SPList *list = [[SPList alloc] init];
+    list.url = [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/205909/products"];
+    
+    [self prepare];
+    [manager get:list completion:^(id loaded, NSError *error) {
+        if (error) {
+            GHFail(nil);
+        } else {
+            [self notify:kGHUnitWaitStatusSuccess];
+        }
+    }];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    
+    GHAssertEquals(list.elements.count, [list.limit unsignedIntegerValue], @"After the first load, the list should have 'limit' elements");
+    
+    [self prepare];
+    [manager get:list.more completion:^(id loaded, NSError *error) {
+        if (error) {
+            GHFail(nil);
+        } else {
+            [self notify:kGHUnitWaitStatusSuccess];
+        }
+    }];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    
+    GHAssertEquals(list.elements.count, [list.limit unsignedIntegerValue] * 2, @"After loading more, the list should have twice as much elements");
+    
+    [self prepare];
+    [manager get:list.more completion:^(id loaded, NSError *error) {
+        if (error) {
+            GHFail(nil);
+        } else {
+            [self notify:kGHUnitWaitStatusSuccess];
+        }
+    }];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    
+    GHAssertEquals(list.elements.count, [list.limit unsignedIntegerValue] * 3, @"After loading more, the list should have 'limit' more elements");
 }
 
 - (void)testPostBasket
 {
     SPBasket *basket = [[SPBasket alloc] init];
     //    basket.token = @"test";
-    
-    SPObjectManager *manager = [SPObjectManager objectManagerWithApiKey:@"xxx" andSecret:@"xxx"];
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
     [mapping mapAttributes:@"token", nil];

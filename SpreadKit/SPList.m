@@ -20,4 +20,24 @@
     return [elements countByEnumeratingWithState:state objects:buffer count:len];
 }
 
+- (id)init
+{
+    if (self = [super init]) {
+        _current = [[SPListPage alloc] init];
+        self.current.page = 1;
+        self.current.list = self;
+        self.elements = [NSArray array];
+    }
+    return self;
+}
+
+- (SPListPage *)more
+{
+    SPListPage *more = [[SPListPage alloc] init];
+    more.list = self;
+    more.page = self.current.page + 1;
+    _current = more;
+    return more;
+}
+
 @end

@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SPListPage.h"
+
 @interface SPList : NSObject <NSFastEnumeration>
 
 @property (nonatomic, strong) NSURL * url;
 @property (nonatomic, strong) NSArray * elements;
 @property (nonatomic, strong) NSNumber * limit;
 @property (nonatomic, strong) NSNumber * count;
+
+@property (readonly) SPListPage * current;
+@property (readonly) SPListPage * more;
 
 @end

@@ -113,7 +113,7 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
         
         RKObjectMapping *listMapping = [RKObjectMapping mappingForClass:[SPList class]];
         [listMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [listMapping mapAttributes:@"count", @"offset", @"limit", nil];
+        [listMapping mapAttributes:@"count", @"limit", nil];
         
         RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[SPUser class]];
         [userMapping mapKeyPath:@"id" toAttribute:@"identifier"];
