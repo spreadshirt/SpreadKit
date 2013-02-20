@@ -100,9 +100,6 @@
 		C04D273815B411820080C77F /* SPObjectMappingProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26FD15B411810080C77F /* SPObjectMappingProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C04D273915B411820080C77F /* SPObjectMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26FE15B411810080C77F /* SPObjectMappingProvider.m */; };
 		C04D273A15B411820080C77F /* SPObjectMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D26FE15B411810080C77F /* SPObjectMappingProvider.m */; };
-		C04D273B15B411820080C77F /* SPPaginator.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D26FF15B411810080C77F /* SPPaginator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C04D273C15B411820080C77F /* SPPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D270015B411810080C77F /* SPPaginator.m */; };
-		C04D273D15B411820080C77F /* SPPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D270015B411810080C77F /* SPPaginator.m */; };
 		C04D273E15B411820080C77F /* SPProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = C04D270115B411810080C77F /* SPProduct.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C04D273F15B411820080C77F /* SPProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D270215B411810080C77F /* SPProduct.m */; };
 		C04D274015B411820080C77F /* SPProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D270215B411810080C77F /* SPProduct.m */; };
@@ -288,8 +285,6 @@
 		C04D26FC15B411810080C77F /* SPObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPObjectMapper.m; sourceTree = "<group>"; };
 		C04D26FD15B411810080C77F /* SPObjectMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPObjectMappingProvider.h; sourceTree = "<group>"; };
 		C04D26FE15B411810080C77F /* SPObjectMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPObjectMappingProvider.m; sourceTree = "<group>"; };
-		C04D26FF15B411810080C77F /* SPPaginator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPaginator.h; sourceTree = "<group>"; };
-		C04D270015B411810080C77F /* SPPaginator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPaginator.m; sourceTree = "<group>"; };
 		C04D270115B411810080C77F /* SPProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProduct.h; sourceTree = "<group>"; };
 		C04D270215B411810080C77F /* SPProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProduct.m; sourceTree = "<group>"; };
 		C04D270315B411810080C77F /* SPProductType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProductType.h; sourceTree = "<group>"; };
@@ -571,8 +566,6 @@
 				C04D26FC15B411810080C77F /* SPObjectMapper.m */,
 				C04D26FD15B411810080C77F /* SPObjectMappingProvider.h */,
 				C04D26FE15B411810080C77F /* SPObjectMappingProvider.m */,
-				C04D26FF15B411810080C77F /* SPPaginator.h */,
-				C04D270015B411810080C77F /* SPPaginator.m */,
 				C04D270B15B411810080C77F /* SPURLConnection.h */,
 				C04D270C15B411810080C77F /* SPURLConnection.m */,
 				C01A9B2E1609A67700511423 /* SPClientHeaders.h */,
@@ -675,7 +668,6 @@
 				C04D272E15B411820080C77F /* SPImageLoader.h in Headers */,
 				C04D273515B411820080C77F /* SPObjectMapper.h in Headers */,
 				C04D273815B411820080C77F /* SPObjectMappingProvider.h in Headers */,
-				C04D273B15B411820080C77F /* SPPaginator.h in Headers */,
 				C04D273E15B411820080C77F /* SPProduct.h in Headers */,
 				C04D274115B411820080C77F /* SPProductType.h in Headers */,
 				C04D274415B411820080C77F /* SPResource.h in Headers */,
@@ -874,7 +866,6 @@
 				C04D273415B411820080C77F /* SPObjectManager.m in Sources */,
 				C04D273715B411820080C77F /* SPObjectMapper.m in Sources */,
 				C04D273A15B411820080C77F /* SPObjectMappingProvider.m in Sources */,
-				C04D273D15B411820080C77F /* SPPaginator.m in Sources */,
 				C04D274015B411820080C77F /* SPProduct.m in Sources */,
 				C04D274315B411820080C77F /* SPProductType.m in Sources */,
 				C04D274615B411820080C77F /* SPResource.m in Sources */,
@@ -937,7 +928,6 @@
 				C04D273315B411820080C77F /* SPObjectManager.m in Sources */,
 				C04D273615B411820080C77F /* SPObjectMapper.m in Sources */,
 				C04D273915B411820080C77F /* SPObjectMappingProvider.m in Sources */,
-				C04D273C15B411820080C77F /* SPPaginator.m in Sources */,
 				C04D273F15B411820080C77F /* SPProduct.m in Sources */,
 				C04D274215B411820080C77F /* SPProductType.m in Sources */,
 				C04D274515B411820080C77F /* SPResource.m in Sources */,
