@@ -22,6 +22,8 @@
 - (void)setUp
 {
     list = [[SPList alloc] init];
+    list.count = @500;
+    list.limit = @50;
 }
 
 -(void)testFastEnumeration
@@ -45,6 +47,17 @@
     GHAssertEqualObjects(more.list, list, @"list page should point to list");
     GHAssertEquals(more.page, 2, nil);
     GHAssertEquals(list.current, more, @"list current should point to new page");
+}
+
+- (void)testPaginationConvenience
+{
+    GHAssertTrue(list.hasNextPage, @"at the beginning, the list should have a next page");
+    
+    for (int i = 0; i < 9; i++) {
+        list.more;
+    };
+    
+    GHAssertFalse(list.hasNextPage, @"after all pages, there should be none left");
 }
 
 @end

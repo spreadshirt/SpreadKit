@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
-#import <OCMock/OCMock.h>
 
 #import "SpreadKit.h"
 

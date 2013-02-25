@@ -9,6 +9,9 @@
 #import "SPList.h"
 
 @implementation SPList
+{
+    int pages;
+}
 
 @synthesize url;
 @synthesize elements;
@@ -27,6 +30,7 @@
         self.current.page = 1;
         self.current.list = self;
         self.elements = [NSArray array];
+        pages = 0;
     }
     return self;
 }
@@ -38,6 +42,15 @@
     more.page = self.current.page + 1;
     _current = more;
     return more;
+}
+
+- (BOOL)hasNextPage
+{
+    if (pages == 0) {
+        pages = ceil(self.count.floatValue / self.limit.floatValue);
+    }
+    
+    return !(self.current.page == pages);
 }
 
 @end
