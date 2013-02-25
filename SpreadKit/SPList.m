@@ -9,14 +9,12 @@
 #import "SPList.h"
 
 @implementation SPList
-{
-    int pages;
-}
 
 @synthesize url;
 @synthesize elements;
 @synthesize limit;
 @synthesize count;
+@synthesize pages;
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id [])buffer count:(NSUInteger)len
 {
@@ -35,6 +33,18 @@
     return self;
 }
 
+- (void)setCount:(NSNumber *)theCount
+{
+    count = theCount;
+    pages = ceil(self.count.floatValue / self.limit.floatValue);
+}
+
+- (void)setLimit:(NSNumber *)theLimit
+{
+    limit = theLimit;
+    pages = ceil(self.count.floatValue / self.limit.floatValue);
+}
+
 - (SPListPage *)more
 {
     SPListPage *more = [[SPListPage alloc] init];
@@ -46,10 +56,6 @@
 
 - (BOOL)hasNextPage
 {
-    if (pages == 0) {
-        pages = ceil(self.count.floatValue / self.limit.floatValue);
-    }
-    
     return !(self.current.page == pages);
 }
 

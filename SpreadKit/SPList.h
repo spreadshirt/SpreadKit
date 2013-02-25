@@ -20,6 +20,7 @@
 @property (readonly) SPListPage * current;
 @property (readonly) SPListPage * more;
 
+@property int pages;
 @property (readonly) BOOL hasNextPage;
 
 @end
