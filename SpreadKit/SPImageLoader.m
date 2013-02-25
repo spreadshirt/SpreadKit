@@ -11,6 +11,7 @@
 #import "SPImageLoader.h"
 #import "SPURLConnection.h"
 #import "SPDesign.h"
+#import "SPResource.h"
 #import "UIImage+Orientation.h"
 
 @implementation SPImageLoader
@@ -81,6 +82,19 @@
             completion(nil, nil, error);
         }
     }];
+}
+
+- (void)loadImageForResource:(SPResource *)resource withSize:(CGSize)size andAppearanceId:(NSString *)appearanceId completion:(void (^)(UIImage *, NSURL *, NSError *))completion
+{
+    [self loadImageFromUrl:resource.url withSize:size andAppearanceId:appearanceId completion:completion];
+    [self loadImageForResource:resource withSize:size completion:^(UIImage *image, NSURL *imageURL, NSError *error) {
+        
+    }];
+}
+
+- (void)loadImageForResource:(SPResource *)resource withSize:(CGSize)size completion:(void (^)(UIImage *, NSURL *, NSError *))completion
+{
+    [self loadImageFromUrl:resource.url withSize:size completion:completion];
 }
 
 - (void)uploadImage:(UIImage *)image forDesign:(SPDesign *)design completion:(void (^)(SPDesign *, NSError *))completion

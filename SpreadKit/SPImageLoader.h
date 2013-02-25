@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-
+@class SPResource;
 @class SPDesign;
 
 @interface SPImageLoader : NSObject
@@ -21,6 +21,9 @@
 
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
 - (void)loadImageFromUrl:(NSURL *)url withSize:(CGSize)size andAppearanceId:(NSString *)appearanceId completion:(void (^)(UIImage *image, NSURL *imageUrl, NSError *error))completion;
+
+- (void)loadImageForResource:(SPResource *)resource withSize:(CGSize)size completion:(void (^)(UIImage *image, NSURL *imageURL, NSError *error))completion;
+- (void)loadImageForResource:(SPResource *)resource withSize:(CGSize)size andAppearanceId:(NSString *)appearanceId completion:(void (^)(UIImage *image, NSURL *imageURL, NSError *error))completion;
 
 // uploads a design image using maximum quality
 - (void)uploadImage:(UIImage *)image forDesign:(SPDesign *)design completion:(void (^)(SPDesign *design, NSError *))completion;
