@@ -73,4 +73,7 @@
 // updates an existing entity
 - (void)put:(id)object completion:(void (^)(id updatedObject, NSError *error))completion;
 
+// deletes an existing entity
+- (void)delete:(id)object completion:(void (^)(NSError *error))completion;
+
 @end

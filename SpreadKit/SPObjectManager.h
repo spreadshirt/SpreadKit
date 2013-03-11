@@ -32,4 +32,7 @@
 // put objects
 - (void)putObject:(id)theObject completion:(void (^)(id object, NSError *error))completion;
 
+// delete objects
+- (void)deleteObject:(id)theObject completion:(void (^)(NSError *error))completion;
+
 @end

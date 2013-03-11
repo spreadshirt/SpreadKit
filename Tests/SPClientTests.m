@@ -11,7 +11,7 @@
 
 #import "SpreadKit.h"
 
-@interface SPClientTests : GHTestCase
+@interface SPClientTests : GHAsyncTestCase
 {
     SPClient *client;
 }
@@ -72,6 +72,48 @@
             GHAssertNotNil(error, nil);
         }];
     }];
+}
+
+- (void)testProductDeletion
+{
+    SPClient *thisClient = [SPClient clientWithShopId:@"654135" andApiKey:@"xxx" andSecret:@"xxx" andPlatform:SPPlatformEU];
+    
+    SPDesign *design = [[SPDesign alloc] init];
+    design.description = @"Test Design";
+    
+    [self prepare];
+    
+    [thisClient getShopAndOnCompletion:^(SPShop *shop, NSError *error) {
+        [thisClient post:design completion:^(id newObject, NSError *error) {
+            
+            if (error) {
+                GHFail(@"Something went wrong posting the design");
+            }
+            
+            [thisClient delete:design completion:^(NSError *error) {
+                if (error) {
+                    GHFail(@"Something went wrong deleting the design");
+                }
+                [self notify:kGHUnitWaitStatusSuccess];
+            }];
+        }];
+    }];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    
+    [self prepare];
+    
+    __block NSError *deleteError;
+    [thisClient get:design completion:^(id loadedObject, NSError *error) {
+        if (!error) {
+            GHFail(@"Design should have been deleted!");
+        }
+        deleteError = error;
+        [self notify:kGHUnitWaitStatusSuccess];
+    }];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
+    GHAssertNotNil(deleteError, nil);
 }
 
 - (void)testManualPlatformSelection {

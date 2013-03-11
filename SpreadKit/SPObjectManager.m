@@ -209,6 +209,22 @@
     }];
 }
 
+- (void)deleteObject:(id)theObject completion:(void (^)(NSError *))completion
+{
+    [SPURLConnection delete:[theObject url]
+                     params:defaultParams
+                     apiKey:apiKey
+                     secret:secret
+                 completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+                     
+                     if (error) {
+                         completion(error);
+                     } else {
+                         completion(nil);
+                     }
+    }];
+}
+
 
 - (int)getServerTimeOffset:(NSHTTPURLResponse *)response
 {

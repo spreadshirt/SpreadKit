@@ -167,6 +167,11 @@ static SPClient *sharedClient = nil;
     [manager putObject:object completion:completion];
 }
 
+- (void)delete:(id)object completion:(void (^)(NSError *))completion
+{
+    [manager deleteObject:object completion:completion];
+}
+
 // takes a shop or user and extracts and remembers
 // all URLs for later posting and getting via id of objects
 // sets locale on object manager
