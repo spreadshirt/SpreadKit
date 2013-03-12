@@ -31,6 +31,8 @@
 		C01F9F6416EF3B51001CB021 /* testProductDeletion5.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F6316EF3B51001CB021 /* testProductDeletion5.txt */; };
 		C01F9F6616EF519E001CB021 /* testProductDeletion6.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F6516EF519E001CB021 /* testProductDeletion6.txt */; };
 		C01F9F6816EF5234001CB021 /* testProductDeletion7.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F6716EF5234001CB021 /* testProductDeletion7.txt */; };
+		C01F9F6A16EF54E5001CB021 /* testDesignUpload1.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F6916EF54E4001CB021 /* testDesignUpload1.txt */; };
+		C01F9F6C16EF559F001CB021 /* testDesignUpload2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F6B16EF559F001CB021 /* testDesignUpload2.txt */; };
 		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C025362B15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
 		C025362C15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
@@ -250,6 +252,8 @@
 		C01F9F6316EF3B51001CB021 /* testProductDeletion5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion5.txt; sourceTree = "<group>"; };
 		C01F9F6516EF519E001CB021 /* testProductDeletion6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion6.txt; sourceTree = "<group>"; };
 		C01F9F6716EF5234001CB021 /* testProductDeletion7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion7.txt; sourceTree = "<group>"; };
+		C01F9F6916EF54E4001CB021 /* testDesignUpload1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testDesignUpload1.txt; sourceTree = "<group>"; };
+		C01F9F6B16EF559F001CB021 /* testDesignUpload2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testDesignUpload2.txt; sourceTree = "<group>"; };
 		C025362815E7744D000FA70E /* UIImage+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Orientation.h"; sourceTree = "<group>"; };
 		C025362915E7744D000FA70E /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
 		C02536A815E7AC8E000FA70E /* SPAppearanceChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SPAppearanceChooserView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -431,6 +435,8 @@
 				C035E4E315063FE800A52242 /* products2.json */,
 				C0A2E7421578AE0E004A3847 /* productType.json */,
 				C0CDD925160074F200965127 /* productTypeDepartment.json */,
+				C01F9F6916EF54E4001CB021 /* testDesignUpload1.txt */,
+				C01F9F6B16EF559F001CB021 /* testDesignUpload2.txt */,
 				C01F9F5916EF3676001CB021 /* testProductDeletion1.txt */,
 				C01F9F5B16EF372C001CB021 /* testProductDeletion2.txt */,
 				C01F9F5F16EF3845001CB021 /* testProductDeletion3.txt */,
@@ -829,6 +835,8 @@
 				C01F9F6416EF3B51001CB021 /* testProductDeletion5.txt in Resources */,
 				C01F9F6616EF519E001CB021 /* testProductDeletion6.txt in Resources */,
 				C01F9F6816EF5234001CB021 /* testProductDeletion7.txt in Resources */,
+				C01F9F6A16EF54E5001CB021 /* testDesignUpload1.txt in Resources */,
+				C01F9F6C16EF559F001CB021 /* testDesignUpload2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

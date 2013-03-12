@@ -8,6 +8,7 @@
 
 #import <GHUnitIOS/GHUnit.h>
 #import <SpreadKit/SpreadKit.h>
+#import <Nocilla/Nocilla.h>
 
 @interface SPDesignUploadIntegrationTests : GHAsyncTestCase
 
@@ -16,8 +17,31 @@
 
 @implementation SPDesignUploadIntegrationTests
 
+- (void)setUpClass
+{
+    [[LSNocilla sharedInstance] start];
+}
+
+- (void)tearDownClass
+{
+    [[LSNocilla sharedInstance] stop];
+}
+
+- (void)tearDown
+{
+    [[LSNocilla sharedInstance] clearStubs];
+}
+
 - (void)testDesignUpload
 {
+    // stubs
+    stubRequest(@"POST", @"http://api.spreadshirt.net/api/v1/shops/41985/designs?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testDesignUpload1" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/41985/designs/u107788218?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testDesignUpload2" ofType:@"txt"]]);
+    stubRequest(@"PUT", @"http://image.spreadshirt.net/image-server/v1/designs/107788218?").andReturn(200);
+    
+    
     NSString *apiKey = @"xxx";
     NSString *secret = @"xxx";
     

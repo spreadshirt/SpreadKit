@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Expires: Wed, 13 Mar 2013 00:07:41 GMT
+Content-Language: en-gb
+Content-Type: application/json;charset=UTF-8
+X-Cache-Lookup: MISS from fish08:80
+X-Server-Name: mem2
+True-Client-IP: 88.79.226.66
+Date: Tue, 12 Mar 2013 12:22:41 GMT
+Content-Length: 1110
+Connection: keep-alive
+
+{"name":"Super Cool Test Design","description":"This is a Design created with SpreadKit","user":{"id":"37508","href":"http://api.spreadshirt.net/api/v1/users/37508"},"safeSearch":"STRICT","weight":-0.0,"restrictions":{"fixedColors":false,"colorCount":0,"ownText":true,"obligatory":true,"movable":true,"targetView":0,"minimumScale":100,"visible":true,"inverted":false,"denyOtherText":"NO","denyOtherDesigns":"NO","allowScale":true,"allowFlip":true,"allowRotate":true,"allowedShops":"ALL"},"size":{"width":0.0,"height":0.0,"unit":"mm"},"colors":[],"printTypes":[],"designCategories":[],"price":{"vatExcluded":0.00,"vatIncluded":0.00,"vat":19.00,"currency":{"id":"1","href":"http://api.spreadshirt.net/api/v1/currencies/1"}},"resources":[{"mediaType":"png","type":"preview","href":"http://image.spreadshirt.net/image-server/v1/designs/107788218"},{"mediaType":"png","type":"montage","href":"http://image.spreadshirt.net/image-server/v1/designs/107788218"}],"created":"12.03.2013 12:19:26","modified":"12.03.2013 12:19:26","id":"107788218","href":"http://api.spreadshirt.net/api/v1/shops/41985/designs/u107788218"}
