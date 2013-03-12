@@ -272,4 +272,30 @@ Currently, the Spreadshirt API only supports checkout via a webpage. To retrieve
 
 ## Product Creation
 
-## Displaying Products
+Creating custom Products via the Spreadshirt API is [complex](http://developer.spreadshirt.net/display/API/Creating+Products+on+Spreadshirt+using+Spreadshirt+API+v1). To make it easier for you to create products, SpreadKit includes the `SPProductCreator`. Currently, this class supports creating a Product with one image configuration, positioned on the default print area of the selected product type.
+
+Using the `SPProductCreator` is straight-forward:
+
+```objc
+SPProductCreator *creator = [[SPProductCreator alloc] init];
+UIImage *image; // for example a picture taken with the camera
+SPProductType *type; // a product type you have previosuly loaded from the API
+SPProduct *product = [creator createProductWithProductType:type andImage:image];
+```
+
+After creation, you can still change the product to your liking. When you are done, upload it to Spreadshirt:
+
+```objc
+[creator uploadProduct:self.product completion:^(SPProduct *uploaded, NSError *error) {
+    if (error) {
+        // something is wrong woth your product, check the error
+    }
+    // use your product, e.g. put it in a basket! 
+}];
+```
+
+For more complex products, you have to modify the Configurations of the product. Read up on it on the [SDN](http://developer.spreadshirt.net/display/API/Product+Model).
+
+## Conclusion
+
+This was a whirlwind tour of SpreadKit. You are welcome to explore the code for more things to do with it. For understanding the Spreadshirt domain model and what you can achieve with the Spreadshirt API, read the full documentation at the [Spreadshirt Developer Network](https://developer.spreadshirt.net).
