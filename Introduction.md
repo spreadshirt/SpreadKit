@@ -6,7 +6,7 @@ With SpreadKit, you can integrate catalog browsing, product creation and basket 
 
 For useful information regarding the Spreadshirt API and a reference of all the resources, have a look at the [Spreadshirt Developer Network](https://developer.spreadshirt.net). There you can find out what is possible with the Spreadshirt API and get ideas for what you want to build using it.
 
-## Prerequisites
+### Prerequisites
 
 SpreadKit was written exclusively for iOS, starting with Version 5.0. Currently, there are no plans for a Mac OS X framework.
 
@@ -14,62 +14,152 @@ In order to be able to, for example, create products and baskets, you need to ap
 
 It is strongly encouraged that you use [CocoaPods](http://http://cocoapods.org) for managing your project's dependencies, mainly for two reasons: (1) SpreadKit installation will be much easier this way and (2) It is awesome :).
 
-# Setup
+### Caveats
+
+The following features have not been implemented yet, but are planned:
+
+* support for the [Spreadshirt Order API](https://developer.spreadshirt.net/display/API/Order+Resources)
+* support for text configurations on products
+
+## Setup
 
 The only supported way to install SpreadKit into your project is via CocoaPods, and it is quite simple. If you have not already, create a file named `Podfile` in your project root and include the following lines:
-    platform :ios, '5.0'
-    pod 'SpreadKit', '~> 1.0'
 
-Assuming you have installed CocoaPods (`sudo gem install cocoapods`), you can run:
+    platform :ios, '5.0'
+    pod 'SpreadKit', '~> 0.5'
+
+Assuming you have installed CocoaPods (`sudo gem install cocoapods && pod setup`), you can run:
+
     pod install
+
 and open the created `.xcworkspace` file with Xcode.
 
 In your Code, wherever you need SpreadKit, just:
+
     #import <SpreadKit/SpreadKit.h>
+
 (or do it in your prefix header) and you are ready to roll.
 
-# Initialization
+## Initialization
 
 The Main entry point for SpreadKit is the `SPClient` class. It represents the main interface for all your calls to the Spreadshirt API. It can be either initialized scoped to a user or a shop, depending on your application. The initialization is done with:
+
     [SPClient clientWithShopId:@"yourShopID"
                      andApiKey:@"yourAPIKey" 
                      andSecret:@"yourSecret"
                    andPlatform:SPPlatformEU];
 or:
+
     [SPClient clientWithUserId:@"yourShopID"
                      andApiKey:@"yourAPIKey" 
                      andSecret:@"yourSecret"
                    andPlatform:SPPlatformEU];
+
 Please note that the platform parameter can only be either one of `SPPlatformEU` for the EU platform or `SPPlatformNA` for the NA Platform.
 
 The first client to be initialized is later available via the `[SPClient sharedClient]` selector. In case you need to use more than one client at a time (e.g. one for EU and one for NA), just initialize them and store them in variables in your application. You can not use the `[SPClient sharedClient]` in that case.
 
-# Basics
+## Basics
 
-## Blocks
+### Blocks
 
 SpreadKit uses Objective-C Blocks nearly everywhere. They provide a convenient programming envirnoment when dealing with asynchronous calls, such as with web services like the Spreadshirt API. If you are not familiar with Blocks it is highly recommended you [read](http://developer.apple.com/library/ios/#documentation/cocoa/Conceptual/Blocks/Articles/00_Introduction.html) [up](http://developer.apple.com/library/ios/#documentation/cocoa/Conceptual/Blocks/Articles/00_Introduction.html) [on](http://ios-blog.co.uk/tutorials/programming-with-blocks-an-overview/) [them](http://mobile.tutsplus.com/tutorials/iphone/understanding-objective-c-blocks/).
 
 Basically every call you make to the Spreadshirt API will include a block parameter named `completion`. This Block will have an `NSError` object and the data you requested as parameters. It is the up to you to handle potential erros and process the delivered data. To illustrate this programming model, have a look at the following code:
 
     [client getShopAndOnCompletion:^(SPShop *shop, NSError *error) {
-			if (error) {
-				// do some error handling
-			} else {
-				[controller shopLoaded:shop]
-			}
+            if (error) {
+                // do some error handling
+            } else {
+                [controller shopLoaded:shop]
+            }
     }];
 
 This gets the SPShop object associated with the client and notifies a view controller about the availability of that object (e.g. for displaying information of the shop or initiating further requests). There is no need for delegate methods, since the action on a completed request can be specified right at the location in the code where the request is made.
 
-## Models
+### Models
 
 SpreadKit includes corresponding Objective-C classes for every resource type of the Spreadshirt API. You can check out the available resource types at the [Spreadshirt Developer Network](https://developer.spreadshirt.net/display/API/API+Resources).
 
-## Basic resource methods
+### Main entry point
 
-# Image resources
+Your gate to the all the things you do with Spreadshirt resources is determined by how you initialize your `SPClient`. It can be either a shop or a user, depending on what you want to achieve. From there on, you will access all other resources based on this main one. For example, you retrieve the `SPShop` object of a shop-scoped client like this:
 
-# Baskets
+    SPClient *client = [SPClient clientWithShopId:...];
+    [client getShopAndOnCompletion:^(SPShop *shop, NSError *error) {
+        // do something with your retrieved shop object
+    }];
 
-# Product Creation
+For a user-scoped client, this can be done in a similar fashion using the `getUserAndOnCompletion:completion` method.
+
+### Browsing and getting objects
+
+Once you got hold of your main object, you probably want to browse the API. The general way to do this is the `get` method of `SPClient`.
+
+`get` is a wonderful and intuitive way to get resources from the Spreadshirt API. You can pass it an existing object stub to fill out the details, a list to get a number of objects in that list or just the type and ID of the object you want. In its `completion` block, `get` will return what you requested.
+
+#### Lists
+
+At the beginning, most of the attributes of your main object are of the class `SPList`. These are references to paginated lists of objects. Assuming you have an `SPShop` object named `shop`, you could access the first page of the shops products like this:
+
+    [client get:shop.products completion:^(id loaded, NSError *error) {
+        NSArray *products = (NSArray *)loaded;
+        // do something with the first page of products
+    }];
+
+If you want the next page of the lists objects, just get it via the `more`property (this automatically points to the next page from the last one loaded):
+
+    [client get:shop.products.more completion:^(id loaded, NSError *error) {
+        NSArray *productsPage2 = (NSArray *)loaded;
+    }];
+
+You can access the `NSArray` the previously loaded objects at any time using the `elements` property of `SPList`:
+
+    NSArray *alreadyLoadedProducts = shop.products.elements;
+
+To get an overview of the available pages, you can use the `pages` property of `SPList`. Please note that this will be available only after loading at least the first page.
+
+You can check if there are more availabe pages to load at any time, using the `hasNextPage` property of `SPList`.
+
+#### Single objects
+
+Often times, the Spreadshirt API returns stub objects to keep responses small and fast. Stub objects are objects where not all properties are set yet. If you encounter a property of an object with the nil value, chances are pretty high it is just a stub and you can get more info using the `get` method of `SPClient`:
+
+    SPShop *shop;
+    // in this example, we fill out the stub objects of a shops user
+    [client get:shop.user completion^(id loaded, NSError *error) {
+        SPUser *user = (SPUser *)loaded;
+    }];
+
+If you know what you want, it is also possible to get something from the Spreadshirt API just with the type and ID of the object:
+
+    [client get:[SPProduct class] identifier:@"22169128" completion:^(id loaded, NSError *error) {
+        SPProduct *product = (SPProduct *)loaded;
+        // do something with the product
+    }];
+
+#### Image resources
+
+Most objects returned by the Spreadshirt API have a `resources` NSArray associated with them. This contains image resources of products, designs etc. to display within your app. You can browse this array to find suitable images.
+
+The most important property of an `SPResource` is the `type` of the resource. You can find more information about the available resource types at the [SDN](https://developer.spreadshirt.net/display/API/Image+Resources).
+
+Once you have picked the resource you wish to display, you can use the special `SPImageLoader` class to get an `UIImage` to display. Simply get yourself an instance
+
+    SPImageLoader *loader = [[SPImageLoader alloc] init]
+
+and load the desired resource with a specified size (the size you want to display the image with)
+
+    [self loadImageForResource:resource withSize:size completion:^(UIImage *image, NSURL *imageURL, NSError *error) {
+        // do something with your image 
+    }];
+
+In the `completion` block, the URL from which the image is also returned, in case you want to use it (for example preventing switching images in  a `UITableView`).
+
+The image is loaded automatically with the correct resolution for the device (retina or non-retina). Just specify the size needed in points, SpreadKit will figure it ou
+
+Optionally, it is possible to specify an appearance used for loading the image resource. This is needed, when you get a product image for a product with customizable color (appearance). In that case, you can use the `loadImageForResource:withSize:andAppearanceId:completion:` method of `SPImageLoader`.
+
+## Baskets
+
+## Product Creation
