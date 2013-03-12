@@ -20,6 +20,7 @@ The following features have not been implemented yet, but are planned:
 
 * support for the [Spreadshirt Order API](https://developer.spreadshirt.net/display/API/Order+Resources)
 * support for text configurations on products
+* support for supplying search queries on get requests
 
 ## Setup
 
@@ -159,6 +160,32 @@ In the `completion` block, the URL from which the image is also returned, in cas
 The image is loaded automatically with the correct resolution for the device (retina or non-retina). Just specify the size needed in points, SpreadKit will figure it ou
 
 Optionally, it is possible to specify an appearance used for loading the image resource. This is needed, when you get a product image for a product with customizable color (appearance). In that case, you can use the `loadImageForResource:withSize:andAppearanceId:completion:` method of `SPImageLoader`.
+
+### Creating and updating Objects
+
+Just like getting objects, you can also create und update them. This is done via the `post` and `put` methods of `SPClient`.
+
+For creating a new object, just use the `post` method, for example for a design:
+
+    SPDesign *design = [[SPDesign alloc] init];
+    design.name = @"Super Cool Test Design";
+    design.description = @"This is a Design created with SpreadKit";
+    [client post:design completion:^(id newObject, NSError *error){
+        if (error) {
+            // something went wrong, check the error
+        }
+        // newObject should be the object you just created
+    }];
+
+Updating works the same way, just use the `put` method:
+
+    design.description = @"I totally updated that description!"
+    [client put:design completion:^(id updatedObject, NSError *error) {
+       if (error) {
+            // something went wrong, check the error
+        }
+        // updatedObject should be the object you just updated
+    }];
 
 ## Baskets
 
