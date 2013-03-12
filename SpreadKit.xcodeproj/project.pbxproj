@@ -409,6 +409,15 @@
 		C01F9F5616EF30BA001CB021 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				C0CDD925160074F200965127 /* productTypeDepartment.json */,
+				C0B2FA7F156FBD63008A103B /* article.json */,
+				C0A04200158219AB00953AF4 /* basket.json */,
+				C026FA2115AEFCD100FFEB69 /* design.json */,
+				C0C6921314EE57440068C18D /* product.json */,
+				C0C6921414EE57440068C18D /* products.json */,
+				C035E4E315063FE800A52242 /* products2.json */,
+				C0A2E7421578AE0E004A3847 /* productType.json */,
+				C0ADF74915381B0E00CC9AE4 /* user.json */,
 				C01F9F5716EF30BA001CB021 /* testRetinaAwareLoading.txt */,
 			);
 			path = Fixtures;
@@ -627,7 +636,6 @@
 		C0B2FA7B156FBAC1008A103B /* MappingTests */ = {
 			isa = PBXGroup;
 			children = (
-				C0C6922514EE576D0068C18D /* Mock Responses */,
 				C0B2FA7D156FBB53008A103B /* SPArticleMappingTests.m */,
 				C0A041FE1581E76300953AF4 /* SPBasketItemMappingTests.m */,
 				C0A0420315821AEB00953AF4 /* SPBasketMappingTests.m */,
@@ -637,22 +645,6 @@
 				C0CDD92D1600751500965127 /* SPProductTypeDepartmentMappingTests.m */,
 			);
 			name = MappingTests;
-			sourceTree = "<group>";
-		};
-		C0C6922514EE576D0068C18D /* Mock Responses */ = {
-			isa = PBXGroup;
-			children = (
-				C0CDD925160074F200965127 /* productTypeDepartment.json */,
-				C0B2FA7F156FBD63008A103B /* article.json */,
-				C0A04200158219AB00953AF4 /* basket.json */,
-				C026FA2115AEFCD100FFEB69 /* design.json */,
-				C0C6921314EE57440068C18D /* product.json */,
-				C0C6921414EE57440068C18D /* products.json */,
-				C035E4E315063FE800A52242 /* products2.json */,
-				C0A2E7421578AE0E004A3847 /* productType.json */,
-				C0ADF74915381B0E00CC9AE4 /* user.json */,
-			);
-			path = "Mock Responses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
