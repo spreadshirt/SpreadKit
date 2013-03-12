@@ -202,7 +202,6 @@
 		C0F68BD515B44D0300FFA3BC /* SPPrice.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F68BD315B44D0200FFA3BC /* SPPrice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0F68BD615B44D0300FFA3BC /* SPPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BD415B44D0200FFA3BC /* SPPrice.m */; };
 		C0F68BD715B44D0300FFA3BC /* SPPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F68BD415B44D0200FFA3BC /* SPPrice.m */; };
-		C0FE50D715A1C5550015BC6F /* SPBasketManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FE50D615A1C5550015BC6F /* SPBasketManagerTests.m */; };
 		DC019FE162A84B5DBCDE4809 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FF5DBAA913476D8F2222BB /* libPods.a */; };
 		E5D666DA07C74346B7622F44 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 594FB9197CC14363ADCC792C /* libPods-test.a */; };
 /* End PBXBuildFile section */
@@ -371,7 +370,6 @@
 		C0F68BCF15B441A000FFA3BC /* SPLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLanguage.m; sourceTree = "<group>"; };
 		C0F68BD315B44D0200FFA3BC /* SPPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPrice.h; sourceTree = "<group>"; };
 		C0F68BD415B44D0200FFA3BC /* SPPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPrice.m; sourceTree = "<group>"; };
-		C0FE50D615A1C5550015BC6F /* SPBasketManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBasketManagerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,7 +440,6 @@
 				C01F9F5616EF30BA001CB021 /* Fixtures */,
 				C0B2FA7B156FBAC1008A103B /* MappingTests */,
 				C0C41BC5155BA976009F70FF /* SPAuthenticationProviderTests.m */,
-				C0FE50D615A1C5550015BC6F /* SPBasketManagerTests.m */,
 				C0C6921614EE57440068C18D /* SPClientTests.m */,
 				C02F11C915B005D400AF8276 /* SPDesignUploadIntegrationTests.m */,
 				C0C6921714EE57440068C18D /* SPImageLoaderTests.m */,
@@ -864,7 +861,6 @@
 				C0A2E7411578AD18004A3847 /* SPProductTypeMappingTests.m in Sources */,
 				C0A041FF1581E76300953AF4 /* SPBasketItemMappingTests.m in Sources */,
 				C0A0420415821AEB00953AF4 /* SPBasketMappingTests.m in Sources */,
-				C0FE50D715A1C5550015BC6F /* SPBasketManagerTests.m in Sources */,
 				C0C7116215AD9DC900302CC4 /* SPListTests.m in Sources */,
 				C026FA2015AEF99500FFEB69 /* SPDesignMappingTests.m in Sources */,
 				C02F11D115B008FC00AF8276 /* SPDesignUploadIntegrationTests.m in Sources */,
