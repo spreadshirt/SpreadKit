@@ -23,6 +23,7 @@
 		C01A9B321609A70100511423 /* SPProcess.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B311609A70100511423 /* SPProcess.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C01A9B341609EE5C00511423 /* SPViewHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B331609EE5C00511423 /* SPViewHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C01D335915C6C32200C77A0B /* SPProductCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01D335815C6C32200C77A0B /* SPProductCreatorTests.m */; };
+		C01F9F5816EF30BA001CB021 /* testRetinaAwareLoading.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F5716EF30BA001CB021 /* testRetinaAwareLoading.txt */; };
 		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C025362B15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
 		C025362C15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
@@ -235,6 +236,7 @@
 		C01A9B311609A70100511423 /* SPProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProcess.h; sourceTree = "<group>"; };
 		C01A9B331609EE5C00511423 /* SPViewHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SPViewHeaders.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C01D335815C6C32200C77A0B /* SPProductCreatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProductCreatorTests.m; sourceTree = "<group>"; };
+		C01F9F5716EF30BA001CB021 /* testRetinaAwareLoading.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testRetinaAwareLoading.txt; sourceTree = "<group>"; };
 		C025362815E7744D000FA70E /* UIImage+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Orientation.h"; sourceTree = "<group>"; };
 		C025362915E7744D000FA70E /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
 		C02536A815E7AC8E000FA70E /* SPAppearanceChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SPAppearanceChooserView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -406,6 +408,14 @@
 			name = Process;
 			sourceTree = "<group>";
 		};
+		C01F9F5616EF30BA001CB021 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				C01F9F5716EF30BA001CB021 /* testRetinaAwareLoading.txt */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		C033ADFA15B595F50071D341 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,20 +439,21 @@
 		C03806EB150103780004BFC4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C02F11C915B005D400AF8276 /* SPDesignUploadIntegrationTests.m */,
+				C01F9F5616EF30BA001CB021 /* Fixtures */,
 				C0B2FA7B156FBAC1008A103B /* MappingTests */,
 				C0C41BC5155BA976009F70FF /* SPAuthenticationProviderTests.m */,
 				C0FE50D615A1C5550015BC6F /* SPBasketManagerTests.m */,
 				C0C6921614EE57440068C18D /* SPClientTests.m */,
-				C0C7116115AD9DC900302CC4 /* SPListTests.m */,
+				C02F11C915B005D400AF8276 /* SPDesignUploadIntegrationTests.m */,
 				C0C6921714EE57440068C18D /* SPImageLoaderTests.m */,
+				C0C7116115AD9DC900302CC4 /* SPListTests.m */,
+				C09795FB161055B3003DD4D2 /* SPObjectCacheTests.m */,
 				C0E7C8F015060438005A185A /* SPObjectManagerTests.m */,
 				C0ADF747153819B600CC9AE4 /* SPObjectMapperTests.m */,
 				C0C6921814EE57440068C18D /* SPObjectMappingProviderTests.m */,
+				C01D335815C6C32200C77A0B /* SPProductCreatorTests.m */,
 				C03806EC150103780004BFC4 /* Supporting Files */,
 				C026FA2515AF0BD600FFEB69 /* testImage.jpg */,
-				C01D335815C6C32200C77A0B /* SPProductCreatorTests.m */,
-				C09795FB161055B3003DD4D2 /* SPObjectCacheTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -800,6 +811,7 @@
 				C0CDD926160074F200965127 /* productTypeDepartment.json in Resources */,
 				C0DACB781608902C0041073D /* SpreadKitResources.bundle in Resources */,
 				C0C978ED16C4F30900F107E0 /* Default-568h@2x.png in Resources */,
+				C01F9F5816EF30BA001CB021 /* testRetinaAwareLoading.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
