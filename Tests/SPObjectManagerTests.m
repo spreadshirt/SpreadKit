@@ -7,6 +7,8 @@
 //
 
 #import <GHUnitIOS/GHUnit.h>
+#import <Nocilla/Nocilla.h>
+
 #import "SPProduct.h"
 #import <RestKit/RestKit.h>
 #import "SPObjectMappingProvider.h"
@@ -31,12 +33,31 @@
 
 @implementation SPObjectManagerTests
 
+- (void)setUpClass
+{
+    [[LSNocilla sharedInstance] start];
+}
+
+- (void)tearDownClass
+{
+    [[LSNocilla sharedInstance] stop];
+}
+
 - (void)setUp{
     manager = [SPObjectManager objectManagerWithApiKey:@"xxx" andSecret:@"xxx"];
 }
 
+- (void)tearDown
+{
+    [[LSNocilla sharedInstance] clearStubs];
+}
+
 - (void)testListLoadingFromUrl
 {
+    // stubs
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/4000/products?fullData=true&mediaType=json")
+    .andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testListLoading1" ofType:@"txt"]]);
+    
     __block NSArray *result;
     
     [self prepare];
@@ -57,6 +78,10 @@
 
 - (void)testSingleResourceLoadingFromUrl
 {
+    // stubs
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testSingleResourceLoadingFromUrl" ofType:@"txt"]]);
+    
     RKObjectMapping *productMapping = [[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPProduct class]];
     __block NSArray *result;
     
@@ -78,6 +103,12 @@
 
 - (void)testRelatedListLoading 
 {
+    // stubs
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/4000/products?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testRelatedListLoading" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/4000/products?fullData=true&limit=50&mediaType=json&offset=0").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testRelatedListLoading" ofType:@"txt"]]);
+    
     SPUser *user = [[SPUser alloc] init];
     user.products = [[SPList alloc] init];
     user.products.url = [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products"];
@@ -103,6 +134,16 @@
 
 - (void)testListPagination
 {
+    // stubs
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/205909/products?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testListPagination1" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/205909/products?fullData=true&limit=50&mediaType=json&offset=0").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testListPagination2" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/205909/products?fullData=true&limit=50&mediaType=json&offset=50").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testListPagination3" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/205909/products?fullData=true&limit=50&mediaType=json&offset=100").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testListPagination4" ofType:@"txt"]]);
+    
     SPList *list = [[SPList alloc] init];
     list.url = [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/205909/products"];
     
@@ -145,6 +186,11 @@
 
 - (void)testPostBasket
 {
+    // stubs
+    stubRequest(@"POST", @"http://api.spreadshirt.net/api/v1/baskets?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testPostBasket" ofType:@"txt"]]);
+    
+    
     SPBasket *basket = [[SPBasket alloc] init];
     //    basket.token = @"test";
     

@@ -1,0 +1,13 @@
+HTTP/1.0 201 Created
+Cache-Control: no-cache, no-store, max-age=14400
+Location: http://api.spreadshirt.net/api/v1/baskets/8d1a901f-bb4b-4de2-b724-add14816469b
+Accept-Ranges: bytes
+Content-Length: 0
+X-Cache-Lookup: MISS from fish10:80
+Expires: Tue, 12 Mar 2013 17:10:21 GMT
+X-Server-Name: mem1
+True-Client-IP: 88.79.226.66
+Content-Type: text/plain
+Date: Tue, 12 Mar 2013 13:10:21 GMT
+Connection: close
+

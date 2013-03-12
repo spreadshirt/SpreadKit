@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Expires: Wed, 13 Mar 2013 00:58:31 GMT
+Content-Language: en-gb
+Content-Type: application/json;charset=UTF-8
+X-Cache-Lookup: MISS from fish07:80
+X-Server-Name: mem3
+True-Client-IP: 88.79.226.66
+Date: Tue, 12 Mar 2013 13:13:47 GMT
+Content-Length: 1851
+Connection: keep-alive
+
+{"name":"Mug","user":{"id":"4000","href":"http://api.spreadshirt.net/api/v1/users/4000"},"weight":0.0,"productType":{"id":"31","href":"http://api.spreadshirt.net/api/v1/shops/4000/productTypes/31"},"appearance":{"id":"1"},"restrictions":{"customizable":true,"freeColorSelection":true,"example":false,"softBoundarySupported":false},"configurations":[{"type":"text","printArea":{"id":"29"},"printType":{"id":"10","href":"http://api.spreadshirt.net/api/v1/shops/4000/printTypes/10"},"offset":{"x":3.653361812297735,"y":1.8266967997123302,"unit":"mm"},"content":{"svg":{"text":{"width":"54.126","height":"73.103","content":[{"content":["Dein"]},{"content":["Name"],"x":"27.063","y":"42.492","textAnchor":"middle","fill":"#521973"},{"content":["hier!"],"x":"27.063","y":"65.325","textAnchor":"middle"}],"fontFamilyId":"52","fontId":"78","x":"27.063","y":"19.202","textAnchor":"middle","fill":"#000000","fontFamily":"BelloScript","fontWeight":"normal","fontSize":"22.225","fontStyle":"normal","transform":""},"viewBox":"-0 0.311 54.126 72.792"},"unit":"mm","dpi":25.4},"fontFamilies":[{"id":"52","href":"http://api.spreadshirt.net/api/v1/shops/4000/fontFamilies/52"}],"restrictions":{"changeable":false},"resources":[{"mediaType":"png","href":"http://image.spreadshirt.net/image-server/v1/configurations/25711886"}],"id":"25711886"}],"defaultValues":{"defaultView":{"id":"1"},"defaultDesign":{}},"resources":[{"mediaType":"png","type":"preview","href":"http://image.spreadshirt.net/image-server/v1/products/18245494/views/1"},{"mediaType":"png","type":"product","href":"http://image.spreadshirt.net/image-server/v1/products/18245494/views/1"},{"mediaType":"png","type":"composition","href":"http://image.spreadshirt.net/image-server/v1/compositions/18245494/views/1"}],"id":"18245494","href":"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"}
