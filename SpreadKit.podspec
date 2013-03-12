@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "SpreadKit"
-  s.version      = "0.0.2"
-  s.summary      = "SpreadKit brings Spreadshirt API support to IOS apps."
+  s.version      = "0.1"
+  s.summary      = "SpreadKit brings Spreadshirt API support to iOS apps."
   s.license      = 'MIT'
-  s.author       = "Sebastian Marr"
+  s.author       = "sprd.net AG"
   s.homepage     = 'http://developer.spreadshirt.net'
-  s.source       = { :svn => 'https://svn.spreadomat.net/repos/discovery/papper-prototype/trunk/SpreadKit' }
+  s.source       = { :git => 'http://git.spreadomat.net/marr/spreadkit.git', :tag => '0.1' }
   s.platform     = :ios, '5.0'
   s.source_files = 'SpreadKit/*'
   s.resource     = 'SpreadKitResources.bundle'
