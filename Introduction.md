@@ -218,7 +218,6 @@ design.description = @"I totally updated that description!"
 There a certain objects that can be deleted using the Spreadshirt API, for example Baskets or self-created products. This can be achieved using the `delete` method of `SPClient`.
 
 ```objc
-
 SPDesign *design;
 [client delete:design completion:^(NSError *error) {
     if (error) {
@@ -230,6 +229,46 @@ SPDesign *design;
 ```
 
 ## Baskets
+
+To enable your users to buy products, it essential to be able to handle shopping baskets and lead them to checkout. This can be easily done with the `SPBasketManager`.
+
+### Managing Basket Items
+
+To start off with basket management, get sourself a shiny new instance if `SPBasketManager`:
+
+```objc
+SPBasketManager *basketManager = [SPBasketManager alloc] init];
+```
+
+For each item you want to add, call the `addToBasket:withSize:andAppearance` method of `SPBasketManager`. An item can be either an `SPArticle`or an `SPProduct`. To learn more about the difference between the two, check the [documentation](http://developer.spreadshirt.net/display/API/Product+Model).
+
+`addToBasket:withSize:andAppearance` return an instance of `SPBasketItem`, that you can use to further specify the contents of you basket. In the following example, an `SPProduct` is added and then the quantity in the basket is changed:
+
+```objc
+SPProduct *product;
+SPBasketManager *basketManager = [SPBasketManager alloc] init];
+SPBasketItem *item = [basketManager addToBasket:product 
+                                       withSize:[product.productType.sizes objectAtIndex:0] 
+                                  andAppearance:product.appearance];
+item.quantity = @2;
+```
+(This example uses the new Objective-C literals for NSNumber. If you don't know them, I highly recommend [to check them out](http://clang.llvm.org/docs/ObjectiveCLiterals.html)!)
+
+You can check the items currently in your basket with `basketManager.items` and remove them using the `removeItem` method of `SPBasketManager`.
+
+### Checkout
+
+Currently, the Spreadshirt API only supports checkout via a webpage. To retrieve the checkout URL, you can use your `SPBasketManager`: 
+
+```objc
+[basketManagerm checkoutURLWithCompletion:^(NSURL *checkoutURL, NSError *error) {
+    if (error) {
+        // something is wrong with your basket, check the error messages
+    } else {
+        // for example, show a UIWebView for the checkoutURL
+    }
+}];
+```
 
 ## Product Creation
 
