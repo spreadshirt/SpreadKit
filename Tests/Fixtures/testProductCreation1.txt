@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Expires: Tue, 12 Mar 2013 14:16:27 GMT
+Content-Language: en-gb
+Content-Type: application/json;charset=UTF-8
+X-Cache-Lookup: MISS from fish10:80
+X-Server-Name: mem3
+True-Client-IP: 88.79.226.66
+Date: Tue, 12 Mar 2013 13:16:27 GMT
+Content-Length: 1849
+Connection: keep-alive
+
+{"type":"CLASSIC","user":{"id":"4059473","href":"http://api.spreadshirt.net/api/v1/users/4059473"},"country":{"id":"1","href":"http://api.spreadshirt.net/api/v1/countries/1"},"language":{"id":"1","href":"http://api.spreadshirt.net/api/v1/languages/1"},"currency":{"id":"1","href":"http://api.spreadshirt.net/api/v1/currencies/1"},"address":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/address"},"passwordRestricted":false,"hidden":true,"mandator":{"id":"1"},"shippingUseCase":{"id":"1"},"defaultShippingType":{"id":"1"},"discountSupported":false,"productTypes":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/productTypes"},"printTypes":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/printTypes"},"fontFamilies":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/fontFamilies"},"productTypeDepartments":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/productTypeDepartments"},"shippingTypes":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/shippingTypes"},"designCategories":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/designCategories"},"designs":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/designs"},"articleCategories":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/articleCategories"},"articles":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/articles"},"products":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/products"},"applications":{"href":"http://api.spreadshirt.net/api/v1/shops/654135/applications"},"currencies":{"href":"http://api.spreadshirt.net/api/v1/currencies"},"languages":{"href":"http://api.spreadshirt.net/api/v1/languages"},"countries":{"href":"http://api.spreadshirt.net/api/v1/countries"},"baskets":{"href":"http://api.spreadshirt.net/api/v1/baskets"},"id":"654135","href":"http://api.spreadshirt.net/api/v1/shops/654135"}

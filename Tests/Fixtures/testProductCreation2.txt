@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Expires: Tue, 12 Mar 2013 21:57:45 GMT
+Content-Language: en-gb
+Content-Type: application/json;charset=UTF-8
+X-Cache-Lookup: MISS from fish07:80
+X-Server-Name: mem1
+True-Client-IP: 88.79.226.66
+Date: Tue, 12 Mar 2013 13:22:20 GMT
+Content-Length: 1248
+Connection: keep-alive
+
+{"languages":[{"isoCode":"de","name":"Deutsch","id":"1","href":"http://api.spreadshirt.net/api/v1/languages/1"},{"isoCode":"dk","name":"Dansk","id":"10","href":"http://api.spreadshirt.net/api/v1/languages/10"},{"isoCode":"pl","name":"Polski","id":"11","href":"http://api.spreadshirt.net/api/v1/languages/11"},{"isoCode":"fi","name":"Suomi","id":"13","href":"http://api.spreadshirt.net/api/v1/languages/13"},{"isoCode":"en","name":"English","id":"2","href":"http://api.spreadshirt.net/api/v1/languages/2"},{"isoCode":"fr","name":"Français","id":"3","href":"http://api.spreadshirt.net/api/v1/languages/3"},{"isoCode":"es","name":"Español","id":"4","href":"http://api.spreadshirt.net/api/v1/languages/4"},{"isoCode":"nl","name":"Nederlands","id":"5","href":"http://api.spreadshirt.net/api/v1/languages/5"},{"isoCode":"it","name":"Italiano","id":"7","href":"http://api.spreadshirt.net/api/v1/languages/7"},{"isoCode":"no","name":"Norsk","id":"8","href":"http://api.spreadshirt.net/api/v1/languages/8"},{"isoCode":"se","name":"Svenska","id":"9","href":"http://api.spreadshirt.net/api/v1/languages/9"}],"href":"http://api.spreadshirt.net/api/v1/languages?fullData\u003dtrue","offset":0,"limit":50,"count":11,"sortField":"default","sortOrder":"default"}

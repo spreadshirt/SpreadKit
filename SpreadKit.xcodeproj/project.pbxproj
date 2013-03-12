@@ -41,6 +41,12 @@
 		C01F9F7A16EF60C6001CB021 /* testPostBasket.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F7916EF60C6001CB021 /* testPostBasket.txt */; };
 		C01F9F7C16EF6131001CB021 /* testRelatedListLoading.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F7B16EF6130001CB021 /* testRelatedListLoading.txt */; };
 		C01F9F7E16EF6194001CB021 /* testSingleResourceLoadingFromUrl.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F7D16EF6194001CB021 /* testSingleResourceLoadingFromUrl.txt */; };
+		C01F9F8016EF6235001CB021 /* testProductCreation1.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F7F16EF6235001CB021 /* testProductCreation1.txt */; };
+		C01F9FBD16EF63B2001CB021 /* testProductCreation2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9FBC16EF63B2001CB021 /* testProductCreation2.txt */; };
+		C01F9FBF16EF6406001CB021 /* testProductCreation3.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9FBE16EF6405001CB021 /* testProductCreation3.txt */; };
+		C01F9FC116EF645D001CB021 /* testProductCreation4.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9FC016EF645D001CB021 /* testProductCreation4.txt */; };
+		C01F9FC316EF64E9001CB021 /* testProductCreation5.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9FC216EF64E9001CB021 /* testProductCreation5.txt */; };
+		C01F9FC516EF6573001CB021 /* testProductCreation6.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9FC416EF6572001CB021 /* testProductCreation6.txt */; };
 		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C025362B15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
 		C025362C15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
@@ -270,6 +276,12 @@
 		C01F9F7916EF60C6001CB021 /* testPostBasket.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testPostBasket.txt; sourceTree = "<group>"; };
 		C01F9F7B16EF6130001CB021 /* testRelatedListLoading.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testRelatedListLoading.txt; sourceTree = "<group>"; };
 		C01F9F7D16EF6194001CB021 /* testSingleResourceLoadingFromUrl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testSingleResourceLoadingFromUrl.txt; sourceTree = "<group>"; };
+		C01F9F7F16EF6235001CB021 /* testProductCreation1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductCreation1.txt; sourceTree = "<group>"; };
+		C01F9FBC16EF63B2001CB021 /* testProductCreation2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductCreation2.txt; sourceTree = "<group>"; };
+		C01F9FBE16EF6405001CB021 /* testProductCreation3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductCreation3.txt; sourceTree = "<group>"; };
+		C01F9FC016EF645D001CB021 /* testProductCreation4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductCreation4.txt; sourceTree = "<group>"; };
+		C01F9FC216EF64E9001CB021 /* testProductCreation5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductCreation5.txt; sourceTree = "<group>"; };
+		C01F9FC416EF6572001CB021 /* testProductCreation6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductCreation6.txt; sourceTree = "<group>"; };
 		C025362815E7744D000FA70E /* UIImage+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Orientation.h"; sourceTree = "<group>"; };
 		C025362915E7744D000FA70E /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
 		C02536A815E7AC8E000FA70E /* SPAppearanceChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SPAppearanceChooserView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -443,6 +455,12 @@
 		C01F9F5616EF30BA001CB021 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				C01F9FC416EF6572001CB021 /* testProductCreation6.txt */,
+				C01F9FC216EF64E9001CB021 /* testProductCreation5.txt */,
+				C01F9FC016EF645D001CB021 /* testProductCreation4.txt */,
+				C01F9FBE16EF6405001CB021 /* testProductCreation3.txt */,
+				C01F9FBC16EF63B2001CB021 /* testProductCreation2.txt */,
+				C01F9F7F16EF6235001CB021 /* testProductCreation1.txt */,
 				C0B2FA7F156FBD63008A103B /* article.json */,
 				C0A04200158219AB00953AF4 /* basket.json */,
 				C026FA2115AEFCD100FFEB69 /* design.json */,
@@ -869,6 +887,12 @@
 				C01F9F7A16EF60C6001CB021 /* testPostBasket.txt in Resources */,
 				C01F9F7C16EF6131001CB021 /* testRelatedListLoading.txt in Resources */,
 				C01F9F7E16EF6194001CB021 /* testSingleResourceLoadingFromUrl.txt in Resources */,
+				C01F9F8016EF6235001CB021 /* testProductCreation1.txt in Resources */,
+				C01F9FBD16EF63B2001CB021 /* testProductCreation2.txt in Resources */,
+				C01F9FBF16EF6406001CB021 /* testProductCreation3.txt in Resources */,
+				C01F9FC116EF645D001CB021 /* testProductCreation4.txt in Resources */,
+				C01F9FC316EF64E9001CB021 /* testProductCreation5.txt in Resources */,
+				C01F9FC516EF6573001CB021 /* testProductCreation6.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
