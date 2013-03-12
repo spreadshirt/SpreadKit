@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache, no-store, max-age=14400
+Accept-Ranges: bytes
+Content-Length: 0
+X-Cache-Lookup: MISS from fish08:80
+Expires: Tue, 12 Mar 2013 16:06:48 GMT
+X-Server-Name: mem1
+True-Client-IP: 88.79.226.66
+Content-Type: text/plain
+Date: Tue, 12 Mar 2013 12:06:49 GMT
+Connection: keep-alive
+

@@ -24,6 +24,13 @@
 		C01A9B341609EE5C00511423 /* SPViewHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B331609EE5C00511423 /* SPViewHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C01D335915C6C32200C77A0B /* SPProductCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01D335815C6C32200C77A0B /* SPProductCreatorTests.m */; };
 		C01F9F5816EF30BA001CB021 /* testRetinaAwareLoading.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F5716EF30BA001CB021 /* testRetinaAwareLoading.txt */; };
+		C01F9F5A16EF3676001CB021 /* testProductDeletion1.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F5916EF3676001CB021 /* testProductDeletion1.txt */; };
+		C01F9F5C16EF372C001CB021 /* testProductDeletion2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F5B16EF372C001CB021 /* testProductDeletion2.txt */; };
+		C01F9F6016EF3845001CB021 /* testProductDeletion3.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F5F16EF3845001CB021 /* testProductDeletion3.txt */; };
+		C01F9F6216EF3931001CB021 /* testProductDeletion4.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F6116EF3931001CB021 /* testProductDeletion4.txt */; };
+		C01F9F6416EF3B51001CB021 /* testProductDeletion5.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F6316EF3B51001CB021 /* testProductDeletion5.txt */; };
+		C01F9F6616EF519E001CB021 /* testProductDeletion6.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F6516EF519E001CB021 /* testProductDeletion6.txt */; };
+		C01F9F6816EF5234001CB021 /* testProductDeletion7.txt in Resources */ = {isa = PBXBuildFile; fileRef = C01F9F6716EF5234001CB021 /* testProductDeletion7.txt */; };
 		C025362A15E7744D000FA70E /* UIImage+Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = C025362815E7744D000FA70E /* UIImage+Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C025362B15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
 		C025362C15E7744D000FA70E /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C025362915E7744D000FA70E /* UIImage+Orientation.m */; };
@@ -236,6 +243,13 @@
 		C01A9B331609EE5C00511423 /* SPViewHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SPViewHeaders.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C01D335815C6C32200C77A0B /* SPProductCreatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProductCreatorTests.m; sourceTree = "<group>"; };
 		C01F9F5716EF30BA001CB021 /* testRetinaAwareLoading.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testRetinaAwareLoading.txt; sourceTree = "<group>"; };
+		C01F9F5916EF3676001CB021 /* testProductDeletion1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion1.txt; sourceTree = "<group>"; };
+		C01F9F5B16EF372C001CB021 /* testProductDeletion2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion2.txt; sourceTree = "<group>"; };
+		C01F9F5F16EF3845001CB021 /* testProductDeletion3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion3.txt; sourceTree = "<group>"; };
+		C01F9F6116EF3931001CB021 /* testProductDeletion4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion4.txt; sourceTree = "<group>"; };
+		C01F9F6316EF3B51001CB021 /* testProductDeletion5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion5.txt; sourceTree = "<group>"; };
+		C01F9F6516EF519E001CB021 /* testProductDeletion6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion6.txt; sourceTree = "<group>"; };
+		C01F9F6716EF5234001CB021 /* testProductDeletion7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testProductDeletion7.txt; sourceTree = "<group>"; };
 		C025362815E7744D000FA70E /* UIImage+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Orientation.h"; sourceTree = "<group>"; };
 		C025362915E7744D000FA70E /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
 		C02536A815E7AC8E000FA70E /* SPAppearanceChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SPAppearanceChooserView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -409,7 +423,6 @@
 		C01F9F5616EF30BA001CB021 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				C0CDD925160074F200965127 /* productTypeDepartment.json */,
 				C0B2FA7F156FBD63008A103B /* article.json */,
 				C0A04200158219AB00953AF4 /* basket.json */,
 				C026FA2115AEFCD100FFEB69 /* design.json */,
@@ -417,8 +430,16 @@
 				C0C6921414EE57440068C18D /* products.json */,
 				C035E4E315063FE800A52242 /* products2.json */,
 				C0A2E7421578AE0E004A3847 /* productType.json */,
-				C0ADF74915381B0E00CC9AE4 /* user.json */,
+				C0CDD925160074F200965127 /* productTypeDepartment.json */,
+				C01F9F5916EF3676001CB021 /* testProductDeletion1.txt */,
+				C01F9F5B16EF372C001CB021 /* testProductDeletion2.txt */,
+				C01F9F5F16EF3845001CB021 /* testProductDeletion3.txt */,
+				C01F9F6116EF3931001CB021 /* testProductDeletion4.txt */,
+				C01F9F6316EF3B51001CB021 /* testProductDeletion5.txt */,
+				C01F9F6516EF519E001CB021 /* testProductDeletion6.txt */,
+				C01F9F6716EF5234001CB021 /* testProductDeletion7.txt */,
 				C01F9F5716EF30BA001CB021 /* testRetinaAwareLoading.txt */,
+				C0ADF74915381B0E00CC9AE4 /* user.json */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -801,6 +822,13 @@
 				C0DACB781608902C0041073D /* SpreadKitResources.bundle in Resources */,
 				C0C978ED16C4F30900F107E0 /* Default-568h@2x.png in Resources */,
 				C01F9F5816EF30BA001CB021 /* testRetinaAwareLoading.txt in Resources */,
+				C01F9F5A16EF3676001CB021 /* testProductDeletion1.txt in Resources */,
+				C01F9F5C16EF372C001CB021 /* testProductDeletion2.txt in Resources */,
+				C01F9F6016EF3845001CB021 /* testProductDeletion3.txt in Resources */,
+				C01F9F6216EF3931001CB021 /* testProductDeletion4.txt in Resources */,
+				C01F9F6416EF3B51001CB021 /* testProductDeletion5.txt in Resources */,
+				C01F9F6616EF519E001CB021 /* testProductDeletion6.txt in Resources */,
+				C01F9F6816EF5234001CB021 /* testProductDeletion7.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

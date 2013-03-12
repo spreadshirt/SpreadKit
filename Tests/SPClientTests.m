@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
+#import <Nocilla/Nocilla.h>
 
 #import "SpreadKit.h"
 
@@ -21,6 +22,7 @@
 
 - (void)setUpClass
 {
+    [[LSNocilla sharedInstance] start];
     [SPClient setSharedClient:nil];
 }
 
@@ -31,7 +33,13 @@
 
 - (void)tearDown
 {
+    [[LSNocilla sharedInstance] clearStubs];
     [SPClient setSharedClient:nil];
+}
+
+- (void)tearDownClass
+{
+    [[LSNocilla sharedInstance] stop];
 }
 
 - (void)testClientInitialization
@@ -76,6 +84,26 @@
 
 - (void)testProductDeletion
 {
+    // stubs
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/654135?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testProductDeletion1" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/languages?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testProductDeletion2" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/languages?fullData=true&limit=50&mediaType=json&offset=0").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testProductDeletion2" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/countries?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testProductDeletion3" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/countries?fullData=true&limit=50&mediaType=json&offset=0").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testProductDeletion3" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/654135/productTypes/6?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testProductDeletion4" ofType:@"txt"]]);
+    stubRequest(@"POST", @"http://api.spreadshirt.net/api/v1/shops/654135/designs?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testProductDeletion5" ofType:@"txt"]]);
+    stubRequest(@"DELETE", @"http://api.spreadshirt.net/api/v1/shops/654135/designs/u107788119?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testProductDeletion6" ofType:@"txt"]]);
+    stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/654135/designs/u107788119?fullData=true&mediaType=json").
+    andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testProductDeletion7" ofType:@"txt"]]);
+    
     SPClient *thisClient = [SPClient clientWithShopId:@"654135" andApiKey:@"xxx" andSecret:@"xxx" andPlatform:SPPlatformEU];
     
     SPDesign *design = [[SPDesign alloc] init];

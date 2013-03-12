@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+Cache-Control: no-cache, no-store, max-age=14400
+Location: http://api.spreadshirt.net/api/v1/shops/654135/designs/u107788119
+Accept-Ranges: bytes
+Content-Length: 0
+X-Cache-Lookup: MISS from fish07:80
+Expires: Tue, 12 Mar 2013 15:59:31 GMT
+X-Server-Name: mem3
+True-Client-IP: 88.79.226.66
+Content-Type: text/plain
+Date: Tue, 12 Mar 2013 11:59:31 GMT
+Connection: keep-alive
+
