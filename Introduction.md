@@ -185,9 +185,9 @@ The image is loaded automatically with the correct resolution for the device (re
 
 Optionally, it is possible to specify an appearance used for loading the image resource. This is needed, when you get a product image for a product with customizable color (appearance). In that case, you can use the `loadImageForResource:withSize:andAppearanceId:completion:` method of `SPImageLoader`.
 
-### Creating and updating Objects
+### Creating, updating and deleting Objects
 
-Just like getting objects, you can also create und update them. This is done via the `post` and `put` methods of `SPClient`.
+Just like getting objects, you can also create, update und delete them. This is done via the `post`, `put` and `delete` methods of `SPClient`. Note that for most operations that change objects, you need a properly configured [API key](https://developer.spreadshirt.net).
 
 For creating a new object, just use the `post` method, for example for a design:
 
@@ -215,6 +215,22 @@ design.description = @"I totally updated that description!"
 }];
 ```
 
+There a certain objects that can be deleted using the Spreadshirt API, for example Baskets or self-created products. This can be achieved using the `delete` method of `SPClient`.
+
+```objc
+
+SPDesign *design;
+[client delete:design completion:^(NSError *error) {
+    if (error) {
+        // something went wrong during deletion, check error
+    }
+    // if object was deleted, error is nil
+}];
+
+```
+
 ## Baskets
 
 ## Product Creation
+
+## Displaying Products
