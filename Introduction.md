@@ -4,13 +4,13 @@ Welcome to SpreadKit. SpreadKit is an iOS Framework to interact with the [Spread
 
 With SpreadKit, you can integrate catalog browsing, product creation and basket management into your iOS App. This guide will help you to get up and running with SpreadKit.
 
-For useful information regarding the Spreadshirt API and a reference of all the resources, have a look at the [Spreadshirt Developer Network](https://developer.spreadshirt.net). There you can find out what is possible with the Spreadshirt API and get ideas for what you want to build using it.
+For useful information regarding the Spreadshirt API and a reference of all the resources, have a look at the [Spreadshirt Developer Network](https://developer.spreadshirt.net) (SDN). There you can find out what is possible with the Spreadshirt API and get ideas for what you want to build using it.
 
 ### Prerequisites
 
 SpreadKit was written exclusively for iOS, starting with Version 5.0. Currently, there are no plans for a Mac OS X framework.
 
-In order to be able to, for example, create products and baskets, you need to apply for an API key at the [Spreadshirt Developer Network](https://developer.spreadshirt.net).
+In order to be able to, for example, create products and baskets, you need to apply for an API key at the [SDN](https://developer.spreadshirt.net).
 
 It is strongly encouraged that you use [CocoaPods](http://http://cocoapods.org) for managing your project's dependencies, mainly for two reasons: (1) SpreadKit installation will be much easier this way and (2) It is awesome :).
 
@@ -25,7 +25,7 @@ The following features have not been implemented yet, but are planned:
 
 ## Setup
 
-The only supported way to install SpreadKit into your project is via CocoaPods, and it is quite simple. If you have not already, create a file named `Podfile` in your project root and include the following lines:
+The only supported way to install SpreadKit into your project is via [CocoaPods](http://http://cocoapods.org), and it is quite simple. If you have not already, create a file named `Podfile` in your project root and include the following lines:
 
 ```ruby
 platform :ios, '5.0'
@@ -34,7 +34,7 @@ pod 'SpreadKit', '~> 0.5'
 
 Assuming you have installed CocoaPods (`sudo gem install cocoapods && pod setup`), you can run `pod install` and open the created `.xcworkspace` file with Xcode.
 
-In your Code, wherever you need SpreadKit, just: 
+In your code, wherever you need SpreadKit, just: 
 
 ```objc
 #import <SpreadKit/SpreadKit.h>
@@ -87,7 +87,7 @@ This gets the SPShop object associated with the client and notifies a view contr
 
 ### Models
 
-SpreadKit includes corresponding Objective-C classes for every resource type of the Spreadshirt API. You can check out the available resource types at the [Spreadshirt Developer Network](https://developer.spreadshirt.net/display/API/API+Resources).
+SpreadKit includes corresponding Objective-C classes for every resource type of the Spreadshirt API. You can check out the available resource types at the [SDN](https://developer.spreadshirt.net/display/API/API+Resources).
 
 ### Main entry point
 
@@ -240,7 +240,7 @@ To start off with basket management, get yourself a shiny new instance of `SPBas
 SPBasketManager *basketManager = [SPBasketManager alloc] init];
 ```
 
-For each item you want to add, call the `addToBasket:withSize:andAppearance` method of `SPBasketManager`. An item can be either an `SPArticle`or an `SPProduct`. To learn more about the difference between the two, check the [documentation](http://developer.spreadshirt.net/display/API/Product+Model).
+For each item you want to add, call the `addToBasket:withSize:andAppearance` method of `SPBasketManager`. An item can be either an `SPArticle`or an `SPProduct`. To learn more about the difference between the two, check the [SDN](http://developer.spreadshirt.net/display/API/Product+Model).
 
 `addToBasket:withSize:andAppearance` return an instance of `SPBasketItem`, that you can use to further specify the contents of you basket. In the following example, an `SPProduct` is added and then the quantity in the basket is changed:
 
@@ -298,4 +298,4 @@ For more complex products, you have to modify the Configurations of the product.
 
 ## Conclusion
 
-This was a whirlwind tour of SpreadKit. You are welcome to explore the code for more things to do with it. For understanding the Spreadshirt domain model and what you can achieve with the Spreadshirt API, read the full documentation at the [Spreadshirt Developer Network](https://developer.spreadshirt.net).
+This was a whirlwind tour of SpreadKit. You are welcome to explore the code for more things to do with it. For understanding the Spreadshirt domain model and what you can achieve with the Spreadshirt API, read the full documentation at the [SDN](https://developer.spreadshirt.net).
