@@ -1,4 +1,4 @@
-# Introduction to SpreadKit
+# SpreadKit
 
 Welcome to SpreadKit. SpreadKit is an iOS Framework to interact with the [Spreadshirt](http://spreadshirt.net) API.
 
