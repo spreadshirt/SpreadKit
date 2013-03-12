@@ -10,6 +10,7 @@
 #import "SPBasket.h"
 #import "SPClient.h"
 #import "SPURLConnection.h"
+#import "SPBasketItem.h"
 
 @implementation SPBasketManager
 
@@ -23,9 +24,17 @@
     return self;
 }
 
-- (void)addItem:(SPBasketItem *)item
+- (SPBasketItem *)addToBasket:(id)productOrArticle withSize:(SPSize *)size andAppearance:(SPAppearance *)appearance
 {
+    SPBasketItem *item = [[SPBasketItem alloc] init];
+    item.item = productOrArticle;
+    item.size = size;
+    item.appearance = appearance;
+    item.quantity = @1;
+    
     [self.basket.basketItems addObject:item];
+    
+    return item;
 }
 
 - (void)removeItem:(SPBasketItem *)item
