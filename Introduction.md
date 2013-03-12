@@ -2,7 +2,7 @@
 
 Welcome to SpreadKit. SpreadKit is an iOS Framework to interact with the [Spreadshirt](http://spreadshirt.net) API.
 
-With SpreadKit, you can integrate catalog browsing, product creation and basket management. into your iOS App. This guide will help you to get up and running with SpreadKit.
+With SpreadKit, you can integrate catalog browsing, product creation and basket management into your iOS App. This guide will help you to get up and running with SpreadKit.
 
 For useful information regarding the Spreadshirt API and a reference of all the resources, have a look at the [Spreadshirt Developer Network](https://developer.spreadshirt.net). There you can find out what is possible with the Spreadshirt API and get ideas for what you want to build using it.
 
@@ -71,7 +71,7 @@ The first client to be initialized is later available via the `[SPClient sharedC
 
 SpreadKit uses Objective-C Blocks nearly everywhere. They provide a convenient programming envirnoment when dealing with asynchronous calls, such as with web services like the Spreadshirt API. If you are not familiar with Blocks it is highly recommended you [read](http://developer.apple.com/library/ios/#documentation/cocoa/Conceptual/Blocks/Articles/00_Introduction.html) [up](http://developer.apple.com/library/ios/#documentation/cocoa/Conceptual/Blocks/Articles/00_Introduction.html) [on](http://ios-blog.co.uk/tutorials/programming-with-blocks-an-overview/) [them](http://mobile.tutsplus.com/tutorials/iphone/understanding-objective-c-blocks/).
 
-Basically every call you make to the Spreadshirt API will include a block parameter named `completion`. This Block will have an `NSError` object and the data you requested as parameters. It is the up to you to handle potential erros and process the delivered data. To illustrate this programming model, have a look at the following code:
+Basically every call you make to the Spreadshirt API will include a block parameter named `completion`. This Block will have an `NSError` object and the data you requested as parameters. It is     up to you to handle potential erros and process the delivered data. To illustrate this programming model, have a look at the following code:
 
 ```objc
 [client getShopAndOnCompletion:^(SPShop *shop, NSError *error) {
@@ -181,13 +181,13 @@ and load the desired resource with a specified size (the size you want to displa
 
 In the `completion` block, the URL from which the image is also returned, in case you want to use it (for example preventing switching images in  a `UITableView`).
 
-The image is loaded automatically with the correct resolution for the device (retina or non-retina). Just specify the size needed in points, SpreadKit will figure it ou
+The image is loaded automatically with the correct resolution for the device (retina or non-retina). Just specify the size needed in points, SpreadKit will figure it out.
 
 Optionally, it is possible to specify an appearance used for loading the image resource. This is needed, when you get a product image for a product with customizable color (appearance). In that case, you can use the `loadImageForResource:withSize:andAppearanceId:completion:` method of `SPImageLoader`.
 
 ### Creating, updating and deleting Objects
 
-Just like getting objects, you can also create, update und delete them. This is done via the `post`, `put` and `delete` methods of `SPClient`. Note that for most operations that change objects, you need a properly configured [API key](https://developer.spreadshirt.net).
+Just like getting objects, you can also create, update and delete them. This is done via the `post`, `put` and `delete` methods of `SPClient`. Note that for most operations that change objects, you need a properly configured [API key](https://developer.spreadshirt.net).
 
 For creating a new object, just use the `post` method, for example for a design:
 
@@ -234,7 +234,7 @@ To enable your users to buy products, it essential to be able to handle shopping
 
 ### Managing Basket Items
 
-To start off with basket management, get sourself a shiny new instance if `SPBasketManager`:
+To start off with basket management, get yourself a shiny new instance of `SPBasketManager`:
 
 ```objc
 SPBasketManager *basketManager = [SPBasketManager alloc] init];
