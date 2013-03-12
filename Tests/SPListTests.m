@@ -54,7 +54,7 @@
     GHAssertTrue(list.hasNextPage, @"at the beginning, the list should have a next page");
     
     for (int i = 0; i < 9; i++) {
-        list.more;
+        GHAssertNotNil(list.more, @"list should advance to next page");
     };
     
     GHAssertFalse(list.hasNextPage, @"after all pages, there should be none left");
