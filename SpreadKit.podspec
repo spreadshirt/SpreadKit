@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = "sprd.net AG"
   s.homepage     = 'http://developer.spreadshirt.net'
-  s.source       = { :git => 'http://git.spreadomat.net/marr/spreadkit.git', :tag => '0.1' }
+  s.source       = { :git => 'git@git.spreadomat.net:marr/spreadkit.git', :tag => '0.1' }
   s.platform     = :ios, '5.0'
   s.source_files = 'SpreadKit/*'
   s.resource     = 'SpreadKitResources.bundle'
