@@ -61,6 +61,9 @@
 // gets the full details of an object
 - (void)get:(id)object completion:(void (^)(id loadedObject, NSError *error))completion;
 
+// gets the full details of an object, with the option to supply additional parameters to the API
+- (void)get:(id)object params:(NSDictionary *)params completion:(void (^)(id loadedObject, NSError *error))completion;
+
 // gets an object with just the class and id known
 - (void)get:(Class)classOfObject identifier:(NSString *)identifier completion:(void (^)(id loadedObject, NSError *error))completion;
 

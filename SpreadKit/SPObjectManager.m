@@ -44,31 +44,33 @@
     return self;
 }
 
-- (void)get:(id)objectStub completion:(void (^)(id, NSError *))completion
+- (void)get:(id)objectStub params:(NSDictionary *)params completion:(void (^)(id, NSError *))completion
 {
     if ([objectStub isMemberOfClass:[SPList class]]) {
         SPList *el = (SPList *)objectStub;
-        [self getList:el completion:^(NSArray *elements, NSError *error) {
+        [self getList:el params:params completion:^(NSArray *elements, NSError *error) {
             completion(elements, error);
         }];
     } else if ([objectStub isMemberOfClass:[SPListPage class]]) {
-        [self getListPage:objectStub completion:^(NSArray *elements, NSError *error) {
+        [self getListPage:objectStub params:params completion:^(NSArray *elements, NSError *error) {
             completion(elements, error);
         }];
     } else {
-        [self getSingleObjectStub:objectStub completion:^(id loaded, NSError *error) {
+        [self getSingleObjectStub:objectStub params:params completion:^(id loaded, NSError *error) {
             [cache addObject:loaded];
             completion(loaded, error);
         }];
     }
 }
 
-- (void)getListPage:(SPListPage *)page completion:(void (^)(NSArray *elements, NSError *error))completion
+- (void)getListPage:(SPListPage *)page params:(NSDictionary *)params completion:(void (^)(NSArray *elements, NSError *error))completion
 {
     int offset = page.list.limit.integerValue * (page.page - 1);
     
-    NSDictionary *params = @{@"offset": [NSString stringWithFormat:@"%d", offset], @"limit": page.list.limit.stringValue};
-    [self getListFromUrl:page.list.url withParams:params completion:^(NSArray *elements, NSError *error) {
+    NSMutableDictionary *listPageParams = [NSMutableDictionary dictionaryWithDictionary:params];
+    [listPageParams addEntriesFromDictionary:@{@"offset": [NSString stringWithFormat:@"%d", offset], @"limit": page.list.limit.stringValue}];
+    
+    [self getListFromUrl:page.list.url withParams:listPageParams completion:^(NSArray *elements, NSError *error) {
         if (error) {
             completion(nil, error);
         } else {
@@ -78,11 +80,11 @@
     }];
 }
 
-- (void)getSingleObjectStub:(id)theStub completion:(void (^)(id, NSError *))completion
+- (void)getSingleObjectStub:(id)theStub params:(NSDictionary *)params completion:(void (^)(id, NSError *))completion
 {
     if ([theStub respondsToSelector:@selector(url)]) {
         RKObjectMapping *mapping = [[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[theStub class]];
-        [self getSingleEntityFromUrl:[theStub url] withParams:nil intoTargetObject:theStub mapping:mapping completion:^(NSArray *objects, NSError *error) {
+        [self getSingleEntityFromUrl:[theStub url] withParams:params intoTargetObject:theStub mapping:mapping completion:^(NSArray *objects, NSError *error) {
             completion([objects objectAtIndex:0], error);
         }];
     } else {
@@ -91,11 +93,11 @@
     }
 }
 
-- (void)getList:(SPList *)list completion:(void (^)(NSArray *elements, NSError *error))completion
+- (void)getList:(SPList *)list params:(NSDictionary *)params completion:(void (^)(NSArray *elements, NSError *error))completion
 {
-    [self getSingleEntityFromUrl:list.url withParams:nil intoTargetObject:list mapping:[[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPList class]] completion:^(NSArray *objects, NSError *error) {
+    [self getSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPList class]] completion:^(NSArray *objects, NSError *error) {
         if (!error) {
-            [self getListPage:list.current completion:^(NSArray *elements, NSError *error) {
+            [self getListPage:list.current params:params completion:^(NSArray *elements, NSError *error) {
                 if (!error) {
                     completion(elements, nil);
                 } else {

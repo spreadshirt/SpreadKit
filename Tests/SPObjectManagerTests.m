@@ -117,7 +117,7 @@
     
     __block id loadedStuff;
     
-    [manager get:user.products completion:^(id loaded, NSError *error) {
+    [manager get:user.products params:nil completion:^(id loaded, NSError *error) {
         if (error) {
             GHFail(@"Loading should work");
         } else {
@@ -148,7 +148,7 @@
     list.url = [NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/205909/products"];
     
     [self prepare];
-    [manager get:list completion:^(id loaded, NSError *error) {
+    [manager get:list params:nil completion:^(id loaded, NSError *error) {
         if (error) {
             GHFail(nil);
         } else {
@@ -160,7 +160,7 @@
     GHAssertEquals(list.elements.count, [list.limit unsignedIntegerValue], @"After the first load, the list should have 'limit' elements");
     
     [self prepare];
-    [manager get:list.more completion:^(id loaded, NSError *error) {
+    [manager get:list.more params:nil completion:^(id loaded, NSError *error) {
         if (error) {
             GHFail(nil);
         } else {
@@ -172,7 +172,7 @@
     GHAssertEquals(list.elements.count, [list.limit unsignedIntegerValue] * 2, @"After loading more, the list should have twice as much elements");
     
     [self prepare];
-    [manager get:list.more completion:^(id loaded, NSError *error) {
+    [manager get:list.more params:nil completion:^(id loaded, NSError *error) {
         if (error) {
             GHFail(nil);
         } else {
