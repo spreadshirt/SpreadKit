@@ -29,10 +29,10 @@ The only supported way to install SpreadKit into your project is via [CocoaPods]
 
 ```ruby
 platform :ios, '5.0'
-pod 'SpreadKit', :git => 'git://github.com/spreadshirt/SpreadKit.git', :tag => '1.0'
+pod 'SpreadKit', '~> 1.0'
 ```
 
-Assuming you have installed CocoaPods (`sudo gem install cocoapods && pod setup`), you can run `pod install` and open the created `.xcworkspace` file with Xcode.
+Assuming you have installed CocoaPods (`sudo gem install cocoapods && pod setup`), you can run `pod install` and open the created `.xcworkspace` file with Xcode. This will have installed the current SpreadKit version (`~> 1.0` means it will install the most recent 1.x version).
 
 In your code, wherever you need SpreadKit, just: 
 
