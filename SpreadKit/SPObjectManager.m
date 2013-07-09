@@ -16,7 +16,6 @@
 @implementation SPObjectManager
 {
     NSMutableDictionary *defaultParams;
-    SPObjectCache *cache;
 }
 
 @synthesize apiKey, secret, serverTimeOffset;
@@ -30,7 +29,6 @@
 {
     if (self = [super init]) {
         defaultParams = [NSMutableDictionary dictionaryWithKeysAndObjects:@"mediaType", @"json", @"fullData", @"true", nil];
-        cache = [[SPObjectCache alloc] init];
     }
     return self;
 }
@@ -57,7 +55,6 @@
         }];
     } else {
         [self getSingleObjectStub:objectStub params:params completion:^(id loaded, NSError *error) {
-            [cache addObject:loaded];
             completion(loaded, error);
         }];
     }

@@ -16,9 +16,6 @@
 		4752C04B15B95A21008CE664 /* SPProductConfigurationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4752C04915B95A21008CE664 /* SPProductConfigurationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4752C04C15B95A21008CE664 /* SPProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SPProductConfigurationView.m */; };
 		4752C04D15B95A21008CE664 /* SPProductConfigurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4752C04A15B95A21008CE664 /* SPProductConfigurationView.m */; };
-		C00EDC0C160B1F05008F8021 /* SPObjectCache.h in Headers */ = {isa = PBXBuildFile; fileRef = C00EDC0A160B1F05008F8021 /* SPObjectCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C00EDC0D160B1F05008F8021 /* SPObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C00EDC0B160B1F05008F8021 /* SPObjectCache.m */; };
-		C00EDC0E160B1F05008F8021 /* SPObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C00EDC0B160B1F05008F8021 /* SPObjectCache.m */; };
 		C01A9B2F1609A67700511423 /* SPClientHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B2E1609A67700511423 /* SPClientHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C01A9B321609A70100511423 /* SPProcess.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B311609A70100511423 /* SPProcess.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C01A9B341609EE5C00511423 /* SPViewHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A9B331609EE5C00511423 /* SPViewHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -165,7 +162,6 @@
 		C0831BF81614497400631303 /* SPEntity+Caching.h in Headers */ = {isa = PBXBuildFile; fileRef = C0831BF61614497400631303 /* SPEntity+Caching.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0831BF91614497400631303 /* SPEntity+Caching.m in Sources */ = {isa = PBXBuildFile; fileRef = C0831BF71614497400631303 /* SPEntity+Caching.m */; };
 		C0831BFA1614497400631303 /* SPEntity+Caching.m in Sources */ = {isa = PBXBuildFile; fileRef = C0831BF71614497400631303 /* SPEntity+Caching.m */; };
-		C09795FC161055B3003DD4D2 /* SPObjectCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C09795FB161055B3003DD4D2 /* SPObjectCacheTests.m */; };
 		C0A00EC315F0AFF60068685D /* UIImage+SpreadKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A00EC415F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
 		C0A00EC515F0AFF60068685D /* UIImage+SpreadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A00EC215F0AFF60068685D /* UIImage+SpreadKit.m */; };
@@ -252,8 +248,6 @@
 		58FF5DBAA913476D8F2222BB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		594FB9197CC14363ADCC792C /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		872CF3EB50AD4EBDAE57B228 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = SOURCE_ROOT; };
-		C00EDC0A160B1F05008F8021 /* SPObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPObjectCache.h; sourceTree = "<group>"; };
-		C00EDC0B160B1F05008F8021 /* SPObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPObjectCache.m; sourceTree = "<group>"; };
 		C01A9B2E1609A67700511423 /* SPClientHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPClientHeaders.h; sourceTree = "<group>"; };
 		C01A9B311609A70100511423 /* SPProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProcess.h; sourceTree = "<group>"; };
 		C01A9B331609EE5C00511423 /* SPViewHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SPViewHeaders.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -363,7 +357,6 @@
 		C0831BF61614497400631303 /* SPEntity+Caching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPEntity+Caching.h"; sourceTree = "<group>"; };
 		C0831BF71614497400631303 /* SPEntity+Caching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SPEntity+Caching.m"; sourceTree = "<group>"; };
 		C096A28B1500E0B000C70D86 /* libSpreadKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpreadKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C09795FB161055B3003DD4D2 /* SPObjectCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPObjectCacheTests.m; sourceTree = "<group>"; };
 		C09EF84014C99F83000BB775 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C0A00E9215F0AC770068685D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C0A00EC115F0AFF60068685D /* UIImage+SpreadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SpreadKit.h"; sourceTree = "<group>"; };
@@ -523,7 +516,6 @@
 				C02F11C915B005D400AF8276 /* SPDesignUploadIntegrationTests.m */,
 				C0C6921714EE57440068C18D /* SPImageLoaderTests.m */,
 				C0C7116115AD9DC900302CC4 /* SPListTests.m */,
-				C09795FB161055B3003DD4D2 /* SPObjectCacheTests.m */,
 				C0E7C8F015060438005A185A /* SPObjectManagerTests.m */,
 				C0ADF747153819B600CC9AE4 /* SPObjectMapperTests.m */,
 				C0C6921814EE57440068C18D /* SPObjectMappingProviderTests.m */,
@@ -659,8 +651,6 @@
 				C04D270B15B411810080C77F /* SPURLConnection.h */,
 				C04D270C15B411810080C77F /* SPURLConnection.m */,
 				C01A9B2E1609A67700511423 /* SPClientHeaders.h */,
-				C00EDC0A160B1F05008F8021 /* SPObjectCache.h */,
-				C00EDC0B160B1F05008F8021 /* SPObjectCache.m */,
 				C0831BF61614497400631303 /* SPEntity+Caching.h */,
 				C0831BF71614497400631303 /* SPEntity+Caching.m */,
 			);
@@ -776,7 +766,6 @@
 				C01A9B2F1609A67700511423 /* SPClientHeaders.h in Headers */,
 				C01A9B321609A70100511423 /* SPProcess.h in Headers */,
 				C01A9B341609EE5C00511423 /* SPViewHeaders.h in Headers */,
-				C00EDC0C160B1F05008F8021 /* SPObjectCache.h in Headers */,
 				C0373041160B46BF003EDAD6 /* SPEntity.h in Headers */,
 				C0831BF81614497400631303 /* SPEntity+Caching.h in Headers */,
 				C0467DA816CC371200D4D919 /* SPListPage.h in Headers */,
@@ -999,9 +988,7 @@
 				C0ADDA1115FE208E00EF8867 /* SPProductTypeDepartment.m in Sources */,
 				C0ADDA1B15FE20FA00EF8867 /* SPProductTypeCategory.m in Sources */,
 				C0CDD92E1600751500965127 /* SPProductTypeDepartmentMappingTests.m in Sources */,
-				C00EDC0E160B1F05008F8021 /* SPObjectCache.m in Sources */,
 				C0373043160B46BF003EDAD6 /* SPEntity.m in Sources */,
-				C09795FC161055B3003DD4D2 /* SPObjectCacheTests.m in Sources */,
 				C0831BFA1614497400631303 /* SPEntity+Caching.m in Sources */,
 				C0467DAA16CC371200D4D919 /* SPListPage.m in Sources */,
 			);
@@ -1059,7 +1046,6 @@
 				C077529615F742B100E19A60 /* SPProductTypeChooserView.m in Sources */,
 				C0ADDA1015FE208E00EF8867 /* SPProductTypeDepartment.m in Sources */,
 				C0ADDA1A15FE20FA00EF8867 /* SPProductTypeCategory.m in Sources */,
-				C00EDC0D160B1F05008F8021 /* SPObjectCache.m in Sources */,
 				C0373042160B46BF003EDAD6 /* SPEntity.m in Sources */,
 				C0831BF91614497400631303 /* SPEntity+Caching.m in Sources */,
 				C0467DA916CC371200D4D919 /* SPListPage.m in Sources */,

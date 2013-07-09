@@ -13,5 +13,4 @@
 #import "SPObjectMapper.h"
 #import "SPObjectMappingProvider.h"
 #import "SPURLConnection.h"
-#import "SPObjectCache.h"
 #import "SPEntity+Caching.h"
