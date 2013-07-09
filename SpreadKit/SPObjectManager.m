@@ -80,8 +80,7 @@
 - (void)getSingleObjectStub:(id)theStub params:(NSDictionary *)params completion:(void (^)(id, NSError *))completion
 {
     if ([theStub respondsToSelector:@selector(url)]) {
-        RKObjectMapping *mapping = [[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[theStub class]];
-        [self getSingleEntityFromUrl:[theStub url] withParams:params intoTargetObject:theStub mapping:mapping completion:^(NSArray *objects, NSError *error) {
+        [self getSingleEntityFromUrl:[theStub url] withParams:params intoTargetObject:theStub entityClass:[theStub class] completion:^(NSArray *objects, NSError *error) {
             completion([objects objectAtIndex:0], error);
         }];
     } else {
@@ -92,7 +91,7 @@
 
 - (void)getList:(SPList *)list params:(NSDictionary *)params completion:(void (^)(NSArray *elements, NSError *error))completion
 {
-    [self getSingleEntityFromUrl:list.url withParams:params intoTargetObject:list mapping:[[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPList class]] completion:^(NSArray *objects, NSError *error) {
+    [self getSingleEntityFromUrl:list.url withParams:params intoTargetObject:list entityClass:[SPList class] completion:^(NSArray *objects, NSError *error) {
         if (!error) {
             [self getListPage:list.current params:params completion:^(NSArray *elements, NSError *error) {
                 if (!error) {
@@ -107,20 +106,17 @@
     }];
 }
 
-- (void)getSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping completion:(void (^)(NSArray *, NSError *))completion
+- (void)getSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target entityClass:(Class)class completion:(void (^)(NSArray *, NSError *))completion
 {
-    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
-    [prov setMapping:mapping forKeyPath:@""];
-    [self getResourceFromUrl:url withParams:params mappingProvdider:prov intoTargetObject:target completion:completion];
+    [self getResourceFromUrl:url withParams:params resourceClass:class intoTargetObject:target completion:completion];
 }
 
 - (void)getListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion
 {
-    RKObjectMappingProvider *prov = [SPObjectMappingProvider sharedMappingProvider];
-    [self getResourceFromUrl:url withParams:params mappingProvdider:prov intoTargetObject:nil completion:completion];
+    [self getResourceFromUrl:url withParams:params resourceClass:nil intoTargetObject:nil completion:completion];
 }
 
-- (void)getResourceFromUrl:(NSURL *)theUrl withParams:(NSDictionary *)passedParams mappingProvdider:(RKObjectMappingProvider *)mappingProvider intoTargetObject:(id)target completion:(void (^)(NSArray *, NSError *))completion
+- (void)getResourceFromUrl:(NSURL *)theUrl withParams:(NSDictionary *)passedParams resourceClass:(Class)class intoTargetObject:(id)target completion:(void (^)(NSArray *, NSError *))completion
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:defaultParams];
     if (passedParams) {
@@ -145,8 +141,12 @@
             NSError *error = [NSError errorWithDomain:SPErrorDomain code:SPPostFailedError userInfo:userInfo];
             completion(nil, error);
         } else {
-            id mappingResult = [[SPObjectMapper mapperWithMIMEType:response.MIMEType mappingProvider:mappingProvider andDestinationObject:target]
+            
+            // map and return the result
+            
+            id mappingResult = [[SPObjectMapper mapperWithMIMEType:response.MIMEType objectClass:class andDestinationObject:target]
                                 performMappingWithData:data];
+            
             completion(mappingResult, nil);
         }
     }];
@@ -154,8 +154,7 @@
 
 - (NSData *)requestDataFromObject:(id)theObject
 {
-    SPObjectMappingProvider *mappingProvider = [SPObjectMappingProvider sharedMappingProvider];
-    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON mappingProvider:mappingProvider];
+    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON objectClass:[theObject class]];
     NSString *json = [mapper serializeObject:theObject];
     NSData *requestData = [json dataUsingEncoding:NSUTF8StringEncoding];
     return requestData;
