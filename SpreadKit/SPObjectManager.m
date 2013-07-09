@@ -42,7 +42,7 @@
     return self;
 }
 
-- (void)get:(id)objectStub params:(NSDictionary *)params completion:(void (^)(id, NSError *))completion
+- (void)getObject:(id)objectStub params:(NSDictionary *)params completion:(void (^)(id, NSError *))completion
 {
     if ([objectStub isMemberOfClass:[SPList class]]) {
         SPList *el = (SPList *)objectStub;

@@ -22,7 +22,7 @@
 - (id)initWithApiKey:(NSString *)apiKey andSecret:(NSString *)secret;
 
 // get objects
-- (void)get:(id)objectStub params:(NSDictionary *)params completion:(void (^)(id loaded, NSError *error))completion;
+- (void)getObject:(id)objectStub params:(NSDictionary *)params completion:(void (^)(id loaded, NSError *error))completion;
 
 // post objects
 - (void)postObject:(id)theObject toURL:(NSURL *)theURL completion:(void (^)(id object, NSError *error))completion;

@@ -56,7 +56,7 @@
             [self notify:kGHUnitWaitStatusFailure];
         } else {
             SPDesign *postedDesign = (SPDesign *)design;
-            [manager get:postedDesign params:nil completion:^(id loaded, NSError *error) {
+            [manager getObject:postedDesign params:nil completion:^(id loaded, NSError *error) {
                 if (error) {
                     [self notify:kGHUnitWaitStatusFailure];
                 } else {

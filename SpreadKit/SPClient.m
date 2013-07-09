@@ -129,7 +129,7 @@ static SPClient *sharedClient = nil;
 
 - (void)get:(id)object params:(NSDictionary *)params completion:(void (^)(id, NSError *))completion
 {
-    [manager get:object params:params completion:^(id loaded, NSError *error) {
+    [manager getObject:object params:params completion:^(id loaded, NSError *error) {
         completion(loaded, error);
     }];
 }
