@@ -5,7 +5,7 @@ pod 'GMGridView', '1.1.1'
 pod 'MAObjCRuntime', '0.0.1'
 
 target :test do
-  pod 'GHUnitIOS', '0.5.6'
-  pod 'Nocilla', '0.3'
+  pod 'GHUnitIOS'
+  pod 'Nocilla'
   link_with 'SpreadKitTests'
 end
