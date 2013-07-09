@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SpreadKit"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "SpreadKit brings Spreadshirt API support to iOS apps."
   s.license      = 'MIT'
   s.author       = "sprd.net AG"
@@ -13,5 +13,4 @@ Pod::Spec.new do |s|
   s.frameworks   = 'CoreGraphics', 'UIKit'
   s.dependency 'RestKit', '0.10.3'
   s.dependency 'GMGridView'
-  s.dependency 'MAObjCRuntime'
 end
