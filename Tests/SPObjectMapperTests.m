@@ -49,8 +49,6 @@
     SPBasket *basket = [[SPBasket alloc] init];
     RKObjectMapping *serializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
     [serializationMapping mapAttributes:@"token", @"url", nil];
-    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
-    [prov setSerializationMapping:serializationMapping forClass:[SPBasket class]];
     
     SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON objectClass:nil];
     NSString *serialization = [mapper serializeObject:basket];

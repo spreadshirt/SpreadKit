@@ -93,7 +93,7 @@
     id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
     id parsedData = [parser objectFromString:productListJSON error:&error];
     
-    RKObjectMappingProvider* mappingProvider = testable;
+    SPObjectMappingProvider* mappingProvider = testable;
     RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
     RKObjectMappingResult* result = [mapper performMapping];
     
@@ -115,7 +115,7 @@
     id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
     id parsedData = [parser objectFromString:productListJSON error:&error];
     
-    RKObjectMappingProvider* mappingProvider = testable;
+    SPObjectMappingProvider* mappingProvider = testable;
     RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
     RKObjectMappingResult* result = [mapper performMapping];
     

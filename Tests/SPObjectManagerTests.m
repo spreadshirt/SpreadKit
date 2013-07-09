@@ -196,8 +196,6 @@
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
     [mapping mapAttributes:@"token", nil];
-    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
-    [prov setSerializationMapping:mapping forClass:[SPBasket class]];
     
     [self prepare];
     
