@@ -13,17 +13,17 @@
 
 @interface SPObjectMapper : NSObject
 
-+ (SPObjectMapper *)mapperWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider;
++ (SPObjectMapper *)mapperWithMIMEType:(NSString *)mimeType objectClass:(Class)class;
 
-+ (SPObjectMapper *)mapperWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider andDestinationObject:(id)dest;
++ (SPObjectMapper *)mapperWithMIMEType:(NSString *)mimeType objectClass:(Class)class andDestinationObject:(id)dest;
 
 - (id)performMappingWithData:(NSData *)data;
 
 - (NSString *)serializeObject:(id)theObject;
 
-- (id)initWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider;
+- (id)initWithMIMEType:(NSString *)mimeType objectClass:(Class)theClass;
 
-- (id)initWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider andDestinationObject:(id)dest;
+- (id)initWithMIMEType:(NSString *)mimeType objectClass:(Class)class andDestinationObject:(id)dest;
 
 
 @end

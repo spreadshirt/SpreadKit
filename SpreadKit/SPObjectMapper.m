@@ -7,37 +7,38 @@
 //
 
 #import "SPObjectMapper.h"
+#import "SPObjectMappingProvider.h"
 
 @implementation SPObjectMapper
 {
-    RKObjectMappingProvider *provider;
+    Class class;
     NSString *mimeType;
     id destinationObject;
 }
 
-- (id)initWithMIMEType:(NSString *)theMimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider
+- (id)initWithMIMEType:(NSString *)theMimeType objectClass:(Class)theClass
 {
-    return [self initWithMIMEType:theMimeType mappingProvider:mappingProvider andDestinationObject:nil];
+    return [self initWithMIMEType:theMimeType objectClass:theClass andDestinationObject:nil];
 }
 
-- (id)initWithMIMEType:(NSString *)theMimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider andDestinationObject:(id)dest
+- (id)initWithMIMEType:(NSString *)theMimeType objectClass:(Class)theClass andDestinationObject:(id)dest
 {
     if (self = [super init]) {
-        provider = mappingProvider;
+        class = theClass;
         mimeType = theMimeType;
         destinationObject = dest;
     }
     return self;
 }
 
-+ (SPObjectMapper *)mapperWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider
++ (SPObjectMapper *)mapperWithMIMEType:(NSString *)mimeType objectClass:(Class)theClass
 {
-    return [[self alloc] initWithMIMEType:mimeType mappingProvider:mappingProvider];
+    return [[self alloc] initWithMIMEType:mimeType objectClass:theClass];
 }
 
-+ (SPObjectMapper *)mapperWithMIMEType:(NSString *)mimeType mappingProvider:(RKObjectMappingProvider *)mappingProvider andDestinationObject:(id)dest
++ (SPObjectMapper *)mapperWithMIMEType:(NSString *)mimeType objectClass:(Class)theClass andDestinationObject:(id)dest
 {
-    return [[self alloc] initWithMIMEType:mimeType mappingProvider:mappingProvider andDestinationObject:dest];
+    return [[self alloc] initWithMIMEType:mimeType objectClass:theClass andDestinationObject:dest];
 }
 
 - (id)performMappingWithData:(NSData *)data
@@ -47,6 +48,16 @@
     // do the mapping
     id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:mimeType];
     id parsedData = [parser objectFromString:stringData error:nil];
+    
+    RKObjectMappingProvider *provider;
+    
+    if (class) {
+        provider = [RKObjectMappingProvider objectMappingProvider];
+        [provider setObjectMapping:[[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:class] forKeyPath:@""];
+    } else {
+        provider = [SPObjectMappingProvider sharedMappingProvider];
+    }
+    
     RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:provider];
     if (destinationObject) {
         mapper.targetObject = destinationObject;
@@ -58,7 +69,7 @@
 
 - (NSString *)serializeObject:(id)theObject
 {
-    RKObjectMapping *serializationMapping = [provider serializationMappingForClass:[theObject class]];
+    RKObjectMapping *serializationMapping = [[SPObjectMappingProvider sharedMappingProvider] serializationMappingForClass:[theObject class]];
     RKObjectSerializer *serializer = [RKObjectSerializer serializerWithObject:theObject mapping:serializationMapping];
     NSError *error = nil;
     NSString* serializedString = [serializer serializedObjectForMIMEType:mimeType error:&error];

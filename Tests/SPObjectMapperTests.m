@@ -27,11 +27,7 @@
     NSData *userData = [NSData dataWithContentsOfFile:filePath];
     NSString* MIMEType = @"application/json";
     
-    RKObjectMapping *mapping = [[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPUser class]];
-    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
-    [prov setMapping:mapping forKeyPath:@""];
-    
-    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:MIMEType mappingProvider:prov];
+    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:MIMEType objectClass:[SPUser class]];
     SPUser *user = [[mapper performMappingWithData:userData] objectAtIndex:0];
     
     GHAssertNotNil(user.products.url, @"Products url should be mapped");
@@ -39,19 +35,13 @@
 
 - (void)testSerialization
 {
-    
-    RKObjectMapping *serializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
-    [serializationMapping mapAttributes:@"token", nil];
-    RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
-    [prov setSerializationMapping:serializationMapping forClass:[SPBasket class]];
-    
     SPBasket *basket = [[SPBasket alloc] init];
     basket.token = @"foobar";
     basket.shop = [[SPShop alloc] init];
     
-    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON mappingProvider:prov];
+    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON objectClass:nil];
     NSString *serialization = [mapper serializeObject:basket];
-    GHAssertEqualStrings(serialization, @"{\"token\":\"foobar\"}", @"Basket should have been serialized correctly");
+    GHAssertEqualStrings(serialization, @"{\"token\":\"foobar\",\"basketItems\":[]}", @"Basket should have been serialized correctly");
 }
 
 - (void)testEmptyObjectSerialization
@@ -62,7 +52,7 @@
     RKObjectMappingProvider *prov = [RKObjectMappingProvider mappingProvider];
     [prov setSerializationMapping:serializationMapping forClass:[SPBasket class]];
     
-    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON mappingProvider:prov];
+    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON objectClass:nil];
     NSString *serialization = [mapper serializeObject:basket];
     
     GHAssertNotNil(serialization, @"Empty object should not return empty serialization");

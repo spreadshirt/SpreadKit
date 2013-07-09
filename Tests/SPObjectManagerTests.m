@@ -19,7 +19,7 @@
 
 @interface SPObjectManager (Private)
 
-- (void)getSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target mapping:(RKObjectMapping *)mapping completion:(void (^)(NSArray *, NSError *))completion;
+- (void)getSingleEntityFromUrl:(NSURL *)url withParams:(NSDictionary *)params intoTargetObject:(id)target entityClass:(Class)class completion:(void (^)(NSArray *, NSError *))completion;
 - (void)getList:(SPList *)list completion:(void (^)(SPList *, NSError *))completion;
 - (void)getListFromUrl:(NSURL *)url withParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
 
@@ -87,7 +87,7 @@
     
     [self prepare];
     
-    [manager getSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil mapping:productMapping completion:^(NSArray *objects, NSError *error) {
+    [manager getSingleEntityFromUrl:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494"] withParams:nil intoTargetObject:nil entityClass:[SPProduct class] completion:^(NSArray *objects, NSError *error) {
         if (error) {
             GHFail(@"Loading should work");
         } else {

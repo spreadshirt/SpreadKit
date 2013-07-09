@@ -267,6 +267,7 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
         RKObjectMapping *configurationSerializationMapping = [configurationMapping inverseMapping];
         
         [basketSerializationMapping removeMappingForKeyPath:@"url"];
+        [basketSerializationMapping removeMappingForKeyPath:@"shop"];
         
         RKObjectMapping *printTypeSerializationMapping = [printTypeMapping inverseMapping];
         [printTypeSerializationMapping removeAllMappings];
