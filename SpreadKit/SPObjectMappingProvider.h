@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 
-@interface SPObjectMappingProvider : RKObjectMappingProvider
+@interface SPObjectMappingProvider : NSObject
 
 + (SPObjectMappingProvider *)sharedMappingProvider;
+- (RKObjectMapping *)objectMappingForClass:(Class)class;
 
 @end

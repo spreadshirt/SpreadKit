@@ -12,11 +12,20 @@
 static SPObjectMappingProvider *sharedMappingProvider = nil;
 
 @implementation SPObjectMappingProvider
+{
+    NSMutableDictionary *mappingsForKeyPath;
+    NSMutableDictionary *mappingsForClass;
+    NSMutableDictionary *serializationMappings;
+}
 
 - (id)init
 {
     self = [super init];
     if (self){
+        
+        mappingsForKeyPath = [NSMutableDictionary dictionary];
+        mappingsForClass = [NSMutableDictionary dictionary];
+        serializationMappings = [NSMutableDictionary dictionary];
         
         // often needed mappings
         NSDictionary *urlMapping = @{@"href": @"url"};
@@ -329,9 +338,28 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
 + (SPObjectMappingProvider *)sharedMappingProvider
 {
     if (sharedMappingProvider == nil) {
-        sharedMappingProvider = (SPObjectMappingProvider* )[SPObjectMappingProvider mappingProvider];
+        sharedMappingProvider = [(SPObjectMappingProvider* )[SPObjectMappingProvider alloc] init];
     }
     return sharedMappingProvider;
+}
+
+- (void)setMapping:(RKObjectMapping *)mapping forKeyPath:(NSString *)keyPath
+{
+    [self addObjectMapping:mapping];
+    [mappingsForKeyPath setObject:mapping forKey:keyPath];
+}
+
+- (void)addObjectMapping:(RKObjectMapping *)mapping {
+    [mappingsForClass setObject:mapping forKey:[[mapping class] copy]];
+}
+
+- (void)setSerializationMapping:(RKObjectMapping *)mapping forClass:(Class)class {
+    [serializationMappings setObject:mapping forKey:[[mapping class] copy]];
+}
+
+- (RKObjectMapping *)objectMappingForClass:(Class)class
+{
+    return [mappingsForClass objectForKey:[class copy]];
 }
 
 @end
