@@ -18,93 +18,89 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
     self = [super init];
     if (self){
         
+        // often needed mappings
+        NSDictionary *urlMapping = @{@"href": @"url"};
+        NSDictionary *idMapping = @{@"id": @"identifier"};
+        NSDictionary *idSerializationMapping = @{@"identifier": @"id"};
+        NSDictionary *urlAndId = @{@"id": @"identifier", @"href": @"url"};
+        
+        
         // date formatting
         [RKObjectMapping addDefaultDateFormatterForString:@"dd-MMM-yyyy" inTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
         
         RKObjectMapping *currencyMapping = [RKObjectMapping mappingForClass:[SPCurrency class]];
-        [currencyMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [currencyMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [currencyMapping mapAttributes:@"plain", @"isoCode", @"symbol", @"decimalCount", @"pattern", nil];
+        [currencyMapping addAttributeMappingsFromDictionary:urlAndId];
+        [currencyMapping addAttributeMappingsFromArray:@[@"plain", @"isoCode", @"symbol", @"decimalCount", @"pattern"]];
         
         RKObjectMapping *countryMapping = [RKObjectMapping mappingForClass:[SPCountry class]];
-        [countryMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [countryMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [countryMapping mapKeyPath:@"length.unit" toAttribute:@"lengthUnit"];
-        [countryMapping mapKeyPath:@"length.unitFactor" toAttribute:@"lengthFactor"];
-        [countryMapping mapAttributes:@"name", @"isoCode", @"thousandsSeparator", @"decimalPoint", nil];
-        
+        [countryMapping addAttributeMappingsFromDictionary:urlAndId];
+        [countryMapping addAttributeMappingsFromDictionary:@{@"length.unit": @"lengthUnit", @"length.unitFactor": @"lengthFactor"}];
+        [countryMapping addAttributeMappingsFromArray:@[@"name", @"isoCode", @"thousandsSeparator", @"decimalPoint"]];
+    
         RKObjectMapping *languageMapping = [RKObjectMapping mappingForClass:[SPLanguage class]];
-        [languageMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [languageMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [languageMapping mapAttributes:@"name", @"isoCode", nil];
+        [languageMapping addAttributeMappingsFromDictionary:urlAndId];
+        [languageMapping addAttributeMappingsFromArray:@[@"name", @"isoCode"]];
         
         RKObjectMapping *resourceMapping = [RKObjectMapping mappingForClass:[SPResource class]];
-        [resourceMapping mapAttributes:@"mediaType", @"type", nil];
-        [resourceMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [resourceMapping addAttributeMappingsFromDictionary:urlMapping];
+        [resourceMapping addAttributeMappingsFromArray:@[@"mediaType", @"type"]];
         
         RKObjectMapping *appearanceMapping = [RKObjectMapping mappingForClass:[SPAppearance class]];
-        [appearanceMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [appearanceMapping mapAttributes:@"name", nil];
+        [appearanceMapping addAttributeMappingsFromDictionary:idMapping];
+        [appearanceMapping addAttributeMappingsFromArray:@[@"name"]];
         
         RKObjectMapping *printTypeMapping = [RKObjectMapping mappingForClass:[SPPrintType class]];
-        [printTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [printTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [printTypeMapping mapAttributes:@"weight", @"name", @"description", @"dpi", @"restrictions", nil];
+        [printTypeMapping addAttributeMappingsFromDictionary:urlAndId];
+        [printTypeMapping addAttributeMappingsFromArray:@[@"weight", @"name", @"description", @"dpi", @"restrictions"]];
         
         RKObjectMapping *offsetMapping = [RKObjectMapping mappingForClass:[SPOffset class]];
-        [offsetMapping mapAttributes:@"unit", @"x", @"y", nil];
+        [offsetMapping addAttributeMappingsFromArray:@[@"unit", @"x", @"y"]];
         
         RKObjectMapping *configurationMapping = [RKObjectMapping mappingForClass:[SPProductConfiguration class]];
-        [configurationMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [configurationMapping mapAttributes:@"type", @"fontFamilies", @"restrictions", nil];
+        [configurationMapping addAttributeMappingsFromDictionary:idMapping];
+        [configurationMapping addAttributeMappingsFromArray:@[@"type", @"fontFamilies", @"restrictions"]];
         
         RKObjectMapping *viewMapping = [RKObjectMapping mappingForClass:[SPView class]];
-        [viewMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [viewMapping mapAttributes:@"name", @"perspective", nil];
+        [viewMapping addAttributeMappingsFromDictionary:idMapping];
+        [viewMapping addAttributeMappingsFromArray:@[@"name", @"perspective"]];
         
         RKObjectMapping *viewMapMapping = [RKObjectMapping mappingForClass:[SPViewMap class]];
-        [viewMapMapping mapKeyPath:@"printArea.id" toAttribute:@"printAreaId"];
+        [viewMapMapping addAttributeMappingsFromDictionary:@{@"printArea.id": @"printAreaId"}];
         
         RKObjectMapping *colorMapping = [RKObjectMapping mappingForClass:[SPColor class]];
-        [colorMapping mapKeyPath:@"index" toAttribute:@"index"];
-        [colorMapping mapKeyPath:@"value" toAttribute:@"representation"];
-        [colorMapping mapKeyPath:@"default" toAttribute:@"defaultColor"];
-        [colorMapping mapKeyPath:@"origin" toAttribute:@"originColor"];
+        [colorMapping addAttributeMappingsFromDictionary:@{@"value": @"representation", @"default": @"defaultColor", @"origin": @"originColor"}];
+        [colorMapping addAttributeMappingsFromArray:@[@"index"]];
         
         RKObjectMapping *printAreaMapping = [RKObjectMapping mappingForClass:[SPPrintArea class]];
-        [printAreaMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [printAreaMapping mapAttributes:@"appearanceColorIndex", @"restrictions", @"boundary", nil];
+        [printAreaMapping addAttributeMappingsFromDictionary:idMapping];
+        [printAreaMapping addAttributeMappingsFromArray:@[@"appearanceColorIndex", @"restrictions", @"boundary"]];
         
         RKObjectMapping *sizeMapping = [RKObjectMapping mappingForClass:[SPSize class]];
-        [sizeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [sizeMapping mapAttributes:@"name", @"measures", nil];
+        [sizeMapping addAttributeMappingsFromDictionary:idMapping];
+        [sizeMapping addAttributeMappingsFromArray:@[@"name", @"measures"]];
         
         RKObjectMapping *productTypeMapping = [RKObjectMapping mappingForClass:[SPProductType class]];
-        [productTypeMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [productTypeMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [productTypeMapping mapAttributes:@"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"defaultValues", @"washingInstructions", @"stockStates", nil];
+        [productTypeMapping addAttributeMappingsFromDictionary:urlAndId];
+        [productTypeMapping addAttributeMappingsFromArray:@[@"weight", @"name", @"shortDescription", @"description", @"categoryName", @"brand", @"shippingFactor", @"sizeFitHint", @"defaultValues", @"washingInstructions", @"stockStates"]];
         
         RKObjectMapping *productTypeDepartmentMapping = [RKObjectMapping mappingForClass:[SPProductTypeDepartment class]];
-        [productTypeDepartmentMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [productTypeDepartmentMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [productTypeDepartmentMapping mapAttributes:@"weight", @"name", nil];
+        [productTypeDepartmentMapping addAttributeMappingsFromDictionary:urlAndId];
+        [productTypeDepartmentMapping addAttributeMappingsFromArray:@[@"weight", @"name"]];
         
         RKObjectMapping *productTypeCategoryMapping = [RKObjectMapping mappingForClass:[SPProductTypeCategory class]];
-        [productTypeCategoryMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [productTypeCategoryMapping mapAttributes:@"name", @"nameSingular", nil];
+        [productTypeCategoryMapping addAttributeMappingsFromDictionary:idMapping];
+        [productTypeCategoryMapping addAttributeMappingsFromArray:@[@"name", @"nameSingular"]];
         
         RKObjectMapping *viewSizeMapping = [RKObjectMapping mappingForClass:[SPViewSize class]];
-        [viewSizeMapping mapAttributes:@"unit", @"width", @"height", nil];
+        [viewSizeMapping addAttributeMappingsFromArray:@[@"unit", @"width", @"height"]];
         
         RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[SPProduct class]];
-        [productMapping mapAttributes:@"name", @"weight", @"creator", @"restrictions", nil];
-        [productMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [productMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+        [productMapping addAttributeMappingsFromDictionary:urlAndId];
+        [productMapping addAttributeMappingsFromArray:@[@"name", @"weight", @"creator", @"restrictions"]];
         
         RKObjectMapping *articleMapping = [RKObjectMapping mappingForClass:[SPArticle class]];
-        [articleMapping mapAttributes:@"weight", @"name", @"description", @"articleCategories", @"created", @"modified", nil];
-        [articleMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [articleMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [articleMapping addAttributeMappingsFromDictionary:urlAndId];
+        [articleMapping addAttributeMappingsFromArray:@[@"weight", @"name", @"description", @"articleCategories", @"created", @"modified"]];
         
         NSDateFormatter *articleDateFormatter = [NSDateFormatter new];
         articleDateFormatter.dateFormat = @"dd.MM.yyyy hh:mm:ss";
@@ -112,49 +108,43 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
         articleMapping.dateFormatters = [NSArray arrayWithObject:articleDateFormatter];
         
         RKObjectMapping *listMapping = [RKObjectMapping mappingForClass:[SPList class]];
-        [listMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [listMapping mapAttributes:@"count", @"limit", nil];
+        [listMapping addAttributeMappingsFromDictionary:urlMapping];
+        [listMapping addAttributeMappingsFromArray:@[@"count", @"limit"]];
         
         RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[SPUser class]];
-        [userMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [userMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [userMapping mapAttributes:@"name", @"description", @"memberSince", nil];
+        [userMapping addAttributeMappingsFromDictionary:urlAndId];
+        [userMapping addAttributeMappingsFromArray:@[@"name", @"description", @"memberSince"]];
         
         RKObjectMapping *shopMapping = [RKObjectMapping mappingForClass:[SPShop class]];
-        [shopMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [shopMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [shopMapping mapAttributes:@"name", @"passwordRestricted", @"hidden", nil];
+        [shopMapping addAttributeMappingsFromDictionary:urlAndId];
+        [shopMapping addAttributeMappingsFromArray:@[@"name", @"passwordRestricted", @"hidden"]];
         
         RKObjectMapping *basketMapping = [RKObjectMapping mappingForClass:[SPBasket class]];
-        [basketMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [basketMapping mapKeyPath:@"href" toAttribute:@"url"];
-        [basketMapping mapKeyPath:@"links" toAttribute:@"links"];
-        [basketMapping mapAttributes:@"token", nil];
+        [basketMapping addAttributeMappingsFromArray:@[@"token", @"links"]];
         
         RKObjectMapping *basketItemMapping = [RKObjectMapping mappingForClass:[SPBasketItem class]];
-        [basketItemMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [basketItemMapping mapAttributes:@"description", @"quantity", @"links", @"origin", @"element", nil];
+        [basketItemMapping addAttributeMappingsFromDictionary:idMapping];
+        [basketItemMapping addAttributeMappingsFromArray:@[@"description", @"quantity", @"links", @"origin", @"element"]];
         
         RKObjectMapping *designMapping = [RKObjectMapping mappingForClass:[SPDesign class]];
-        [designMapping mapAttributes:@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"created", @"modified", @"size", nil];
-        [designMapping mapKeyPath:@"id" toAttribute:@"identifier"];
-        [designMapping mapKeyPath:@"href" toAttribute:@"url"];
+        [designMapping addAttributeMappingsFromDictionary:urlAndId];
+        [designMapping addAttributeMappingsFromArray:@[@"name", @"weight", @"description", @"sourceUrl", @"restrictions", @"created", @"modified", @"size"]];
         
         RKObjectMapping *priceMapping = [RKObjectMapping mappingForClass:[SPPrice class]];
-        [priceMapping mapAttributes:@"vatExcluded", @"vatIncluded", @"vat", nil];
+        [priceMapping addAttributeMappingsFromArray:@[@"vatExcluded", @"vatIncluded", @"vat"]];
         
         RKObjectMapping *svgImageMapping = [RKObjectMapping mappingForClass:[SPSVGImage class]];
-        [svgImageMapping mapKeyPath:@"image.designId" toAttribute:@"designId"];
-        [svgImageMapping mapKeyPath:@"image.width" toAttribute:@"width"];
-        [svgImageMapping mapKeyPath:@"image.height" toAttribute:@"height"];
-        
+        [svgImageMapping addAttributeMappingsFromDictionary:@{
+            @"image.designId": @"designId",
+            @"image.width": @"width",
+            @"image.height": @"height"
+        }];
         
         RKObjectMapping *svgTextMapping = [RKObjectMapping mappingForClass:[SPSVGText class]];
         
-        RKDynamicObjectMapping *svgMapping = [RKDynamicObjectMapping dynamicMapping];
-        svgMapping.objectMappingForDataBlock = ^ RKObjectMapping* (id mappableData) {
-            
-            NSDictionary *svg = (NSDictionary *)mappableData;
+        RKDynamicMapping *svgMapping = [RKDynamicMapping new];
+        [svgMapping setObjectMappingForRepresentationBlock:^RKObjectMapping *(id representation) {
+            NSDictionary *svg = (NSDictionary *)representation;
             
             if ([[svg allKeys] containsObject:@"image"]) {
                 return svgImageMapping;
@@ -162,141 +152,134 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
                 return svgTextMapping;
             }
             return nil;
-        };
-        
+        }];
         
         // relationships
-        [countryMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];
+        [countryMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"currency" toKeyPath:@"currency" withMapping:currencyMapping]];
+
         
-        [appearanceMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
-        [appearanceMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:printTypeMapping];
-        [appearanceMapping mapKeyPath:@"colors" toRelationship:@"colors" withMapping:colorMapping];
+        [appearanceMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"resources" toKeyPath:@"resources" withMapping:resourceMapping]];
+        [appearanceMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printTypes" toKeyPath:@"printTypes" withMapping:printAreaMapping]];
+        [appearanceMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"colors" toKeyPath:@"colors" withMapping:colorMapping]];
         
-        [colorMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
+        [colorMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"resources" toKeyPath:@"resources" withMapping:resourceMapping]];
         
-        [productMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
-        [productMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
-        [productMapping mapKeyPath:@"productType" toRelationship:@"productType" withMapping:productTypeMapping];
-        [productMapping mapKeyPath:@"appearance" toRelationship:@"appearance" withMapping:appearanceMapping];
-        [productMapping mapKeyPath:@"configurations" toRelationship:@"configurations" withMapping:configurationMapping];
+        [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"user" toKeyPath:@"user" withMapping:userMapping]];
+        [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"resources" toKeyPath:@"resources" withMapping:resourceMapping]];
+        [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"productType" toKeyPath:@"productType" withMapping:productTypeMapping]];
+        [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"appearance" toKeyPath:@"appearance" withMapping:appearanceMapping]];
+        [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"configurations" toKeyPath:@"configurations" withMapping:configurationMapping]];
         
-        [printTypeMapping mapKeyPath:@"size" toRelationship:@"size" withMapping:sizeMapping];
-        [printTypeMapping mapKeyPath:@"price" toRelationship:@"price" withMapping:priceMapping];
+        [printTypeMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"size" toKeyPath:@"size" withMapping:sizeMapping]];
+        [printTypeMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"price" toKeyPath:@"price" withMapping:priceMapping]];
         
-        [printAreaMapping mapKeyPath:@"defaultView" toRelationship:@"defaultView" withMapping:viewMapping];
+        [printAreaMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"defaultView" toKeyPath:@"defaultView" withMapping:viewMapping]];
         
-        [productTypeMapping mapKeyPath:@"appearances" toRelationship:@"appearances" withMapping:appearanceMapping];
-        [productTypeMapping mapKeyPath:@"sizes" toRelationship:@"sizes" withMapping:sizeMapping];
-        [productTypeMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
-        [productTypeMapping mapKeyPath:@"printAreas" toRelationship:@"printAreas" withMapping:printAreaMapping];
-        [productTypeMapping mapKeyPath:@"price" toRelationship:@"price" withMapping:priceMapping];
-        [productTypeMapping mapKeyPath:@"views" toRelationship:@"views" withMapping:viewMapping];
+        [productTypeMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"appearances" toKeyPath:@"appearances" withMapping:appearanceMapping]];
+        [productTypeMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"sizes" toKeyPath:@"sizes" withMapping:sizeMapping]];
+        [productTypeMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"resources" toKeyPath:@"resources" withMapping:resourceMapping]];
+        [productTypeMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printAreas" toKeyPath:@"printAreas" withMapping:printAreaMapping]];
+        [productTypeMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"price" toKeyPath:@"price" withMapping:priceMapping]];
+        [productTypeMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"views" toKeyPath:@"views" withMapping:viewMapping]];
         
-        [productTypeDepartmentMapping mapKeyPath:@"categories" toRelationship:@"categories" withMapping:productTypeCategoryMapping];
+        [productTypeDepartmentMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"categories" toKeyPath:@"categories" withMapping:productTypeCategoryMapping]];
         
-        [productTypeCategoryMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:productTypeMapping];
+        [productTypeCategoryMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"productTypes" toKeyPath:@"productTypes" withMapping:productTypeMapping]];
         
-        [articleMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
-        [articleMapping mapKeyPath:@"product" toRelationship:@"product" withMapping:productMapping];
-        [articleMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
-        [articleMapping mapKeyPath:@"price" toRelationship:@"price" withMapping:priceMapping];
+        [articleMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"shop" toKeyPath:@"shop" withMapping:shopMapping]];
+        [articleMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"product" toKeyPath:@"product" withMapping:productMapping]];
+        [articleMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"resources" toKeyPath:@"resources" withMapping:resourceMapping]];
+        [articleMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"price" toKeyPath:@"price" withMapping:priceMapping]];
         
-        [userMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
-        [userMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:listMapping];
-        [userMapping mapKeyPath:@"baskets" toRelationship:@"baskets" withMapping:listMapping];
-        [userMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];
-        [userMapping mapKeyPath:@"country" toRelationship:@"country" withMapping:countryMapping];
-        [userMapping mapKeyPath:@"language" toRelationship:@"language" withMapping:languageMapping];
-        [userMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:listMapping];
-        [userMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:listMapping];
-        [userMapping mapKeyPath:@"shops" toRelationship:@"shops" withMapping:listMapping];
-        [userMapping mapKeyPath:@"currencies" toRelationship:@"currencies" withMapping:listMapping];
-        [userMapping mapKeyPath:@"languages" toRelationship:@"languages" withMapping:listMapping];
-        [userMapping mapKeyPath:@"countries" toRelationship:@"countries" withMapping:listMapping];
-        [userMapping mapKeyPath:@"productTypeDepartments" toRelationship:@"productTypeDepartments" withMapping:listMapping];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"products" toKeyPath:@"products" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"designs" toKeyPath:@"designs" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"baskets" toKeyPath:@"baskets" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"productTypes" toKeyPath:@"productTypes" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printTypes" toKeyPath:@"printTypes" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"shops" toKeyPath:@"shops" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"currencies" toKeyPath:@"currencies" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"languages" toKeyPath:@"languages" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"countries" toKeyPath:@"countries" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"productTypeDepartments" toKeyPath:@"productTypeDepartments" withMapping:listMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"currency" toKeyPath:@"currency" withMapping:currencyMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"country" toKeyPath:@"country" withMapping:countryMapping]];
+        [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"language" toKeyPath:@"language" withMapping:languageMapping]];
         
-        [shopMapping mapKeyPath:@"products" toRelationship:@"products" withMapping:listMapping];
-        [shopMapping mapKeyPath:@"articles" toRelationship:@"articles" withMapping:listMapping];
-        [shopMapping mapKeyPath:@"productTypes" toRelationship:@"productTypes" withMapping:listMapping];
-        [shopMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:listMapping];
-        [shopMapping mapKeyPath:@"baskets" toRelationship:@"baskets" withMapping:listMapping];
-        [shopMapping mapKeyPath:@"productTypeDepartments" toRelationship:@"productTypeDepartments" withMapping:listMapping];
-        [shopMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
-        [shopMapping mapKeyPath:@"country" toRelationship:@"country" withMapping:countryMapping];
-        [shopMapping mapKeyPath:@"language" toRelationship:@"language" withMapping:languageMapping];
-        [shopMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];
-        [shopMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:listMapping];
-        [shopMapping mapKeyPath:@"currencies" toRelationship:@"currencies" withMapping:listMapping];
-        [shopMapping mapKeyPath:@"countries" toRelationship:@"countries" withMapping:listMapping];
-        [shopMapping mapKeyPath:@"languages" toRelationship:@"languages" withMapping:listMapping];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"products" toKeyPath:@"products" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"articles" toKeyPath:@"articles" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"designs" toKeyPath:@"designs" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"baskets" toKeyPath:@"baskets" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"productTypes" toKeyPath:@"productTypes" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printTypes" toKeyPath:@"printTypes" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"currencies" toKeyPath:@"currencies" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"languages" toKeyPath:@"languages" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"countries" toKeyPath:@"countries" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"productTypeDepartments" toKeyPath:@"productTypeDepartments" withMapping:listMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"currency" toKeyPath:@"currency" withMapping:currencyMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"country" toKeyPath:@"country" withMapping:countryMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"language" toKeyPath:@"language" withMapping:languageMapping]];
+        [shopMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"user" toKeyPath:@"user" withMapping:userMapping]];
+
+        [basketMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"shop" toKeyPath:@"shop" withMapping:shopMapping]];
+        [basketMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"user" toKeyPath:@"user" withMapping:userMapping]];
+        [basketMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"basketItems" toKeyPath:@"basketItems" withMapping:basketItemMapping]];
         
-        [basketMapping mapKeyPath:@"shop" toRelationship:@"shop" withMapping:shopMapping];
-        [basketMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
-        [basketMapping mapKeyPath:@"basketItems" toRelationship:@"basketItems" withMapping:basketItemMapping];
+        [basketItemMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"price" toKeyPath:@"price" withMapping:priceMapping]];
         
-        [basketItemMapping mapKeyPath:@"price" toRelationship:@"price" withMapping:priceMapping];
+        [designMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"user" toKeyPath:@"user" withMapping:userMapping]];
+        [designMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"resources" toKeyPath:@"resources" withMapping:resourceMapping]];
+        [designMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printTypes" toKeyPath:@"printTypes" withMapping:printTypeMapping]];
+        [designMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"colors" toKeyPath:@"colors" withMapping:colorMapping]];
+        [designMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"price" toKeyPath:@"price" withMapping:priceMapping]];
         
-        [designMapping mapKeyPath:@"user" toRelationship:@"user" withMapping:userMapping];
-        [designMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
-        [designMapping mapKeyPath:@"printTypes" toRelationship:@"printTypes" withMapping:printTypeMapping];
-        [designMapping mapKeyPath:@"colors" toRelationship:@"colors" withMapping:colorMapping];
-        [designMapping mapKeyPath:@"price" toRelationship:@"price" withMapping:priceMapping];
+        [configurationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printArea" toKeyPath:@"printArea" withMapping:printAreaMapping]];
+        [configurationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printType" toKeyPath:@"printType" withMapping:printTypeMapping]];
+        [configurationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"offset" toKeyPath:@"offset" withMapping:offsetMapping]];
+        [configurationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"designs" toKeyPath:@"designs" withMapping:designMapping]];
+        [configurationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"resources" toKeyPath:@"resources" withMapping:resourceMapping]];
+        [configurationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.svg" toKeyPath:@"content" withMapping:svgMapping]];
         
-        [configurationMapping mapKeyPath:@"printArea" toRelationship:@"printArea" withMapping:printAreaMapping];
-        [configurationMapping mapKeyPath:@"printType" toRelationship:@"printType" withMapping:printTypeMapping];
-        [configurationMapping mapKeyPath:@"offset" toRelationship:@"offset" withMapping:offsetMapping];
-        [configurationMapping mapKeyPath:@"designs" toRelationship:@"designs" withMapping:designMapping];
-        [configurationMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
-        [configurationMapping mapKeyPath:@"content.svg" toRelationship:@"content" withMapping:svgMapping];
+        [viewMapMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"offset" toKeyPath:@"offset" withMapping:offsetMapping]];
         
-        [viewMapMapping mapKeyPath:@"offset" toRelationship:@"offset" withMapping:offsetMapping];
+        [viewMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"size" toKeyPath:@"size" withMapping:viewSizeMapping]];
+        [viewMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"resources" toKeyPath:@"resources" withMapping:resourceMapping]];
+        [viewMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"viewMaps" toKeyPath:@"viewMaps" withMapping:viewMapMapping]];
         
-        [viewMapping mapKeyPath:@"size" toRelationship:@"size" withMapping:viewSizeMapping];
-        [viewMapping mapKeyPath:@"resources" toRelationship:@"resources" withMapping:resourceMapping];
-        [viewMapping mapKeyPath:@"viewMaps" toRelationship:@"viewMaps" withMapping:viewMapMapping];
-        
-        [priceMapping mapKeyPath:@"currency" toRelationship:@"currency" withMapping:currencyMapping];
+        [priceMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"currency" toKeyPath:@"currency" withMapping:currencyMapping]];
         
         // serialization mappings
-        
-        RKObjectMapping *basketSerializationMapping = [basketMapping inverseMapping];
         RKObjectMapping *designSerializationMapping = [designMapping inverseMapping];
-        RKObjectMapping *productSerializationMapping = [productMapping inverseMapping];
-        RKObjectMapping *productTypeSerializationMapping = [productTypeMapping inverseMapping];
-        RKObjectMapping *appearanceSerializationMapping = [appearanceMapping inverseMapping];
+
+        RKObjectMapping *basketSerializationMapping = [basketMapping inverseMapping];
+        [basketSerializationMapping removePropertyMapping:[basketSerializationMapping mappingForSourceKeyPath:@"url"]];
+        [basketSerializationMapping removePropertyMapping:[basketSerializationMapping mappingForSourceKeyPath:@"shop"]];
+        
+        RKObjectMapping *printTypeSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        [printTypeSerializationMapping addAttributeMappingsFromDictionary:idSerializationMapping];
+        
+        RKObjectMapping *printAreaSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        [printAreaSerializationMapping addAttributeMappingsFromDictionary:idSerializationMapping];
+        
+        RKObjectMapping *svgSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        [svgSerializationMapping addAttributeMappingsFromArray:@[@"svg"]];
+        
         RKObjectMapping *configurationSerializationMapping = [configurationMapping inverseMapping];
+        [configurationSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content" toKeyPath:@"content" withMapping:svgSerializationMapping]];
+        [configurationSerializationMapping removePropertyMapping:[basketSerializationMapping mappingForSourceKeyPath:@"printArea"]];
+        [configurationSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printArea" toKeyPath:@"printArea" withMapping:printAreaSerializationMapping]];
+        [configurationSerializationMapping removePropertyMapping:[basketSerializationMapping mappingForSourceKeyPath:@"printType"]];
+        [configurationSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printType" toKeyPath:@"printType" withMapping:printTypeSerializationMapping]];
         
-        [basketSerializationMapping removeMappingForKeyPath:@"url"];
-        [basketSerializationMapping removeMappingForKeyPath:@"shop"];
+        RKObjectMapping *productTypeSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        [productTypeSerializationMapping addAttributeMappingsFromDictionary:idSerializationMapping];
         
-        RKObjectMapping *printTypeSerializationMapping = [printTypeMapping inverseMapping];
-        [printTypeSerializationMapping removeAllMappings];
-        [printTypeSerializationMapping mapKeyPath:@"identifier" toAttribute:@"id"];
+        RKObjectMapping *appearanceSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        [appearanceSerializationMapping addAttributeMappingsFromDictionary:idSerializationMapping];
         
-        
-        RKObjectMapping *printAreaSerializationMapping = [printAreaMapping inverseMapping];
-        [printAreaSerializationMapping removeAllMappings];
-        [printAreaSerializationMapping mapKeyPath:@"identifier" toAttribute:@"id"];
-        
-        RKObjectMapping *svgSerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
-        [svgSerializationMapping mapKeyPath:@"svg" toAttribute:@"svg"];
-        
-        [configurationSerializationMapping mapKeyPath:@"content" toRelationship:@"content" withMapping:svgSerializationMapping];
-        [configurationSerializationMapping removeMappingForKeyPath:@"printArea"];
-        [configurationSerializationMapping mapKeyPath:@"printArea" toRelationship:@"printArea" withMapping:printAreaSerializationMapping];
-        [configurationSerializationMapping removeMappingForKeyPath:@"printType"];
-        [configurationSerializationMapping mapKeyPath:@"printType" toRelationship:@"printType" withMapping:printTypeSerializationMapping];
-        
-        [productTypeSerializationMapping removeAllMappings];
-        [productTypeSerializationMapping mapKeyPath:@"identifier" toAttribute:@"id"];
-        
-        [appearanceSerializationMapping removeAllMappings];
-        [appearanceSerializationMapping mapKeyPath:@"identifier" toAttribute:@"id"];
-        
-        [productSerializationMapping removeAllMappings];
-        [productSerializationMapping mapKeyPath:@"appearance" toRelationship:@"appearance" withMapping:appearanceSerializationMapping];
-        [productSerializationMapping mapKeyPath:@"productType" toRelationship:@"productType" withMapping:productTypeSerializationMapping];
-        [productSerializationMapping mapKeyPath:@"configurations" toRelationship:@"configurations" withMapping:configurationSerializationMapping];
+        RKObjectMapping *productSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        [productSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"appearance" toKeyPath:@"appearance" withMapping:appearanceSerializationMapping]];
+        [productSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"productType" toKeyPath:@"productType" withMapping:productTypeSerializationMapping]];
+        [productSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"configurations" toKeyPath:@"configurations" withMapping:configurationSerializationMapping]];
         
         [self setSerializationMapping:basketSerializationMapping forClass:[SPBasket class]];
         [self setSerializationMapping:designSerializationMapping forClass:[SPDesign class]];
