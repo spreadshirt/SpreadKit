@@ -110,7 +110,9 @@
     [SPURLConnection put:UIImageJPEGRepresentation(rotatedImage, quality) toURL:design.uploadUrl params:nil apiKey:_apiKey secret:_secret completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if ([httpResponse statusCode] != 200) {
-            NSDictionary *userInfo = [NSDictionary dictionaryWithKeysAndObjects:NSLocalizedDescriptionKey, [NSString stringWithFormat:@"The upload failed with HTTP Code %d", [httpResponse statusCode]], @"ResponseContentKey", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], nil];
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: [NSString stringWithFormat:@"The upload failed with HTTP Code %d", [httpResponse statusCode]],
+                                       @"ResponseContentKey": [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]};
             NSError *error = [NSError errorWithDomain:SPErrorDomain code:SPImageUploadFailedError userInfo:userInfo];
             completion (design, error);
         }

@@ -28,7 +28,7 @@
 - (id)init
 {
     if (self = [super init]) {
-        defaultParams = [NSMutableDictionary dictionaryWithKeysAndObjects:@"mediaType", @"json", @"fullData", @"true", nil];
+        defaultParams = [NSMutableDictionary dictionaryWithDictionary:@{@"mediaType": @"json", @"fullData": @"true"}];
     }
     return self;
 }
