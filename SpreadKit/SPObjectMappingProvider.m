@@ -362,4 +362,12 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
     return [mappingsForClass objectForKey:[class copy]];
 }
 
+- (id)valueForKeyPath:(NSString *)keyPath {
+    return [mappingsForKeyPath objectForKey:keyPath];
+}
+
+- (NSDictionary *)mappingsDictionary {
+    return [NSDictionary dictionaryWithDictionary:mappingsForKeyPath];
+}
+
 @end

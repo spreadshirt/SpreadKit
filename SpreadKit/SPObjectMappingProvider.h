@@ -11,6 +11,8 @@
 
 @interface SPObjectMappingProvider : NSObject
 
+@property (nonatomic, readonly) NSDictionary *mappingsDictionary;
+
 + (SPObjectMappingProvider *)sharedMappingProvider;
 - (RKObjectMapping *)objectMappingForClass:(Class)class;
 
