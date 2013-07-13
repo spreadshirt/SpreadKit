@@ -60,13 +60,13 @@
     [testProduct setConfigurations:@[ conf ]];
         
     RKObjectMapping *serializationMapping = [[SPObjectMappingProvider sharedMappingProvider] serializationMappingForClass:[SPProduct class]];
-    RKObjectSerializer *serializer = [RKObjectSerializer serializerWithObject:testProduct mapping:serializationMapping];
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:serializationMapping objectClass:[SPBasket class] rootKeyPath:@""];
+    NSError* error;
+    NSDictionary *parameters = [RKObjectParameterization parametersWithObject:testProduct requestDescriptor:requestDescriptor error:&error];
     
-    NSError *error = nil;
+    NSData *JSON = [RKMIMETypeSerialization dataFromObject:parameters MIMEType:RKMIMETypeJSON error:&error];
     
-    NSString *serialized = [serializer serializedObjectForMIMEType:RKMIMETypeJSON error:&error];
-    
-    GHAssertEqualStrings(serialized, @"{\"appearance\":{\"id\":\"appearanceID\"},\"configurations\":[{\"printArea\":{\"id\":\"printAreaID\"},\"id\":\"configurationID\",\"content\":{\"svg\":{\"image\":{\"width\":100,\"designId\":\"designID\",\"height\":200}}},\"offset\":{\"unit\":\"mm\",\"x\":1,\"y\":2},\"printType\":{\"id\":\"printTypeID\"}}],\"productType\":{\"id\":\"productTypeID\"}}", nil);
+    GHAssertEqualStrings([NSString stringWithUTF8String:[JSON bytes]], @"{\"appearance\":{\"id\":\"appearanceID\"},\"configurations\":[{\"printArea\":{\"id\":\"printAreaID\"},\"id\":\"configurationID\",\"content\":{\"svg\":{\"image\":{\"width\":100,\"designId\":\"designID\",\"height\":200}}},\"offset\":{\"unit\":\"mm\",\"x\":1,\"y\":2},\"printType\":{\"id\":\"printTypeID\"}}],\"productType\":{\"id\":\"productTypeID\"}}", nil);
     
 }
 

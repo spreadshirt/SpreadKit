@@ -15,5 +15,5 @@
 
 + (SPObjectMappingProvider *)sharedMappingProvider;
 - (RKObjectMapping *)objectMappingForClass:(Class)class;
-
+- (RKObjectMapping *)serializationMappingForClass:(Class)class;
 @end

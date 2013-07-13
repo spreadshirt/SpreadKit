@@ -11,7 +11,6 @@
 #import "SPProductTypeDepartment.h"
 #import "SPProductTypeCategory.h"
 #import "SPProductType.h"
-#import <RestKit/RKObjectMapper_Private.h>
 
 @interface SPProductTypeDepartmentMappingTests : GHTestCase
 {
@@ -33,16 +32,18 @@
     NSError *error = nil;
     NSString *productTypeDepartmentJSON = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
     
-    NSString *MIMEType = @"application/json";
-    id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
-    id parsedData = [parser objectFromString:productTypeDepartmentJSON error:&error];
+    NSData *data = [productTypeDepartmentJSON dataUsingEncoding:NSUTF8StringEncoding];
+    id parsedData = [RKMIMETypeSerialization objectFromData:data MIMEType:@"application/json" error:nil];
+    RKObjectMapping *mapping = [testable objectMappingForClass:[SPProductTypeDepartment class]];
     
-    RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:testable];
-    RKObjectMappingResult *result = [mapper performMapping];
+    NSDictionary *mappingsDictionary = @{ @"": mapping };
+    RKMapperOperation *mapper = [[RKMapperOperation alloc] initWithRepresentation:parsedData mappingsDictionary:mappingsDictionary];
+    [mapper execute:nil];
+    id result = mapper.mappingResult.firstObject;
     GHAssertNotNil(result, nil);
     
-    GHAssertEquals([[result asCollection] count], (NSUInteger)6, nil);
-    SPProductTypeDepartment *dept = [[result asCollection] objectAtIndex:0];
+    GHAssertEquals([[result array] count], (NSUInteger)6, nil);
+    SPProductTypeDepartment *dept = [[result array] objectAtIndex:0];
     
     // core data
     GHAssertEqualStrings(dept.identifier, @"1", nil);

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
 #import <RestKit/RestKit.h>
-#import <RestKit/RKObjectMapper_Private.h>
 #import "SpreadKit.h"
 
 
@@ -39,20 +38,19 @@
     
     NSString *filePath=[[NSBundle mainBundle] pathForResource:@"product" ofType:@"json"];
     
-    NSError *error = nil;
-    NSString *singleProductJSON = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    NSString *singleProductJSON = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSData *data = [singleProductJSON dataUsingEncoding:NSUTF8StringEncoding];
+    id parsedData = [RKMIMETypeSerialization objectFromData:data MIMEType:@"application/json" error:nil];
     
-    NSString *MIMEType = @"application/json";
-    id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
-    id parsedData = [parser objectFromString:singleProductJSON error:&error];
-    
-    // load the required mappin explicitly
+    // load the required mapping explicitly
     RKObjectMapping *mapping = [testable objectMappingForClass:[SPProduct class]];
     GHAssertNotNil(mapping, @"mapping should be loaded correctly");
     
-    RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:testable];
     
-    RKObjectMappingResult* result = [mapper mapObject:parsedData atKeyPath:@"" usingMapping:mapping];
+    NSDictionary *mappingsDictionary = @{ @"": mapping };
+    RKMapperOperation *mapper = [[RKMapperOperation alloc] initWithRepresentation:parsedData mappingsDictionary:mappingsDictionary];
+    [mapper execute:nil];
+    id result = mapper.mappingResult.firstObject;
     
     SPProduct *girlieShirt = (SPProduct *)result;
     GHAssertEqualStrings([girlieShirt identifier], @"25386428" ,@"Mapped Product should have the right id");
@@ -87,17 +85,17 @@
     
     NSError *error = nil;
     NSString *productListJSON = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-    
-    NSString* MIMEType = @"application/json";
-    
-    id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
-    id parsedData = [parser objectFromString:productListJSON error:&error];
+    NSData *data = [productListJSON dataUsingEncoding:NSUTF8StringEncoding];
+    id parsedData = [RKMIMETypeSerialization objectFromData:data MIMEType:@"application/json" error:nil];
     
     SPObjectMappingProvider* mappingProvider = testable;
-    RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
-    RKObjectMappingResult* result = [mapper performMapping];
+
+    RKMapperOperation *mapper = [[RKMapperOperation alloc] initWithRepresentation:parsedData mappingsDictionary:mappingProvider.mappingsDictionary];
+    [mapper execute:nil];
+    id result = mapper.mappingResult.firstObject;
     
-    SPProduct *girlieShirt = [[result asCollection] objectAtIndex:0];
+
+    SPProduct *girlieShirt = (SPProduct *)result;
     
     GHAssertEqualStrings([girlieShirt identifier], @"25386428" ,@"Mapped Product should have the right id");
     GHAssertEqualStrings([girlieShirt name], @"Frauen Girlieshirt" ,@"Mapped Product should have the right name");
@@ -109,17 +107,15 @@
     
     NSError *error = nil;
     NSString *productListJSON = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-    
-    NSString* MIMEType = @"application/json";
-    
-    id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
-    id parsedData = [parser objectFromString:productListJSON error:&error];
+    NSData *data = [productListJSON dataUsingEncoding:NSUTF8StringEncoding];
+    id parsedData = [RKMIMETypeSerialization objectFromData:data MIMEType:@"application/json" error:nil];
     
     SPObjectMappingProvider* mappingProvider = testable;
-    RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
-    RKObjectMappingResult* result = [mapper performMapping];
+    RKMapperOperation *mapper = [[RKMapperOperation alloc] initWithRepresentation:parsedData mappingsDictionary:mappingProvider.mappingsDictionary];
+    [mapper execute:nil];
+    id result = mapper.mappingResult;
     
-    GHAssertEquals([[result asCollection] count], (unsigned int) 3, @"All resources should be mapped");
+    GHAssertEquals([[result array] count], (unsigned int) 3, @"All resources should be mapped");
 }
 
 @end

@@ -81,8 +81,6 @@
     // stubs
     stubRequest(@"GET", @"http://api.spreadshirt.net/api/v1/shops/4000/products/18245494?fullData=true&mediaType=json").
     andReturnRawResponse([NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"testSingleResourceLoadingFromUrl" ofType:@"txt"]]);
-    
-    RKObjectMapping *productMapping = [[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:[SPProduct class]];
     __block NSArray *result;
     
     [self prepare];
@@ -195,8 +193,7 @@
     //    basket.token = @"test";
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
-    [mapping mapAttributes:@"token", nil];
-    
+    [mapping addAttributeMappingsFromArray:@[@"token"]];
     [self prepare];
     
     [manager postObject:basket toURL:[NSURL URLWithString:@"http://api.spreadshirt.net/api/v1/baskets"] completion:^(id object, NSError *error) {

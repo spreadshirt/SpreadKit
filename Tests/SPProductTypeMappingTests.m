@@ -14,7 +14,6 @@
 #import "SPViewSize.h"
 #import "SPView.h"
 #import <RestKit/RestKit.h>
-#import <RestKit/RKObjectMapper_Private.h>
 
 
 @interface SPProductTypeMappingTests : GHTestCase
@@ -38,16 +37,16 @@
     NSError *error = nil;
     NSString *productTypeJSON = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
 
-    NSString *MIMEType = @"application/json";
-    id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
-    id parsedData = [parser objectFromString:productTypeJSON error:&error];
+    NSData *data = [productTypeJSON dataUsingEncoding:NSUTF8StringEncoding];
+    id parsedData = [RKMIMETypeSerialization objectFromData:data MIMEType:@"application/json" error:nil];
     
     RKObjectMapping *mapping = [testable objectMappingForClass:[SPProductType class]];
     GHAssertNotNil(mapping, @"mapping should be loaded correctly");
     
-    RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:testable];
-    
-    RKObjectMappingResult* result = [mapper mapObject:parsedData atKeyPath:@"" usingMapping:mapping];
+    NSDictionary *mappingsDictionary = @{ @"": mapping };
+    RKMapperOperation *mapper = [[RKMapperOperation alloc] initWithRepresentation:parsedData mappingsDictionary:mappingsDictionary];
+    [mapper execute:nil];
+    id result = mapper.mappingResult.firstObject;
     
     SPProductType *productType = (SPProductType *) result;
     

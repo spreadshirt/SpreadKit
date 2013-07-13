@@ -42,40 +42,46 @@
 }
 
 - (id)performMappingWithData:(NSData *)data
-{
-    NSString *stringData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+{    
+    // parsing
+    id parsedData = [RKMIMETypeSerialization objectFromData:data MIMEType:mimeType error:nil];
     
-    // do the mapping
-    id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:mimeType];
-    id parsedData = [parser objectFromString:stringData error:nil];
-    
-    RKObjectMappingProvider *provider;
+    NSDictionary *mappingsDictionary;
     
     if (class) {
-        provider = [RKObjectMappingProvider objectMappingProvider];
-        [provider setObjectMapping:[[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:class] forKeyPath:@""];
+        
+        RKObjectMapping *mapping = [[SPObjectMappingProvider sharedMappingProvider] objectMappingForClass:class];
+        mappingsDictionary = @{ @"": mapping };
     } else {
-        provider = [SPObjectMappingProvider sharedMappingProvider];
+        mappingsDictionary = [[SPObjectMappingProvider sharedMappingProvider] mappingsDictionary];
     }
     
-    RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:provider];
+    
+    RKMapperOperation *mapper = [[RKMapperOperation alloc] initWithRepresentation:parsedData mappingsDictionary:mappingsDictionary];
+   
     if (destinationObject) {
         mapper.targetObject = destinationObject;
     }
-    RKObjectMappingResult *result = [mapper performMapping];
     
-    return [result asCollection];
+    [mapper execute:nil];
+    id result = mapper.mappingResult;
+    
+    return [result array];
 }
 
 - (NSString *)serializeObject:(id)theObject
 {
     RKObjectMapping *serializationMapping = [[SPObjectMappingProvider sharedMappingProvider] serializationMappingForClass:[theObject class]];
-    RKObjectSerializer *serializer = [RKObjectSerializer serializerWithObject:theObject mapping:serializationMapping];
+    
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:serializationMapping objectClass:class rootKeyPath:@""];
     NSError *error = nil;
-    NSString* serializedString = [serializer serializedObjectForMIMEType:mimeType error:&error];
+    NSDictionary *parameters = [RKObjectParameterization parametersWithObject:theObject requestDescriptor:requestDescriptor error:&error];
+    NSData *serialization = [RKMIMETypeSerialization dataFromObject:parameters MIMEType:mimeType error:&error];
     if (error) {
         NSLog(@"something went wrong during serialization: %@", error);
     }
+    
+    NSString *serializedString = [NSString stringWithUTF8String:[serialization bytes]];
     
     // object with no properties returns empty string
     if (mimeType == RKMIMETypeJSON && serializedString == nil) {

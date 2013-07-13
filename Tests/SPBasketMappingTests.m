@@ -12,7 +12,6 @@
 #import "SPBasketItem.h"
 #import "SPArticle.h"
 #import <RestKit/RestKit.h>
-#import <RestKit/RKObjectMapper_Private.h>
 
 @interface SPBasketMappingTests : GHTestCase
 {
@@ -34,16 +33,16 @@
     NSError *error = nil;
     NSString *basketJSON = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
     
-    NSString *MIMEType = @"application/json";
-    id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
-    id parsedData = [parser objectFromString:basketJSON error:&error];
+    NSData *data = [basketJSON dataUsingEncoding:NSUTF8StringEncoding];
+    id parsedData = [RKMIMETypeSerialization objectFromData:data MIMEType:@"application/json" error:nil];
     
     RKObjectMapping *mapping = [testable objectMappingForClass:[SPBasket class]];
     GHAssertNotNil(mapping, @"mapping should be loaded correctly");
     
-    RKObjectMapper *mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:testable];
-    
-    RKObjectMappingResult *result = [mapper mapObject:parsedData atKeyPath:@"" usingMapping:mapping];
+    NSDictionary *mappingsDictionary = @{ @"": mapping };
+    RKMapperOperation *mapper = [[RKMapperOperation alloc] initWithRepresentation:parsedData mappingsDictionary:mappingsDictionary];
+    [mapper execute:nil];
+    id result = mapper.mappingResult.firstObject;
     
     SPBasket *basket = (SPBasket *)result;
     GHAssertNotNil(basket, @"basket should have been mapped");
@@ -81,13 +80,19 @@
     basket.basketItems = [NSMutableArray arrayWithObject:item];
     
     RKObjectMapping *serializationMapping = [testable serializationMappingForClass:[SPBasket class]];
-    RKObjectSerializer *serializer = [RKObjectSerializer serializerWithObject:basket mapping:serializationMapping];
     
-    NSError *error = nil;
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:serializationMapping objectClass:[SPBasket class] rootKeyPath:nil];
+    NSError* error;
+    NSDictionary *parameters = [RKObjectParameterization parametersWithObject:basket requestDescriptor:requestDescriptor error:&error];
     
-    NSString *serializedString = [serializer serializedObjectForMIMEType:RKMIMETypeJSON error:&error];
+    // Serialize the object to JSON
+    NSData *JSON = [RKMIMETypeSerialization dataFromObject:parameters MIMEType:RKMIMETypeJSON error:&error];
     
-    GHAssertEqualStrings(serializedString, @"{\"token\":\"foobar\",\"basketItems\":[{\"element\":{\"type\":\"sprd:article\",\"href\":\"http://foo.bar\"}}]}", @"basket with items should serialize correctly");
+    NSString *expectedSerialization = @"{\"token\":\"foobar\",\"basketItems\":[{\"element\":{\"type\":\"sprd:article\",\"href\":\"http://foo.bar\"}}]}";
+    
+    GHAssertTrue([JSON isEqualToData:[expectedSerialization dataUsingEncoding:NSUTF8StringEncoding]], nil);
+    
+//    GHAssertEqualStrings([[NSString alloc] initWithData:JSON encoding:NSUTF8StringEncoding], @"{\"token\":\"foobar\",\"basketItems\":[{\"element\":{\"type\":\"sprd:article\",\"href\":\"http://foo.bar\"}}]}", @"basket with items should serialize correctly");
 }
                                       
 @end

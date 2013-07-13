@@ -7,9 +7,9 @@
 //
 
 #import "SPURLConnection.h"
-#import <RestKit/NSURL+RKAdditions.h>
 #import "NSURL+PathParameters.h"
 #import "SPAuthenticationProvider.h"
+#import <RequestUtils/RequestUtils.h>
 
 @implementation SPURLConnection
 
@@ -61,7 +61,8 @@
 {
     // strip params already contained in url
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:passedParams];
-    [url.queryParameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+
+    [url.components enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([params.allKeys containsObject:key]) {
             [params removeObjectForKey:key];
         }

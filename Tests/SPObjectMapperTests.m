@@ -8,7 +8,6 @@
 
 #import <GHUnitIOS/GHUnit.h>
 #import <RestKit/RestKit.h>
-#import <RestKit/RKObjectMapper_Private.h>
 #import "SpreadKit.h"
 #import "SPObjectMapper.h"
 #import "SPObjectMappingProvider.h"
@@ -48,7 +47,7 @@
 {
     SPBasket *basket = [[SPBasket alloc] init];
     RKObjectMapping *serializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
-    [serializationMapping mapAttributes:@"token", @"url", nil];
+    [serializationMapping addAttributeMappingsFromArray:@[@"token", @"url"]];
     
     SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON objectClass:nil];
     NSString *serialization = [mapper serializeObject:basket];

@@ -129,6 +129,7 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
         [shopMapping addAttributeMappingsFromArray:@[@"name", @"passwordRestricted", @"hidden"]];
         
         RKObjectMapping *basketMapping = [RKObjectMapping mappingForClass:[SPBasket class]];
+        [basketMapping addAttributeMappingsFromDictionary:urlAndId];
         [basketMapping addAttributeMappingsFromArray:@[@"token", @"links"]];
         
         RKObjectMapping *basketItemMapping = [RKObjectMapping mappingForClass:[SPBasketItem class]];
@@ -274,9 +275,9 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
         
         RKObjectMapping *configurationSerializationMapping = [configurationMapping inverseMapping];
         [configurationSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content" toKeyPath:@"content" withMapping:svgSerializationMapping]];
-        [configurationSerializationMapping removePropertyMapping:[basketSerializationMapping mappingForSourceKeyPath:@"printArea"]];
+        [configurationSerializationMapping removePropertyMapping:[configurationSerializationMapping mappingForSourceKeyPath:@"printArea"]];
         [configurationSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printArea" toKeyPath:@"printArea" withMapping:printAreaSerializationMapping]];
-        [configurationSerializationMapping removePropertyMapping:[basketSerializationMapping mappingForSourceKeyPath:@"printType"]];
+        [configurationSerializationMapping removePropertyMapping:[configurationSerializationMapping mappingForSourceKeyPath:@"printType"]];
         [configurationSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printType" toKeyPath:@"printType" withMapping:printTypeSerializationMapping]];
         
         RKObjectMapping *productTypeSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
@@ -350,11 +351,11 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
 }
 
 - (void)addObjectMapping:(RKObjectMapping *)mapping {
-    [mappingsForClass setObject:mapping forKey:[[mapping class] copy]];
+    [mappingsForClass setObject:mapping forKey:[mapping.objectClass copy]];
 }
 
 - (void)setSerializationMapping:(RKObjectMapping *)mapping forClass:(Class)class {
-    [serializationMappings setObject:mapping forKey:[[mapping class] copy]];
+    [serializationMappings setObject:mapping forKey:[class copy]];
 }
 
 - (RKObjectMapping *)objectMappingForClass:(Class)class
@@ -368,6 +369,10 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
 
 - (NSDictionary *)mappingsDictionary {
     return [NSDictionary dictionaryWithDictionary:mappingsForKeyPath];
+}
+
+- (RKObjectMapping *)serializationMappingForClass:(Class)class {
+    return [serializationMappings objectForKey:[class copy]];
 }
 
 @end
