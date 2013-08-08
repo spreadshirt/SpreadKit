@@ -34,12 +34,11 @@
     
     NSData *data = [productTypeDepartmentJSON dataUsingEncoding:NSUTF8StringEncoding];
     id parsedData = [RKMIMETypeSerialization objectFromData:data MIMEType:@"application/json" error:nil];
-    RKObjectMapping *mapping = [testable objectMappingForClass:[SPProductTypeDepartment class]];
-    
-    NSDictionary *mappingsDictionary = @{ @"": mapping };
+
+    NSDictionary *mappingsDictionary = testable.mappingsDictionary;
     RKMapperOperation *mapper = [[RKMapperOperation alloc] initWithRepresentation:parsedData mappingsDictionary:mappingsDictionary];
     [mapper execute:nil];
-    id result = mapper.mappingResult.firstObject;
+    id result = mapper.mappingResult;
     GHAssertNotNil(result, nil);
     
     GHAssertEquals([[result array] count], (NSUInteger)6, nil);
