@@ -87,12 +87,13 @@
     
     // Serialize the object to JSON
     NSData *JSON = [RKMIMETypeSerialization dataFromObject:parameters MIMEType:RKMIMETypeJSON error:&error];
+    NSString *JSONString = [NSString stringWithUTF8String:[JSON bytes]];
+    
     
     NSString *expectedSerialization = @"{\"token\":\"foobar\",\"basketItems\":[{\"element\":{\"type\":\"sprd:article\",\"href\":\"http://foo.bar\"}}]}";
     
-    GHAssertTrue([JSON isEqualToData:[expectedSerialization dataUsingEncoding:NSUTF8StringEncoding]], nil);
-    
-//    GHAssertEqualStrings([[NSString alloc] initWithData:JSON encoding:NSUTF8StringEncoding], @"{\"token\":\"foobar\",\"basketItems\":[{\"element\":{\"type\":\"sprd:article\",\"href\":\"http://foo.bar\"}}]}", @"basket with items should serialize correctly");
+    GHAssertEqualStrings([JSONString stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"], expectedSerialization, nil);
+
 }
                                       
 @end
