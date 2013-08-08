@@ -73,7 +73,7 @@
 {
     RKObjectMapping *serializationMapping = [[SPObjectMappingProvider sharedMappingProvider] serializationMappingForClass:[theObject class]];
     
-    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:serializationMapping objectClass:class rootKeyPath:@""];
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:serializationMapping objectClass:class rootKeyPath:nil];
     NSError *error = nil;
     NSDictionary *parameters = [RKObjectParameterization parametersWithObject:theObject requestDescriptor:requestDescriptor error:&error];
     NSData *serialization = [RKMIMETypeSerialization dataFromObject:parameters MIMEType:mimeType error:&error];
