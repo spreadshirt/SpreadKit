@@ -38,7 +38,7 @@
     basket.token = @"foobar";
     basket.shop = [[SPShop alloc] init];
     
-    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON objectClass:nil];
+    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON objectClass:[SPBasket class]];
     NSString *serialization = [mapper serializeObject:basket];
     GHAssertEqualStrings(serialization, @"{\"token\":\"foobar\",\"basketItems\":[]}", @"Basket should have been serialized correctly");
 }
@@ -49,7 +49,7 @@
     RKObjectMapping *serializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
     [serializationMapping addAttributeMappingsFromArray:@[@"token", @"url"]];
     
-    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON objectClass:nil];
+    SPObjectMapper *mapper = [SPObjectMapper mapperWithMIMEType:RKMIMETypeJSON objectClass:[SPBasket class]];
     NSString *serialization = [mapper serializeObject:basket];
     
     GHAssertNotNil(serialization, @"Empty object should not return empty serialization");

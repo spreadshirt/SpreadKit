@@ -83,6 +83,9 @@
     
     NSString *serializedString = [NSString stringWithUTF8String:[serialization bytes]];
     
+    // HACK fix NSJSONSerialization escaping of forward slashes
+    serializedString = [serializedString stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"];
+    
     // object with no properties returns empty string
     if (mimeType == RKMIMETypeJSON && serializedString == nil) {
         serializedString = @"{}";
