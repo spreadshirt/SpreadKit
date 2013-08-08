@@ -8,6 +8,7 @@
 
 #import "SPObjectMapper.h"
 #import "SPObjectMappingProvider.h"
+#import <SBJson/SBJson.h>
 
 @implementation SPObjectMapper
 {
@@ -73,18 +74,12 @@
 {
     RKObjectMapping *serializationMapping = [[SPObjectMappingProvider sharedMappingProvider] serializationMappingForClass:[theObject class]];
     
-    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:serializationMapping objectClass:class rootKeyPath:nil];
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:serializationMapping objectClass:class rootKeyPath:nil method:RKRequestMethodAny];
     NSError *error = nil;
     NSDictionary *parameters = [RKObjectParameterization parametersWithObject:theObject requestDescriptor:requestDescriptor error:&error];
-    NSData *serialization = [RKMIMETypeSerialization dataFromObject:parameters MIMEType:mimeType error:&error];
-    if (error) {
-        NSLog(@"something went wrong during serialization: %@", error);
-    }
     
-    NSString *serializedString = [NSString stringWithUTF8String:[serialization bytes]];
-    
-    // HACK fix NSJSONSerialization escaping of forward slashes
-    serializedString = [serializedString stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"];
+    SBJsonWriter *writer = [[SBJsonWriter alloc] init];
+    NSString *serializedString = [writer stringWithObject:parameters];
     
     // object with no properties returns empty string
     if (mimeType == RKMIMETypeJSON && serializedString == nil) {

@@ -12,6 +12,7 @@
 #import "SPBasketItem.h"
 #import "SPArticle.h"
 #import <RestKit/RestKit.h>
+#import <SBJson/SBJson.h>
 
 @interface SPBasketMappingTests : GHTestCase
 {
@@ -24,7 +25,7 @@
 
 - (void)setUpClass
 {
-    testable = [SPObjectMappingProvider sharedMappingProvider];
+    testable = [[SPObjectMappingProvider alloc] init];
 }
 
 - (void)testBasketMapping
@@ -81,18 +82,17 @@
     
     RKObjectMapping *serializationMapping = [testable serializationMappingForClass:[SPBasket class]];
     
-    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:serializationMapping objectClass:[SPBasket class] rootKeyPath:nil];
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:serializationMapping objectClass:[basket class] rootKeyPath:nil method:RKRequestMethodAny];
+    
     NSError* error;
     NSDictionary *parameters = [RKObjectParameterization parametersWithObject:basket requestDescriptor:requestDescriptor error:&error];
-    
-    // Serialize the object to JSON
-    NSData *JSON = [RKMIMETypeSerialization dataFromObject:parameters MIMEType:RKMIMETypeJSON error:&error];
-    NSString *JSONString = [NSString stringWithUTF8String:[JSON bytes]];
-    
+
+    SBJsonWriter *writer = [[SBJsonWriter alloc] init];
+    NSString *JSONString = [writer stringWithObject:parameters];
     
     NSString *expectedSerialization = @"{\"token\":\"foobar\",\"basketItems\":[{\"element\":{\"type\":\"sprd:article\",\"href\":\"http://foo.bar\"}}]}";
     
-    GHAssertEqualStrings([JSONString stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"], expectedSerialization, nil);
+    GHAssertEqualStrings(JSONString, expectedSerialization, nil);
 
 }
                                       

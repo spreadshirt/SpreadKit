@@ -3,21 +3,22 @@ PODS:
   - GHUnitIOS (0.5.6)
   - GMGridView (1.1.1)
   - Nocilla (0.6)
-  - RestKit (0.20.2):
+  - RestKit (0.20.3):
     - RestKit/Core
-  - RestKit/Core (0.20.2):
+  - RestKit/Core (0.20.3):
     - RestKit/CoreData
     - RestKit/Network
     - RestKit/ObjectMapping
-  - RestKit/CoreData (0.20.2)
-  - RestKit/Network (0.20.2):
+  - RestKit/CoreData (0.20.3)
+  - RestKit/Network (0.20.3):
     - AFNetworking (~> 1.3.0)
     - RestKit/ObjectMapping
     - RestKit/Support
     - SOCKit
-  - RestKit/ObjectMapping (0.20.2)
-  - RestKit/Support (0.20.2):
+  - RestKit/ObjectMapping (0.20.3)
+  - RestKit/Support (0.20.3):
     - TransitionKit (= 1.1.1)
+  - SBJson (3.2)
   - SOCKit (1.1)
   - TransitionKit (1.1.1)
 
@@ -26,13 +27,15 @@ DEPENDENCIES:
   - GMGridView (= 1.1.1)
   - Nocilla
   - RestKit (~> 0.20.0)
+  - SBJson (= 3.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
   GHUnitIOS: bf149b2c44084eee2785ce4ac3675c3a699e509d
   GMGridView: a17a31f010990eb8f802abb4cab50e6e03e993ea
   Nocilla: 8eb1de5a53f8567ca529d144880525448c6e713c
-  RestKit: e511651e916245fa4becfb0e8f966a1fa021fcd4
+  RestKit: 1f181c180105a92f11ec4f6cd7de37625e516d83
+  SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
   TransitionKit: d0e3344aac92991395d4c2e72d9c5a8ceeb12910
 
