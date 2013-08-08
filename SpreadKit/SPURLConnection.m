@@ -9,7 +9,6 @@
 #import "SPURLConnection.h"
 #import "NSURL+PathParameters.h"
 #import "SPAuthenticationProvider.h"
-#import <RequestUtils/RequestUtils.h>
 
 @implementation SPURLConnection
 

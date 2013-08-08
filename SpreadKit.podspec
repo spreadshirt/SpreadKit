@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.resource     = 'SpreadKitResources.bundle'
   s.requires_arc = true
   s.frameworks   = 'CoreGraphics', 'UIKit'
-  s.dependency 'RestKit', '0.10.3'
+  s.dependency 'RestKit', '~> 0.20.0'
   s.dependency 'GMGridView'
 end
