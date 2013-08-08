@@ -59,10 +59,16 @@
 
 + (void)sendRequestWithURL:(NSURL *)url params:(NSDictionary *)passedParams body:(NSData *)data apiKey:(NSString *)apiKey secret:(NSString *)secret method:(NSString *)method completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion
 {
-    // strip params already contained in url
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:passedParams];
+    // extract parameters already in url
+    NSArray *parameters = [[url query] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"=&"]];
+    NSMutableDictionary *keyValueParm = [NSMutableDictionary dictionary];
+    for (int i = 0; i < [parameters count]; i=i+2) {
+        [keyValueParm setObject:[parameters objectAtIndex:i+1] forKey:[parameters objectAtIndex:i]];
+    }
 
-    [url.components enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    // strip duplicate params from passed params
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:passedParams];
+    [keyValueParm enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([params.allKeys containsObject:key]) {
             [params removeObjectForKey:key];
         }
