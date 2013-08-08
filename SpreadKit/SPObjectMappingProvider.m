@@ -264,13 +264,13 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
         [basketSerializationMapping removePropertyMapping:[basketSerializationMapping mappingForSourceKeyPath:@"url"]];
         [basketSerializationMapping removePropertyMapping:[basketSerializationMapping mappingForSourceKeyPath:@"shop"]];
         
-        RKObjectMapping *printTypeSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        RKObjectMapping *printTypeSerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
         [printTypeSerializationMapping addAttributeMappingsFromDictionary:idSerializationMapping];
         
-        RKObjectMapping *printAreaSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        RKObjectMapping *printAreaSerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
         [printAreaSerializationMapping addAttributeMappingsFromDictionary:idSerializationMapping];
         
-        RKObjectMapping *svgSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        RKObjectMapping *svgSerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
         [svgSerializationMapping addAttributeMappingsFromArray:@[@"svg"]];
         
         RKObjectMapping *configurationSerializationMapping = [configurationMapping inverseMapping];
@@ -280,13 +280,13 @@ static SPObjectMappingProvider *sharedMappingProvider = nil;
         [configurationSerializationMapping removePropertyMapping:[configurationSerializationMapping mappingForSourceKeyPath:@"printType"]];
         [configurationSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"printType" toKeyPath:@"printType" withMapping:printTypeSerializationMapping]];
         
-        RKObjectMapping *productTypeSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        RKObjectMapping *productTypeSerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
         [productTypeSerializationMapping addAttributeMappingsFromDictionary:idSerializationMapping];
         
-        RKObjectMapping *appearanceSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        RKObjectMapping *appearanceSerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
         [appearanceSerializationMapping addAttributeMappingsFromDictionary:idSerializationMapping];
         
-        RKObjectMapping *productSerializationMapping = [RKObjectMapping mappingForClass:[NSDictionary class]];
+        RKObjectMapping *productSerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
         [productSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"appearance" toKeyPath:@"appearance" withMapping:appearanceSerializationMapping]];
         [productSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"productType" toKeyPath:@"productType" withMapping:productTypeSerializationMapping]];
         [productSerializationMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"configurations" toKeyPath:@"configurations" withMapping:configurationSerializationMapping]];
