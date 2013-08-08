@@ -12,5 +12,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks   = 'CoreGraphics', 'UIKit'
   s.dependency 'RestKit', '~> 0.20.0'
+  s.dependency 'SBJson', '3.2'
   s.dependency 'GMGridView'
 end
